@@ -8,6 +8,7 @@ import styles from './index.module.css'
 function LayoutBlock ({
   children,
   dontGrow,
+  flexBasis,
   title,
   actionsNode,
   color = 'white',
@@ -16,7 +17,10 @@ function LayoutBlock ({
   return (
     <div
       className={cx(styles.wrapper, dontGrow && styles.dontGrow)}
-      style={{ '--local-color': `var(--c-${color})` }}
+      style={{
+        '--local-color': `var(--c-${color})`,
+        flexBasis: flexBasis && `${flexBasis}%`
+      }}
     >
       <div className={styles.header}>
         <span className={styles.title}>{title}</span>

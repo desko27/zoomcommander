@@ -75,6 +75,10 @@ const MainRoute = () => {
             setQueueUserIds={setQueueUserIds}
             targetCommentingId={targetCommentingId}
           />
+          <Block.AudioNow
+            userIds={userIds}
+            userData={userData}
+          />
         </LayoutColumn>
         <LayoutColumn>
           <Block.Chairman

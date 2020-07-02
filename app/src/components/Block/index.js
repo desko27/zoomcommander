@@ -1,4 +1,5 @@
 import BlockAllUsers from './BlockAllUsers'
+import BlockAudioNow from './BlockAudioNow'
 import BlockChairman from './BlockChairman'
 import BlockCommenting from './BlockCommenting'
 import BlockComments from './BlockComments'
@@ -8,6 +9,7 @@ import BlockQueue from './BlockQueue'
 
 export default {
   AllUsers: BlockAllUsers,
+  AudioNow: BlockAudioNow,
   Chairman: BlockChairman,
   Commenting: BlockCommenting,
   Comments: BlockComments,

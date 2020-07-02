@@ -39,6 +39,7 @@ const BlockAllUsers = ({
 
   return (
     <LayoutBlock
+      flexBasis={70}
       title={LIST_TITLE}
       onSearchChange={e => setFilterString(e.target.value)}
     >

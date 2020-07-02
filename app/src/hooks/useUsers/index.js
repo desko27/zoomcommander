@@ -82,7 +82,16 @@ export default function useUsers () {
         const eventUserData = eventUserDataArray.reduce((acc, eventUserData) => {
           if (!eventUserData) return acc
           const { id, isAudioMuted } = eventUserData
-          return { ...acc, [id]: { ...prev[id], isAudioMuted } }
+          const currentUserObject = prev[id]
+          return {
+            ...acc,
+            [id]: {
+              ...currentUserObject,
+              isAudioMuted,
+              lastAudioUnMutedTimestamp:
+                !isAudioMuted ? Date.now() : currentUserObject.lastRaisedHandTimestamp
+            }
+          }
         }, {})
         return { ...prev, ...eventUserData }
       })
