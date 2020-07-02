@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Bottleneck from 'bottleneck'
 
 import useUsers from '../../hooks/useUsers'
 import sendZoomCommand from '../../common/sendZoomCommand'
@@ -12,6 +13,8 @@ import styles from './index.module.css'
 
 const ZN_USERROLE_HOST = 1
 const ZN_USERROLE_COHOST = 2
+
+const limiter = new Bottleneck({ minTime: 500 })
 
 const hostUsersFilter = ({ userRole }) =>
   userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
@@ -34,11 +37,15 @@ const MainRoute = () => {
 
   const targetSpeakerId = id => {
     const currentSpeakers = getUserObjects(currentSpeakersIds, userData)
+
+    // mute all unmutetd speakers
     currentSpeakers.forEach(currentSpeaker => {
       if (currentSpeaker.isAudioMuted) return
-      sendZoomCommand('muteAudio', currentSpeaker.id)
+      limiter.wrap(() => sendZoomCommand('muteAudio', currentSpeaker.id))()
     })
-    sendZoomCommand('unMuteAudio', id)
+
+    // unmute target
+    limiter.wrap(() => sendZoomCommand('unMuteAudio', id))()
   }
 
   const lowerAllHands = () => {

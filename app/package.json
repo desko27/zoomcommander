@@ -41,6 +41,7 @@
     ]
   },
   "dependencies": {
+    "bottleneck": "^2.19.5",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
     "electron-is-dev": "1.1.0",
