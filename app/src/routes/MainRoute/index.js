@@ -49,7 +49,10 @@ const MainRoute = () => {
   }
 
   const targetCommentingId = id => {
-    lowerAllHands()
+    // TODO: lower all hands only after this user got audio?
+    // By now let's do NOT automatically lower hands yet...
+    // lowerAllHands()
+
     sendZoomCommand('unMuteAudio', id)
     setCommentingUserId(id)
   }
