@@ -84,36 +84,6 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
     return user;
 }
 
-ZNSDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
-{
-    ZoomSDKMeetingService *service = [[ZoomSDK sharedSDK] getMeetingService];
-    if (!service){
-        return ZNSDKERR_SERVICE_FAILED;
-    }
-    ZoomSDKMeetingActionController *action = [service getMeetingActionController];
-    if (action) {
-        ZoomSDKError ret = [action raiseHand:NO UserID:userid];
-        nativeErrorTypeHelp  Help_type;
-        return Help_type.ZoomSDKErrorType(ret);
-    }
-    return ZNSDKERR_SERVICE_FAILED;
-}
-
-ZNSDKError ZMeetingParticipantsWrap::LowerAllHands()
-{
-    ZoomSDKMeetingService *service = [[ZoomSDK sharedSDK] getMeetingService];
-    if (!service){
-        return ZNSDKERR_SERVICE_FAILED;
-    }
-    ZoomSDKMeetingActionController *action = [service getMeetingActionController];
-    if (action) {
-        ZoomSDKError ret = [action actionMeetingWithCmd:ActionMeetingCmd_LowerAllHands userID:0 onScreen:ScreenType_First];
-        nativeErrorTypeHelp  Help_type;
-        return Help_type.ZoomSDKErrorType(ret);
-    }
-    return ZNSDKERR_SERVICE_FAILED;
-}
-
 
 ZNList<unsigned int> ZMeetingParticipantsWrap::GetParticipantsList()
 {
@@ -148,14 +118,6 @@ void ZMeetingParticipantsWrap::onUserJoin(std::vector<unsigned int> lstUserID, s
     if (m_pSink)
     {
         m_pSink->onUserJoin(lstUserID,strUserList);
-    }
-}
-
-void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand)
-{
-    if (m_pSink)
-    {
-        m_pSink->onLowOrRaiseHandStatusChange(userId,isRaisedHand);
     }
 }
 

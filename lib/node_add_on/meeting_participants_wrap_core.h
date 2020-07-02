@@ -43,15 +43,12 @@ public:
 	ZNList<unsigned int> GetParticipantsList();
 	
 	ZNUserInfomation GetUserInfomationByUserID(unsigned int userid);
-	ZNSDKError LowerHand(unsigned int userid);
-	ZNSDKError LowerAllHands();
 
 	//callback
 
 	void onUserJoin(ZNList<unsigned int> lstUserID, ZoomSTRING strUserList);
 	void onUserLeft(ZNList<unsigned int> lstUserID, ZoomSTRING strUserList);
 	void onHostChangeNotification(unsigned int userId);
-	void onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand);
 private:
 	ZNativeSDKMeetingParticipantsWrapSink* m_pSink;
 #if (defined _WIN32)
