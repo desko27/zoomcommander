@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 const {
-  ZOOM_TYPE_OS_TYPE, ZoomSDKError, ZoomAuthResult, ZoomLoginStatus,
-  ZoomMeetingStatus, ZoomMeetingUIFloatVideoType, SDKCustomizedStringType,
-  SDKCustomizedURLType, ZoomAPPLocale
+  ZOOM_TYPE_OS_TYPE, ZoomSDK_LANGUAGE_ID: ZoomSdkLanguageId, ZoomSDKError, ZoomAuthResult,
+  ZoomLoginStatus, ZoomMeetingStatus, ZoomMeetingUIFloatVideoType,
+  SDKCustomizedStringType, SDKCustomizedURLType, ZoomAPPLocale
 } = require('../../../../lib/settings')
 const ZOOMSDKMOD = require('../../../../lib/zoom_sdk.js')
 
@@ -18,6 +18,8 @@ module.exports = function initSdk ({ app }) {
 
   // setDomain
   const ret = sdk.InitSDK({
+    enable_log: true,
+    langid: ZoomSdkLanguageId.LANGUAGE_English,
     locale: ZoomAPPLocale.ZNSDK_APP_Locale_Default,
     logfilesize: 5
   })

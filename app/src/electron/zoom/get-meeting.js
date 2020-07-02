@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const { ZoomAuthResult, ZoomMeetingStatus } = require('../../../../lib/settings')
 
 const makeCommandsObject = require('./make-commands-object')
@@ -8,6 +9,7 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
   const joinMeeting = () => new Promise((resolve, reject) => {
     const zoomauth = sdk.GetAuth({
       authcb: status => {
+        console.log('===== (authcb) :: TEST TEST TEST =====')
         if (ZoomAuthResult.AUTHRET_SUCCESS !== status) {
           return reject(new Error('Error in ZoomAuthResult before trying to join meeting!'))
         }
@@ -49,8 +51,27 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
       }
     })
 
+    // make jwt token from sdk key and secret
+    const timestampIssued = Math.floor(Date.now() / 1000) - 60 // ms -> s
+    const timestampExpires = timestampIssued + 86400 // 24h
+    const token = jwt.sign(
+      {
+        appKey: process.env.ZOOM_SDK_KEY,
+        iat: timestampIssued,
+        exp: timestampExpires,
+        tokenExp: timestampExpires
+      },
+      process.env.ZOOM_SDK_SECRET,
+      {
+        header: {
+          alg: 'HS256',
+          typ: 'JWT'
+        }
+      }
+    )
+
     // start everything by initializing sdk
-    zoomauth.SDKAuth(process.env.ZOOM_SDK_KEY, process.env.ZOOM_SDK_SECRET)
+    zoomauth.AuthWithJwtToken(token)
   })
 
   // RUN PROMISE
