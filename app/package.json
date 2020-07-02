@@ -1,0 +1,81 @@
+{
+  "name": "zoomcommander",
+  "description": "Zoom Commander",
+  "author": "desko27",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "react-start": "react-app-rewired start",
+    "react-build": "react-app-rewired build",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder --mac",
+    "build": "npm run react-build && npm run electron-build",
+    "start": "env-cmd concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "lint": "npx standard",
+    "postinstall-mac": "yes|cp -R  -H ../sdk/mac/Plugins ./node_modules/electron/dist/Electron.app/Contents/&& yes|cp -R  -H ../sdk/mac/Resources ./node_modules/electron/dist/Electron.app/Contents/ && yes|cp -R  -H ../sdk/mac/ZoomSDK/ ./node_modules/electron/dist/Electron.app/Contents/Frameworks"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "build": {
+    "mac": {
+      "icon": "./build/icon.icns",
+      "target": "dmg"
+    },
+    "win": {
+      "icon": "./build/icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "build/icon.*"
+    ]
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "cross-env": "^7.0.2",
+    "electron-is-dev": "1.1.0",
+    "electron-log": "^4.1.1",
+    "fuse.js": "^6.0.0",
+    "node-window-manager": "^2.2.3",
+    "react": "^16.8.6",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "electron": "^8.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-rebuild": "^1.10.1",
+    "env-cmd": "^10.1.0",
+    "husky": "^4.2.3",
+    "react-app-rewired": "^2.1.6",
+    "react-scripts": "^3.4.1",
+    "standard": "^14.3.3",
+    "wait-on": "^4.0.1"
+  },
+  "main": "src/electron/index.js",
+  "homepage": "./",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

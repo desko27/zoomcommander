@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.wrapper span {
+  font-size: 32px;
+  color: var(--c-white);
+}

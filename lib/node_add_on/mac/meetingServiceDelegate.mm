@@ -132,6 +132,11 @@ extern ZNativeSDKWrap _g_native_wrap;
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingVideoCtrl().onUserVideoStatusChange(userID, videoStatus);
 }
 
+- (void)onLowOrRaiseHandStatusChange:(BOOL)isRaiseHand UserID:(unsigned int)userID
+{
+    _g_native_wrap.GetMeetingServiceWrap().GetMeetingParticipantsCtrl().onLowOrRaiseHandStatusChange(userID, isRaiseHand);
+}
+
 -(void)onActiveVideoUserChanged:(unsigned int)userID
 {
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingVideoCtrl().onActiveVideoUserChanged(userID);

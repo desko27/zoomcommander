@@ -1,0 +1,21 @@
+.wrapper {
+  flex-shrink: 0;
+  width: 100%;
+  border: none;
+  height: 31px;
+  background: var(--c-black-light);
+  color: var(--c-white);
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 0 8px;
+  margin-bottom: 15px;
+}
+.wrapper:valid {
+  color: var(--c-black);
+  background: var(--c-teal);
+}
+.wrapper::placeholder {
+  opacity: 0.5;
+  color: var(--c-white);
+  font-weight: 300;
+}

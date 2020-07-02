@@ -1,0 +1,10 @@
+.wrapper {
+  color: var(--c-black);
+  background: var(--c-white);
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}

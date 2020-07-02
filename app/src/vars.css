@@ -1,0 +1,13 @@
+:root {
+  --c-success: #60ba86;
+  --c-error: #e17e85;
+  --c-accent: #ffeb8e;
+  --c-primary: #4bb2ff;
+  --c-black: #263342;
+  --c-black-dark: #1e2833;
+  --c-black-light: #3f4b5b;
+  --c-white: #cdd2e9;
+
+  --c-pink: #bf85e3;
+  --c-teal: #2dced0;
+}

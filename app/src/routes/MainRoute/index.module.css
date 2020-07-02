@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+}
+
+.columnsWrapper {
+  min-width: 0;
+  flex-grow: 1;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  padding: 20px;
+}
+.columnsWrapper > * {
+  width: 25%;
+}

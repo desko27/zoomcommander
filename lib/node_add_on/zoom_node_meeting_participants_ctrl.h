@@ -24,6 +24,8 @@ public:
 	/// \return If the function succeeds, the return value is an object which includes the user's infomation.
 	///For more details, see \link ZNUserInfomation \endlink. Otherwise failed, the return value is an empty object.
 	static void GetUserInfoByUserID(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void LowerHand(const v8::FunctionCallbackInfo<v8::Value> &args);
+	static void LowerAllHands(const v8::FunctionCallbackInfo<v8::Value> &args);
 	/// \brief Set callback function of notification of users who are in the meeting.
 	/// \param 1. callback(function) Callback function of notification of users who are in the meeting, onUserJoin
 	/// \return If the function succeeds, the return value is ZNSDKERR_SUCCESS.
@@ -39,6 +41,7 @@ public:
 	/// \return If the function succeeds, the return value is ZNSDKERR_SUCCESS.
 	///Otherwise failed. To get extended error information, see \link ZNSDKError \endlink enum.
 	static void SetMeetingHostChangeCB(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void SetMeetingLowOrRaiseHandStatusChangeCB(const v8::FunctionCallbackInfo<v8::Value> &args);
 	static v8::Persistent<v8::Function> constructor;
 };
 template<>
@@ -51,10 +54,13 @@ static void InitClassAttribute<ZoomNodeMeetingParticipantsCtrlWrap >(const v8::L
 	// Prototype
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetParticipantsList", ZoomNodeMeetingParticipantsCtrlWrap::GetParticipantsList);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetUserInfoByUserID", ZoomNodeMeetingParticipantsCtrlWrap::GetUserInfoByUserID);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "LowerHand", ZoomNodeMeetingParticipantsCtrlWrap::LowerHand);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "LowerAllHands", ZoomNodeMeetingParticipantsCtrlWrap::LowerAllHands);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingUserJoinCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingUserJoinCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingUserLeftCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingUserLeftCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingHostChangeCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingHostChangeCB);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingLowOrRaiseHandStatusChangeCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingLowOrRaiseHandStatusChangeCB);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeMeetingParticipantsCtrlWrap >() {

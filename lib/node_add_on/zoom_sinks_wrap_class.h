@@ -602,6 +602,31 @@ public:
 
 		fn->Call(context, global, argc, argv);
 	}
+	/// \brief Callback event of the user raise hand status changes.
+	/// \param userId The user ID whose raise hand status changes
+	/// \param isRaisedHand New raise hand status. For more details, see \link ZNRaiseHandStatus \endlink enum.
+	virtual void onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand)
+	{
+		if (ZoomNodeSinkHelper::GetInst().onLowOrRaiseHandStatusChange.IsEmpty())
+		{
+			return;
+		}
+
+		auto isolate = v8::Isolate::GetCurrent();
+		v8::HandleScope scope(isolate);
+		auto context = isolate->GetCurrentContext();
+		auto global = context->Global();
+
+		v8::Local<v8::Object> node = v8::Object::New(isolate);
+		node->Set(context, v8::String::NewFromUtf8(isolate, "userId", v8::NewStringType::kInternalized).ToLocalChecked(), v8::Integer::New(isolate, (int32_t)userId));
+		node->Set(context, v8::String::NewFromUtf8(isolate, "isRaisedHand", v8::NewStringType::kInternalized).ToLocalChecked(), v8::Boolean::New(isolate, isRaisedHand));
+
+		int argc = 1;
+		v8::Local<v8::Value> argv[1] = {node};
+		auto fn = v8::Local<v8::Function>::New(isolate, ZoomNodeSinkHelper::GetInst().onLowOrRaiseHandStatusChange);
+
+		fn->Call(context, global, argc, argv);
+	}
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class ZNativeSDKMeetingH323WrapSink
