@@ -105,6 +105,7 @@ public:
 	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > onUserJoin;
 	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > onUserLeft;
 	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > onHostChangeNotification;
+	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > onLowOrRaiseHandStatusChange;
 
 	//meeting_h323_Controller_cb
 	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > onH323CalloutStatusNotify;
