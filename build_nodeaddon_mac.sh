@@ -18,7 +18,7 @@ else
 cd ../
 node-gyp rebuild --target=${version#*v}  --dist-url=https://atom.io/download/electron
 fi
-cp -Rf ./build/Release/zoomsdk.node  ./sdk/mac && cp -Rf ./build/Release/zoomsdk.node.dSYM  ../../../../../../Bin/Mac/Release&&
-cp -Rf ./build/Release/zoomsdk_render.node  ./sdk/mac && cp -Rf ./build/Release/zoomsdk_render.node.dSYM  ../../../../../../Bin/Mac/Release
+cp -Rf ./build/Release/zoomsdk.node  ./sdk/mac && cp -Rf ./build/Release/zoomsdk.node.dSYM  ./sdk/mac&&
+cp -Rf ./build/Release/zoomsdk_render.node  ./sdk/mac && cp -Rf ./build/Release/zoomsdk_render.node.dSYM  ./sdk/mac
 
 
