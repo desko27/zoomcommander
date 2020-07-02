@@ -70,8 +70,7 @@ export default function useUsers () {
     USER_AUDIO_STATUS_CHANGE: data => {
       const eventUsersArray = Array.isArray(data) ? data : [data]
       const eventUserDataArray = eventUsersArray.map(eventUser => {
-        const USERID_OFFSET_FIX = -2 // wtf!?
-        const id = eventUser.userid + USERID_OFFSET_FIX
+        const id = eventUser.userid
         if (!userIds.includes(id)) return
         const audioStatus = eventUser.audioStatus || eventUser.audioStauts
         const isAudioMuted = audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
