@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Bottleneck from 'bottleneck'
 
 import useUsers from '../../hooks/useUsers'
+import useZoomEvents from '../../hooks/useZoomEvents'
 import sendZoomCommand from '../../common/sendZoomCommand'
 import getUserObjects from '../../common/getUserObjects'
 
@@ -21,11 +22,16 @@ const hostUsersFilter = ({ userRole }) =>
 
 const MainRoute = () => {
   const { userIds, userData, updateUserData } = useUsers()
+
+  // extra user id lists
   const [queueUserIds, setQueueUserIds] = useState([])
   const [platformUserIds, setPlatformUserIds] = useState([])
+
+  // extra user id slots
   const [chairmanUserId, setChairmanUserId] = useState()
   const [commentingUserId, setCommentingUserId] = useState()
 
+  // derived lists
   const currentSpeakersIds = [
     ...(chairmanUserId ? [chairmanUserId] : []),
     ...platformUserIds
@@ -34,6 +40,22 @@ const MainRoute = () => {
     ...currentSpeakersIds,
     ...queueUserIds
   ]
+
+  useZoomEvents({
+    USER_LEFT: data => {
+      const leftUserIds = data.map(user => user.userid)
+
+      // remove it from user id lists
+      const usersLeftFilter = prev => prev.filter(id => !leftUserIds.includes(id))
+      setQueueUserIds(usersLeftFilter)
+      setPlatformUserIds(usersLeftFilter)
+
+      // remove it from user id slots
+      const usersLeftRemoval = prev => leftUserIds.includes(prev) ? undefined : prev
+      setChairmanUserId(usersLeftRemoval)
+      setCommentingUserId(usersLeftRemoval)
+    }
+  })
 
   const targetSpeakerId = id => {
     // unmute target
