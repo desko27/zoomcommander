@@ -35,7 +35,7 @@ const BlockComments = ({
   return (
     <LayoutBlock
       color={LIST_COLOR}
-      title={LIST_TITLE}
+      title={`${LIST_TITLE} / ${usersWithRaisedHand.length}`}
       onSearchChange={e => setFilterString(e.target.value)}
       actionsNode={<button onClick={lowerAllHands}>Bajar manos</button>}
     >

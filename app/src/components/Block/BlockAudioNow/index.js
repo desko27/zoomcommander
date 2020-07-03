@@ -24,7 +24,7 @@ const BlockAudioNow = ({
     <LayoutBlock
       flexBasis={30}
       color={LIST_COLOR}
-      title={LIST_TITLE}
+      title={`${LIST_TITLE} / ${usersWithAudioNow.length}`}
     >
       {usersWithAudioNow.map(user => {
         return (
