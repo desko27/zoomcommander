@@ -92,8 +92,8 @@ const MainRoute = () => {
 
   const startMeeting = () => {
     muteAll(() => {
-      if (!chairmanUserId) return
-      limiter.wrap(() => sendZoomCommand('unMuteAudio', chairmanUserId))()
+      if (chairmanUserId) limiter.wrap(() => sendZoomCommand('unMuteAudio', chairmanUserId))()
+      limiter.wrap(() => sendZoomCommand('stopShare'))()
     })
   }
 
