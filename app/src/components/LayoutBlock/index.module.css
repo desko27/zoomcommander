@@ -34,15 +34,15 @@
 }
 .actions button {
   font-size: 12px;
-  border: 1px solid var(--c-primary);
+  border: 1px solid var(--local-color);
   border-radius: 2px;
-  color: var(--c-primary);
+  color: var(--local-color);
   background: transparent;
 }
 .actions button:hover {
   border-color: transparent;
   color: var(--c-black);
-  background: var(--c-primary);
+  background: var(--local-color);
 }
 
 .block {
