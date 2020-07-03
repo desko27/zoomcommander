@@ -76,10 +76,14 @@ const MainRoute = () => {
     const myself = users.find(user => user.isMySelf)
 
     // Mutes myself AND disables "Allow Participants to Unmute Themselves"
-    limiter.wrap(() => sendZoomCommand('muteAudio', myself.id))()
+    const muteMyself = limiter.wrap(() => sendZoomCommand('muteAudio', myself.id))
+    muteMyself()
 
     // Mutes the rest of users AND enables "Mute Participants on Entry"
     limiter.wrap(() => sendZoomCommand('muteAudio', 0))()
+
+    // Ensure "Allow Participants to Unmute Themselves" gets disabled xDDD...
+    ;[1, 2, 3, 4, 5].forEach(muteMyself)
   }
 
   const lowerAllHands = () => {
