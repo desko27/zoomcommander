@@ -36,16 +36,17 @@ const MainRoute = () => {
   ]
 
   const targetSpeakerId = id => {
-    const currentSpeakers = getUserObjects(currentSpeakersIds, userData)
+    // unmute target
+    const currentUser = userData[id] || {}
+    if (currentUser.isAudioMuted) limiter.wrap(() => sendZoomCommand('unMuteAudio', id))()
 
-    // mute all unmutetd speakers
-    currentSpeakers.forEach(currentSpeaker => {
-      if (currentSpeaker.isAudioMuted) return
+    // mute all unmutetd speakers (expect for the target)
+    const currentSpeakers = getUserObjects(currentSpeakersIds, userData)
+    const unMutedCurrentSpeakersWithoutTarget = currentSpeakers
+      .filter(currentSpeaker => !currentSpeaker.isAudioMuted && currentSpeaker.id !== id)
+    unMutedCurrentSpeakersWithoutTarget.forEach(currentSpeaker => {
       limiter.wrap(() => sendZoomCommand('muteAudio', currentSpeaker.id))()
     })
-
-    // unmute target
-    limiter.wrap(() => sendZoomCommand('unMuteAudio', id))()
   }
 
   const lowerAllHands = () => {
