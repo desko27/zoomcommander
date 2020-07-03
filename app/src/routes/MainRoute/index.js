@@ -71,6 +71,17 @@ const MainRoute = () => {
     })
   }
 
+  const muteAll = () => {
+    const users = getUserObjects(userIds, userData)
+    const myself = users.find(user => user.isMySelf)
+
+    // Mutes myself AND disables "Allow Participants to Unmute Themselves"
+    limiter.wrap(() => sendZoomCommand('muteAudio', myself.id))()
+
+    // Mutes the rest of users AND enables "Mute Participants on Entry"
+    limiter.wrap(() => sendZoomCommand('muteAudio', 0))()
+  }
+
   const lowerAllHands = () => {
     const users = getUserObjects(userIds, userData)
     const usersWithRaisedHand = users.filter(user => user.isRaisedHand)
@@ -101,6 +112,7 @@ const MainRoute = () => {
           <Block.AudioNow
             userIds={userIds}
             userData={userData}
+            muteAll={muteAll}
           />
         </LayoutColumn>
         <LayoutColumn>

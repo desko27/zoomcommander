@@ -1,7 +1,6 @@
 import React from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
-import sendZoomCommand from '../../../common/sendZoomCommand'
 
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
@@ -11,7 +10,8 @@ const LIST_COLOR = 'white'
 
 const BlockAudioNow = ({
   userIds,
-  userData
+  userData,
+  muteAll
 }) => {
   const users = getUserObjects(userIds, userData)
   const usersWithAudioNow = users
@@ -26,7 +26,7 @@ const BlockAudioNow = ({
       flexBasis={30}
       color={LIST_COLOR}
       title={`${LIST_TITLE} / ${usersWithAudioNow.length}`}
-      actionsNode={<button onClick={() => sendZoomCommand('muteAudio', 0)}>Mutear todos</button>}
+      actionsNode={<button onClick={muteAll}>Mutear todos</button>}
     >
       {usersWithAudioNow.map(user => {
         return (
