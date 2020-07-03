@@ -71,7 +71,7 @@ const MainRoute = () => {
     })
   }
 
-  const muteAll = () => {
+  const muteAll = (middleFunction) => {
     const users = getUserObjects(userIds, userData)
     const myself = users.find(user => user.isMySelf)
 
@@ -82,8 +82,19 @@ const MainRoute = () => {
     // Mutes the rest of users AND enables "Mute Participants on Entry"
     limiter.wrap(() => sendZoomCommand('muteAudio', 0))()
 
+    // Call middle function (special for startMeeting's chairman unmuting)
+    // so we don't wait for the next loop to finish... (Ensure "Allow Par...")
+    if (typeof middleFunction === 'function') middleFunction()
+
     // Ensure "Allow Participants to Unmute Themselves" gets disabled xDDD...
     ;[1, 2, 3, 4, 5].forEach(muteMyself)
+  }
+
+  const startMeeting = () => {
+    muteAll(() => {
+      if (!chairmanUserId) return
+      limiter.wrap(() => sendZoomCommand('unMuteAudio', chairmanUserId))()
+    })
   }
 
   const lowerAllHands = () => {
@@ -164,7 +175,7 @@ const MainRoute = () => {
           />
         </LayoutColumn>
       </div>
-      <Sidebar />
+      <Sidebar startMeeting={startMeeting} />
     </div>
   )
 }

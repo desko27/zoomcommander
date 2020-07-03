@@ -11,7 +11,7 @@ import styles from './index.module.css'
 
 const { ipcRenderer } = window.require('electron')
 
-function Sidebar () {
+function Sidebar ({ startMeeting }) {
   const handleStartShareClick = async () => {
     const mediaportalNotFound = () => window.alert('No se encuentra Mediaportal')
     const mediaportalWindows = await ipcRenderer.invoke('request-windows-list', 'mediaportal.app')
@@ -32,7 +32,11 @@ function Sidebar () {
 
   return (
     <div className={styles.wrapper}>
-      <button className={styles.button} style={{ background: 'var(--c-primary)' }}>
+      <button
+        className={styles.button}
+        style={{ background: 'var(--c-primary)' }}
+        onClick={startMeeting}
+      >
         <LogInIcon />
       </button>
       <div>
