@@ -84,6 +84,7 @@ const BlockComments = ({
             key={user.id}
             actions={userActions}
             nameColor={LIST_COLOR}
+            isGhost={user.isRaisedHandRevoked}
           />
         )
       })}

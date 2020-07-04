@@ -143,10 +143,13 @@ export default function useUsers () {
     ON_LOW_OR_RAISE_HAND_STATUS_CHANGED: data => {
       const { userId, isRaisedHand } = data
       updateUserData(userId, currentUserObject => {
+        const { isRaisedHand: existingiIsRaisedHand } = currentUserObject
         return {
-          isRaisedHand,
+          isRaisedHand: isRaisedHand || existingiIsRaisedHand,
+          isRaisedHandRevoked: !isRaisedHand,
           lastRaisedHandTimestamp:
-            isRaisedHand ? Date.now() : currentUserObject.lastRaisedHandTimestamp
+            isRaisedHand && !existingiIsRaisedHand
+              ? Date.now() : currentUserObject.lastRaisedHandTimestamp
         }
       })
     }

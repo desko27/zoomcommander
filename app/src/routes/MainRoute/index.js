@@ -101,7 +101,11 @@ const MainRoute = () => {
     const users = getUserObjects(userIds, userData)
     const usersWithRaisedHand = users.filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
     usersWithRaisedHand.forEach(user =>
-      updateUserData(user.id, { isRaisedHand: false, isNonVerbalFeedback: false }))
+      updateUserData(user.id, {
+        isRaisedHand: false,
+        isRaisedHandRevoked: false,
+        isNonVerbalFeedback: false
+      }))
   }
 
   const lowerAllHands = () => {

@@ -11,6 +11,7 @@ const KEYCODE_COMMAND = 91
 const UserItem = ({
   id,
   color,
+  isGhost,
   nameColor,
   isAudioMuted,
   userName = '',
@@ -76,6 +77,7 @@ const UserItem = ({
   return (
     <div
       className={styles.wrapper}
+      style={{ opacity: isGhost ? 0.5 : 1 }}
       onClick={() => handleClick(id)}
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
