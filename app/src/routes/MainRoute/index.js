@@ -127,6 +127,7 @@ const MainRoute = () => {
   }
 
   const startMeeting = () => {
+    setSettingMuteSpontaneousPeople(true)
     muteAll(() => {
       if (chairmanUserId) limiter.wrap(() => sendZoomCommand('unMuteAudio', chairmanUserId))()
       limiter.wrap(() => sendZoomCommand('stopShare'))()
