@@ -99,8 +99,9 @@ const MainRoute = () => {
 
   const lowerAllHandsLocally = () => {
     const users = getUserObjects(userIds, userData)
-    const usersWithRaisedHand = users.filter(user => user.isRaisedHand)
-    usersWithRaisedHand.forEach(user => updateUserData(user.id, { isRaisedHand: false }))
+    const usersWithRaisedHand = users.filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
+    usersWithRaisedHand.forEach(user =>
+      updateUserData(user.id, { isRaisedHand: false, isNonVerbalFeedback: false }))
   }
 
   const lowerAllHands = () => {

@@ -6,6 +6,16 @@ import useZoomEvents from '../useZoomEvents'
 
 const { ZoomMeetingAudioStatus } = require('../../../../lib/settings')
 
+const FIELDS_TO_COMPARE = [
+  'userName', 'isHost', 'isVideoOn', 'isAudioMuted', 'userRole', 'userInfoType'
+]
+
+const ZN_USERROLE_HOST = 1
+const ZN_USERROLE_COHOST = 2
+
+const hostUsersFilter = ({ userRole }) =>
+  userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
+
 const pickRandomColor = () => {
   const COLORS = ['success', 'error', 'accent', 'primary', 'pink', 'teal']
   const randomIndex = Math.floor(COLORS.length * Math.random())
@@ -40,7 +50,27 @@ export default function useUsers () {
           const { userID: id } = response
           updateUserData(id, currentUserObject => {
             const color = currentUserObject.color ? currentUserObject.color : pickRandomColor()
-            return { id, color, ...response }
+            const newUserObject = { id, color, ...response }
+
+            // [START] React to joinUsers hack !!
+            const { userJoinedHack } = currentUserObject
+            const isCurrentVsNewTheSame = () =>
+              FIELDS_TO_COMPARE
+                .every(field => currentUserObject[field] === newUserObject[field])
+
+            const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
+            if (isUserWhoCannotRaiseHand && userJoinedHack && isCurrentVsNewTheSame()) {
+              // No info has changed! "Raise hand"! (via `isNonVerbalFeedback` property)
+              // This makes possible to see non-verbal feedback on the comments block
+              return {
+                ...newUserObject,
+                isNonVerbalFeedback: true,
+                lastRaisedHandTimestamp: Date.now()
+              }
+            }
+            // [END] React to joinUsers hack !!
+
+            return newUserObject
           })
         }
       )
@@ -49,6 +79,15 @@ export default function useUsers () {
 
   const joinUsers = data => {
     const joinedUserIds = data.map(user => user.userid)
+
+    // Welcome to the joinUsers hack !!
+    // If some user is NOT NEW, add userJoinedHack property
+    joinedUserIds.forEach(userId => {
+      if (!userIds.includes(userId)) return // it's a new user, do nothing
+      updateUserData(userId, { userJoinedHack: true })
+    })
+
+    // add new user ids if any
     setUserIds(prev => {
       return [...prev, ...joinedUserIds.filter(id => !prev.includes(id))]
     })

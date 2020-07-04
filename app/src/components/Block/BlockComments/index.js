@@ -25,14 +25,15 @@ const BlockComments = ({
   const getBlockUsers = () => {
     if (isHistory) {
       const usersRaisedHistory = users
-        .filter(user => !user.isRaisedHand && user.lastRaisedHandTimestamp)
+        .filter(user =>
+          !user.isRaisedHand && !user.isNonVerbalFeedback && user.lastRaisedHandTimestamp)
         .sort((userA, userB) =>
           Math.sign(userB.lastRaisedHandTimestamp - userA.lastRaisedHandTimestamp))
       return usersRaisedHistory
     }
 
     const usersWithRaisedHand = users
-      .filter(user => user.isRaisedHand)
+      .filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
       .sort((userA, userB) =>
         Math.sign(userA.lastRaisedHandTimestamp - userB.lastRaisedHandTimestamp))
     return usersWithRaisedHand
