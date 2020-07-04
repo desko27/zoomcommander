@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { hostUsersFilter } from '../../../hooks/useUsers'
 import getUserObjects from '../../../common/getUserObjects'
 
 import UserItem from '../../UserItem'
@@ -11,7 +12,6 @@ const LIST_COLOR = 'error'
 const BlockHosts = ({
   userIds,
   userData,
-  hostUsersFilter,
   targetCommentingId
 }) => {
   const users = getUserObjects(userIds, userData)

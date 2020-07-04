@@ -14,8 +14,8 @@ const BlockComments = ({
   userIds,
   userData,
   lowerAllHands,
-  lowerAllHandsLocally,
-  targetCommentingId
+  targetCommentingId,
+  commentsHistoryUserIds
 }) => {
   const [filterString, setFilterString] = useState()
   const [isHistory, setIsHistory] = useState()
@@ -24,12 +24,7 @@ const BlockComments = ({
 
   const getBlockUsers = () => {
     if (isHistory) {
-      const usersRaisedHistory = users
-        .filter(user =>
-          !user.isRaisedHand && !user.isNonVerbalFeedback && user.lastRaisedHandTimestamp)
-        .sort((userA, userB) =>
-          Math.sign(userB.lastRaisedHandTimestamp - userA.lastRaisedHandTimestamp))
-      return usersRaisedHistory
+      return getUserObjects(commentsHistoryUserIds, userData)
     }
 
     const usersWithRaisedHand = users
@@ -54,7 +49,7 @@ const BlockComments = ({
   }
 
   const handleCleanClick = () => {
-    lowerAllHandsLocally()
+    lowerAllHands()
   }
 
   const handleHistoryClick = () => {
@@ -83,7 +78,7 @@ const BlockComments = ({
             {...user}
             key={user.id}
             actions={userActions}
-            nameColor={LIST_COLOR}
+            nameColor={user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
             isGhost={user.isRaisedHandRevoked}
           />
         )

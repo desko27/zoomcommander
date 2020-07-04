@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Bottleneck from 'bottleneck'
 
-import useUsers from '../../hooks/useUsers'
+import useUsers, { getIsAudioMutedFromAudioStatus } from '../../hooks/useUsers'
 import useZoomEvents from '../../hooks/useZoomEvents'
 import sendZoomCommand from '../../common/sendZoomCommand'
 import getUserObjects from '../../common/getUserObjects'
@@ -12,13 +12,7 @@ import Block from '../../components/Block'
 
 import styles from './index.module.css'
 
-// const ZN_USERROLE_HOST = 1
-// const ZN_USERROLE_COHOST = 2
-
 const limiter = new Bottleneck({ minTime: 500 })
-
-// const hostUsersFilter = ({ userRole }) =>
-//   userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
 
 const MainRoute = () => {
   const { userIds, userData, updateUserData } = useUsers()
@@ -26,6 +20,7 @@ const MainRoute = () => {
   // extra user id lists
   const [queueUserIds, setQueueUserIds] = useState([])
   const [platformUserIds, setPlatformUserIds] = useState([])
+  const [commentsHistoryUserIds, setCommentsHistoryUserIds] = useState([])
 
   // extra user id slots
   const [chairmanUserId, setChairmanUserId] = useState()
@@ -49,6 +44,7 @@ const MainRoute = () => {
       const usersLeftFilter = prev => prev.filter(id => !leftUserIds.includes(id))
       setQueueUserIds(usersLeftFilter)
       setPlatformUserIds(usersLeftFilter)
+      setCommentsHistoryUserIds(usersLeftFilter)
 
       // remove it from user id slots
       const usersLeftRemoval = prev => leftUserIds.includes(prev) ? undefined : prev
@@ -56,6 +52,18 @@ const MainRoute = () => {
       setCommentingUserId(usersLeftRemoval)
     }
   })
+
+  useZoomEvents({
+    USER_AUDIO_STATUS_CHANGE: data => {
+      const eventUsersArray = Array.isArray(data) ? data : [data]
+      eventUsersArray.forEach(eventUser => {
+        const id = eventUser.userid
+        if (commentingUserId !== id) return
+        const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
+        if (!isAudioMuted) lowerAllHands()
+      })
+    }
+  }, [commentingUserId, userIds, userData])
 
   const targetSpeakerId = id => {
     // unmute target
@@ -106,6 +114,17 @@ const MainRoute = () => {
         isRaisedHandRevoked: false,
         isNonVerbalFeedback: false
       }))
+
+    // move users to history
+    setCommentsHistoryUserIds(prev => {
+      const sortedUsersWithRaisedHandIds = usersWithRaisedHand
+        .sort((userA, userB) =>
+          Math.sign(userB.lastRaisedHandTimestamp - userA.lastRaisedHandTimestamp))
+        .map(user => user.id)
+      const prevWithoutPendingToInsert =
+        prev.filter(userId => !sortedUsersWithRaisedHandIds.includes(userId))
+      return [...sortedUsersWithRaisedHandIds, ...prevWithoutPendingToInsert]
+    })
   }
 
   const lowerAllHands = () => {
@@ -114,11 +133,6 @@ const MainRoute = () => {
   }
 
   const targetCommentingId = id => {
-    // TODO: lower all hands only after this user got audio?
-    // By now let's do NOT automatically lower hands yet...
-    // lowerAllHands()
-    lowerAllHandsLocally()
-
     sendZoomCommand('unMuteAudio', id)
     setCommentingUserId(id)
   }
@@ -173,15 +187,14 @@ const MainRoute = () => {
             userIds={userIds}
             userData={userData}
             lowerAllHands={lowerAllHands}
-            lowerAllHandsLocally={lowerAllHandsLocally}
             targetCommentingId={targetCommentingId}
+            commentsHistoryUserIds={commentsHistoryUserIds}
           />
         </LayoutColumn>
         {/* <LayoutColumn>
           <Block.Hosts
             userIds={userIds}
             userData={userData}
-            hostUsersFilter={hostUsersFilter}
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn> */}

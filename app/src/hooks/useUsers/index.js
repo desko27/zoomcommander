@@ -13,13 +13,21 @@ const FIELDS_TO_COMPARE = [
 const ZN_USERROLE_HOST = 1
 const ZN_USERROLE_COHOST = 2
 
-const hostUsersFilter = ({ userRole }) =>
+export const hostUsersFilter = ({ userRole }) =>
   userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
 
 const pickRandomColor = () => {
   const COLORS = ['success', 'error', 'accent', 'primary', 'pink', 'teal']
   const randomIndex = Math.floor(COLORS.length * Math.random())
   return COLORS[randomIndex]
+}
+
+export const getIsAudioMutedFromAudioStatus = eventUser => {
+  const audioStatus = eventUser.audioStatus || eventUser.audioStauts
+  const isAudioMuted = audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
+    audioStatus === ZoomMeetingAudioStatus.Audio_Muted_ByHost ||
+    audioStatus === ZoomMeetingAudioStatus.Audio_MutedAll_ByHost
+  return isAudioMuted
 }
 
 export default function useUsers () {
@@ -116,10 +124,7 @@ export default function useUsers () {
       const eventUserDataArray = eventUsersArray.map(eventUser => {
         const id = eventUser.userid
         if (!userIds.includes(id)) return
-        const audioStatus = eventUser.audioStatus || eventUser.audioStauts
-        const isAudioMuted = audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
-          audioStatus === ZoomMeetingAudioStatus.Audio_Muted_ByHost ||
-          audioStatus === ZoomMeetingAudioStatus.Audio_MutedAll_ByHost
+        const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
         return { id, isAudioMuted }
       })
       setUserData(prev => {
