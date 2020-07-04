@@ -50,16 +50,21 @@ export default function useUsers () {
           const { userID: id } = response
           updateUserData(id, currentUserObject => {
             const color = currentUserObject.color ? currentUserObject.color : pickRandomColor()
-            const newUserObject = { id, color, ...response }
+            const newUserObject = { id, color, ...response, userJoinedHack: undefined }
 
             // [START] React to joinUsers hack !!
-            const { userJoinedHack } = currentUserObject
+            const { userJoinedHack, isNonVerbalFeedback } = currentUserObject
             const isCurrentVsNewTheSame = () =>
               FIELDS_TO_COMPARE
                 .every(field => currentUserObject[field] === newUserObject[field])
 
             const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
-            if (isUserWhoCannotRaiseHand && userJoinedHack && isCurrentVsNewTheSame()) {
+            if (
+              isUserWhoCannotRaiseHand &&
+              userJoinedHack &&
+              !isNonVerbalFeedback &&
+              isCurrentVsNewTheSame()
+            ) {
               // No info has changed! "Raise hand"! (via `isNonVerbalFeedback` property)
               // This makes possible to see non-verbal feedback on the comments block
               return {
