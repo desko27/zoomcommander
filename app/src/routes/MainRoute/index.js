@@ -12,13 +12,13 @@ import Block from '../../components/Block'
 
 import styles from './index.module.css'
 
-const ZN_USERROLE_HOST = 1
-const ZN_USERROLE_COHOST = 2
+// const ZN_USERROLE_HOST = 1
+// const ZN_USERROLE_COHOST = 2
 
 const limiter = new Bottleneck({ minTime: 500 })
 
-const hostUsersFilter = ({ userRole }) =>
-  userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
+// const hostUsersFilter = ({ userRole }) =>
+//   userRole === ZN_USERROLE_HOST || userRole === ZN_USERROLE_COHOST
 
 const MainRoute = () => {
   const { userIds, userData, updateUserData } = useUsers()
@@ -173,14 +173,14 @@ const MainRoute = () => {
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn>
-        <LayoutColumn>
+        {/* <LayoutColumn>
           <Block.Hosts
             userIds={userIds}
             userData={userData}
             hostUsersFilter={hostUsersFilter}
             targetCommentingId={targetCommentingId}
           />
-        </LayoutColumn>
+        </LayoutColumn> */}
       </div>
       <Sidebar startMeeting={startMeeting} />
     </div>
