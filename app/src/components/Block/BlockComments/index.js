@@ -7,22 +7,42 @@ import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
 const LIST_TITLE = 'Comentarios'
-const LIST_COLOR = 'primary'
+const LIST_COLOR_NORMAL = 'primary'
+const LIST_COLOR_HISTORY = 'white'
 
 const BlockComments = ({
   userIds,
   userData,
   lowerAllHands,
+  lowerAllHandsLocally,
   targetCommentingId
 }) => {
   const [filterString, setFilterString] = useState()
+  const [isHistory, setIsHistory] = useState()
   const users = getUserObjects(userIds, userData)
-  const usersWithRaisedHand = users
-    .filter(user => user.isRaisedHand)
-    .sort((userA, userB) =>
-      Math.sign(userA.lastRaisedHandTimestamp - userB.lastRaisedHandTimestamp))
-  const filteredUsers = filterString && fuzzySearch(usersWithRaisedHand, filterString)
-  const displayUsers = filteredUsers || usersWithRaisedHand
+  const LIST_COLOR = isHistory ? LIST_COLOR_HISTORY : LIST_COLOR_NORMAL
+
+  const getBlockUsers = () => {
+    if (isHistory) {
+      const usersRaisedHistory = users
+        .filter(user => !user.isRaisedHand && user.lastRaisedHandTimestamp)
+        .sort((userA, userB) =>
+          Math.sign(userB.lastRaisedHandTimestamp - userA.lastRaisedHandTimestamp))
+      return usersRaisedHistory
+    }
+
+    const usersWithRaisedHand = users
+      .filter(user => user.isRaisedHand)
+      .sort((userA, userB) =>
+        Math.sign(userA.lastRaisedHandTimestamp - userB.lastRaisedHandTimestamp))
+    return usersWithRaisedHand
+  }
+
+  const blockUsers = getBlockUsers()
+
+  // apply filters
+  const filteredUsers = filterString && fuzzySearch(blockUsers, filterString)
+  const displayUsers = filteredUsers || blockUsers
 
   const userActions = {
     default: {
@@ -32,12 +52,29 @@ const BlockComments = ({
     }
   }
 
+  const handleCleanClick = () => {
+    lowerAllHandsLocally()
+  }
+
+  const handleHistoryClick = () => {
+    setIsHistory(prev => !prev)
+  }
+
+  const actionsNode = (
+    <>
+      {!isHistory && <button onClick={handleCleanClick}>x</button>}
+      <button onClick={handleHistoryClick}>
+        {isHistory ? '← Volver' : 'Historial'}
+      </button>
+    </>
+  )
+
   return (
     <LayoutBlock
       color={LIST_COLOR}
-      title={`${LIST_TITLE} / ${usersWithRaisedHand.length}`}
+      title={isHistory ? 'Historial' : `${LIST_TITLE} / ${blockUsers.length}`}
       onSearchChange={e => setFilterString(e.target.value)}
-      actionsNode={<button onClick={lowerAllHands}>Bajar manos</button>}
+      actionsNode={actionsNode}
     >
       {displayUsers.map(user => {
         return (

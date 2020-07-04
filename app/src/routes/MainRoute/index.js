@@ -97,17 +97,22 @@ const MainRoute = () => {
     })
   }
 
-  const lowerAllHands = () => {
+  const lowerAllHandsLocally = () => {
     const users = getUserObjects(userIds, userData)
     const usersWithRaisedHand = users.filter(user => user.isRaisedHand)
-    sendZoomCommand('lowerAllHands')
     usersWithRaisedHand.forEach(user => updateUserData(user.id, { isRaisedHand: false }))
+  }
+
+  const lowerAllHands = () => {
+    sendZoomCommand('lowerAllHands')
+    lowerAllHandsLocally()
   }
 
   const targetCommentingId = id => {
     // TODO: lower all hands only after this user got audio?
     // By now let's do NOT automatically lower hands yet...
     // lowerAllHands()
+    lowerAllHandsLocally()
 
     sendZoomCommand('unMuteAudio', id)
     setCommentingUserId(id)
@@ -163,6 +168,7 @@ const MainRoute = () => {
             userIds={userIds}
             userData={userData}
             lowerAllHands={lowerAllHands}
+            lowerAllHandsLocally={lowerAllHandsLocally}
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn>

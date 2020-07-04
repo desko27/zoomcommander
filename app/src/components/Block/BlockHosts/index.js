@@ -15,7 +15,7 @@ const BlockHosts = ({
   targetCommentingId
 }) => {
   const users = getUserObjects(userIds, userData)
-  const hostUsers = users.filter(hostUsersFilter)
+  const hostUsers = users.filter(hostUsersFilter).sort()
 
   const userActions = {
     default: {
