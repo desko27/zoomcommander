@@ -78,8 +78,8 @@ const BlockComments = ({
             {...user}
             key={user.id}
             actions={userActions}
-            nameColor={user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
-            isGhost={user.isRaisedHandRevoked}
+            nameColor={!isHistory && user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
+            isGhost={!isHistory && user.isRaisedHandRevoked}
           />
         )
       })}
