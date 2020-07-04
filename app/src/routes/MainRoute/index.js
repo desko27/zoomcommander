@@ -15,6 +15,7 @@ import styles from './index.module.css'
 const limiter = new Bottleneck({ minTime: 500 })
 
 const MainRoute = () => {
+  const [settingMuteSpontaneousPeople, setSettingMuteSpontaneousPeople] = useState()
   const { userIds, userData, updateUserData } = useUsers()
 
   // extra user id lists
@@ -36,6 +37,9 @@ const MainRoute = () => {
     ...queueUserIds
   ]
 
+  const users = getUserObjects(userIds, userData)
+  const myself = users.find(user => user.isMySelf)
+
   useZoomEvents({
     USER_LEFT: data => {
       const leftUserIds = data.map(user => user.userid)
@@ -56,14 +60,41 @@ const MainRoute = () => {
   useZoomEvents({
     USER_AUDIO_STATUS_CHANGE: data => {
       const eventUsersArray = Array.isArray(data) ? data : [data]
+
+      // Automatically lower all hands when commenting user gets audio
       eventUsersArray.forEach(eventUser => {
         const id = eventUser.userid
         if (commentingUserId !== id) return
         const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
         if (!isAudioMuted) lowerAllHands()
       })
+
+      // Automatically mute spontaneous people
+      if (settingMuteSpontaneousPeople) {
+        eventUsersArray.forEach(eventUser => {
+          const id = eventUser.userid
+
+          // these people are supposed to speak, so it's ok
+          if (
+            myself.id === id ||
+            commentingUserId === id ||
+            chairmanUserId === id ||
+            platformUserIds.includes(id)
+          ) return
+
+          const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
+          if (!isAudioMuted) sendZoomCommand('muteAudio', id)
+        })
+      }
     }
-  }, [commentingUserId, userIds, userData])
+  }, [
+    settingMuteSpontaneousPeople,
+    commentingUserId,
+    chairmanUserId,
+    platformUserIds,
+    userIds,
+    userData
+  ])
 
   const targetSpeakerId = id => {
     // unmute target
@@ -80,9 +111,6 @@ const MainRoute = () => {
   }
 
   const muteAll = (middleFunction) => {
-    const users = getUserObjects(userIds, userData)
-    const myself = users.find(user => user.isMySelf)
-
     // Mutes myself AND disables "Allow Participants to Unmute Themselves"
     const muteMyself = limiter.wrap(() => sendZoomCommand('muteAudio', myself.id))
     muteMyself()
@@ -106,7 +134,6 @@ const MainRoute = () => {
   }
 
   const lowerAllHandsLocally = () => {
-    const users = getUserObjects(userIds, userData)
     const usersWithRaisedHand = users.filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
     usersWithRaisedHand.forEach(user =>
       updateUserData(user.id, {
@@ -152,6 +179,8 @@ const MainRoute = () => {
             userIds={userIds}
             userData={userData}
             muteAll={muteAll}
+            settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
+            setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
           />
         </LayoutColumn>
         <LayoutColumn>

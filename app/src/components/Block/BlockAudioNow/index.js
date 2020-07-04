@@ -5,13 +5,15 @@ import getUserObjects from '../../../common/getUserObjects'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
-const LIST_TITLE = 'Audio ahora'
+const LIST_TITLE = 'Audio'
 const LIST_COLOR = 'white'
 
 const BlockAudioNow = ({
   userIds,
   userData,
-  muteAll
+  muteAll,
+  settingMuteSpontaneousPeople,
+  setSettingMuteSpontaneousPeople
 }) => {
   const users = getUserObjects(userIds, userData)
   const usersWithAudioNow = users
@@ -26,7 +28,17 @@ const BlockAudioNow = ({
       flexBasis={30}
       color={LIST_COLOR}
       title={`${LIST_TITLE} / ${usersWithAudioNow.length}`}
-      actionsNode={<button onClick={muteAll}>Mutear todos</button>}
+      actionsNode={(
+        <>
+          <button
+            onClick={() => setSettingMuteSpontaneousPeople(prev => !prev)}
+            style={settingMuteSpontaneousPeople ? { '--local-color': 'var(--c-success)' } : {}}
+          >
+            {settingMuteSpontaneousPeople ? 'Escudo activo' : 'Activar escudo'}
+          </button>
+          <button onClick={muteAll}>Mutear todos</button>
+        </>
+      )}
     >
       {usersWithAudioNow.map(user => {
         return (
