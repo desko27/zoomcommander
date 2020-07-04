@@ -24,7 +24,8 @@ function createMainWindow () {
     minWidth: WINDOW_WIDTH,
     minHeight: WINDOW_HEIGHT,
     show: false,
-    webPreferences: { nodeIntegration: true }
+    webPreferences: { nodeIntegration: true },
+    acceptFirstMouse: true
   })
   window.loadURL(getAppUrl('waiting'))
   window.on('closed', () => {
