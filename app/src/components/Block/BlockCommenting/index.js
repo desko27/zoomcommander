@@ -6,6 +6,7 @@ import sendZoomCommand from '../../../common/sendZoomCommand'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
+const LIST_ID = 'commenting'
 const LIST_TITLE = 'Comentando ahora'
 const LIST_COLOR = 'success'
 
@@ -27,6 +28,7 @@ const BlockCommenting = ({ userIds, userData, setCommentingUserId }) => {
   return (
     <LayoutBlock
       dontGrow
+      id={LIST_ID}
       title={LIST_TITLE}
       color={LIST_COLOR}
     >

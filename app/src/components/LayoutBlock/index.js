@@ -1,18 +1,21 @@
 import React from 'react'
 import cx from 'classnames'
+import { Droppable } from 'react-beautiful-dnd'
 
 import SearchBar from '../SearchBar'
 
 import styles from './index.module.css'
 
 function LayoutBlock ({
+  id,
   children,
   dontGrow,
   flexBasis,
   title,
   actionsNode,
   color = 'white',
-  onSearchChange
+  onSearchChange,
+  isDroppable
 }) {
   return (
     <div
@@ -28,9 +31,24 @@ function LayoutBlock ({
       </div>
       <div className={styles.block}>
         {onSearchChange && <SearchBar onChange={onSearchChange} />}
-        <div className={styles.users}>
-          {children}
-        </div>
+        {isDroppable ? (
+          <Droppable droppableId={id}>
+            {provided => (
+              <div
+                className={styles.users}
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                {children}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        ) : (
+          <div className={styles.users}>
+            {children}
+          </div>
+        )}
       </div>
     </div>
   )

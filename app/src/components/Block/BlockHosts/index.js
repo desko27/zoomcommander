@@ -6,6 +6,7 @@ import getUserObjects from '../../../common/getUserObjects'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
+const LIST_ID = 'hosts'
 const LIST_TITLE = 'Hosts'
 const LIST_COLOR = 'error'
 
@@ -28,6 +29,7 @@ const BlockHosts = ({
 
   return (
     <LayoutBlock
+      id={LIST_ID}
       color={LIST_COLOR}
       title={LIST_TITLE}
     >

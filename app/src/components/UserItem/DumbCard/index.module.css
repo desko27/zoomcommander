@@ -1,18 +1,20 @@
 .wrapper {
+  border: 1px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   height: 43px;
 }
-.wrapper + .wrapper {
-  margin-top: 5px;
-}
-.wrapper:hover {
-  border-radius: 4px;;
+.wrapper:hover, .wrapper.isDragging {
+  border-radius: 4px;
   background: var(--c-black-light);
   padding: 0 6px;
   margin-left: -6px;
   margin-right: -6px;
+}
+
+.wrapper.isDragging {
+  border: 1px dashed var(--local-color);
 }
 
 .avatar {

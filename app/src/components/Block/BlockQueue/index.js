@@ -5,6 +5,8 @@ import getUserObjects from '../../../common/getUserObjects'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
+const LIST_ID = 'queue'
+const GROUP_ID = 'speakers'
 const LIST_TITLE = 'Cola'
 const LIST_COLOR = 'pink'
 
@@ -51,12 +53,17 @@ const BlockQueue = ({
 
   return (
     <LayoutBlock
+      isDroppable
+      id={LIST_ID}
       title={LIST_TITLE}
       color={LIST_COLOR}
     >
-      {users.map(user => {
+      {users.map((user, index) => {
         return (
           <UserItem
+            isDraggable
+            index={index}
+            groupId={GROUP_ID}
             {...user}
             key={user.id}
             actionsRef={userActionsRef}

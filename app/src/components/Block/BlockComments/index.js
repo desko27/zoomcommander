@@ -6,6 +6,7 @@ import fuzzySearch from '../../../common/fuzzySearch'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
+const LIST_ID = 'comments'
 const LIST_TITLE = 'Comentarios'
 const LIST_COLOR_NORMAL = 'primary'
 const LIST_COLOR_HISTORY = 'white'
@@ -68,6 +69,7 @@ const BlockComments = ({
 
   return (
     <LayoutBlock
+      id={LIST_ID}
       color={LIST_COLOR}
       title={isHistory ? 'Historial' : `${LIST_TITLE} / ${blockUsers.length}`}
       onSearchChange={e => setFilterString(e.target.value)}

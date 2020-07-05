@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 import sendZoomCommand from '../../../common/sendZoomCommand'
 import UserAction from '../UserAction'
 
@@ -15,7 +16,8 @@ const UserItem = ({
   onMouseEnter,
   onMouseLeave,
   isHover,
-  keyPressed
+  keyPressed,
+  isDragging
 }) => {
   const nameInitials = userName.split(' ').slice(0, 2).map(word => word[0]).join('')
 
@@ -66,7 +68,7 @@ const UserItem = ({
 
   return (
     <div
-      className={styles.wrapper}
+      className={cx(styles.wrapper, isDragging && styles.isDragging)}
       style={{ opacity: isGhost ? 0.5 : 1 }}
       onClick={() => handleClick(id)}
       onMouseEnter={onMouseEnter}
@@ -91,6 +93,7 @@ export default React.memo(UserItem, (prevProps, nextProps) => {
     prevProps.nameColor === nextProps.nameColor &&
     prevProps.isAudioMuted === nextProps.isAudioMuted &&
     prevProps.userName === nextProps.userName &&
+    prevProps.isDragging === nextProps.isDragging &&
     isHoverEqual &&
     (keyPressedEqual || !nextProps.isHover)
   )

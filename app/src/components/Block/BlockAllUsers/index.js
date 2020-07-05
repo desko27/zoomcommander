@@ -6,6 +6,8 @@ import fuzzySearch from '../../../common/fuzzySearch'
 import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
+const LIST_ID = 'all-users'
+const GROUP_ID = LIST_ID
 const LIST_TITLE = 'Todos'
 const LIST_COLOR = 'white'
 
@@ -40,13 +42,18 @@ const BlockAllUsers = ({
 
   return (
     <LayoutBlock
+      isDroppable
+      id={LIST_ID}
       flexBasis={70}
       title={LIST_TITLE}
       onSearchChange={e => setFilterString(e.target.value)}
     >
-      {displayUsers.map(user => {
+      {displayUsers.map((user, index) => {
         return (
           <UserItem
+            isDraggable
+            index={index}
+            groupId={GROUP_ID}
             {...user}
             key={user.id}
             actionsRef={userActionsRef}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { DragDropContext } from 'react-beautiful-dnd'
 import Bottleneck from 'bottleneck'
 
 import KeyPressedProvider from '../../context/KeyPressed'
@@ -166,71 +167,126 @@ const MainRoute = () => {
     setCommentingUserId(id)
   }
 
+  const onFileItemDragEnd = event => {
+    const { draggableId, source, destination } = event
+    if (!destination) return
+    const draggedUserId = +draggableId.split('.')[1]
+
+    const speakerSetters = {
+      queue: setQueueUserIds,
+      platform: setPlatformUserIds,
+      chairman: setChairmanUserId
+    }
+    const speakerSettersKeys = Object.keys(speakerSetters)
+
+    // sorting feature
+    if (source.droppableId === destination.droppableId) {
+      if (!speakerSettersKeys.includes(source.droppableId)) return // can't sort other cols
+      speakerSetters[destination.droppableId](prev => {
+        if (!Array.isArray(prev)) return prev
+        const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
+        return [
+          ...usersWithoutSource.slice(0, destination.index),
+          draggedUserId,
+          ...usersWithoutSource.slice(destination.index)
+        ]
+      })
+      return
+    }
+
+    // move between lists
+    if (!speakerSettersKeys.includes(source.droppableId) &&
+      speakersColumnIds.includes(draggedUserId)) {
+      // if source is a list from other than speakers col...
+      return // can't add someone already in speakers col.
+    }
+    if (speakerSettersKeys.includes(source.droppableId)) {
+      speakerSetters[source.droppableId](prev => {
+        if (!Array.isArray(prev)) return undefined
+        const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
+        return usersWithoutSource
+      })
+    }
+    if (speakerSettersKeys.includes(destination.droppableId)) {
+      speakerSetters[destination.droppableId](prev => {
+        if (!Array.isArray(prev)) return draggedUserId
+        const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
+        return [
+          ...usersWithoutSource.slice(0, destination.index),
+          draggedUserId,
+          ...usersWithoutSource.slice(destination.index)
+        ]
+      })
+    }
+  }
+
   return (
     <div className={styles.wrapper}>
       <KeyPressedProvider>
-        <div className={styles.columnsWrapper}>
-          <LayoutColumn>
-            <Block.AllUsers
-              userIds={userIds}
-              userData={userData}
-              speakersColumnIds={speakersColumnIds}
-              setQueueUserIds={setQueueUserIds}
-              targetCommentingId={targetCommentingId}
-            />
-            <Block.AudioNow
-              userIds={userIds}
-              userData={userData}
-              muteAll={muteAll}
-              settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
-              setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
-            />
-          </LayoutColumn>
-          <LayoutColumn>
-            <Block.Chairman
-              userIds={chairmanUserId && [chairmanUserId]}
-              userData={userData}
-              setChairmanUserId={setChairmanUserId}
-              targetSpeakerId={targetSpeakerId}
-            />
-            <Block.Platform
-              userIds={platformUserIds}
-              userData={userData}
-              setPlatformUserIds={setPlatformUserIds}
-              targetSpeakerId={targetSpeakerId}
-            />
-            <Block.Queue
-              userIds={queueUserIds}
-              userData={userData}
-              chairmanUserId={chairmanUserId}
-              setQueueUserIds={setQueueUserIds}
-              setPlatformUserIds={setPlatformUserIds}
-              setChairmanUserId={setChairmanUserId}
-              targetSpeakerId={targetSpeakerId}
-            />
-          </LayoutColumn>
-          <LayoutColumn>
-            <Block.Commenting
-              userIds={commentingUserId && [commentingUserId]}
-              userData={userData}
-              setCommentingUserId={setCommentingUserId}
-            />
-            <Block.Comments
-              userIds={userIds}
-              userData={userData}
-              lowerAllHands={lowerAllHands}
-              targetCommentingId={targetCommentingId}
-              commentsHistoryUserIds={commentsHistoryUserIds}
-            />
-          </LayoutColumn>
-          {/* <LayoutColumn>
+        <DragDropContext onDragEnd={onFileItemDragEnd}>
+          <div className={styles.columnsWrapper}>
+            <LayoutColumn>
+              <Block.AllUsers
+                userIds={userIds}
+                userData={userData}
+                speakersColumnIds={speakersColumnIds}
+                setQueueUserIds={setQueueUserIds}
+                targetCommentingId={targetCommentingId}
+              />
+              <Block.AudioNow
+                userIds={userIds}
+                userData={userData}
+                muteAll={muteAll}
+                settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
+                setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
+              />
+            </LayoutColumn>
+            <LayoutColumn>
+              <Block.Chairman
+                userIds={chairmanUserId && [chairmanUserId]}
+                userData={userData}
+                setChairmanUserId={setChairmanUserId}
+                targetSpeakerId={targetSpeakerId}
+              />
+              <Block.Platform
+                userIds={platformUserIds}
+                userData={userData}
+                setPlatformUserIds={setPlatformUserIds}
+                targetSpeakerId={targetSpeakerId}
+              />
+              <Block.Queue
+                userIds={queueUserIds}
+                userData={userData}
+                chairmanUserId={chairmanUserId}
+                setQueueUserIds={setQueueUserIds}
+                setPlatformUserIds={setPlatformUserIds}
+                setChairmanUserId={setChairmanUserId}
+                targetSpeakerId={targetSpeakerId}
+              />
+            </LayoutColumn>
+            <LayoutColumn>
+              <Block.Commenting
+                userIds={commentingUserId && [commentingUserId]}
+                userData={userData}
+                setCommentingUserId={setCommentingUserId}
+              />
+              <Block.Comments
+                userIds={userIds}
+                userData={userData}
+                lowerAllHands={lowerAllHands}
+                targetCommentingId={targetCommentingId}
+                commentsHistoryUserIds={commentsHistoryUserIds}
+              />
+            </LayoutColumn>
+            {/* <LayoutColumn>
           <Block.Hosts
             userIds={userIds}
             userData={userData}
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn> */}
-        </div>
+          </div>
+        </DragDropContext>
       </KeyPressedProvider>
       <Sidebar startMeeting={startMeeting} />
     </div>
