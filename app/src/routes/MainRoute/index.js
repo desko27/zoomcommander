@@ -167,22 +167,31 @@ const MainRoute = () => {
     setCommentingUserId(id)
   }
 
-  const onFileItemDragEnd = event => {
+  const onUserItemDragEnd = event => {
     const { draggableId, source, destination } = event
     if (!destination) return
     const draggedUserId = +draggableId.split('.')[1]
 
-    const speakerSetters = {
-      queue: setQueueUserIds,
-      platform: setPlatformUserIds,
-      chairman: setChairmanUserId
+    const speakerStates = {
+      queue: { value: queueUserIds, setter: setQueueUserIds },
+      platform: { value: platformUserIds, setter: setPlatformUserIds },
+      chairman: { value: chairmanUserId, setter: setChairmanUserId }
     }
-    const speakerSettersKeys = Object.keys(speakerSetters)
+    const speakerStatesKeys = Object.keys(speakerStates)
+
+    // before proceeding, check draggedUserId still exists on source (maybe user left?)
+    const sourceIds =
+      (speakerStates[source.droppableId] && speakerStates[source.droppableId].value) ||
+      userIds // all-users is the only other possible source list apart from speakerStates
+    if (
+      (!Array.isArray(sourceIds) && sourceIds !== draggedUserId) ||
+      (Array.isArray(sourceIds) && !sourceIds.find(userId => userId === draggedUserId))
+    ) return
 
     // sorting feature
     if (source.droppableId === destination.droppableId) {
-      if (!speakerSettersKeys.includes(source.droppableId)) return // can't sort other cols
-      speakerSetters[destination.droppableId](prev => {
+      if (!speakerStatesKeys.includes(source.droppableId)) return // can't sort other cols
+      speakerStates[destination.droppableId].setter(prev => {
         if (!Array.isArray(prev)) return prev
         const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
         return [
@@ -195,20 +204,20 @@ const MainRoute = () => {
     }
 
     // move between lists
-    if (!speakerSettersKeys.includes(source.droppableId) &&
+    if (!speakerStatesKeys.includes(source.droppableId) &&
       speakersColumnIds.includes(draggedUserId)) {
       // if source is a list from other than speakers col...
       return // can't add someone already in speakers col.
     }
-    if (speakerSettersKeys.includes(source.droppableId)) {
-      speakerSetters[source.droppableId](prev => {
+    if (speakerStatesKeys.includes(source.droppableId)) {
+      speakerStates[source.droppableId].setter(prev => {
         if (!Array.isArray(prev)) return undefined
         const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
         return usersWithoutSource
       })
     }
-    if (speakerSettersKeys.includes(destination.droppableId)) {
-      speakerSetters[destination.droppableId](prev => {
+    if (speakerStatesKeys.includes(destination.droppableId)) {
+      speakerStates[destination.droppableId].setter(prev => {
         if (!Array.isArray(prev)) return draggedUserId
         const usersWithoutSource = prev.filter(userId => userId !== draggedUserId)
         return [
@@ -223,7 +232,7 @@ const MainRoute = () => {
   return (
     <div className={styles.wrapper}>
       <KeyPressedProvider>
-        <DragDropContext onDragEnd={onFileItemDragEnd}>
+        <DragDropContext onDragEnd={onUserItemDragEnd}>
           <div className={styles.columnsWrapper}>
             <LayoutColumn>
               <Block.AllUsers
