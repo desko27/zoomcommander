@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
 import sendZoomCommand from '../../../common/sendZoomCommand'
@@ -10,9 +10,10 @@ const LIST_TITLE = 'Comentando ahora'
 const LIST_COLOR = 'success'
 
 const BlockCommenting = ({ userIds, userData, setCommentingUserId }) => {
+  const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
 
-  const userActions = {
+  userActionsRef.current = {
     default: {
       icon: 'user-x',
       color: 'success',
@@ -34,7 +35,7 @@ const BlockCommenting = ({ userIds, userData, setCommentingUserId }) => {
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
           />
         )

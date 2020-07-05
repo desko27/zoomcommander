@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Bottleneck from 'bottleneck'
 
+import KeyPressedProvider from '../../context/KeyPressed'
 import useUsers, { getIsAudioMutedFromAudioStatus } from '../../hooks/useUsers'
 import useZoomEvents from '../../hooks/useZoomEvents'
 import sendZoomCommand from '../../common/sendZoomCommand'
@@ -167,68 +168,70 @@ const MainRoute = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.columnsWrapper}>
-        <LayoutColumn>
-          <Block.AllUsers
-            userIds={userIds}
-            userData={userData}
-            speakersColumnIds={speakersColumnIds}
-            setQueueUserIds={setQueueUserIds}
-            targetCommentingId={targetCommentingId}
-          />
-          <Block.AudioNow
-            userIds={userIds}
-            userData={userData}
-            muteAll={muteAll}
-            settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
-            setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
-          />
-        </LayoutColumn>
-        <LayoutColumn>
-          <Block.Chairman
-            userIds={chairmanUserId && [chairmanUserId]}
-            userData={userData}
-            setChairmanUserId={setChairmanUserId}
-            targetSpeakerId={targetSpeakerId}
-          />
-          <Block.Platform
-            userIds={platformUserIds}
-            userData={userData}
-            setPlatformUserIds={setPlatformUserIds}
-            targetSpeakerId={targetSpeakerId}
-          />
-          <Block.Queue
-            userIds={queueUserIds}
-            userData={userData}
-            chairmanUserId={chairmanUserId}
-            setQueueUserIds={setQueueUserIds}
-            setPlatformUserIds={setPlatformUserIds}
-            setChairmanUserId={setChairmanUserId}
-            targetSpeakerId={targetSpeakerId}
-          />
-        </LayoutColumn>
-        <LayoutColumn>
-          <Block.Commenting
-            userIds={commentingUserId && [commentingUserId]}
-            userData={userData}
-            setCommentingUserId={setCommentingUserId}
-          />
-          <Block.Comments
-            userIds={userIds}
-            userData={userData}
-            lowerAllHands={lowerAllHands}
-            targetCommentingId={targetCommentingId}
-            commentsHistoryUserIds={commentsHistoryUserIds}
-          />
-        </LayoutColumn>
-        {/* <LayoutColumn>
+      <KeyPressedProvider>
+        <div className={styles.columnsWrapper}>
+          <LayoutColumn>
+            <Block.AllUsers
+              userIds={userIds}
+              userData={userData}
+              speakersColumnIds={speakersColumnIds}
+              setQueueUserIds={setQueueUserIds}
+              targetCommentingId={targetCommentingId}
+            />
+            <Block.AudioNow
+              userIds={userIds}
+              userData={userData}
+              muteAll={muteAll}
+              settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
+              setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
+            />
+          </LayoutColumn>
+          <LayoutColumn>
+            <Block.Chairman
+              userIds={chairmanUserId && [chairmanUserId]}
+              userData={userData}
+              setChairmanUserId={setChairmanUserId}
+              targetSpeakerId={targetSpeakerId}
+            />
+            <Block.Platform
+              userIds={platformUserIds}
+              userData={userData}
+              setPlatformUserIds={setPlatformUserIds}
+              targetSpeakerId={targetSpeakerId}
+            />
+            <Block.Queue
+              userIds={queueUserIds}
+              userData={userData}
+              chairmanUserId={chairmanUserId}
+              setQueueUserIds={setQueueUserIds}
+              setPlatformUserIds={setPlatformUserIds}
+              setChairmanUserId={setChairmanUserId}
+              targetSpeakerId={targetSpeakerId}
+            />
+          </LayoutColumn>
+          <LayoutColumn>
+            <Block.Commenting
+              userIds={commentingUserId && [commentingUserId]}
+              userData={userData}
+              setCommentingUserId={setCommentingUserId}
+            />
+            <Block.Comments
+              userIds={userIds}
+              userData={userData}
+              lowerAllHands={lowerAllHands}
+              targetCommentingId={targetCommentingId}
+              commentsHistoryUserIds={commentsHistoryUserIds}
+            />
+          </LayoutColumn>
+          {/* <LayoutColumn>
           <Block.Hosts
             userIds={userIds}
             userData={userData}
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn> */}
-      </div>
+        </div>
+      </KeyPressedProvider>
       <Sidebar startMeeting={startMeeting} />
     </div>
   )

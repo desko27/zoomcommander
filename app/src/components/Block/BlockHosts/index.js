@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { hostUsersFilter } from '../../../hooks/useUsers'
 import getUserObjects from '../../../common/getUserObjects'
@@ -14,10 +14,11 @@ const BlockHosts = ({
   userData,
   targetCommentingId
 }) => {
+  const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
   const hostUsers = users.filter(hostUsersFilter).sort()
 
-  const userActions = {
+  userActionsRef.current = {
     default: {
       icon: 'award',
       color: 'primary',
@@ -35,7 +36,7 @@ const BlockHosts = ({
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
           />
         )

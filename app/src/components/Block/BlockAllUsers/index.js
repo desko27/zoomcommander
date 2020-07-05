@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
 import fuzzySearch from '../../../common/fuzzySearch'
@@ -16,12 +16,13 @@ const BlockAllUsers = ({
   setQueueUserIds,
   targetCommentingId
 }) => {
+  const userActionsRef = useRef()
   const [filterString, setFilterString] = useState()
   const users = getUserObjects(userIds, userData)
   const filteredUsers = filterString && fuzzySearch(users, filterString)
   const displayUsers = filteredUsers || users
 
-  const userActions = {
+  userActionsRef.current = {
     default: {
       icon: 'award',
       color: 'primary',
@@ -48,7 +49,7 @@ const BlockAllUsers = ({
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
           />
         )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
 
@@ -17,6 +17,7 @@ const BlockQueue = ({
   setChairmanUserId,
   targetSpeakerId
 }) => {
+  const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
 
   const moveUserOutOfQueue = id => {
@@ -25,7 +26,7 @@ const BlockQueue = ({
     setPlatformUserIds(prev => ([...prev, id]))
   }
 
-  const userActions = {
+  userActionsRef.current = {
     default: {
       icon: 'target',
       color: 'accent',
@@ -58,7 +59,7 @@ const BlockQueue = ({
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
           />
         )

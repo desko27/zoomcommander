@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
 
@@ -15,13 +15,14 @@ const BlockAudioNow = ({
   settingMuteSpontaneousPeople,
   setSettingMuteSpontaneousPeople
 }) => {
+  const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
   const usersWithAudioNow = users
     .filter(user => !user.isAudioMuted)
     .sort((userA, userB) =>
       Math.sign(userA.lastAudioUnMutedTimestamp - userB.lastAudioUnMutedTimestamp))
 
-  const userActions = {}
+  userActionsRef.current = {}
 
   return (
     <LayoutBlock
@@ -45,7 +46,7 @@ const BlockAudioNow = ({
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
           />
         )

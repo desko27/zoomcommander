@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import getUserObjects from '../../../common/getUserObjects'
 import fuzzySearch from '../../../common/fuzzySearch'
@@ -17,6 +17,7 @@ const BlockComments = ({
   targetCommentingId,
   commentsHistoryUserIds
 }) => {
+  const userActionsRef = useRef()
   const [filterString, setFilterString] = useState()
   const [isHistory, setIsHistory] = useState()
   const users = getUserObjects(userIds, userData)
@@ -40,7 +41,7 @@ const BlockComments = ({
   const filteredUsers = filterString && fuzzySearch(blockUsers, filterString)
   const displayUsers = filteredUsers || blockUsers
 
-  const userActions = {
+  userActionsRef.current = {
     default: {
       icon: 'award',
       color: 'primary',
@@ -77,7 +78,7 @@ const BlockComments = ({
           <UserItem
             {...user}
             key={user.id}
-            actions={userActions}
+            actionsRef={userActionsRef}
             nameColor={!isHistory && user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
             isGhost={!isHistory && user.isRaisedHandRevoked}
           />
