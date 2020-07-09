@@ -46,6 +46,7 @@
 .notes {
   margin-top: 2px;
   font-size: 10px;
+  color: var(--c-teal);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
