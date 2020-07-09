@@ -39,8 +39,9 @@ export default function useUsers () {
     sendZoomCommand('getParticipantsList').then(joinUsers)
   }, [])
 
-  const updateUserData = (id, fieldsArgument) => {
-    if (!userIds.includes(id)) return // maybe userid is not in userIds anymore)
+  const updateUserData = (id, fieldsArgument, options = {}) => {
+    const userIdsToCheck = options.userIds || userIds
+    if (!userIdsToCheck.includes(id)) return // maybe userid is not in userIds anymore
     setUserData(prev => {
       const currentUserObject = prev[id] || {}
       const fields =
@@ -49,60 +50,63 @@ export default function useUsers () {
     })
   }
 
-  useEffect(() => {
-    // retrieve user data every time user ids change
-    // TODO: this should be only done for the users which are added, not everyone?
-    userIds.forEach(id => {
-      sendZoomCommand('getUserInfoByUserID', id).then(
-        response => {
-          const { userID: id } = response
-          updateUserData(id, currentUserObject => {
-            const color = currentUserObject.color ? currentUserObject.color : pickRandomColor()
-            const newUserObject = { id, color, ...response, userJoinedHack: undefined }
-
-            // [START] React to joinUsers hack !!
-            const { userJoinedHack, isNonVerbalFeedback } = currentUserObject
-            const isCurrentVsNewTheSame = () =>
-              FIELDS_TO_COMPARE
-                .every(field => currentUserObject[field] === newUserObject[field])
-
-            const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
-            if (
-              isUserWhoCannotRaiseHand &&
-              userJoinedHack &&
-              !isNonVerbalFeedback &&
-              isCurrentVsNewTheSame()
-            ) {
-              // No info has changed! "Raise hand"! (via `isNonVerbalFeedback` property)
-              // This makes possible to see non-verbal feedback on the comments block
-              return {
-                ...newUserObject,
-                isNonVerbalFeedback: true,
-                lastRaisedHandTimestamp: Date.now()
-              }
-            }
-            // [END] React to joinUsers hack !!
-
-            return newUserObject
-          })
-        }
-      )
-    })
-  }, [userIds])
-
   const joinUsers = data => {
     const joinedUserIds = data.map(user => user.userid)
 
     // Welcome to the joinUsers hack !!
-    // If some user is NOT NEW, add userJoinedHack property
-    joinedUserIds.forEach(userId => {
-      if (!userIds.includes(userId)) return // it's a new user, do nothing
-      updateUserData(userId, { userJoinedHack: true })
-    })
+    // If some user is NOT NEW, add it to the userJoinedHackIds array
+    const userJoinedHackIds = joinedUserIds.reduce((acc, userId) => {
+      if (!userIds.includes(userId)) return acc // it's a new user, do nothing
+      return [...acc, userId]
+    }, [])
 
     // add new user ids if any
     setUserIds(prev => {
-      return [...prev, ...joinedUserIds.filter(id => !prev.includes(id))]
+      const newUserIds = [...prev, ...joinedUserIds.filter(id => !prev.includes(id))]
+
+      // retrieve user data for newcomers
+      joinedUserIds.forEach(id => {
+        sendZoomCommand('getUserInfoByUserID', id).then(
+          response => {
+            const { userID: id } = response
+            updateUserData(
+              id,
+              currentUserObject => {
+                const color = currentUserObject.color ? currentUserObject.color : pickRandomColor()
+                const newUserObject = { id, color, ...response }
+
+                // [START] React to joinUsers hack !!
+                const userJoinedHack = userJoinedHackIds.includes(id)
+                const { isNonVerbalFeedback } = currentUserObject
+                const isCurrentVsNewTheSame = () =>
+                  FIELDS_TO_COMPARE
+                    .every(field => currentUserObject[field] === newUserObject[field])
+
+                const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
+                if (
+                  isUserWhoCannotRaiseHand &&
+                  userJoinedHack &&
+                  !isNonVerbalFeedback &&
+                  isCurrentVsNewTheSame()
+                ) {
+                  // No info has changed! "Raise hand"! (via `isNonVerbalFeedback` property)
+                  // This makes possible to see non-verbal feedback on the comments block
+                  return {
+                    ...newUserObject,
+                    isNonVerbalFeedback: true,
+                    lastRaisedHandTimestamp: Date.now()
+                  }
+                }
+                // [END] React to joinUsers hack !!
+
+                return newUserObject
+              },
+              { userIds: newUserIds })
+          }
+        )
+      })
+
+      return newUserIds
     })
   }
 
