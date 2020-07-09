@@ -1,9 +1,16 @@
 import React from 'react'
 import cx from 'classnames'
+import vex from 'vex-js'
+import vexDialog from 'vex-dialog'
+
 import sendZoomCommand from '../../../common/sendZoomCommand'
 import UserAction from '../UserAction'
 
 import styles from './index.module.css'
+
+// setup vex dialogs
+vex.registerPlugin(vexDialog)
+vex.defaultOptions.className = 'vex-theme-top'
 
 const UserItem = ({
   id,
@@ -12,12 +19,14 @@ const UserItem = ({
   nameColor,
   isAudioMuted,
   userName = '',
+  notes,
   actionsRef,
   onMouseEnter,
   onMouseLeave,
   isHover,
   keyPressed,
-  isDragging
+  isDragging,
+  updateUserData
 }) => {
   const nameInitials = userName.split(' ').slice(0, 2).map(word => word[0]).join('')
 
@@ -35,6 +44,17 @@ const UserItem = ({
     const isDefaultHoverAction =
       !hoverAction || (keyPressed === 'command' && hoverActionType !== 'command')
     return { hoverAction, isDefaultHoverAction }
+  }
+
+  const handleContextMenu = () => {
+    vex.dialog.prompt({
+      message: `Notas para ${userName}`,
+      callback: value => {
+        if (value === false) return // cancel, original value is kept
+        updateUserData(id, { notes: value })
+      },
+      value: notes
+    })
   }
 
   const handleClick = id => {
@@ -73,14 +93,22 @@ const UserItem = ({
       onClick={() => handleClick(id)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onContextMenu={handleContextMenu}
     >
       <div className={styles.avatar} style={{ background: `var(--c-${color})` }}>
         {nameInitials}
       </div>
-      <span className={styles.userName} style={{ color: `var(--c-${renderNameColor()})` }}>
-        {userName}
-      </span>
-      <span className={styles.actions}>{renderActions()}</span>
+      <div className={styles.content} style={{ color: `var(--c-${renderNameColor()})` }}>
+        <div className={styles.userName}>
+          {userName}
+        </div>
+        {notes && (
+          <div className={styles.notes}>
+            {notes}
+          </div>
+        )}
+      </div>
+      <div className={styles.actions}>{renderActions()}</div>
     </div>
   )
 }
@@ -93,6 +121,7 @@ export default React.memo(UserItem, (prevProps, nextProps) => {
     prevProps.nameColor === nextProps.nameColor &&
     prevProps.isAudioMuted === nextProps.isAudioMuted &&
     prevProps.userName === nextProps.userName &&
+    prevProps.notes === nextProps.notes &&
     prevProps.isDragging === nextProps.isDragging &&
     isHoverEqual &&
     (keyPressedEqual || !nextProps.isHover)

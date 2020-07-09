@@ -238,6 +238,7 @@ const MainRoute = () => {
               <Block.AllUsers
                 userIds={userIds}
                 userData={userData}
+                updateUserData={updateUserData}
                 speakersColumnIds={speakersColumnIds}
                 setQueueUserIds={setQueueUserIds}
                 targetCommentingId={targetCommentingId}
@@ -245,6 +246,7 @@ const MainRoute = () => {
               <Block.AudioNow
                 userIds={userIds}
                 userData={userData}
+                updateUserData={updateUserData}
                 muteAll={muteAll}
                 settingMuteSpontaneousPeople={settingMuteSpontaneousPeople}
                 setSettingMuteSpontaneousPeople={setSettingMuteSpontaneousPeople}
@@ -254,18 +256,21 @@ const MainRoute = () => {
               <Block.Chairman
                 userIds={chairmanUserId && [chairmanUserId]}
                 userData={userData}
+                updateUserData={updateUserData}
                 setChairmanUserId={setChairmanUserId}
                 targetSpeakerId={targetSpeakerId}
               />
               <Block.Platform
                 userIds={platformUserIds}
                 userData={userData}
+                updateUserData={updateUserData}
                 setPlatformUserIds={setPlatformUserIds}
                 targetSpeakerId={targetSpeakerId}
               />
               <Block.Queue
                 userIds={queueUserIds}
                 userData={userData}
+                updateUserData={updateUserData}
                 chairmanUserId={chairmanUserId}
                 setQueueUserIds={setQueueUserIds}
                 setPlatformUserIds={setPlatformUserIds}
@@ -277,11 +282,13 @@ const MainRoute = () => {
               <Block.Commenting
                 userIds={commentingUserId && [commentingUserId]}
                 userData={userData}
+                updateUserData={updateUserData}
                 setCommentingUserId={setCommentingUserId}
               />
               <Block.Comments
                 userIds={userIds}
                 userData={userData}
+                updateUserData={updateUserData}
                 lowerAllHands={lowerAllHands}
                 targetCommentingId={targetCommentingId}
                 commentsHistoryUserIds={commentsHistoryUserIds}
@@ -291,6 +298,7 @@ const MainRoute = () => {
           <Block.Hosts
             userIds={userIds}
             userData={userData}
+            updateUserData={updateUserData}
             targetCommentingId={targetCommentingId}
           />
         </LayoutColumn> */}

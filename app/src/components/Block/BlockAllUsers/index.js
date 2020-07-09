@@ -14,6 +14,7 @@ const LIST_COLOR = 'white'
 const BlockAllUsers = ({
   userIds,
   userData,
+  updateUserData,
   speakersColumnIds,
   setQueueUserIds,
   targetCommentingId
@@ -58,6 +59,7 @@ const BlockAllUsers = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

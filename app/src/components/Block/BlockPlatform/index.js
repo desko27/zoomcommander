@@ -13,6 +13,7 @@ const LIST_COLOR = 'accent'
 const BlockPlatform = ({
   userIds,
   userData,
+  updateUserData,
   setPlatformUserIds,
   targetSpeakerId
 }) => {
@@ -52,6 +53,7 @@ const BlockPlatform = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

@@ -13,6 +13,7 @@ const LIST_COLOR = 'accent'
 const BlockChairman = ({
   userIds,
   userData,
+  updateUserData,
   setChairmanUserId,
   targetSpeakerId
 }) => {
@@ -50,6 +51,7 @@ const BlockChairman = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

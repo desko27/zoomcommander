@@ -12,6 +12,7 @@ const LIST_COLOR = 'white'
 const BlockAudioNow = ({
   userIds,
   userData,
+  updateUserData,
   muteAll,
   settingMuteSpontaneousPeople,
   setSettingMuteSpontaneousPeople
@@ -50,6 +51,7 @@ const BlockAudioNow = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

@@ -32,13 +32,22 @@
   color: var(--c-black);
 }
 
-.userName {
+.content {
   flex-grow: 1;
   flex-shrink: 1;
+  margin-right: 12px;
+  overflow: hidden;
+}
+.content > * {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  margin-right: 12px;
+}
+.notes {
+  margin-top: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .actions {

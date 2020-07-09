@@ -13,6 +13,7 @@ const LIST_COLOR = 'pink'
 const BlockQueue = ({
   userIds,
   userData,
+  updateUserData,
   chairmanUserId,
   setQueueUserIds,
   setPlatformUserIds,
@@ -68,6 +69,7 @@ const BlockQueue = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

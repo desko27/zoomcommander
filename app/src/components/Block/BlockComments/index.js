@@ -14,6 +14,7 @@ const LIST_COLOR_HISTORY = 'white'
 const BlockComments = ({
   userIds,
   userData,
+  updateUserData,
   lowerAllHands,
   targetCommentingId,
   commentsHistoryUserIds
@@ -60,7 +61,7 @@ const BlockComments = ({
 
   const actionsNode = (
     <>
-      {!isHistory && <button onClick={handleCleanClick}>x</button>}
+      {!isHistory && <button onClick={handleCleanClick}>Limpiar</button>}
       <button onClick={handleHistoryClick}>
         {isHistory ? '← Volver' : 'Historial'}
       </button>
@@ -82,6 +83,7 @@ const BlockComments = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={!isHistory && user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
+            updateUserData={updateUserData}
             isGhost={!isHistory && user.isRaisedHandRevoked}
           />
         )

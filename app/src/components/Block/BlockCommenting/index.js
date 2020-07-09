@@ -10,7 +10,12 @@ const LIST_ID = 'commenting'
 const LIST_TITLE = 'Comentando ahora'
 const LIST_COLOR = 'success'
 
-const BlockCommenting = ({ userIds, userData, setCommentingUserId }) => {
+const BlockCommenting = ({
+  userIds,
+  userData,
+  updateUserData,
+  setCommentingUserId
+}) => {
   const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
 
@@ -39,6 +44,7 @@ const BlockCommenting = ({ userIds, userData, setCommentingUserId }) => {
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}

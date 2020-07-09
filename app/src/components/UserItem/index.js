@@ -14,9 +14,11 @@ const UserItem = ({
   nameColor,
   isAudioMuted,
   userName = '',
+  notes,
   actionsRef,
   isDraggable,
-  groupId = 'common'
+  groupId = 'common',
+  updateUserData
 }) => {
   const [isHover, setIsHover] = useState()
   const keyPressed = useContext(KeyPressedContext)
@@ -28,11 +30,13 @@ const UserItem = ({
     nameColor,
     isAudioMuted,
     userName,
+    notes,
     actionsRef,
     onMouseEnter: () => setIsHover(true),
     onMouseLeave: () => setIsHover(false),
     isHover,
-    keyPressed
+    keyPressed,
+    updateUserData
   }
 
   if (isDraggable) {

@@ -13,6 +13,7 @@ const LIST_COLOR = 'error'
 const BlockHosts = ({
   userIds,
   userData,
+  updateUserData,
   targetCommentingId
 }) => {
   const userActionsRef = useRef()
@@ -40,6 +41,7 @@ const BlockHosts = ({
             key={user.id}
             actionsRef={userActionsRef}
             nameColor={LIST_COLOR}
+            updateUserData={updateUserData}
           />
         )
       })}
