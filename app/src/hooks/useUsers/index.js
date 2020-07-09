@@ -72,8 +72,22 @@ export default function useUsers () {
             updateUserData(
               id,
               currentUserObject => {
-                const color = currentUserObject.color ? currentUserObject.color : pickRandomColor()
-                const newUserObject = { id, color, ...response }
+                const initialColor = currentUserObject.color
+                  ? currentUserObject.color : pickRandomColor()
+
+                // We are not interested in what 'getUserInfoByUserID' has to say about
+                // isAudioMuted, we're ignoring that property and let it be handled by
+                // audio status change event.
+                const initialIsAudioMuted =
+                  typeof currentUserObject.isAudioMuted !== 'undefined'
+                    ? currentUserObject.isAudioMuted : true
+
+                const newUserObject = {
+                  id,
+                  color: initialColor,
+                  ...response,
+                  isAudioMuted: initialIsAudioMuted
+                }
 
                 // [START] React to joinUsers hack !!
                 const userJoinedHack = userJoinedHackIds.includes(id)
