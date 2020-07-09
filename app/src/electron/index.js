@@ -76,4 +76,12 @@ app.on('ready', async () => {
   Object.entries(GLOBAL_SHORTCUTS).forEach(([key, value]) => {
     globalShortcut.register(key, () => mainWindow.webContents.send('global-shortcut', value))
   })
+
+  // send window events
+  mainWindow.on('focus', () => {
+    mainWindow.webContents.send('window-event', { name: 'focus' })
+  })
+  mainWindow.on('blur', () => {
+    mainWindow.webContents.send('window-event', { name: 'blur' })
+  })
 })

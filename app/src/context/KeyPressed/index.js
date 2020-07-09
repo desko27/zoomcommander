@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import KeyPressedContext from './context'
 
+import useWindowEvents from '../../hooks/useWindowEvents'
+
 const KEYCODE_OPTION = 18
 const KEYCODE_SHIFT = 16
 const KEYCODE_COMMAND_LEFT = 91
@@ -15,6 +17,12 @@ const KEYCODE_DICTIONARY = {
 
 export default ({ children }) => {
   const [keyPressed, setKeyPressed] = useState(false)
+
+  const resetKeyPressed = () => setKeyPressed(false)
+  useWindowEvents({
+    focus: resetKeyPressed,
+    blur: resetKeyPressed
+  })
 
   useEffect(() => {
     const setKeyState = (keyCode, state) => {
