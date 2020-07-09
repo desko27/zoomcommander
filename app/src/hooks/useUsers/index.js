@@ -132,6 +132,7 @@ export default function useUsers () {
           if (!eventUserData) return acc
           const { id, isAudioMuted } = eventUserData
           const currentUserObject = prev[id]
+          if (!currentUserObject) return acc
           return {
             ...acc,
             [id]: {
