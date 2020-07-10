@@ -15,6 +15,8 @@ function LayoutBlock ({
   actionsNode,
   color = 'white',
   onSearchChange,
+  searchValue = '',
+  searchReset = () => {},
   isDroppable
 }) {
   return (
@@ -30,7 +32,13 @@ function LayoutBlock ({
         <span className={styles.actions}>{actionsNode}</span>
       </div>
       <div className={styles.block}>
-        {onSearchChange && <SearchBar onChange={onSearchChange} />}
+        {onSearchChange && (
+          <SearchBar
+            onChange={onSearchChange}
+            value={searchValue}
+            reset={searchReset}
+          />
+        )}
         {isDroppable ? (
           <Droppable droppableId={id}>
             {provided => (

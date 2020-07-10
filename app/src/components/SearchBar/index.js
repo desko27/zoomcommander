@@ -1,15 +1,25 @@
 import React from 'react'
+import cx from 'classnames'
+
+import { ReactComponent as XCircleIcon } from './icons/x-circle.svg'
 
 import styles from './index.module.css'
 
-function SearchBar ({ onChange }) {
+function SearchBar ({ onChange, value, reset }) {
   return (
-    <input
-      className={styles.wrapper}
-      placeholder='Filtrar usuarios...'
-      onChange={onChange}
-      required
-    />
+    <div className={styles.wrapper}>
+      <input
+        className={cx(styles.input, !!value && styles.hasValue)}
+        placeholder='Filtrar usuarios...'
+        onChange={onChange}
+        value={value}
+      />
+      {!!value && (
+        <button className={styles.resetButton} onClick={reset}>
+          <XCircleIcon />
+        </button>
+      )}
+    </div>
   )
 }
 

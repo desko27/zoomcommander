@@ -73,6 +73,8 @@ const BlockComments = ({
       id={LIST_ID}
       color={LIST_COLOR}
       title={isHistory ? 'Historial' : `${LIST_TITLE} / ${blockUsers.length}`}
+      searchValue={filterString}
+      searchReset={() => setFilterString()}
       onSearchChange={e => setFilterString(e.target.value)}
       actionsNode={actionsNode}
     >

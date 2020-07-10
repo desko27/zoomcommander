@@ -1,5 +1,22 @@
 .wrapper {
   flex-shrink: 0;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.resetButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 4px;
+  background: none;
+  border: none;
+}
+
+.input {
   width: 100%;
   border: none;
   height: 31px;
@@ -7,14 +24,13 @@
   color: var(--c-white);
   font-size: 16px;
   border-radius: 4px;
-  padding: 0 8px;
-  margin-bottom: 15px;
+  padding: 0 30px 0 8px;
 }
-.wrapper:valid {
+.input.hasValue {
   color: var(--c-black);
   background: var(--c-teal);
 }
-.wrapper::placeholder {
+.input::placeholder {
   opacity: 0.5;
   color: var(--c-white);
   font-weight: 300;

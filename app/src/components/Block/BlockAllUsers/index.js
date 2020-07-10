@@ -48,6 +48,8 @@ const BlockAllUsers = ({
       flexBasis={70}
       title={LIST_TITLE}
       onSearchChange={e => setFilterString(e.target.value)}
+      searchValue={filterString}
+      searchReset={() => setFilterString()}
     >
       {displayUsers.map((user, index) => {
         return (
