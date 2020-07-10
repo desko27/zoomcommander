@@ -60,7 +60,7 @@
 }
 
 .users {
-  min-height: 100%; /* for full drag & drop area */
+  flex-basis: 100%; /* for full drag & drop area */
   padding: 0 6px;
   margin: -2px -6px; /* -2px compensates for `padding: 2px 0`at UserItem */
   overflow-y: auto;
