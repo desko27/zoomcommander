@@ -27,6 +27,14 @@ const BlockCommenting = ({
         sendZoomCommand('muteAudio', id)
         setCommentingUserId(undefined)
       }
+    },
+    shift: {
+      icon: 'user-x',
+      color: 'error',
+      handler: id => {
+        // remove user from list without muting him/her
+        setCommentingUserId(undefined)
+      }
     }
   }
 
