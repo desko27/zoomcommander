@@ -25,7 +25,8 @@ function createMainWindow () {
     minHeight: WINDOW_HEIGHT,
     show: false,
     webPreferences: { nodeIntegration: true },
-    acceptFirstMouse: true
+    acceptFirstMouse: true,
+    backgroundColor: '#263342'
   })
   window.loadURL(getAppUrl('waiting'))
   window.on('closed', () => {
