@@ -7,7 +7,7 @@ import useZoomEvents from '../useZoomEvents'
 const { ZoomMeetingAudioStatus } = require('../../../../lib/settings')
 
 const FIELDS_TO_COMPARE = [
-  'userName', 'isHost', 'isVideoOn', 'isAudioMuted', 'userRole', 'userInfoType'
+  'userName', 'isHost', 'isVideoOn', 'isAudioMuted', 'audioStatus', 'userRole', 'userInfoType'
 ]
 
 const ZN_USERROLE_HOST = 1
