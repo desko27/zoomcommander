@@ -23,8 +23,10 @@ const pickRandomColor = () => {
 }
 
 export const getIsAudioMutedFromAudioStatus = eventUser => {
-  const audioStatus = eventUser.audioStatus || eventUser.audioStauts
-  const isAudioMuted = audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
+  const audioStatus = eventUser.audioStatus ?? eventUser.audioStauts
+  const isAudioMuted =
+    audioStatus === ZoomMeetingAudioStatus.Audio_None ||
+    audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
     audioStatus === ZoomMeetingAudioStatus.Audio_Muted_ByHost ||
     audioStatus === ZoomMeetingAudioStatus.Audio_MutedAll_ByHost
   return isAudioMuted
@@ -78,7 +80,9 @@ export default function useUsers () {
                 const newUserObject = {
                   id,
                   color: initialColor,
-                  ...response
+                  ...response,
+                  // replace `isAudioMuted` by our own `audioStatus` treatment approach
+                  isAudioMuted: getIsAudioMutedFromAudioStatus(response)
                 }
 
                 // [START] React to joinUsers hack !!

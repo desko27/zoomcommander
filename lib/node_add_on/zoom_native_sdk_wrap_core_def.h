@@ -572,6 +572,7 @@ typedef struct _ZNUserInfomation
 	ZNUserRole userRole;///<The type of role of the user specified by the current information. For more infomation, see \link ZNUserRole \endlink enum.
 	bool isPurePhoneUser;///<Whether the user corresponding to the current information joins the meeting by telephone or not.
 	bool webinarAttendeeStatus;///<The webinar status of the user specified by the current information. TRUE indicates that it is able to talk.
+	ZNAudioStatus audioStatus;
 	ZNSDKUserInfoType userInfoType;
 #if (defined BUILD_WIN)
 	ZNAudioType audioJoinType;///<the audio type of the user specified by the current information when joins the meeting. For more infomation, see \link ZNAudioType \endlink enum.

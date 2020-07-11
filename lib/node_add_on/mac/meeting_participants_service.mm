@@ -80,6 +80,9 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
     ZoomSDKWebinarAttendeeStatus *webinar = [userInfo GetWebinarAttendeeStatus];
     bool isAttend = webinar.isAttendeeCanTalk;
     user.webinarAttendeeStatus = isAttend;
+    ZoomSDKAudioStatus status = [userInfo getAudioStatus];
+    ZNAudioStatus znStatus = Help_type.ZNSDKUserAudioStatus(status);
+    user.audioStatus = znStatus;
     user.userInfoType = ZN_REAL_USERINFO;
     return user;
 }
