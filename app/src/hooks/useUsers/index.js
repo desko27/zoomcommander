@@ -78,15 +78,15 @@ export default function useUsers () {
                 // We are not interested in what 'getUserInfoByUserID' has to say about
                 // isAudioMuted, we're ignoring that property and let it be handled by
                 // audio status change event.
-                const initialIsAudioMuted =
-                  typeof currentUserObject.isAudioMuted !== 'undefined'
-                    ? currentUserObject.isAudioMuted : true
+                // const initialIsAudioMuted =
+                //   typeof currentUserObject.isAudioMuted !== 'undefined'
+                //     ? currentUserObject.isAudioMuted : true
 
                 const newUserObject = {
                   id,
                   color: initialColor,
-                  ...response,
-                  isAudioMuted: initialIsAudioMuted
+                  ...response
+                  // isAudioMuted: initialIsAudioMuted
                 }
 
                 // [START] React to joinUsers hack !!
