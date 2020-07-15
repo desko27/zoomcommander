@@ -12,5 +12,5 @@ export default function useWindowEvents (eventHandlers, dependecies = []) {
     return () => {
       ipcRenderer.removeListener('window-event', eventListener)
     }
-  }, [])
+  }, dependecies)
 }

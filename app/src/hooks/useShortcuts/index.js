@@ -12,5 +12,5 @@ export default function useShortcuts (eventHandlers, dependecies = []) {
     return () => {
       ipcRenderer.removeListener('global-shortcut', globalShortcutListener)
     }
-  }, [])
+  }, dependecies)
 }
