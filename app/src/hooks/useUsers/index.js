@@ -55,19 +55,14 @@ export default function useUsers () {
   const joinUsers = data => {
     const joinedUserIds = data.map(user => user.userid)
 
-    // Welcome to the joinUsers hack !!
-    // If some user is NOT NEW, add it to the userJoinedHackIds array
-    const userJoinedHackIds = joinedUserIds.reduce((acc, userId) => {
-      if (!userIds.includes(userId)) return acc // it's a new user, do nothing
-      return [...acc, userId]
-    }, [])
-
     // add new user ids if any
     setUserIds(prev => {
       const newUserIds = [...prev, ...joinedUserIds.filter(id => !prev.includes(id))]
 
       // retrieve user data for newcomers
       joinedUserIds.forEach(id => {
+        const isExistingUser = userIds.includes(id)
+
         sendZoomCommand('getUserInfoByUserID', id).then(
           response => {
             const { userID: id } = response
@@ -85,8 +80,7 @@ export default function useUsers () {
                   isAudioMuted: getIsAudioMutedFromAudioStatus(response)
                 }
 
-                // [START] React to joinUsers hack !!
-                const userJoinedHack = userJoinedHackIds.includes(id)
+                // [START] joinUsers hack to notice non-verbal feedback !!
                 const { isNonVerbalFeedback } = currentUserObject
                 const isCurrentVsNewTheSame = () =>
                   FIELDS_TO_COMPARE
@@ -95,7 +89,7 @@ export default function useUsers () {
                 const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
                 if (
                   isUserWhoCannotRaiseHand &&
-                  userJoinedHack &&
+                  isExistingUser &&
                   !isNonVerbalFeedback &&
                   isCurrentVsNewTheSame()
                 ) {
@@ -107,7 +101,7 @@ export default function useUsers () {
                     lastRaisedHandTimestamp: Date.now()
                   }
                 }
-                // [END] React to joinUsers hack !!
+                // [END] joinUsers hack to notice non-verbal feedback !!
 
                 return newUserObject
               },
