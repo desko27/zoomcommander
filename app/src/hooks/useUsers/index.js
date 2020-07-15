@@ -173,8 +173,11 @@ export default function useUsers () {
     userIds,
     userData,
     updateUserData,
-    syncUserData: () => sendZoomCommand('getParticipantsList').then(
-      data => joinUsers(data, true) // isSync = true
+    syncUserData: ({ reload = false } = {}) => sendZoomCommand('getParticipantsList').then(
+      data => {
+        if (reload) setUserIds([])
+        joinUsers(data, true) // isSync = true}
+      }
     )
   }
 }

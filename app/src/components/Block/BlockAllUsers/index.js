@@ -51,7 +51,12 @@ const BlockAllUsers = ({
       onSearchChange={e => setFilterString(e.target.value)}
       searchValue={filterString}
       searchReset={() => setFilterString()}
-      actionsNode={<button onClick={syncUserData}>Sync</button>}
+      actionsNode={(
+        <>
+          <button onClick={() => syncUserData({ reload: true })}>Reload</button>
+          <button onClick={() => syncUserData()}>Sync</button>
+        </>
+      )}
     >
       {displayUsers.map((user, index) => {
         return (
