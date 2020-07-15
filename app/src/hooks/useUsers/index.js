@@ -41,9 +41,7 @@ export default function useUsers () {
     sendZoomCommand('getParticipantsList').then(joinUsers)
   }, [])
 
-  const updateUserData = (id, fieldsArgument, options = {}) => {
-    const userIdsToCheck = options.userIds || userIds
-    if (!userIdsToCheck.includes(id)) return // maybe userid is not in userIds anymore
+  const updateUserData = (id, fieldsArgument) => {
     setUserData(prev => {
       const currentUserObject = prev[id] || {}
       const fields =
@@ -104,8 +102,8 @@ export default function useUsers () {
                 // [END] joinUsers hack to notice non-verbal feedback !!
 
                 return newUserObject
-              },
-              { userIds: newUserIds })
+              }
+            )
           }
         )
       })
