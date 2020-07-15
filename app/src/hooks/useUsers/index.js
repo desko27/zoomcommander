@@ -50,7 +50,7 @@ export default function useUsers () {
     })
   }
 
-  const joinUsers = data => {
+  const joinUsers = (data, isSync) => {
     const joinedUserIds = data.map(user => user.userid)
 
     // add new user ids if any
@@ -86,6 +86,7 @@ export default function useUsers () {
 
                 const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
                 if (
+                  !isSync &&
                   isUserWhoCannotRaiseHand &&
                   isExistingUser &&
                   !isNonVerbalFeedback &&
@@ -168,5 +169,12 @@ export default function useUsers () {
     }
   }, [userIds])
 
-  return { userIds, userData, updateUserData }
+  return {
+    userIds,
+    userData,
+    updateUserData,
+    syncUserData: () => sendZoomCommand('getParticipantsList').then(
+      data => joinUsers(data, true) // isSync = true
+    )
+  }
 }

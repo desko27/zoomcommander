@@ -17,7 +17,8 @@ const BlockAllUsers = ({
   updateUserData,
   speakersColumnIds,
   setQueueUserIds,
-  targetCommentingId
+  targetCommentingId,
+  syncUserData
 }) => {
   const userActionsRef = useRef()
   const [filterString, setFilterString] = useState()
@@ -50,6 +51,7 @@ const BlockAllUsers = ({
       onSearchChange={e => setFilterString(e.target.value)}
       searchValue={filterString}
       searchReset={() => setFilterString()}
+      actionsNode={<button onClick={syncUserData}>Sync</button>}
     >
       {displayUsers.map((user, index) => {
         return (

@@ -18,7 +18,7 @@ const limiter = new Bottleneck({ minTime: 500 })
 
 const MainRoute = () => {
   const [settingMuteSpontaneousPeople, setSettingMuteSpontaneousPeople] = useState()
-  const { userIds, userData, updateUserData } = useUsers()
+  const { userIds, userData, updateUserData, syncUserData } = useUsers()
 
   // extra user id lists
   const [queueUserIds, setQueueUserIds] = useState([])
@@ -242,6 +242,7 @@ const MainRoute = () => {
                 speakersColumnIds={speakersColumnIds}
                 setQueueUserIds={setQueueUserIds}
                 targetCommentingId={targetCommentingId}
+                syncUserData={syncUserData}
               />
               <Block.AudioNow
                 userIds={userIds}
