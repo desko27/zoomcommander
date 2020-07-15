@@ -135,14 +135,15 @@ export default function useUsers () {
     },
     USER_AUDIO_STATUS_CHANGE: data => {
       const eventUsersArray = Array.isArray(data) ? data : [data]
-      const eventUserDataArray = eventUsersArray.map(eventUser => {
+      const mapEventUserData = eventUser => {
         const id = eventUser.userid
         if (!userIds.includes(id)) return
         const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
         return { id, isAudioMuted }
-      })
+      }
       setUserData(prev => {
-        const eventUserData = eventUserDataArray.reduce((acc, eventUserData) => {
+        const eventUserData = eventUsersArray.reduce((acc, eventUser) => {
+          const eventUserData = mapEventUserData(eventUser)
           if (!eventUserData) return acc
           const { id, isAudioMuted } = eventUserData
           const currentUserObject = prev[id]
