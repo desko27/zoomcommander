@@ -24,11 +24,11 @@ const pickRandomColor = () => {
 
 export const getIsAudioMutedFromAudioStatus = eventUser => {
   const audioStatus = eventUser.audioStatus ?? eventUser.audioStauts
-  const isAudioMuted =
-    audioStatus === ZoomMeetingAudioStatus.Audio_None ||
-    audioStatus === ZoomMeetingAudioStatus.Audio_Muted ||
-    audioStatus === ZoomMeetingAudioStatus.Audio_Muted_ByHost ||
-    audioStatus === ZoomMeetingAudioStatus.Audio_MutedAll_ByHost
+  const isAudioMuted = !(
+    audioStatus === ZoomMeetingAudioStatus.Audio_UnMuted ||
+    audioStatus === ZoomMeetingAudioStatus.Audio_UnMuted_ByHost ||
+    audioStatus === ZoomMeetingAudioStatus.Audio_UnMutedAll_ByHost
+  )
   return isAudioMuted
 }
 
