@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import Bottleneck from 'bottleneck'
 
@@ -19,6 +19,10 @@ const limiter = new Bottleneck({ minTime: 500 })
 const MainRoute = () => {
   const [settingMuteSpontaneousPeople, setSettingMuteSpontaneousPeople] = useState()
   const { userIds, userData, updateUserData, syncUserData } = useUsers()
+
+  // have an always updated version of syncUserData for timeouts
+  const syncUserDataRef = useRef()
+  syncUserDataRef.current = syncUserData
 
   // extra user id lists
   const [queueUserIds, setQueueUserIds] = useState([])
@@ -119,6 +123,9 @@ const MainRoute = () => {
 
     // Mutes the rest of users AND enables "Mute Participants on Entry"
     limiter.wrap(() => sendZoomCommand('muteAudio', 0))()
+
+    // Ensure we get the new status for all users after muteAll
+    limiter.wrap(syncUserDataRef.current)()
 
     // Call middle function (special for startMeeting's chairman unmuting)
     // so we don't wait for the next loop to finish... (Ensure "Allow Par...")

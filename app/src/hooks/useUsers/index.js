@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import sendZoomCommand from '../../common/sendZoomCommand'
 
@@ -6,6 +6,7 @@ import useZoomEvents from '../useZoomEvents'
 
 const { ZoomMeetingAudioStatus } = require('../../../../lib/settings')
 
+const SYNCING_DUE_TO_MUTE_ALL_TIMEOUT = 500
 const FIELDS_TO_COMPARE = [
   'userName', 'isHost', 'isVideoOn', 'isAudioMuted', 'audioStatus', 'userRole', 'userInfoType'
 ]
@@ -32,9 +33,17 @@ export const getIsAudioMutedFromAudioStatus = eventUser => {
   return isAudioMuted
 }
 
+const getIsAudioMutedAllFromAudioStatus = eventUser => {
+  const audioStatus = eventUser.audioStatus ?? eventUser.audioStauts
+  return audioStatus === ZoomMeetingAudioStatus.Audio_MutedAll_ByHost
+}
+
 export default function useUsers () {
   const [userIds, setUserIds] = useState([])
   const [userData, setUserData] = useState({})
+
+  // hack in order to achieve complete user data sync when "muting all" occurs
+  const isSyncingDueToMuteAllRef = useRef()
 
   useEffect(() => {
     // get users for the first time
@@ -113,6 +122,17 @@ export default function useUsers () {
     })
   }
 
+  const syncUserData = ({ reload = false } = {}) =>
+    sendZoomCommand('getParticipantsList').then(
+      data => {
+        if (reload) {
+          setUserIds([])
+          setUserData({})
+        }
+        joinUsers(data, true) // isSync = true}
+      }
+    )
+
   useZoomEvents({
     USER_JOINED: joinUsers,
     USER_LEFT: data => {
@@ -132,13 +152,24 @@ export default function useUsers () {
         const id = eventUser.userid
         if (!userIds.includes(id)) return
         const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
-        return { id, isAudioMuted }
+        const isAudioMutedAll = getIsAudioMutedAllFromAudioStatus(eventUser)
+        return { id, isAudioMuted, isAudioMutedAll }
       }
       setUserData(prev => {
         const eventUserData = eventUsersArray.reduce((acc, eventUser) => {
           const eventUserData = mapEventUserData(eventUser)
           if (!eventUserData) return acc
-          const { id, isAudioMuted } = eventUserData
+          const { id, isAudioMuted, isAudioMutedAll } = eventUserData
+
+          // hack in order to achieve complete user data sync when "muting all" occurs
+          if (isAudioMutedAll && !isSyncingDueToMuteAllRef.current) {
+            isSyncingDueToMuteAllRef.current = true
+            syncUserData()
+            setTimeout(() => {
+              isSyncingDueToMuteAllRef.current = false
+            }, SYNCING_DUE_TO_MUTE_ALL_TIMEOUT)
+          }
+
           const currentUserObject = prev[id]
           if (!currentUserObject) return acc
           return {
@@ -173,11 +204,6 @@ export default function useUsers () {
     userIds,
     userData,
     updateUserData,
-    syncUserData: ({ reload = false } = {}) => sendZoomCommand('getParticipantsList').then(
-      data => {
-        if (reload) setUserIds([])
-        joinUsers(data, true) // isSync = true}
-      }
-    )
+    syncUserData
   }
 }
