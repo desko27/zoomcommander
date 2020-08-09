@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import Field from './Field'
@@ -16,6 +16,20 @@ function LobbyRoute () {
   const [fieldName, setFieldName] = useState('')
   const [fieldMeeting, setFieldMeeting] = useState('')
   const [fieldPassword, setFieldPassword] = useState('')
+
+  useEffect(() => {
+    // load existing settings
+    const lobbySettingsListener = (event, payload = {}) => {
+      const { username, meetingID, meetingPassword } = payload
+      if (username) setFieldName(username)
+      if (meetingID) setFieldMeeting(meetingID)
+      if (meetingPassword) setFieldPassword(meetingPassword)
+    }
+    ipcRenderer.on('load-lobby-settings', lobbySettingsListener)
+    return () => {
+      ipcRenderer.removeListener('load-lobby-settings', lobbySettingsListener)
+    }
+  }, [])
 
   useLayoutEffect(() => {
     ipcRenderer.send('main-window-ready')

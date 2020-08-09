@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, Menu, globalShortcut } = require('electron'
 const { windowManager } = require('node-window-manager')
 const path = require('path')
 const isDev = require('electron-is-dev')
+const settings = require('electron-settings')
 
 const zoomMeetingControllerFactory = require('./zoom')
 
@@ -62,10 +63,21 @@ app.on('ready', async () => {
   } */
 
   // only show when react render is ready
-  ipcMain.once('main-window-ready', () => mainWindow.show())
+  ipcMain.once('main-window-ready', () => {
+    mainWindow.show()
+
+    // load previously saved lobby input
+    settings.get('lobby').then(lobbySettings => {
+      mainWindow.webContents.send('load-lobby-settings', lobbySettings)
+    })
+  })
 
   // listen to start meeting event
   ipcMain.once('lobby-starts-meeting', (event, data) => {
+    // save lobby input as settings for next sessions
+    settings.set('lobby', data)
+
+    // start meeting with provided input
     const { username, meetingID, meetingPassword } = data
     global.zoomUsername = username
     global.zoomMeetingID = meetingID
