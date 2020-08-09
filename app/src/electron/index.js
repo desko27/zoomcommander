@@ -16,7 +16,7 @@ function getAppUrl (route) {
 
 function createMainWindow () {
   const WINDOW_WIDTH = 292
-  const WINDOW_HEIGHT = 400
+  const WINDOW_HEIGHT = 425
   const window = new BrowserWindow({
     title: 'Zoom Commander',
     width: WINDOW_WIDTH,
@@ -46,7 +46,7 @@ function adaptMainWindowToMeeting (window) {
 
 /* function revertMainWindowToLobby (window) {
   const WINDOW_WIDTH = 292
-  const WINDOW_HEIGHT = 400
+  const WINDOW_HEIGHT = 425
   window.resizable = false
   window.fullscreenable = false
   window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT)
