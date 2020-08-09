@@ -1,0 +1,44 @@
+.wrapper {
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--c-primary);
+  margin-bottom: 20px;
+}
+
+.fields {
+  flex-grow: 1;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.bottomSection .version {
+  opacity: 0.5;
+}
+.bottomSection .bottomButton {
+  border: 1px solid var(--c-primary);
+  height: 32px;
+  padding: 0 20px;
+  background: transparent;
+  border-radius: 4px;
+  color: var(--c-primary);
+  font-size: 16px;
+}
+.bottomSection .bottomButton:hover:not([disabled]) {
+  background: var(--c-primary);
+  color: var(--c-black);
+}
+.bottomSection .bottomButton[disabled] {
+  cursor: auto;
+  opacity: 0.3;
+}

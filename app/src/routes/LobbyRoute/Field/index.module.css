@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper + .wrapper {
+  margin-top: 20px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.input {
+  margin-top: 10px;
+  border: none;
+  background: rgba(205, 210, 233, 0.15);
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+}
