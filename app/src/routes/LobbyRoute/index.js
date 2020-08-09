@@ -22,7 +22,11 @@ function LobbyRoute () {
   }, [])
 
   const handleStartMeeting = () => {
-    ipcRenderer.send('lobby-starts-meeting')
+    ipcRenderer.send('lobby-starts-meeting', {
+      username: fieldName,
+      meetingID: fieldMeeting.replace(/ /g, ''),
+      meetingPassword: fieldPassword
+    })
     history.push('/waiting')
   }
 

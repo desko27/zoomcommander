@@ -65,7 +65,11 @@ app.on('ready', async () => {
   ipcMain.once('main-window-ready', () => mainWindow.show())
 
   // listen to start meeting event
-  ipcMain.once('lobby-starts-meeting', () => {
+  ipcMain.once('lobby-starts-meeting', (event, data) => {
+    const { username, meetingID, meetingPassword } = data
+    global.zoomUsername = username
+    global.zoomMeetingID = meetingID
+    global.zoomMeetingPassword = meetingPassword
     startMeeting()
   })
 

@@ -33,9 +33,9 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
         })
 
         zoommeeting.JoinMeetingWithoutLogin({
-          meetingnum: process.env.ZOOM_MEETING_ID,
-          username: process.env.ZOOM_MEETING_USERNAME,
-          psw: process.env.ZOOM_MEETING_PASSWORD
+          meetingnum: global.zoomMeetingID,
+          username: global.zoomUsername,
+          psw: global.zoomMeetingPassword
         })
 
         const meeting = { commands }
