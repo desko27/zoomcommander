@@ -43,26 +43,29 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
       }
     })
 
-    // make jwt token from sdk key and secret
-    const timestampIssued = Math.floor(Date.now() / 1000) - 60 // ms -> s
-    const timestampExpires = timestampIssued + 86400 // 24h
-    const token = jwt.sign(
-      {
-        appKey: process.env.ZOOM_SDK_KEY,
-        iat: timestampIssued,
-        exp: timestampExpires,
-        tokenExp: timestampExpires
-      },
-      process.env.ZOOM_SDK_SECRET,
-      {
-        header: {
-          alg: 'HS256',
-          typ: 'JWT'
+    const makeJwtFromLocalSecrets = () => {
+      // make jwt token from sdk key and secret
+      const timestampIssued = Math.floor(Date.now() / 1000) - 60 // ms -> s
+      const timestampExpires = timestampIssued + 86400 // 24h
+      return jwt.sign(
+        {
+          appKey: process.env.ZOOM_SDK_KEY,
+          iat: timestampIssued,
+          exp: timestampExpires,
+          tokenExp: timestampExpires
+        },
+        process.env.ZOOM_SDK_SECRET,
+        {
+          header: {
+            alg: 'HS256',
+            typ: 'JWT'
+          }
         }
-      }
-    )
+      )
+    }
 
     // start everything by initializing sdk
+    const token = global.jwt || makeJwtFromLocalSecrets()
     zoomauth.AuthWithJwtToken(token)
   })
 

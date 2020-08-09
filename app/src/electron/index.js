@@ -3,6 +3,7 @@ const { windowManager } = require('node-window-manager')
 const path = require('path')
 const isDev = require('electron-is-dev')
 const settings = require('electron-settings')
+const fetch = require('node-fetch')
 
 const zoomMeetingControllerFactory = require('./zoom')
 
@@ -88,6 +89,15 @@ app.on('ready', async () => {
   // prepare meeting setup so it can be triggered if user moves forward
   async function startMeeting () {
     adaptMainWindowToMeeting(mainWindow)
+
+    // Download jwt token from firebase cloud function to proceed.
+    // NOTE: local ZOOM_SDK_KEY presence means that global.jwt will be undefined.
+    // @see `makeJwtFromLocalSecrets()`
+    if (!process.env.ZOOM_SDK_KEY) {
+      const FIREBASE_ENDPOINT = 'https://us-central1-zoomcommander.cloudfunctions.net/makeToken'
+      const firebaseResponse = await fetch(FIREBASE_ENDPOINT)
+      global.jwt = await firebaseResponse.text()
+    }
 
     // join zoom meeting
     const zoomMeeting = await zoomMeetingControllerFactory({
