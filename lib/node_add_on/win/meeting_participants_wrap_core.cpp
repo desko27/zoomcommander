@@ -116,7 +116,7 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel(userid);
 		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender(userid);
 		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts(userid);
-		// zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
+		zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
 	}
 
