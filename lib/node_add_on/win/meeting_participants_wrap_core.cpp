@@ -55,12 +55,12 @@ void ZMeetingParticipantsWrap::onHostChangeNotification(unsigned int userId)
 	if (m_pSink)
 		m_pSink->onHostChangeNotification(userId);
 }
-void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand)
+void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChanged(bool bLow, unsigned int userId)
 {
 	if (m_pSink)
-		m_pSink->onLowOrRaiseHandStatusChanged(!isRaisedHand, userId);
+		m_pSink->onLowOrRaiseHandStatusChange(userId, !bLow);
 }
-SDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
+ZNSDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
 {
 	ZOOM_SDK_NAMESPACE::SDKError sdk_err = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().LowerHand(userid);
 	ZNSDKError err = Map2WrapDefine(sdk_err);
@@ -116,6 +116,7 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel(userid);
 		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender(userid);
 		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts(userid);
+		// zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
 	}
 
