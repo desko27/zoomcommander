@@ -22,6 +22,7 @@ public:
 	bool IsInWaitingRoom(unsigned int userid);
 	bool IsRaiseHand(unsigned int userid);
 	ZNUserRole GetUserRole(unsigned int userid);
+	ZNAudioStatus GetAudioStatus(unsigned int userid);
 	bool IsPurePhoneUser(unsigned int userid);
 	ZoomSTRING GetAudioVoiceLevel(unsigned int userid);
 	bool IsClosedCaptionSender(unsigned int userid);
