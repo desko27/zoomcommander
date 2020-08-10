@@ -376,7 +376,11 @@ public:
 	}
 	virtual void onLowOrRaiseHandStatusChanged(bool bLow, unsigned int userid)
 	{
+		if (owner_) {
 
+			owner_->onLowOrRaiseHandStatusChange(userid, !bLow);
+
+		}
 	}
 	virtual void onUserNameChanged(unsigned int userId, const wchar_t* userName)
 	{

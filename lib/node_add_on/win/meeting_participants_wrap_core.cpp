@@ -55,10 +55,10 @@ void ZMeetingParticipantsWrap::onHostChangeNotification(unsigned int userId)
 	if (m_pSink)
 		m_pSink->onHostChangeNotification(userId);
 }
-void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChanged(bool bLow, unsigned int userId)
+void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand)
 {
 	if (m_pSink)
-		m_pSink->onLowOrRaiseHandStatusChange(userId, !bLow);
+		m_pSink->onLowOrRaiseHandStatusChange(userId, isRaisedHand);
 }
 ZNSDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
 {
