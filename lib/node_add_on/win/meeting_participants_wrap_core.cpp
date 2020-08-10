@@ -245,6 +245,10 @@ ZNUserRole ZUserInfoWrap::GetUserRole(unsigned int userid)
 {
 	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetUserRole() : ZOOM_SDK_NAMESPACE::USERROLE_NONE);
 }
+ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
+{
+	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetAudioStatus() : ZOOMSDK::Audio_None);
+}
 bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
 {
 	
