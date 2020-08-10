@@ -55,6 +55,24 @@ void ZMeetingParticipantsWrap::onHostChangeNotification(unsigned int userId)
 	if (m_pSink)
 		m_pSink->onHostChangeNotification(userId);
 }
+void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand)
+{
+	if (m_pSink)
+		m_pSink->onLowOrRaiseHandStatusChanged(!isRaisedHand, userId);
+}
+SDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
+{
+	ZOOM_SDK_NAMESPACE::SDKError sdk_err = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().LowerHand(userid);
+	ZNSDKError err = Map2WrapDefine(sdk_err);
+	return err;
+}
+ZNSDKError ZMeetingParticipantsWrap::LowerAllHands()
+{
+	ZOOM_SDK_NAMESPACE::SDKError sdk_err = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().LowerAllHands();
+	ZNSDKError err = Map2WrapDefine(sdk_err);
+	return err;
+
+}
 ZNList<unsigned int> ZMeetingParticipantsWrap::GetParticipantsList()
 {
 	ZNList<unsigned int> userId_list;
