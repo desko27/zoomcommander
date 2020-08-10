@@ -9,7 +9,6 @@ const ZOOMSDKMOD = require('../../../../lib/zoom_sdk.js')
 module.exports = function initSdk ({ app }) {
   // define sdk instance
   const sdk = ZOOMSDKMOD.ZoomSDK.getInstance({
-    path: './../sdk/mac/',
     apicallretcb: (apiname, ret) => {
       if (apiname !== 'CleanUPSDK') return
       app.quit()
