@@ -102,8 +102,6 @@ public:
 	/// \return The status of the specified user. For more details, see \link WebinarAttendeeStatus \endlink structure.
 	virtual WebinarAttendeeStatus* GetWebinarAttendeeStauts() = 0;
 
-	virtual IUserAudioStatus* GetAudioStatus() = 0;
-	
 	virtual ~IUserInfo(){};
 };
 

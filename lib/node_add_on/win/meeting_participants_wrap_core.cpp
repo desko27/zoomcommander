@@ -116,8 +116,11 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel(userid);
 		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender(userid);
 		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts(userid);
-		zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
+
+		// add AudioStatus
+		ZOOM_SDK_NAMESPACE::IUserAudioStatus* m_pUserAudioStatus = new IUserAudioStatus(m_user_info);
+		zn_UserInfomation.audioStatus = Map2WrapDefine(m_pUserAudioStatus->GetStatus())
 	}
 
 	return zn_UserInfomation;
@@ -244,12 +247,6 @@ bool ZUserInfoWrap::IsRaiseHand(unsigned int userid)
 ZNUserRole ZUserInfoWrap::GetUserRole(unsigned int userid)
 {
 	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetUserRole() : ZOOM_SDK_NAMESPACE::USERROLE_NONE);
-}
-ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
-{
-	ZOOM_SDK_NAMESPACE::IUserAudioStatus* userAudioStatus = m_pUserInfo->GetAudioStatus();
-	ZNAudioStatus audioStatus = Map2WrapDefine(userAudioStatus ? userAudioStatus->GetStatus() : ZOOMSDK::Audio_None);
-	return audioStatus;
 }
 bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
 {
