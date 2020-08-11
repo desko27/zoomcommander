@@ -116,12 +116,8 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel(userid);
 		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender(userid);
 		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts(userid);
+		zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
-
-		// add AudioStatus
-		// ZOOM_SDK_NAMESPACE::IUserAudioStatus* m_pUserAudioStatus = new ZOOM_SDK_NAMESPACE::IUserAudioStatus(m_user_info);
-		// zn_UserInfomation.audioStatus = Map2WrapDefine(ZOOM_SDK_NAMESPACE::IUserAudioStatus->GetStatus());
-		zn_UserInfomation.audioStatus = Map2WrapDefine(m_user_info.IsAudioMuted(userid) ? ZOOMSDK::Audio_Muted : ZOOMSDK::Audio_UnMuted);
 	}
 
 	return zn_UserInfomation;
@@ -212,6 +208,17 @@ bool ZUserInfoWrap::IsAudioMuted(unsigned int userid)
 ZNAudioType ZUserInfoWrap::GetAudioJoinType(unsigned int userid)
 {
 	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetAudioJoinType() : ZOOM_SDK_NAMESPACE::AUDIOTYPE_NONE);
+}
+ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
+{
+	// A workaround for:
+	// https://devforum.zoom.us/t/how-can-i-get-iuseraudiostatus-from-iuserinfo-in-c/26853
+	if (m_pUserInfo) {
+		ZOOM_SDK_NAMESPACE::AudioStatus audioStatusBasedOnIsAudioMuted = m_pUserInfo->IsAudioMuted() ? ZOOMSDK::Audio_Muted : ZOOMSDK::Audio_UnMuted;
+		ZOOM_SDK_NAMESPACE::AudioStatus deducedAudioStatus = m_pUserInfo->GetAudioJoinType() == ZOOM_SDK_NAMESPACE::AUDIOTYPE_NONE ? ZOOMSDK::Audio_Muted : audioStatusBasedOnIsAudioMuted;
+		return Map2WrapDefine(deducedAudioStatus);
+	}
+	return ZOOMSDK::Audio_Muted;
 }
 bool ZUserInfoWrap::IsMySelf(unsigned int userid)
 {
