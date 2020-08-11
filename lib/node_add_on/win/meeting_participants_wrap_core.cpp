@@ -119,8 +119,9 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
 
 		// add AudioStatus
-		ZOOM_SDK_NAMESPACE::IUserAudioStatus* m_pUserAudioStatus = new ZOOM_SDK_NAMESPACE::IUserAudioStatus(m_user_info);
-		zn_UserInfomation.audioStatus = Map2WrapDefine(m_pUserAudioStatus->GetStatus());
+		// ZOOM_SDK_NAMESPACE::IUserAudioStatus* m_pUserAudioStatus = new ZOOM_SDK_NAMESPACE::IUserAudioStatus(m_user_info);
+		// zn_UserInfomation.audioStatus = Map2WrapDefine(ZOOM_SDK_NAMESPACE::IUserAudioStatus->GetStatus());
+		zn_UserInfomation.audioStatus = Map2WrapDefine(m_user_info.IsAudioMuted(userid) ? ZOOMSDK::Audio_Muted : ZOOMSDK::Audio_UnMuted);
 	}
 
 	return zn_UserInfomation;
