@@ -218,7 +218,7 @@ ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
 		ZOOM_SDK_NAMESPACE::AudioStatus deducedAudioStatus = m_pUserInfo->GetAudioJoinType() == ZOOM_SDK_NAMESPACE::AUDIOTYPE_NONE ? ZOOMSDK::Audio_Muted : audioStatusBasedOnIsAudioMuted;
 		return Map2WrapDefine(deducedAudioStatus);
 	}
-	return ZOOMSDK::Audio_Muted;
+	return Map2WrapDefine(ZOOMSDK::Audio_Muted);
 }
 bool ZUserInfoWrap::IsMySelf(unsigned int userid)
 {
