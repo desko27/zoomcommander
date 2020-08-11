@@ -249,7 +249,7 @@ ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
 {
 	ZOOM_SDK_NAMESPACE::IUserAudioStatus* userAudioStatus = m_pUserInfo->GetAudioStatus();
 	ZNAudioStatus audioStatus = Map2WrapDefine(userAudioStatus ? userAudioStatus->GetStatus() : ZOOMSDK::Audio_None);
-	return audioStatus
+	return audioStatus;
 }
 bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
 {
