@@ -247,7 +247,9 @@ ZNUserRole ZUserInfoWrap::GetUserRole(unsigned int userid)
 }
 ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
 {
-	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetAudioStatus() : ZOOMSDK::Audio_None);
+	ZOOM_SDK_NAMESPACE::IUserAudioStatus* userAudioStatus = m_pUserInfo->GetAudioStatus();
+	ZNAudioStatus audioStatus = Map2WrapDefine(userAudioStatus ? userAudioStatus->GetStatus() : ZOOMSDK::Audio_None);
+	return audioStatus
 }
 bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
 {
