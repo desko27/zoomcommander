@@ -3,10 +3,13 @@ import KeyPressedContext from './context'
 
 import useWindowEvents from '../../hooks/useWindowEvents'
 
-const KEYCODE_OPTION = 18
+const navOs = navigator.platform.toLowerCase()
+const isMac = navOs.startsWith('mac')
+
+const KEYCODE_OPTION = isMac ? 18 : 226
 const KEYCODE_SHIFT = 16
-const KEYCODE_COMMAND_LEFT = 91
-const KEYCODE_COMMAND_RIGHT = 93
+const KEYCODE_COMMAND_LEFT = isMac ? 91 : 17
+const KEYCODE_COMMAND_RIGHT = isMac ? 93 : 17
 
 const KEYCODE_DICTIONARY = {
   [KEYCODE_OPTION]: 'option',
