@@ -13,6 +13,7 @@ const makeSetter = setter => {
 
 function LobbyRoute () {
   const history = useHistory()
+  const [hasUpdate, setHasUpdate] = useState() // eslint-disable-line
   const [fieldName, setFieldName] = useState('')
   const [fieldMeeting, setFieldMeeting] = useState('')
   const [fieldPassword, setFieldPassword] = useState('')
@@ -68,11 +69,23 @@ function LobbyRoute () {
         />
       </div>
       <div className={styles.bottomSection}>
-        <span className={styles.version}>
-          v1.0.0 beta
-        </span>
+        <div className={styles.versionColumn}>
+          <span className={styles.version}>
+            v1.0.0 beta
+          </span>
+          {hasUpdate ? (
+            <button
+              className={styles.updateButton}
+              onClick={() => {}}
+            >
+              🎁 ¡Novedades!
+            </button>
+          ) : (
+            <span className={styles.versionIsUpdated}>Estás actualizado</span>
+          )}
+        </div>
         <button
-          className={styles.bottomButton}
+          className={styles.goButton}
           disabled={!(fieldName && fieldMeeting)}
           type='submit'
         >

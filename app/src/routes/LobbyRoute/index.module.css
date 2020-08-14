@@ -22,10 +22,8 @@
   justify-content: space-between;
   align-items: flex-end;
 }
-.bottomSection .version {
-  opacity: 0.5;
-}
-.bottomSection .bottomButton {
+
+.bottomSection .goButton {
   border: 1px solid var(--c-primary);
   height: 32px;
   padding: 0 20px;
@@ -34,11 +32,40 @@
   color: var(--c-primary);
   font-size: 16px;
 }
-.bottomSection .bottomButton:hover:not([disabled]) {
+.bottomSection .goButton:hover:not([disabled]) {
   background: var(--c-primary);
   color: var(--c-black);
 }
-.bottomSection .bottomButton[disabled] {
+.bottomSection .goButton[disabled] {
   cursor: auto;
   opacity: 0.3;
+}
+
+.bottomSection .versionColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.bottomSection .version {
+  opacity: 0.5;
+}
+.bottomSection .versionIsUpdated {
+  margin-top: 3px;
+  font-size: 14px;
+  color: var(--c-primary);
+}
+.bottomSection .updateButton {
+  margin-top: 8px;
+  border: 1px solid var(--c-success);
+  padding: 3px 6px;
+  background: transparent;
+  border-radius: 4px;
+  color: var(--c-success);
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.bottomSection .updateButton:hover {
+  background: var(--c-success);
+  color: var(--c-black);
 }
