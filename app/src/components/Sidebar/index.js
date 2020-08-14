@@ -11,14 +11,19 @@ import styles from './index.module.css'
 
 const { ipcRenderer } = window.require('electron')
 
+const navOs = navigator.platform.toLowerCase()
+const isMac = navOs.startsWith('mac')
+
 function Sidebar ({ startMeeting }) {
   const handleStartShareClick = async () => {
     const mediaportalNotFound = () => window.alert('No se encuentra Mediaportal')
-    const mediaportalWindows = await ipcRenderer.invoke('request-windows-list', 'mediaportal.app')
+    const mediaportalApp = isMac ? 'mediaportal.app' : 'mediaportal.exe'
+    const mediaportalWindows = await ipcRenderer.invoke('request-windows-list', mediaportalApp)
     if (!(mediaportalWindows || {}).length) return mediaportalNotFound()
     const { id } = mediaportalWindows.find(({ title }) => title === 'Portal')
     if (!id) return mediaportalNotFound()
-    sendZoomCommand('startAppShare', `${id}`)
+    const prepareId = id => isMac ? id : id.toString(16) // windows needs hex
+    sendZoomCommand('startAppShare', `${prepareId(id)}`)
   }
 
   const handleStopShareClick = async () => {
