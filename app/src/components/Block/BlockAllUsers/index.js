@@ -47,7 +47,7 @@ const BlockAllUsers = ({
       isDroppable
       id={LIST_ID}
       flexBasis={70}
-      title={LIST_TITLE}
+      title={`${LIST_TITLE} / ${users.length}`}
       onSearchChange={e => setFilterString(e.target.value)}
       searchValue={filterString}
       searchReset={() => setFilterString()}
