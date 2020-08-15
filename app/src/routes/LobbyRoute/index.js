@@ -5,7 +5,9 @@ import Field from './Field'
 
 import styles from './index.module.css'
 
-const { ipcRenderer } = window.require('electron')
+const { ipcRenderer, shell } = window.require('electron')
+const openUrl = url => shell.openExternal(url)
+const performUpdate = () => openUrl('https://github.com/desko27/zoomcommander/releases/latest')
 
 const makeSetter = setter => {
   return e => setter(e.target.value)
@@ -76,7 +78,7 @@ function LobbyRoute () {
           {hasUpdate ? (
             <button
               className={styles.updateButton}
-              onClick={() => {}}
+              onClick={performUpdate}
             >
               🎁 ¡Novedades!
             </button>
