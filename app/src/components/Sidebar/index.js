@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import vex from 'vex-js'
 
 import sendZoomCommand from '../../common/sendZoomCommand'
 import useShortcuts from '../../hooks/useShortcuts'
@@ -15,15 +16,33 @@ const navOs = navigator.platform.toLowerCase()
 const isMac = navOs.startsWith('mac')
 
 function Sidebar ({ startMeeting }) {
+  const [appShare, setAppShare] = useState(isMac ? 'mediaportal.app' : 'mediaportal.exe')
+  const [windowShare, setWindowShare] = useState('Portal')
+
   const handleStartShareClick = async () => {
-    const mediaportalNotFound = () => window.alert('No se encuentra Mediaportal')
-    const mediaportalApp = isMac ? 'mediaportal.app' : 'mediaportal.exe'
-    const mediaportalWindows = await ipcRenderer.invoke('request-windows-list', mediaportalApp)
-    if (!(mediaportalWindows || {}).length) return mediaportalNotFound()
-    const { id } = mediaportalWindows.find(({ title }) => title === 'Portal')
-    if (!id) return mediaportalNotFound()
+    const appNotFound = () => window.alert(`No se encuentra '${appShare}'`)
+    const appWindows = await ipcRenderer.invoke('request-windows-list', appShare)
+    if (!(appWindows || {}).length) return appNotFound()
+    const { id } = windowShare
+      ? appWindows.find(({ title }) => title === windowShare)
+      : appWindows[0]
+    if (!id) return appNotFound()
     const prepareId = id => isMac ? id : id.toString(16) // windows needs hex
     sendZoomCommand('startAppShare', `${prepareId(id)}`)
+  }
+
+  const handleStartShareConfigClick = () => {
+    vex.dialog.prompt({
+      message: `¿Qué aplicación y ventana deben compartirse siempre? Introduce
+esta información en el siguiente formato: aplicación.exe/título de ventana`,
+      callback: value => {
+        if (value === false) return // cancel, original value is kept
+        const [app, windowTitle] = value.split('/')
+        setAppShare(app)
+        setWindowShare(windowTitle)
+      },
+      value: windowShare ? `${appShare}/${windowShare}` : appShare
+    })
   }
 
   const handleStopShareClick = async () => {
@@ -33,7 +52,7 @@ function Sidebar ({ startMeeting }) {
   useShortcuts({
     startAppShare: handleStartShareClick,
     stopShare: handleStopShareClick
-  })
+  }, [appShare, windowShare])
 
   return (
     <div className={styles.wrapper}>
@@ -49,6 +68,7 @@ function Sidebar ({ startMeeting }) {
           className={styles.button}
           style={{ background: 'var(--c-success)' }}
           onClick={handleStartShareClick}
+          onAuxClick={handleStartShareConfigClick}
         >
           <RadioIcon />
         </button>
@@ -60,7 +80,11 @@ function Sidebar ({ startMeeting }) {
           <RadioIcon />
         </button>
       </div>
-      <button className={styles.button} style={{ background: 'var(--c-error)' }}>
+      <button
+        className={styles.button}
+        style={{ background: 'var(--c-error)' }}
+        disabled
+      >
         <LogOutIcon />
       </button>
     </div>

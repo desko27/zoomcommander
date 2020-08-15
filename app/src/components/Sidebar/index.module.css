@@ -18,6 +18,13 @@
   align-items: center;
   justify-content: center;
 }
+.button:hover:not([disabled]) {
+  opacity: 0.7;
+}
+.button[disabled] {
+  opacity: 0.3;
+  cursor: auto;
+}
 .button + .button {
   margin-top: 15px;
 }

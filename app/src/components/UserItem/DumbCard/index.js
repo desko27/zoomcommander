@@ -1,16 +1,11 @@
 import React from 'react'
 import cx from 'classnames'
 import vex from 'vex-js'
-import vexDialog from 'vex-dialog'
 
 import sendZoomCommand from '../../../common/sendZoomCommand'
 import UserAction from '../UserAction'
 
 import styles from './index.module.css'
-
-// setup vex dialogs
-vex.registerPlugin(vexDialog)
-vex.defaultOptions.className = 'vex-theme-top'
 
 const UserItem = ({
   id,
