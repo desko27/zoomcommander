@@ -32,11 +32,14 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
           events
         })
 
-        zoommeeting.JoinMeetingWithoutLogin({
+        const joinMeetingResult = zoommeeting.JoinMeetingWithoutLogin({
           meetingnum: global.zoomMeetingID,
           username: global.zoomUsername,
           psw: global.zoomMeetingPassword
         })
+        if (joinMeetingResult !== 0) {
+          return reject(new Error('Error while joining, probably bad meeting id or password'))
+        }
 
         const meeting = { commands }
         resolve(meeting)

@@ -42,18 +42,9 @@ function adaptMainWindowToMeeting (window) {
   const WINDOW_HEIGHT = 500
   window.resizable = true
   window.fullscreenable = true
-  window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT)
   window.setMinimumSize(WINDOW_WIDTH, WINDOW_HEIGHT)
+  window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 }
-
-/* function revertMainWindowToLobby (window) {
-  const WINDOW_WIDTH = 292
-  const WINDOW_HEIGHT = 425
-  window.resizable = false
-  window.fullscreenable = false
-  window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT)
-  window.setMinimumSize(WINDOW_WIDTH, WINDOW_HEIGHT)
-} */
 
 app.on('ready', async () => {
   const mainWindow = createMainWindow()
@@ -62,18 +53,18 @@ app.on('ready', async () => {
   ipcMain.handle('get-setting', (e, setting) => settings.get(setting))
   ipcMain.handle('set-setting', (e, setting, data) => settings.set(setting, data))
 
-  /* function goBackToLobby () {
-    mainWindow.loadURL(getAppUrl('lobby'))
-    revertMainWindowToLobby(mainWindow)
-  } */
-
   // only show when react render is ready
   ipcMain.once('main-window-ready', () => {
     mainWindow.show()
   })
 
+  ipcMain.once('relaunch-app', () => {
+    app.relaunch()
+    app.exit()
+  })
+
   // listen to start meeting event
-  ipcMain.once('lobby-starts-meeting', (event, data) => {
+  ipcMain.on('lobby-starts-meeting', (event, data) => {
     // save lobby input as settings for next sessions
     settings.set('lobby', data)
 
@@ -92,24 +83,32 @@ app.on('ready', async () => {
     // Download jwt token from firebase cloud function to proceed.
     // NOTE: local ZOOM_SDK_KEY presence means that global.jwt will be undefined.
     // @see `makeJwtFromLocalSecrets()`
-    if (!process.env.ZOOM_SDK_KEY) {
+    if (!process.env.ZOOM_SDK_KEY && !global.jwt) {
       const FIREBASE_ENDPOINT = 'https://us-central1-zoomcommander.cloudfunctions.net/makeToken'
       const firebaseResponse = await fetch(FIREBASE_ENDPOINT)
       global.jwt = await firebaseResponse.text()
     }
 
     // join zoom meeting
-    const zoomMeeting = await zoomMeetingControllerFactory({
-      app,
-      events: {
-        onJoined: () => mainWindow.webContents.send('zoom-event', 'MEETING_JOINED'),
-        onUserJoined: user => mainWindow.webContents.send('zoom-event', 'USER_JOINED', user),
-        onUserLeft: user => mainWindow.webContents.send('zoom-event', 'USER_LEFT', user),
-        onUserAudioStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_AUDIO_STATUS_CHANGE', data),
-        onUserVideoStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_VIDEO_STATUS_CHANGE', data),
-        onLowOrRaiseHandStatusChanged: data => mainWindow.webContents.send('zoom-event', 'ON_LOW_OR_RAISE_HAND_STATUS_CHANGED', data)
+    const zoomMeeting = await makeZoomMeetingController()
+    async function makeZoomMeetingController () {
+      try {
+        const zoomMeeting = await zoomMeetingControllerFactory({
+          app,
+          events: {
+            onJoined: () => mainWindow.webContents.send('zoom-event', 'MEETING_JOINED'),
+            onUserJoined: user => mainWindow.webContents.send('zoom-event', 'USER_JOINED', user),
+            onUserLeft: user => mainWindow.webContents.send('zoom-event', 'USER_LEFT', user),
+            onUserAudioStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_AUDIO_STATUS_CHANGE', data),
+            onUserVideoStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_VIDEO_STATUS_CHANGE', data),
+            onLowOrRaiseHandStatusChanged: data => mainWindow.webContents.send('zoom-event', 'ON_LOW_OR_RAISE_HAND_STATUS_CHANGED', data)
+          }
+        })
+        return zoomMeeting
+      } catch (error) {
+        mainWindow.webContents.send('join-meeting-error')
       }
-    })
+    }
 
     // listen to zoom commands
     ipcMain.handle('zoom-command', (event, command, ...args) => {
