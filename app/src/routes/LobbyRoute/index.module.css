@@ -54,6 +54,9 @@
   font-size: 14px;
   color: var(--c-primary);
 }
+.bottomSection .versionIsUpdated.error {
+  color: var(--c-error);
+}
 .bottomSection .updateButton {
   margin-top: 8px;
   border: 1px solid var(--c-success);

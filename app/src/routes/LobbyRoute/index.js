@@ -1,8 +1,10 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import cx from 'classnames'
+
+import { version } from '../../../package.json'
 
 import Field from './Field'
-
 import styles from './index.module.css'
 
 const { ipcRenderer, shell } = window.require('electron')
@@ -15,10 +17,36 @@ const makeSetter = setter => {
 
 function LobbyRoute () {
   const history = useHistory()
-  const [hasUpdate, setHasUpdate] = useState() // eslint-disable-line
+  const [isUpdateAvailable, setIsUpdateAvailable] = useState()
+  const [errUpdateAvailable, setErrUpdateAvailable] = useState()
   const [fieldName, setFieldName] = useState('')
   const [fieldMeeting, setFieldMeeting] = useState('')
   const [fieldPassword, setFieldPassword] = useState('')
+
+  // check for updates once at startup
+  useEffect(() => {
+    const githubApiLatestReleaseUrl =
+      'https://api.github.com/repos/desko27/zoomcommander/releases/latest'
+    const headers = new window.Headers({ Accept: 'application/vnd.github.v3+json' })
+
+    window
+      .fetch(githubApiLatestReleaseUrl, headers)
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error(`GitHub API returned ${res.status} status code!`)
+        }
+        return res.json()
+      })
+      .then(latestRelease => {
+        const { tag_name: tagName } = latestRelease
+        if (tagName === `v${version}`) return // we're up to date!
+        setIsUpdateAvailable(true)
+      })
+      .catch(err => {
+        console.log(err)
+        setErrUpdateAvailable(true)
+      })
+  }, [])
 
   useEffect(() => {
     // load existing settings
@@ -73,9 +101,9 @@ function LobbyRoute () {
       <div className={styles.bottomSection}>
         <div className={styles.versionColumn}>
           <span className={styles.version}>
-            v1.0.0 beta
+            v{version} beta
           </span>
-          {hasUpdate ? (
+          {isUpdateAvailable ? (
             <button
               className={styles.updateButton}
               onClick={performUpdate}
@@ -83,7 +111,13 @@ function LobbyRoute () {
               🎁 ¡Novedades!
             </button>
           ) : (
-            <span className={styles.versionIsUpdated}>Estás actualizado</span>
+            !errUpdateAvailable
+              ? <span className={styles.versionIsUpdated}>Estás actualizado</span>
+              : (
+                <span className={cx(styles.versionIsUpdated, styles.error)}>
+                  Sin comprobar
+                </span>
+              )
           )}
         </div>
         <button
