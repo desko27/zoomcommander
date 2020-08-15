@@ -24,8 +24,8 @@ function Sidebar ({ startMeeting }) {
     const appWindows = await ipcRenderer.invoke('request-windows-list', appShare)
     if (!(appWindows || {}).length) return appNotFound()
     const { id } = windowShare
-      ? appWindows.find(({ title }) => title === windowShare)
-      : appWindows[0]
+      ? appWindows.find(({ title }) => title === windowShare) || {}
+      : appWindows[0] || {}
     if (!id) return appNotFound()
     const prepareId = id => isMac ? id : id.toString(16) // windows needs hex
     sendZoomCommand('startAppShare', `${prepareId(id)}`)
