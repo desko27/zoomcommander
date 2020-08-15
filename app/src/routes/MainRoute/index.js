@@ -103,6 +103,20 @@ const MainRoute = () => {
     userData
   ])
 
+  const resetUserData = () => {
+    // reset extra user id lists
+    setQueueUserIds([])
+    setPlatformUserIds([])
+    setCommentsHistoryUserIds([])
+
+    // reset extra user id slots
+    setChairmanUserId()
+    setCommentingUserId()
+
+    // reset inner user values
+    syncUserData({ reload: true })
+  }
+
   const targetSpeakerId = id => {
     // unmute target
     const currentUser = userData[id] || {}
@@ -250,6 +264,7 @@ const MainRoute = () => {
                 speakersColumnIds={speakersColumnIds}
                 setQueueUserIds={setQueueUserIds}
                 targetCommentingId={targetCommentingId}
+                resetUserData={resetUserData}
                 syncUserData={syncUserData}
               />
               <Block.AudioNow

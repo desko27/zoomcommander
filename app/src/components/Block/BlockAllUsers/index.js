@@ -18,6 +18,7 @@ const BlockAllUsers = ({
   speakersColumnIds,
   setQueueUserIds,
   targetCommentingId,
+  resetUserData,
   syncUserData
 }) => {
   const userActionsRef = useRef()
@@ -53,7 +54,7 @@ const BlockAllUsers = ({
       searchReset={() => setFilterString()}
       actionsNode={(
         <>
-          <button onClick={() => syncUserData({ reload: true })}>Reload</button>
+          <button onClick={() => resetUserData()}>Reset</button>
           <button onClick={() => syncUserData()}>Sync</button>
         </>
       )}
