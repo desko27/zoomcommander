@@ -4,9 +4,10 @@ import vex from 'vex-js'
 import sendZoomCommand from '../../common/sendZoomCommand'
 import useShortcuts from '../../hooks/useShortcuts'
 
-import { ReactComponent as RadioIcon } from './icons/radio.svg'
+import { ReactComponent as ColumnsIcon } from './icons/columns.svg'
 import { ReactComponent as LogInIcon } from './icons/log-in.svg'
 import { ReactComponent as LogOutIcon } from './icons/log-out.svg'
+import { ReactComponent as RadioIcon } from './icons/radio.svg'
 
 import styles from './index.module.css'
 
@@ -15,7 +16,7 @@ const { ipcRenderer } = window.require('electron')
 const navOs = navigator.platform.toLowerCase()
 const isMac = navOs.startsWith('mac')
 
-function Sidebar ({ startMeeting }) {
+function Sidebar ({ startMeeting, toggleHostBlock }) {
   const [appShare, setAppShare] = useState(isMac ? 'mediaportal.app' : 'mediaportal.exe')
   const [windowShare, setWindowShare] = useState('Portal')
 
@@ -56,13 +57,22 @@ esta información en el siguiente formato: aplicación.exe/título de ventana`,
 
   return (
     <div className={styles.wrapper}>
-      <button
-        className={styles.button}
-        style={{ background: 'var(--c-primary)' }}
-        onClick={startMeeting}
-      >
-        <LogInIcon />
-      </button>
+      <div>
+        <button
+          className={styles.button}
+          style={{ background: 'var(--c-primary)' }}
+          onClick={startMeeting}
+        >
+          <LogInIcon />
+        </button>
+        <button
+          className={styles.button}
+          style={{ background: 'var(--c-error)' }}
+          onClick={toggleHostBlock}
+        >
+          <ColumnsIcon />
+        </button>
+      </div>
       <div>
         <button
           className={styles.button}

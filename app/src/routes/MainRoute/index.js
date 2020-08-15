@@ -18,6 +18,7 @@ const limiter = new Bottleneck({ minTime: 500 })
 
 const MainRoute = () => {
   const [settingMuteSpontaneousPeople, setSettingMuteSpontaneousPeople] = useState()
+  const [isHostsBlockVisible, setIsHostsBlockVisible] = useState()
   const { userIds, userData, updateUserData, syncUserData } = useUsers()
 
   // have an always updated version of syncUserData for timeouts
@@ -302,18 +303,22 @@ const MainRoute = () => {
                 commentsHistoryUserIds={commentsHistoryUserIds}
               />
             </LayoutColumn>
-            {/* <LayoutColumn>
-          <Block.Hosts
-            userIds={userIds}
-            userData={userData}
-            updateUserData={updateUserData}
-            targetCommentingId={targetCommentingId}
-          />
-        </LayoutColumn> */}
+            {isHostsBlockVisible &&
+              <LayoutColumn>
+                <Block.Hosts
+                  userIds={userIds}
+                  userData={userData}
+                  updateUserData={updateUserData}
+                  targetCommentingId={targetCommentingId}
+                />
+              </LayoutColumn>}
           </div>
         </DragDropContext>
       </KeyPressedProvider>
-      <Sidebar startMeeting={startMeeting} />
+      <Sidebar
+        startMeeting={startMeeting}
+        toggleHostBlock={() => setIsHostsBlockVisible(prev => !prev)}
+      />
     </div>
   )
 }
