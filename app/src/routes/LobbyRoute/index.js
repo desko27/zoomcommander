@@ -50,16 +50,15 @@ function LobbyRoute () {
 
   useEffect(() => {
     // load existing settings
-    const lobbySettingsListener = (event, payload = {}) => {
-      const { username, meetingID, meetingPassword } = payload
+    const loadLobbySettings = async () => {
+      const lobbySettings = await ipcRenderer.invoke('get-setting', 'lobby')
+      const { username, meetingID, meetingPassword } = lobbySettings
       if (username) setFieldName(username)
       if (meetingID) setFieldMeeting(meetingID)
       if (meetingPassword) setFieldPassword(meetingPassword)
     }
-    ipcRenderer.on('load-lobby-settings', lobbySettingsListener)
-    return () => {
-      ipcRenderer.removeListener('load-lobby-settings', lobbySettingsListener)
-    }
+    // call async func
+    loadLobbySettings()
   }, [])
 
   useLayoutEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import vex from 'vex-js'
 
 import sendZoomCommand from '../../common/sendZoomCommand'
@@ -19,6 +19,19 @@ const isMac = navOs.startsWith('mac')
 function Sidebar ({ startMeeting, toggleHostBlock }) {
   const [appShare, setAppShare] = useState(isMac ? 'mediaportal.app' : 'mediaportal.exe')
   const [windowShare, setWindowShare] = useState('Portal')
+
+  useEffect(() => {
+    // load existing setting for appShare
+    const loadAppShareSetting = async () => {
+      const sharingSetting = await ipcRenderer.invoke('get-setting', 'sharing')
+      if (!sharingSetting) return
+      const { app, windowTitle } = sharingSetting
+      setAppShare(app)
+      setWindowShare(windowTitle)
+    }
+    // call async func
+    loadAppShareSetting()
+  }, [])
 
   const handleStartShareClick = async () => {
     const appNotFound = () => window.alert(`No se encuentra '${appShare}'`)
@@ -41,6 +54,7 @@ esta información en el siguiente formato: aplicación.exe/título de ventana`,
         const [app, windowTitle] = value.split('/')
         setAppShare(app)
         setWindowShare(windowTitle)
+        ipcRenderer.invoke('set-setting', 'sharing', { app, windowTitle })
       },
       value: windowShare ? `${appShare}/${windowShare}` : appShare
     })

@@ -58,6 +58,10 @@ function adaptMainWindowToMeeting (window) {
 app.on('ready', async () => {
   const mainWindow = createMainWindow()
 
+  // handle settings
+  ipcMain.handle('get-setting', (e, setting) => settings.get(setting))
+  ipcMain.handle('set-setting', (e, setting, data) => settings.set(setting, data))
+
   /* function goBackToLobby () {
     mainWindow.loadURL(getAppUrl('lobby'))
     revertMainWindowToLobby(mainWindow)
@@ -66,11 +70,6 @@ app.on('ready', async () => {
   // only show when react render is ready
   ipcMain.once('main-window-ready', () => {
     mainWindow.show()
-
-    // load previously saved lobby input
-    settings.get('lobby').then(lobbySettings => {
-      mainWindow.webContents.send('load-lobby-settings', lobbySettings)
-    })
   })
 
   // listen to start meeting event
