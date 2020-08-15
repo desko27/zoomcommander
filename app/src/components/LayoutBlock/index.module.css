@@ -24,13 +24,15 @@
   letter-spacing: 0.88;
   font-weight: 700;
   margin-right: 12px;
+  min-width: 40px;
 
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .actions {
-  flex-shrink: 0;
+  display: flex;
+  min-width: 0;
 }
 .actions button {
   font-size: 12px;
@@ -38,6 +40,10 @@
   border-radius: 2px;
   color: var(--local-color);
   background: transparent;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .actions button:hover {
   border-color: transparent;

@@ -38,8 +38,8 @@ function createMainWindow () {
 }
 
 function adaptMainWindowToMeeting (window) {
-  const WINDOW_WIDTH = 730
-  const WINDOW_HEIGHT = 460
+  const WINDOW_WIDTH = 820
+  const WINDOW_HEIGHT = 500
   window.resizable = true
   window.fullscreenable = true
   window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT)
