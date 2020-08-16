@@ -120,7 +120,7 @@ app.on('ready', async () => {
       const windowsList = windowManager.getWindows()
       const foundWindows = windowsList.filter(({ path }) => path.includes(queryString))
       const foundWindowsWithTitle =
-      foundWindows.map(window => ({ id: window.id, title: window.getTitle() }))
+      foundWindows.map(window => ({ path: window.path, id: window.id, title: window.getTitle() }))
       return foundWindowsWithTitle
     })
 
