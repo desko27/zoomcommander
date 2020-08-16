@@ -8,7 +8,7 @@
     "react-start": "react-app-rewired start",
     "react-build": "react-app-rewired build",
     "react-eject": "react-scripts eject",
-    "electron-build": "electron-builder --mac",
+    "electron-build": "electron-builder --win",
     "build": "npm run react-build && npm run electron-build",
     "start": "env-cmd concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
     "lint": "npx standard",
