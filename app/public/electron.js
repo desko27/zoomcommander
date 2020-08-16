@@ -18,7 +18,7 @@ function getAppUrl (route) {
 
 function createMainWindow () {
   const WINDOW_WIDTH = 292
-  const WINDOW_HEIGHT = 425
+  const WINDOW_HEIGHT = 460
   const window = new BrowserWindow({
     title: 'Zoom Commander',
     width: WINDOW_WIDTH,
