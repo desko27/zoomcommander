@@ -1,20 +1,21 @@
 const path = require('path')
-const electronInstaller = require('electron-winstaller')
+const { MSICreator } = require('electron-wix-msi')
 
 const { version } = require('../package.json')
 
-const absPath = relativePath => path.join(__dirname, relativePath)
+const msiCreator = new MSICreator({
+  appDirectory: path.resolve(__dirname, '../OutAppWin32/zoomcommander-win32-ia32'),
+  outputDirectory: path.resolve(__dirname, '../OutAppWin32Installer'),
+  description: 'Zoom Commander',
+  exe: 'zoomcommander',
+  name: 'ZoomCommander',
+  manufacturer: 'Desko27',
+  version,
+  appIconPath: path.resolve(__dirname, '../public/icon.ico')
+})
 
-async function genWinInstaller () {
-  return electronInstaller.createWindowsInstaller({
-    appDirectory: absPath('../OutAppWin32/zoomcommander-win32-ia32'),
-    outputDirectory: absPath('../OutAppWin32Installer'),
-    authors: 'Desko27',
-    exe: 'zoomcommander.exe',
-    setupIcon: absPath('../public/icon.ico'),
-    setupExe: `ZoomCommander-Setup-v${version}.exe`,
-    setupMsi: `ZoomCommander-Setup-v${version}.msi`
-  })
-}
-
-genWinInstaller().then(() => console.log('Done!'))
+// 4. Create a .wxs template file
+msiCreator.create().then(function () {
+  // Step 5: Compile the template to a .msi file
+  msiCreator.compile()
+})
