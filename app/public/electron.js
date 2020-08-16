@@ -5,7 +5,7 @@ const isDev = require('electron-is-dev')
 const settings = require('electron-settings')
 const fetch = require('node-fetch')
 
-const zoomMeetingControllerFactory = require('./zoom')
+const zoomMeetingControllerFactory = require('../src/electron/zoom')
 
 // remove browser's menu bar for production env
 if (!isDev) Menu.setApplicationMenu(false)
