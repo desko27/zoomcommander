@@ -9,7 +9,7 @@
     "react-build": "react-app-rewired build",
     "react-eject": "react-scripts eject",
     "copy-global-electron": "cp -r /c/Users/ismael.ramon/AppData/Roaming/npm/node_modules/electron ./node_modules/electron",
-    "packager-win": "npm run react-build && electron-packager ./ zoomcommander --platform=win32 --arch=ia32 --out ./OutAppWin32 --electron-version=8.2.0 --overwrite --icon=./public/icon.png && cp -r ../lib ./OutAppWin32/zoomcommander-win32-ia32/resources/lib && mkdir .\\OutAppWin32\\zoomcommander-win32-ia32\\resources\\sdk && cp -r ../sdk/win32 ./OutAppWin32/zoomcommander-win32-ia32/resources/sdk/win32",
+    "packager-win": "npm run react-build && electron-packager ./ zoomcommander --platform=win32 --arch=ia32 --out ./OutAppWin32 --electron-version=8.2.0 --overwrite --icon=./public/icon.ico && cp -r ../lib ./OutAppWin32/zoomcommander-win32-ia32/resources/lib && mkdir .\\OutAppWin32\\zoomcommander-win32-ia32\\resources\\sdk && cp -r ../sdk/win32 ./OutAppWin32/zoomcommander-win32-ia32/resources/sdk/win32",
     "electron-build": "electron-builder --win",
     "build": "npm run react-build && npm run electron-build",
     "start": "env-cmd concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
