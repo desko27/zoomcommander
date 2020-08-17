@@ -158,7 +158,7 @@ No es indispensable pero puede venir bien, en especial si hay anfitriones o co-a
 
 Este botón comparte de inmediato una ventana configurada por adelantado. Esto es útil puesto que generalmente siempre se comparte el mismo programa y no tiene sentido pasar por las opciones que por las que te obliga a pasar la interfaz original de Zoom.
 
-Viene preconfigurado para que comparta [el Portal de Media Portal](https://github.com/desko27/mediaportal/blob/master/README.es.md), pero si no usas Media Portal, puedes cambiar la ventana destino haciendo click derecho sobre el botón. La configuración que apliques se guardará y mantendrá en futuras sesiones de Zoom Commander.
+Viene preconfigurado para que comparta [el Portal de Media Portal](https://github.com/desko27/mediaportal/blob/master/README.es.md), pero si no usas Media Portal, puedes cambiar la ventana destino haciendo click derecho sobre el botón. La configuración que apliques se guardará y mantendrá en futuras sesiones de Zoom Commander. Por ejemplo, para usar JW Library puedes introducir `ApplicationFrameHost.exe/JW Library` en la configuración.
 
 ## Dejar de compartir
 
