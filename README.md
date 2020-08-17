@@ -156,6 +156,8 @@ No es indispensable pero puede venir bien, en especial si hay anfitriones o co-a
 **Atajo de teclado** &nbsp;
 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>
 
+**Importante: para poder compartir vídeos CON AUDIO, deberás compartir pantalla desde la interfaz original de Zoom AL MENOS UNA VEZ POR REUNIÓN marcando la casilla "compartir sonido del ordenador".** Puedes hacer esto antes de que empiece la reunión, de esta manera durante la reunión podrás usar este botón (o atajo de teclado) para compartir tanto imágenes como vídeos, y Zoom recordará que debe compartir el sonido todas las veces.
+
 Este botón comparte de inmediato una ventana configurada por adelantado. Esto es útil puesto que generalmente siempre se comparte el mismo programa y no tiene sentido pasar por las opciones que por las que te obliga a pasar la interfaz original de Zoom.
 
 Viene preconfigurado para que comparta [el Portal de Media Portal](https://github.com/desko27/mediaportal/blob/master/README.es.md), pero si no usas Media Portal, puedes cambiar la ventana destino haciendo click derecho sobre el botón. La configuración que apliques se guardará y mantendrá en futuras sesiones de Zoom Commander. Por ejemplo, para usar JW Library puedes introducir `ApplicationFrameHost.exe/JW Library` en la configuración.
