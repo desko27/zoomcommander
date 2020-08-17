@@ -96,7 +96,7 @@ Si arrastras un usuario de vuelta a *Todos* lo sacarás de *Cola*. Además, tamb
 
 ## Los bloques *Plataforma* y *Presidente*
 
-Se explican por sí mismos.
+Lo interesante de estos bloques, unificados por el color amarillo, es que al hacer click sobre un usuario se le dará audio y se silenciarán automáticamente los demás. Esto conviene para, por ejemplo, dar paso al *Presidente* de un solo click, sin tener que preocuparnos por silenciar manualmente a quien tuviera la parte anterior. Es igual de conveniente para alternar el audio entre diferentes participantes de *Plataforma*, sin importar el número.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90340876-5d1a2000-dffb-11ea-9bbb-09435266a51f.png">
 
