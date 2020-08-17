@@ -72,7 +72,7 @@ No hay acciones adicionales.
 
 ### Botones
 
-<kbd>Activar escudo</kbd> activa un escudo "anti-expontáneos" que silencia automática e inmediatamente a cualquier usuario que reciba audio ilegítimamente (un anfitrión despistado, alguien que acepta el audio más tarde, etc), de modo que no le dará tiempo a interrumpir. Esto funciona gracias a que los usuarios considerados legítimos son los que se encuentran en *Presidente*, *Plataforma* o *Comentando*, el resto son ilegítimos. Durante el tiempo que el escudo permanezca activo, el botón se verá en verde. Haz click de nuevo para desactivarlo.
+<kbd>Activar escudo</kbd> **Aviso: NO LO ACTIVES si no vas a gestionar activamente los bloques *Presidente*, *Plataforma* y *Comentando* durante la reunión, porque con el escudo activado SOLO los participantes que estén en esos bloques podrán recibir audio, nadie más.** Este botón activa un escudo "anti-expontáneos" que silencia automática e inmediatamente a cualquier usuario que reciba audio ilegítimamente (un anfitrión despistado, alguien que acepta el audio más tarde, etc), de modo que no le dará tiempo a interrumpir. Esto funciona gracias a que los usuarios considerados legítimos son los que se encuentran en *Presidente*, *Plataforma* o *Comentando*, el resto son ilegítimos. Durante el tiempo que el escudo permanezca activo, el botón se verá en verde. Haz click de nuevo para desactivarlo. 
 
 <kbd>Mutear todos</kbd> silencia a todos los usuarios, y además habilita las opciones pertinentes para que nadie tenga permiso para quitarse el silencio (ni participantes actuales ni los que se unan después). Tiene sentido usarlo al empezar la reunión, aunque para eso hay otro botón en la barra lateral que hace esto y algunas cosas más.
 
@@ -175,6 +175,9 @@ Al kit de desarrollo Electron Zoom SDK le faltan una serie de funcionalidades qu
 
 ## Silenciar a todos
 Si silencias a todos mediante Zoom Commander, todo bien, pero si otro anfitrión hace "silenciar a todos" no lo veremos reflejado en el estado de los participantes dentro de Zoom Commander, o al menos no automáticamente. Si eso ocurre, basta con hacer click al botón <kbd>Sync</kbd> del bloque *Todos*, esto actualizará el estado local de todos los participantes con el estado real de la interfaz original de Zoom. En general, esto no será un problema, porque nadie más que la persona que esté usando Zoom Commander debería lanzar un "silenciar a todos".
+
+## Bajar todas las manos
+De manera similar a lo anterior, si bajas todas las manos mediante Zoom Commander (botón <kbd>Limpiar</kbd>), todo bien, pero si otro anfitrión "baja las manos" no lo veremos reflejado en la columna de *Comentarios* de Zoom Commander. En general esto tampoco será un problema, porque nadie más que la persona que esté usando Zoom Commander debería "bajar todas las manos".
 
 ## Uso de las reacciones para comentar
 Como los anfitriones no tenemos "levantar la mano", algunos usamos las reacciones (por ej. aplauso) para conseguir un efecto similar. Zoom SDK no ofrece manera de conocer si alguien ha lanzado una reacción, así que en el bloque *Comentarios* no veremos a los anfitriones que hagan esto. Como medida de ayuda, podemos tener abierta la columna de anfitriones (o hosts) ya que son los únicos que hacen esto y probablemente sea más rápido identificarlos allí de un golpe de vista que irlos a buscar por nombre al bloque *Todos*, aunque tampoco pasa nada por hacerlo de esa otra manera.
