@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-⚡️ Simplifica tu gestión &nbsp;|&nbsp; <a href="https://github.com/desko27/zoomcommander/releases/latest">⏬ Descargar Zoom Commander</a>
+🖥🎤 <strong>Ayuda práctica para gestionar el audio y compartir pantalla</strong><br><a href="https://github.com/desko27/zoomcommander/releases/latest">⏬ Descargar ahora</a>
 </p>
 
 Zoom Commander es un panel que se abre junto a Zoom, ofreciendo funciones que simplifican la gestión de un modelo de reuniones muy específico —en el cual exite un rol de presidente, una plataforma o tarima donde se van sucediendo diferentes participaciones al estilo conferencia y un auditorio que levanta la mano para ofrecer comentarios— donde toda transición de audio está orquestrada por un encargado (es decir, tú) que silencia y des-silencia según sea necesario, comparte pantalla, etc.
