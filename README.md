@@ -8,15 +8,31 @@
 🖥🎤 <strong>Ayuda práctica para gestionar el audio y compartir pantalla</strong><br><a href="https://github.com/desko27/zoomcommander/releases/latest">⏬ Descargar ahora</a>
 </p>
 
-Zoom Commander es un panel que se abre junto a Zoom, ofreciendo funciones que simplifican la gestión de un modelo de reuniones muy específico —en el cual exite un rol de presidente, una plataforma o tarima donde se van sucediendo diferentes participaciones al estilo conferencia y un auditorio que levanta la mano para ofrecer comentarios— donde toda transición de audio está orquestrada por un encargado (es decir, tú) que silencia y des-silencia según sea necesario, comparte pantalla, etc.
-
-Por favor, si el tipo de reuniones que tienes a través de Zoom no se parecen a esto, no uses Zoom Commander, pues no está diseñado para ofrecer otro tipo de solución.
+<p align="center">
+🛎 Un solo click para todo — ¡en serio!
+<br>💡 Visión clara de la situación
+<br>🤚 Arrastra participantes
+<br>🔍 Búsqueda flexible
+<br>✏️ Añade tus notas
+<br>... y más
+</p>
 
 ![Zoom Commander](https://user-images.githubusercontent.com/4168389/90339412-e415cb00-dff0-11ea-9729-ddace3ede88f.png)
 
+# Qué es Zoom Commander
+
+Con Zoom Commander podrás unirte a una reunión de Zoom y disponer de dos ventanas diferentes funcionando al mismo tiempo:
+
+- El programa original de Zoom.
+- Un panel de control adicional (imagen anterior).
+
+En dicho panel de control dispondrás de funciones que simplifican la gestión de un modelo de reuniones muy específico —en el cual existe un rol de presidente, una plataforma o tarima donde se van sucediendo diferentes participaciones al estilo conferencia y un auditorio que levanta la mano para ofrecer comentarios— donde toda transición de audio está orquestrada por un encargado (es decir, tú) que silencia y des-silencia según sea necesario, comparte pantalla, etc.
+
+Por favor, si el tipo de reuniones que tienes a través de Zoom no se parecen a esto, no uses Zoom Commander, pues no está diseñado para ofrecer otro tipo de solución.
+
 Cabe aclarar que el kit de desarrollo en el que se basa (Electron Zoom SDK) impone una serie de limitaciones que no es posible solucionar ahora mismo. Esto no impide que Zoom Commander sea de ayuda, pero al final del documento las podrás encontrar.
 
-# Divisón del panel
+# Cómo funciona cada bloque
 
 ## El bloque *Todos*
 
@@ -129,7 +145,7 @@ En el bloque *Comentarios* (el de abajo) aparecerán todos los participantes que
 
 <kbd>Historial</kbd> Cambia la vista del bloque al historial de manos levantadas. Esto puede ayudar si hemos bajado las manos por error y necesitamos dar comentario a alguien que la tenía levantada.
 
-# Barra lateral
+# Cómo funciona la barra lateral
 
 ## Empezar la reunión
 
@@ -171,7 +187,7 @@ Viene preconfigurado para que comparta [el Portal de Media Portal](https://githu
 
 Deja de compartir pantalla. No hace nada diferente que el botón original de Zoom, salvo por el hecho de disponer de un nuevo atajo de teclado (que coincide con uno de Media Portal expresamente, para dejar de mostrar la imagen o vídeo en el portal).
 
-# Limitaciones
+# Limitaciones conocidas
 
 Al kit de desarrollo Electron Zoom SDK le faltan una serie de funcionalidades que imponen unas limitaciones en Zoom Commander:
 
