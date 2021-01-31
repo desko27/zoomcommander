@@ -106,6 +106,7 @@ app.on('ready', async () => {
         })
         return zoomMeeting
       } catch (error) {
+        console.error(error) // keep this so we can see stuff in the console
         mainWindow.webContents.send('join-meeting-error')
       }
     }
