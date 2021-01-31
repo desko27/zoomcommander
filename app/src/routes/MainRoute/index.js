@@ -331,7 +331,7 @@ const MainRoute = () => {
       </KeyPressedProvider>
       <Sidebar
         startMeeting={startMeeting}
-        toggleHostBlock={() => setIsHostsBlockVisible(prev => !prev)}
+        toggleHostsBlock={() => setIsHostsBlockVisible(prev => !prev)}
       />
     </div>
   )
