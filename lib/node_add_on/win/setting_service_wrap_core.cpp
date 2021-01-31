@@ -52,6 +52,10 @@ ZSettingAccessibilityWrap& ZSettingServiceWrap::GetSettingAccessibilityCtrl()
 {
 	return m_setting_accessibility_ctrl;
 }
+ZSettingShareWrap& ZSettingServiceWrap::GetSettingShareCtrl()
+{
+	return m_setting_share_ctrl;
+}
 ////////////////////////////////////////////////////////////////////////////////////
 ZNSDKError ZSettingServiceWrap::ShowSettingDlg(ZNShowSettingDlgParam param)
 {

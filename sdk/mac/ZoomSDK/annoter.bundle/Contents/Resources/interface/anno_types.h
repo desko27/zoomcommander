@@ -10,6 +10,9 @@
 #ifndef __ANNO_TYPES_H__
 #define __ANNO_TYPES_H__
 
+#include <vector>
+#include <string>
+
 // ----------------------------------------------------------------------------
 // Define macro switches for decroration
 // ----------------------------------------------------------------------------
@@ -109,6 +112,10 @@
     #define INT_MAX		0xffffffff
 #endif
 
+#ifndef DOUBLE64_EPSILON
+    #define DOUBLE64_EPSILON    2.2204460492503131E-16
+#endif
+
 #ifndef AnnoWnd
   typedef void *AnnoWnd;	// handle
 #endif
@@ -145,77 +152,139 @@
   #endif
 #endif
 
+#define AnnoFloatEqual(f1, f2) ( (f1) > (f2) ? ((f1) - (f2)) < 1E-6: ((f2) - (f1)) < 1E-6 )
+
 typedef struct tagAnnoPoint
 {
-	Int32	x;
-	Int32	y;
-	bool operator < (const tagAnnoPoint& point) const
-	{
-		return this->x < point.x || ((this->x == point.x) && this->y < point.y);
-	}
+    Int32	x;
+    Int32	y;
 
-	bool IsEmpty()
-	{
-        return (x == INT_MAX) || (y == INT_MAX) ;
-	}
+    bool operator== (const tagAnnoPoint& point) const
+    {
+        return (x == point.x) && (y == point.y);
+    }
+    
+    bool operator!= (const tagAnnoPoint& point) const
+    {
+        return (x != point.x) || (y != point.y);
+    }
 
+    bool operator< (const tagAnnoPoint& point) const
+    {
+        return x < point.x || ((x == point.x) && y < point.y);
+    }
 } AnnoPoint;
+
+typedef AnnoPoint AnnoOffset;
 
 typedef struct tagAnnoPointF
 {
-	Float32   x;
-	Float32   y;
-	tagAnnoPointF(Float32 __x, Float32 __y)
-	{
-		x = __x;
-		y = __y;
-	}
+    Float32   x;
+    Float32   y;
 
-	tagAnnoPointF()
-	{
-		x = (Float32) 0xffffffff;
-		y = (Float32) 0xffffffff;
-	}
+    tagAnnoPointF()
+    {
+        x = y = 0.0f;
+    }
+
+    tagAnnoPointF(Float32 __x, Float32 __y)
+    {
+        x = __x;
+        y = __y;
+    }
+
+    bool operator== (const tagAnnoPointF& pointF) const
+    {
+        return AnnoFloatEqual(x, pointF.x) && AnnoFloatEqual(y, pointF.y);
+    }
+    
+    bool operator!= (const tagAnnoPointF& pointF) const
+    {
+        return !AnnoFloatEqual(x, pointF.x) || !AnnoFloatEqual(y, pointF.y);
+    }
+
+    bool operator< (const tagAnnoPointF& pointF) const
+    {
+        return x < pointF.x || (AnnoFloatEqual(x, pointF.x) && y < pointF.y);
+    }
 } AnnoPointF;
+
+typedef AnnoPointF AnnoOffsetF;
 
 typedef struct tagAnnoSize
 {
     Int32        width;
     Int32        height;
+
+    bool IsEmpty() const
+    {
+        return (0 >= width) || (0 >= height);
+    }
+
+    bool operator== (const tagAnnoSize& size) const
+    {
+        return (width == size.width) && (height == size.height);
+    }
+    
+    bool operator!= (const tagAnnoSize& size) const
+    {
+        return (width != size.width) || (height != size.height);
+    }
 } AnnoSize;
 
 typedef struct tagAnnoSizeF
 {
-	Float32   width;
-	Float32   height;
+    Float32   width;
+    Float32   height;
+
+    bool IsEmpty() const
+    {
+        return (0 > width) || (0 > height);
+    }
+
+    bool operator== (const tagAnnoSizeF& sizeF) const
+    {
+        return AnnoFloatEqual(width, sizeF.width) && AnnoFloatEqual(height, sizeF.height);
+    }
+    
+    bool operator!= (const tagAnnoSizeF& sizeF) const
+    {
+        return !AnnoFloatEqual(width, sizeF.width) || !AnnoFloatEqual(height, sizeF.height);
+    }
 } AnnoSizeF;
-
-typedef struct tagAnnoOffset
-{
-    Int32        x;
-    Int32        y;
-} AnnoOffset;
-
-#define AnnoOffsetEqual(o1, o2) ((o1.x == o2.x) && (o1.y == o2.y))
-
-#define AnnoFloatEqual(f1, f2) ( (f1) >= (f2) ? ((f1) - (f2)) <= 1E-6: ((f2) - (f1)) <= 1E-6 )
 
 typedef struct tagAnnoRect
 {
-	Int32		left;
-	Int32		top;
-	Int32		right;
-	Int32		bottom;
+    Int32		left;
+    Int32		top;
+    Int32		right;
+    Int32		bottom;
 
-	bool IsEmpty()
-	{
-		if(left == 0 && top == 0 && right == 0 && bottom == 0)
-			return true;
-		return false;
-	}
+    Int32 Width() const
+    {
+        return right - left;
+    }
+
+    Int32 Height() const
+    {
+        return bottom - top;
+    }
+	
+    bool IsEmpty() const
+    {
+        return (left >= right) || (top >= bottom);
+    }
+
+    bool operator== (const tagAnnoRect& rect) const
+    {
+        return (left == rect.left) && (top == rect.top) && (right == rect.right) && (bottom == rect.bottom);
+    }
+    
+    bool operator!= (const tagAnnoRect& rect) const
+    {
+        return (left != rect.left) || (top != rect.top) || (right != rect.right) || (bottom != rect.bottom);
+    }
 } AnnoRect;
-
-#define AnnoRectEqual(r1, r2) ((r1.left == r2.left) && (r1.top == r2.top) && (r1.right == r2.right) && (r1.bottom == r2.bottom))
 
 typedef struct tagAnnoRectF
 {
@@ -225,47 +294,66 @@ typedef struct tagAnnoRectF
     Float32        bottom;
 
     tagAnnoRectF()
-        :left(0)
-        ,top(0)
-        ,right(0)
-        ,bottom(0)
+        : left(0)
+        , top(0)
+        , right(0)
+        , bottom(0)
     {
     }
-    tagAnnoRectF(Float32 left, Float32 top, Float32 width, Float32 height)
+	
+    tagAnnoRectF(Float32 __left, Float32 __top, Float32 __right, Float32 __bottom)
+        : left(__left)
+        , top(__top)
+        , right(__right)
+        , bottom(__bottom)
     {
-        this->left = left;
-        this->top = top;
-        this->right = left + width;
-        this->bottom = top + height;
     }
+	
+    AnnoPointF Origin() const
+    {
+        return AnnoPointF(left, top);
+    }
+
     Float32 Width() const
     {
         return right - left;
     }
+	
     Float32 Height() const
     {
-        return bottom - left;
+        return bottom - top;
     }
-    bool IsEmpty()
+	
+    bool operator== (const tagAnnoRectF& rectF) const
     {
-        return (AnnoFloatEqual(left, right) || AnnoFloatEqual(top, bottom));
+         bool bEqual = AnnoFloatEqual(left, rectF.left) && AnnoFloatEqual(top, rectF.top) &&
+                        AnnoFloatEqual(right, rectF.right) && AnnoFloatEqual(bottom, rectF.bottom);
+         return bEqual;
+    }
+    
+    bool operator!= (const tagAnnoRectF& rectF) const
+    {
+        bool bEqual = AnnoFloatEqual(left, rectF.left) && AnnoFloatEqual(top, rectF.top) &&
+        AnnoFloatEqual(right, rectF.right) && AnnoFloatEqual(bottom, rectF.bottom);
+        return !bEqual;
     }
 } AnnoRectF;
 
 typedef struct tagAnnoWindow
 {
-	AnnoWnd		wndDrawing;		// the window on which drawing will be made, NULL means it's a whole or portion of monitor on sharer side
-	AnnoRect	drawBounding;	// drawing bounding related to wndDrawing's client area, in pixel
-	AnnoOffset	contentOffset;	// the x/y offset of content related to drawBounding before zooming takes effective
-	Float32		zoomFactor;		// 100% = 1.0, 80% = 0.80
+    AnnoWnd		wndDrawing;		// the window on which drawing will be made, NULL means it's a whole or portion of monitor on sharer side
+    AnnoRect	drawBounding;	// drawing bounding related to wndDrawing's client area, in pixel
+    AnnoOffset	contentOffset;	// the x/y offset of content related to drawBounding before zooming takes effective
+    Float32		zoomFactor;		// 100% = 1.0, 80% = 0.80
 } AnnoWindow;
 
 typedef struct tagAnnoWindowMultiMonitor
 {
-	AnnoRect	monitorRect;	// the rectangle of monitor on which the whole or portion of monitor is being shared
-	AnnoRect	sharedRect;		// the rectangle of area beging shared
-	Float32		dpiScaleOfMonitor;	// the DPI scale of the monitor on which the whole or portion of monitor is being shared
-}  AnnoWindowMultiMonitor;
+    AnnoRect	monitorRect;	// the rectangle of monitor on which the whole or portion of monitor is being shared
+    AnnoRect	sharedRect;		// the rectangle of area beging shared
+    Float32		dpiScaleOfMonitor;	// the DPI scale of the monitor on which the whole or portion of monitor is being shared
+
+} AnnoWindowMultiMonitor;
 
 // ----------------------------------------------------------------------------
 //	Supported Annotation Mode, used by structure AnnoStartupInput
@@ -275,7 +363,7 @@ typedef enum tagAnnoMode
 {
 	ANNO_MODE_APPSHARE,
 	ANNO_MODE_SCREENSHARE_WB,
-	ANNO_MODE_DOCSHARE,
+	ANNO_MODE_DOCSHARE, // Deprecated mode
 	ANNO_MODE_CHAT_SCREENSHOT,
 	ANNO_MODE_NONE
 } AnnoMode;
@@ -396,6 +484,8 @@ typedef enum tagAnnoEventType
 	ANNO_EVENT_REMOTE_DRAW_FINISHED		= 0x0301,		// to notify that a remote drawing command has been just executed on local so that uppper layer (AS) sampling program knows where to retrive the dirty region for best perofrmance
 	ANNO_EVENT_CAPTURE_CHANGED			= 0x0302,		// to notify AS module that new difference of frame has been made and needs AS to refresh
 
+	ANNO_EVENT_PICKED_OBJ_CHANGED		= 0x0303,		// todo: delete this event type as it's useless
+
 	NUMBER_OF_ANNO_EVENT_TYPE
 } AnnoEventType;
 
@@ -443,14 +533,9 @@ typedef enum tagAnnoInputType
 	ANNO_INPUT_TYPE_USER_RBUTTONUP,
 	ANNO_INPUT_TYPE_USER_END,
 
-	ANNO_INPUT_TYPE_CANCEL		= 0x0500,
+	ANNO_INPUT_TYPE_CANCEL			= 0x0500,
     
     ANNO_INPUT_TYPE_FLAGS_CHANGED   = 0x600, // Mac OSX flagsChanged
-    
-    ANNO_INPUT_TYPE_STYLUS = 0x700, // IOS Stylus
-    ANNO_INPUT_TYPE_PENCIL_DOUBLETAP_ERASER = 0x701,
-    ANNO_INPUT_TYPE_PENCIL_DOUBLETAP_PREVIOUS = 0x702,
-    ANNO_INPUT_TYPE_PENCIL_DOUBLETAP_PALETTE = 0x703
 } AnnoInputType;
 
 // ----------------------------------------------------------------------------
@@ -471,8 +556,27 @@ typedef enum tagAnnoVirtualKey
 	ANNO_VIRTUAL_KEY_SHIFT		= 0x10,
 	ANNO_VIRTUAL_KEY_CONTROL	= 0x11,
 	ANNO_VIRTUAL_KEY_ALT		= 0x12,
-	ANNO_VIRTUAL_KEY_DELETE		= 0x2E
+	ANNO_VIRTUAL_KEY_DELETE		= 0x2E,
+    ANNO_VIRTUAL_KEY_Z          = 0x5A,
+    ANNO_VIRTUAL_KEY_F1         = 0x70,
+    ANNO_VIRTUAL_KEY_F2         = 0x71,
+    ANNO_VIRTUAL_KEY_F3         = 0x72,
+    ANNO_VIRTUAL_KEY_F4         = 0x73,
+    ANNO_VIRTUAL_KEY_F5         = 0x74,
+    ANNO_VIRTUAL_KEY_F6         = 0x75,
+    ANNO_VIRTUAL_KEY_F7         = 0x76,
+    ANNO_VIRTUAL_KEY_F8         = 0x77,
+    ANNO_VIRTUAL_KEY_F9         = 0x78,
+    ANNO_VIRTUAL_KEY_EQUAL      = 0xBB,
+    ANNO_VIRTUAL_KEY_MINUS      = 0xBD,
 } AnnoVirtualKey;
+
+typedef enum tagAnnoFlagKey
+{
+    ANNO_FLAG_KEY_SHIFT         = 0x01,
+    ANNO_FLAG_KEY_CONTROL       = 0x02,
+    ANNO_FLAG_KEY_ALT           = 0x04
+} AnnoFlagKey;
 
 // ----------------------------------------------------------------------------
 //	Type used by AnnoBase::SetAnnoColor
@@ -499,7 +603,10 @@ typedef enum tagAnnoColorIndex
 
 typedef enum tagAnnoError
 {
-	ANNO_OK						= 0
+    ANNO_SUCCEED    = 0x00000000,
+    ANNO_OK         = ANNO_SUCCEED,
+
+    ANNO_FAILED     = 0x00000001
 } AnnoError;
 
 // ----------------------------------------------------------------------------
@@ -529,25 +636,32 @@ typedef struct tagAnnoInput
 
 typedef enum tagWbConfigMask
 {
-	WB_CONFIG_NO_WINDOW_FRAME			= 0x00000001,
-	WB_CONFIG_ALWAYS_FULLSCREEN			= 0x00000002,
-	WB_CONFIG_NEEDS_VIRTUAL_KEYBOARD	= 0x00000004,
-	WB_CONFIG_TOPMOST_WINDOW			= 0x00000008,
-	WB_CONFIG_ENABLE_MULTI_TOUCH		= 0x00000010
+    WB_CONFIG_NULL                              = 0x00000000,
+	WB_CONFIG_NO_WINDOW_FRAME			        = 0x00000001,
+	WB_CONFIG_ALWAYS_FULLSCREEN			        = 0x00000002,
+	WB_CONFIG_NEEDS_VIRTUAL_KEYBOARD	        = 0x00000004,
+	WB_CONFIG_TOPMOST_WINDOW			        = 0x00000008,
+	WB_CONFIG_ENABLE_MULTI_TOUCH		        = 0x00000010,
+    WB_CONFIG_ENABLE_SAVE                       = 0x00000020,
+    WB_CONFIG_ENABLE_HARDWARE_ACCELERATION      = 0x00000040,
+    WB_CONFIG_ENABLE_NAME_TAG                   = 0x00000080
 } WbConfigMask;
 
 typedef UInt32 WbConfig;
 
 typedef enum tagAnnoConfigMask
 {
-	ANNO_CONFIG_NULL					= 0x00000000,
-	ANNO_CONFIG_NEEDS_VIRTUAL_KEYBOARD	= 0x00000001,
-	ANNO_CONFIG_ENABLE_MULTI_TOUCH		= 0x00000002,
-	ANNO_CONFIG_DISABLE_DESKTOP_HOOK	= 0x00000004,	
-	ANNO_CONFIG_DISABLE_ARROW_WINDOW	= 0x00000008,	
-	ANNO_CONFIG_ENABLE_DIRTY_REFRESH	= 0x00000010,
-	ANNO_CONFIG_MOBILE_SHARE_WB			= 0x00000020,
-	ANNO_CONFIG_ENABLE_SHARE_ZOOM_WINDOW = 0x00000040
+	ANNO_CONFIG_NULL					        = 0x00000000,
+	ANNO_CONFIG_NEEDS_VIRTUAL_KEYBOARD	        = 0x00000001,
+	ANNO_CONFIG_ENABLE_MULTI_TOUCH		        = 0x00000002,
+	ANNO_CONFIG_DISABLE_DESKTOP_HOOK	        = 0x00000004,
+	ANNO_CONFIG_DISABLE_ARROW_WINDOW	        = 0x00000008,
+	ANNO_CONFIG_ENABLE_DIRTY_REFRESH	        = 0x00000010,
+	ANNO_CONFIG_MOBILE_SHARE_WB			        = 0x00000020,
+	ANNO_CONFIG_ENABLE_SHARE_ZOOM_WINDOW        = 0x00000040,
+    ANNO_CONFIG_ENABLE_SAVE                     = 0x00000080,
+    ANNO_CONFIG_ENABLE_HARDWARE_ACCELERATION    = 0x00000100,
+    ANNO_CONFIG_ENABLE_NAME_TAG                 = 0x00000200
 } AnnoConfigMask;
 
 typedef UInt32 AnnoConfig;
@@ -567,24 +681,6 @@ typedef enum tagAnnoBitmapFormat
 	ANNO_BITMAP_FORMAT_NUMBER
 }AnnoBitmapFormat;
 
-// ----------------------------------------------------------------------------
-//	Type used by AnnoBase::GetAnnoBitmapInfo
-// ----------------------------------------------------------------------------
-typedef struct tagAnnoBitmapInfo
-{
-	UInt8*				bmData;
-	AnnoBitmapFormat	bmFormat;
-	UInt32				bmWidth;
-	UInt32				bmHeight;
-
-	tagAnnoBitmapInfo()
-	{
-		bmData		= 0;
-		bmFormat	= ANNO_BITMAP_FORMAT_NULL;
-		bmWidth		= 0;
-		bmHeight	= 0;
-	}
-}AnnoBitmapInfo;
 
 // ----------------------------------------------------------------------------
 //	Page Operation Type used by AnnoEvent::ANNO_EVENT_PAGE_CHANGED
@@ -614,11 +710,99 @@ typedef struct tagAnnoPageChangeInfo
 	}
 }AnnoPageChangeInfo;
 
+typedef enum tagAnnoSaveState
+{
+    ANNO_SAVE_END = 0,
+    ANNO_SAVE_START = 1
+} AnnoSaveState;
+
 typedef enum tagAnnoSaveType
 {
-	ANNO_SAVE_IMG = 0,
-	ANNO_SAVE_PDF = 1,
-	ANNO_SAVE_NUMBER
+    ANNO_SAVE_NONE = 0x00000000,
+    ANNO_SAVE_PNG = 0x00000001, 
+    ANNO_SAVE_PDF = 0x00000002,
+    ANNO_SAVE_PNG_MEMORY = 0x00000003,
+    ANNO_SAVE_PDF_MEMORY = 0x00000004,
+    ANNO_SAVE_BITMAP_MEMORY = 0x00000005
 }AnnoSaveType;
+
+// ----------------------------------------------------------------------------
+//	Type used by AnnoBase::GetAnnoBitmapInfo
+// ----------------------------------------------------------------------------
+typedef struct tagAnnoBitmapInfo
+{
+    UInt8*			bmData;
+    UInt32	        bmFormat;
+    UInt32			bmWidth;
+    UInt32			bmHeight;
+    UInt32          bmPageIndex;
+    UInt32          bmPageCount;
+    UInt32          bmSize;
+
+    tagAnnoBitmapInfo()
+    {
+        bmData		= 0;
+        bmFormat	= ANNO_BITMAP_FORMAT_NULL;
+        bmWidth		= 0;
+        bmHeight	= 0;
+        bmPageIndex = 0;
+        bmPageCount = 0;
+        bmSize      = 0;
+    }
+
+    void Release()
+    {
+        if(NULL != bmData)
+        {
+            delete[] bmData;
+            bmData = NULL;
+        }
+
+        bmFormat	= ANNO_BITMAP_FORMAT_NULL;
+        bmWidth		= 0;
+        bmHeight	= 0;
+        bmPageIndex = 0;
+        bmPageCount = 0;
+        bmSize      = 0;
+    }
+}AnnoBitmapInfo;
+
+typedef struct tagAnnoSaveInfo
+{
+    Int32 saveState;
+    Int32 saveType;
+    Int32 savePageNum;
+    Int32 shareType;
+    bool isAutoSave;
+    std::wstring savePath;
+    std::wstring saveDirectory;
+    void* bitmapDataFormNydus;  //attendee save
+    std::vector<int> savePagesList; //all need save pages index
+    std::vector<AnnoBitmapInfo> bitmaps; //memory of bitmaps
+
+    tagAnnoSaveInfo()
+    {
+        saveState = ANNO_SAVE_END;
+        saveType = ANNO_SAVE_PNG;
+        savePageNum = 0;
+        shareType = 0;
+        isAutoSave = false;
+        bitmapDataFormNydus = NULL;
+    }
+
+    void Release()
+    {           
+        savePagesList.clear();
+
+        for(size_t i=0; i < bitmaps.size(); ++i)
+        {
+            bitmaps.at(i).Release();
+        }
+        
+        bitmaps.clear();
+    }
+}AnnoSaveInfo;
+
+
 
 #endif // __ANNO_TYPES_H__

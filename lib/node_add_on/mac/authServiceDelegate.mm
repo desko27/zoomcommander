@@ -15,6 +15,25 @@ extern  ZNativeSDKWrap _g_native_wrap;
     return delegate;
 }
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _authResult = ZNAUTHRET_NONE;
+        _loginStatus = ZNLOGIN_IDLE;
+        _directStatus = DirectShareStatus_None;
+        return self;
+    }
+    return nil;
+}
+
+-(void)dealloc
+{
+    _authResult = ZNAUTHRET_NONE;
+    _loginStatus = ZNLOGIN_IDLE;
+    _directStatus = DirectShareStatus_None;
+    [super dealloc];
+}
 - (void)onZoomSDKAuthReturn:(ZoomSDKAuthError)returnValue
 {
     nativeErrorTypeHelp native_help;
@@ -23,6 +42,52 @@ extern  ZNativeSDKWrap _g_native_wrap;
     _g_native_wrap.GetAuthServiceWrap().onAuthenticationReturn(result);
 }
 
+- (void)onZoomSDKLoginResult:(ZoomSDKLoginStatus)loginStatus failReason:(ZoomSDKLoginFailReason)reason
+{
+    nativeErrorTypeHelp native_login_help;
+    ZNLOGINSTATUS result = native_login_help.ZoomSDKLoginStatusType(loginStatus);
+    self.loginStatus = result;
+    ZNLoginFailReason failReason = ZNLoginFail_None;
+    switch(reason){
+        case ZoomSDKLoginFailReason_None:
+            failReason = ZNLoginFail_None;
+            break;
+        case ZoomSDKLoginFailReason_EmailLoginDisabled:
+            failReason = ZNLoginFail_EmailLoginDisable;
+            break;
+        case ZoomSDKLoginFailReason_UserNotExist:
+            failReason = ZNLoginFail_UserNotExist;
+            break;
+        case ZoomSDKLoginFailReason_WrongPassword:
+            failReason = ZNLoginFail_WrongPassword;
+            break;
+        case ZoomSDKLoginFailReason_AccountLocked:
+            failReason = ZNLoginFail_AccountLocked;
+            break;
+        case ZoomSDKLoginFailReason_SDKNeedUpdate:
+            failReason = ZNLoginFail_SDKNeedUpdate;
+            break;
+        case ZoomSDKLoginFailReason_TooManyFailedAttempts:
+            failReason = ZNLoginFail_TooManyFailedAttempts;
+            break;
+        case ZoomSDKLoginFailReason_SMSCodeError:
+            failReason = ZNLoginFail_SMSCodeError;
+            break;
+        case ZoomSDKLoginFailReason_SMSCodeExpired:
+            failReason = ZNLoginFail_SMSCodeExpired;
+            break;
+        case ZoomSDKLoginFailReason_PhoneNumberFormatInValid:
+            failReason = ZNLoginFail_PhoneNumberFormatInValid;
+            break;
+        case ZoomSDKLoginFailReason_Other_Issue:
+            failReason = ZNLoginFail_OtherIssue;
+            break;
+        default:
+            failReason = ZNLoginFail_OtherIssue;
+            break;
+    }
+    _g_native_wrap.GetAuthServiceWrap().onLoginReturnWithReason(result,failReason);
+}
 - (void)onZoomSDKLogin:(ZoomSDKLoginStatus)loginStatus failReason:(NSString *)reason
 {
     nativeErrorTypeHelp native_login_help;
@@ -95,6 +160,34 @@ extern  ZNativeSDKWrap _g_native_wrap;
     _g_native_wrap.GetAuthServiceWrap().GetDirectShareHelper().OnDirectShareStatusUpdate(ZNStatus);
 }
 
+-(void)onGetInviteEmailContent:(NSString *)content result:(ZoomSDKPremeetingError)result meetingUniqueID:(long long)meetingUniqueID
+{
+    ZNPremeetingAPIResult ret = ZN_PREMETAPIRET_UNKNOW;
+    switch (result) {
+        case ZoomSDKPremeetingError_Unknown:
+            ret = ZN_PREMETAPIRET_UNKNOW;
+            break;
+        case ZoomSDKPremeetingError_Success:
+            ret = ZN_PREMETAPIRET_SUCCESS;
+            break;
+        case ZoomSDKPremeetingError_Failed:
+            ret = ZN_PREMETAPIRET_FAILED;
+            break;
+        case ZoomSDKPremeetingError_TimeOut:
+            ret = ZN_PREMETAPIRET_TIMEOUT;
+            break;
+        default:
+            break;
+    }
+    NSString* emailContent = nil;
+    if (!content) {
+        emailContent = @"";
+    }else{
+        emailContent = content;
+    }
+    _g_native_wrap.GetPremeetingServiecWrap().onGetInviteEmailContent(ret, meetingUniqueID, emailContent.UTF8String);
+    
+}
 -(DirectShareStatus)getDirectShare
 {
     return self.directStatus;

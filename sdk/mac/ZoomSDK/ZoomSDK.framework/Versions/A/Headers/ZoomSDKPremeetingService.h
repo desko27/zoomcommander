@@ -241,12 +241,12 @@ typedef enum{
 /**
  *@brief The language interpretation used first language.
  */
-@property(nonatomic, readwrite, assign) ZoomSDKInterpreLanguage firstLanguage;
+@property(nonatomic, readwrite, copy) NSString* firstLanguage;
 
 /**
  *@brief The language interpretation used second language.
  */
-@property(nonatomic, readwrite, assign) ZoomSDKInterpreLanguage secondLanguage;
+@property(nonatomic, readwrite, copy) NSString* secondLanguage;
 @end
 
 @interface IMeetingConfigOption : NSObject
@@ -351,6 +351,11 @@ typedef enum{
  */
 -(NSArray *)getInterpreterInfoList;
 
+/**
+ *@brief Get the array contains all interpret languages.
+ *@return An NSArray of interpret languages.
+ */
+-(NSArray<NSString*>*)getAllInterpretLanguages;
 @end
 
 @interface ScheduleMeetingConfigOption: IMeetingConfigOption
@@ -503,8 +508,15 @@ typedef enum{
 /**
  * @brief Get the content of the email to invite the users to join the meeting.
  * @return If the function succeeds, it will return the email contents.
+ * @note If the return value is nil, you can try to call "-(ZoomSDKError)asyncGetInviteEmailContent" interface.
  */
--(NSString*)getInviteEmailContent;
+-(NSString*)getInviteEmailContent NS_DEPRECATED_MAC(4.4, 5.2);
+
+/**
+ * @brief Async get invite email content.
+ * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
+ */
+-(ZoomSDKError)asyncGetInviteEmailContent;
 /**
  * @brief Get the URL to invite the users to join the meeting.
  * @return If the function succeeds, it will return the join meeting URL.
@@ -683,4 +695,12 @@ typedef enum{
  *
  */
 - (void)onDeleteMeeting:(ZoomSDKPremeetingError)error;
+
+/**
+ * @brief Notification get the content of invite email.
+ * @param content The invite email context.
+ * @param result Tell the result of get the invite email content. If the function succeeds, it will return ZoomSDKPremeetingError_Success. Otherwise failed, returns errors.
+ * @param meetingUniqueID The unique ID of the specified meeting to be get the invite email content.
+ */
+- (void)onGetInviteEmailContent:(NSString *)content result:(ZoomSDKPremeetingError)result meetingUniqueID:(long long)meetingUniqueID;
 @end

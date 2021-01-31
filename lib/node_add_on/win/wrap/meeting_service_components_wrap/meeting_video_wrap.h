@@ -17,10 +17,36 @@ virtual SDKError SetEvent(IMeetingVideoCtrlEvent* pEvent)
 DEFINE_FUNC_0(MuteVideo, SDKError)
 //virtual SDKError UnmuteVideo() = 0;
 DEFINE_FUNC_0(UnmuteVideo, SDKError)
+//virtual SDKError CanPinToFirstView(unsigned int userid, PinResult& result) = 0;
+DEFINE_FUNC_2(CanPinToFirstView, SDKError, unsigned int, userid, PinResult&, result)
+//virtual SDKError UnPinVideoFromFirstView(unsigned int userid) = 0;
+DEFINE_FUNC_1(UnPinVideoFromFirstView, SDKError, unsigned int, userid)
+//virtual SDKError UnPinAllVideosFromFirstView() = 0;
+DEFINE_FUNC_0(UnPinAllVideosFromFirstView, SDKError)
+//virtual IList<unsigned int >* GetPinnedUserListFromFirstView() = 0;
+DEFINE_FUNC_0(GetPinnedUserListFromFirstView, IList<unsigned int >*)
+//virtual SDKError CanPinToSecondView(unsigned int userid, PinResult& result) = 0;
+DEFINE_FUNC_2(CanPinToSecondView, SDKError, unsigned int, userid, PinResult&, result)
+//virtual SDKError PinVideoToSecondView(unsigned int userid) = 0;
+DEFINE_FUNC_1(PinVideoToSecondView, SDKError, unsigned int, userid)
+//virtual SDKError UnPinVideoFromSecondView(unsigned int userid) = 0;
+DEFINE_FUNC_1(UnPinVideoFromSecondView, SDKError, unsigned int, userid)
+//virtual IList<unsigned int >* GetPinnedUserListFromSecondView() = 0;
+DEFINE_FUNC_0(GetPinnedUserListFromSecondView, IList<unsigned int >*)
+//virtual SDKError CanSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+DEFINE_FUNC_2(CanSpotlight, SDKError, unsigned int, userid, SpotlightResult&, result)
+//virtual SDKError CanUnSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+DEFINE_FUNC_2(CanUnSpotlight, SDKError, unsigned int, userid, SpotlightResult&, result)
+//virtual SDKError UnSpotlightVideo(unsigned int userid) = 0;
+DEFINE_FUNC_1(UnSpotlightVideo, SDKError, unsigned int, userid)
+//virtual SDKError UnSpotlightAllVideos() = 0;
+DEFINE_FUNC_0(UnSpotlightAllVideos, SDKError)
+//virtual IList<unsigned int >* GetSpotlightedUserList() = 0;
+DEFINE_FUNC_0(GetSpotlightedUserList, IList<unsigned int >*)
 //virtual SDKError PinVideo(bool bPin, bool bFirstView, unsigned int userid) = 0;
-DEFINE_FUNC_3(PinVideo, SDKError, bool, bPin, bool, bFirstView, unsigned int, userid)
+DEFINE_FUNC_1(PinVideoToFirstView, SDKError, unsigned int, userid)
 //virtual SDKError SpotlightVideo(bool bSpotlight, unsigned int userid) = 0;
-DEFINE_FUNC_2(SpotlightVideo, SDKError, bool, bSpotlight, unsigned int, userid)
+DEFINE_FUNC_1(SpotlightVideo, SDKError, unsigned int, userid)
 //virtual SDKError HideOrShowNoVideoUserOnVideoWall(bool bHide) = 0;
 DEFINE_FUNC_1(HideOrShowNoVideoUserOnVideoWall, SDKError, bool, bHide)
 //virtual SDKError CanAskAttendeeToStartVideo(unsigned int userid) = 0;

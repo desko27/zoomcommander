@@ -120,6 +120,13 @@ void ZAuthServiceWrap::onAuthenticationReturn(ZNAuthResult authResult)
     }
 }
 
+void ZAuthServiceWrap::onLoginReturnWithReason(ZNLOGINSTATUS ret, ZNLoginFailReason reason)
+{
+    if (m_pSink)
+    {
+        m_pSink->onLoginReturnWithReason(ret, reason);
+    }
+}
 void ZAuthServiceWrap::onLoginRet(ZNLOGINSTATUS ret)
 {
     if (m_pSink) {

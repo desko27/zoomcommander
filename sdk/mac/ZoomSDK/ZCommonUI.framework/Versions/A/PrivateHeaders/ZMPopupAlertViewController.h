@@ -12,6 +12,7 @@
 typedef enum : NSUInteger {
     ZMPopupAlertConfirm,
     ZMPopupAlertCancel,
+    ZMPopupAlertMoreInfo
 } ZMPopupAlertIndex;
 
 @interface ZMPopupAlertViewController : ZMBaseViewController
@@ -28,6 +29,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic,assign) NSSize contentSize;
 
+@property (nonatomic,assign) BOOL titleUsesSingleLine;
+@property (nonatomic,assign) NSLineBreakMode titleLineBreakMode;
+
 @property (nonatomic,assign) BOOL showCancelButton;
 
 @property (nonatomic,assign) BOOL showConfirmButton;
@@ -40,6 +44,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,assign) BOOL isTitleBreakByWord;
 
 @property (nonatomic, copy) NSString *cancelTitle;
+@property (nonatomic,copy) NSAttributedString *moreInfoTitle;
 
 - (void)dismiss;
 
@@ -48,5 +53,11 @@ typedef enum : NSUInteger {
 - (NSTextField *)infoTextField;
 
 - (NSSize)calculateContentSize;
+
+- (void)confirm;
+
+- (void)updateContent;
+
+- (void)updateUI;
 
 @end

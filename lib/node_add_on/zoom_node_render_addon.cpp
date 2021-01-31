@@ -6,20 +6,34 @@
 #include "raw_data_format.h"
 #include <iostream>
 #include <string>
-void CreateObject(const v8::FunctionCallbackInfo<v8::Value>& args) {
-	ZoomNodeRenderWrap::NewInstance(args);
+
+static void CreateRenderNodeObject(const v8::FunctionCallbackInfo<v8::Value>& args) {
+
+	RenderAddonData* data =
+		reinterpret_cast<RenderAddonData*>(args.Data().As<v8::External>()->Value());
+	data->zoomNodeWrapInstance = ZoomNodeRenderWrap::GetNewInstance(args);
+	args.GetReturnValue().Set(data->zoomNodeWrapInstance);
 }
 
-void InitAll(v8::Local<v8::Object> exports, v8::Local<v8::Object> module) {
+
+NODE_MODULE_INIT(/* exports, module, context */) {
+	v8::Isolate* isolate = context->GetIsolate();
+
 	ZoomNodeRenderWrap::Init(exports->GetIsolate());
 	ZoomNodeVideoRawDataLibuvClientWrap::Init(exports->GetIsolate());
 	ZoomNodeShareRawDataLibuvClientWrap::Init(exports->GetIsolate());
 	ZoomNodeAudioRawDataLibuvClientWrap::Init(exports->GetIsolate());
 
-	NODE_SET_METHOD(module, "exports", CreateObject);
-}
+	RenderAddonData* data = new RenderAddonData(isolate);
 
-NODE_MODULE(zoomsdk_render, InitAll)
+	v8::Local<v8::External> external = v8::External::New(isolate, data);
+
+	exports->Set(context,
+		v8::String::NewFromUtf8(isolate, "exports", v8::NewStringType::kNormal)
+		.ToLocalChecked(),
+		v8::FunctionTemplate::New(isolate, CreateRenderNodeObject, external)
+		->GetFunction(context).ToLocalChecked()).FromJust();
+}
 
 v8::Persistent<v8::Function> ZoomNodeRenderWrap::constructor;
 v8::Persistent<v8::Function> ZoomNodeVideoRawDataLibuvClientWrap::constructor;
@@ -47,8 +61,7 @@ v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > g_cb_o
 void SendPingPongMsg(int type, unsigned int source_id);
 void RunVideoFormatDataCB(char* msg_buf, int type)
 {
-	if ((TYPE_VIDEO != type && TYPE_SHARE != type)
-		|| NULL == msg_buf)
+	if ((TYPE_VIDEO != type && TYPE_SHARE != type) || NULL == msg_buf)
 	{
 		return;
 	}
@@ -72,19 +85,16 @@ void RunVideoFormatDataCB(char* msg_buf, int type)
 	sprintf(format_, "%s;%d;%d;%d;%d;%llu;%llu;%llu", "yuvi420", header.isLimitedI420,
 		header.width, header.height, header.rotation, header.y_offset, header.u_offset, header.v_offset);
 	v8::Local<v8::Value> data_format = v8::String::NewFromUtf8(isolate, format_, v8::NewStringType::kInternalized).ToLocalChecked();
-	int recv_list_buf_len = header.recvHandleListCount * sizeof(unsigned long long);
-	char* recv_list_buf_ptr = msg_buf + sizeof(VideoRawDataHeader);
-	char* data_buf_ptr = recv_list_buf_ptr + recv_list_buf_len;
 
+	char* data_buf_ptr = msg_buf + sizeof(VideoRawDataHeader);
 
-	auto array_recv_handle = v8::ArrayBuffer::New(isolate, recv_list_buf_ptr, recv_list_buf_len, v8::ArrayBufferCreationMode::kExternalized);
-	v8::Local<v8::BigUint64Array> ull_array_recv_handle = v8::BigUint64Array::New(array_recv_handle, 0, header.recvHandleListCount);
+	v8::Local<v8::Integer > uint64_recv_handle = v8::Integer::New(isolate, (uint64_t)header.recvHandle);
 
 	auto array_data_buf = v8::ArrayBuffer::New(isolate, data_buf_ptr, header.dataBufferLen, v8::ArrayBufferCreationMode::kExternalized);
 	v8::Local<v8::Uint8Array> uint8_array_data_buf = v8::Uint8Array::New(array_data_buf, 0, header.dataBufferLen);
 
 	int argc = 3;
-	v8::Local<v8::Value> argv[3] = { data_format, ull_array_recv_handle, uint8_array_data_buf };
+	v8::Local<v8::Value> argv[3] = { data_format, uint64_recv_handle, uint8_array_data_buf };
 	switch (type)
 	{
 	case TYPE_VIDEO:
@@ -225,24 +235,27 @@ void SendPingPongMsg(int type, unsigned int source_id)
 void ZoomNodeVideoRawDataLibuvClientWrap::SetRenderVideoRawDataCB(const v8::FunctionCallbackInfo<v8::Value>& args)
 {
 	v8::Isolate* isolate = args.GetIsolate();
-	if (args.Length() < 1) {
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong number of arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-	if (args[0]->IsNull())	{		g_cb_onRenderVideoRawDataReceived.Empty();		return;	}
-	if (!args[0]->IsFunction())
-	{
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-	
-	v8::Local<v8::Function> cbfunc = v8::Local<v8::Function>::Cast(args[0]);
-	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb(isolate, cbfunc);
-	g_cb_onRenderVideoRawDataReceived = cb;
-
 	ZNSDKError err = ZNSDKERR_SUCCESS;
+	do
+	{
+		if (args.Length() < 1) {
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+		if (args[0]->IsNull())		{			g_cb_onRenderVideoRawDataReceived.Empty();			err = ZNSDKERR_INVALID_PARAMETER;
+			break;;		}
+		if (!args[0]->IsFunction())
+		{
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+
+		v8::Local<v8::Function> cbfunc = v8::Local<v8::Function>::Cast(args[0]);
+		v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb(isolate, cbfunc);
+		g_cb_onRenderVideoRawDataReceived = cb;
+
+	} while (false);
+	
 	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
 	args.GetReturnValue().Set(bret);
 }
@@ -273,24 +286,27 @@ void ZoomNodeVideoRawDataLibuvClientWrap::StopVideoClient(const v8::FunctionCall
 void ZoomNodeShareRawDataLibuvClientWrap::SetRenderShareRawDataCB(const v8::FunctionCallbackInfo<v8::Value>& args)
 {
 	v8::Isolate* isolate = args.GetIsolate();
-	if (args.Length() < 1) {
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong number of arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-	if (args[0]->IsNull())	{		g_cb_onRenderShareRawDataReceived.Empty();		return;	}
-	if (!args[0]->IsFunction())
-	{
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-
-	v8::Local<v8::Function> cbfunc = v8::Local<v8::Function>::Cast(args[0]);
-	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb(isolate, cbfunc);
-	g_cb_onRenderShareRawDataReceived = cb;
-
 	ZNSDKError err = ZNSDKERR_SUCCESS;
+	do
+	{
+		if (args.Length() < 1) {
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+		if (args[0]->IsNull())		{			g_cb_onRenderShareRawDataReceived.Empty();			err = ZNSDKERR_INVALID_PARAMETER;
+			break;;		}
+		if (!args[0]->IsFunction())
+		{
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+
+		v8::Local<v8::Function> cbfunc = v8::Local<v8::Function>::Cast(args[0]);
+		v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb(isolate, cbfunc);
+		g_cb_onRenderShareRawDataReceived = cb;
+
+	} while (false);
+	
 	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
 	args.GetReturnValue().Set(bret);
 }
@@ -320,51 +336,53 @@ void ZoomNodeShareRawDataLibuvClientWrap::StopShareClient(const v8::FunctionCall
 void ZoomNodeAudioRawDataLibuvClientWrap::SetRenderAudioRawDataCB(const v8::FunctionCallbackInfo<v8::Value>& args)
 {
 	v8::Isolate* isolate = args.GetIsolate();
-	if (args.Length() < 2) {
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong number of arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-
-	bool wrongArguments = false;
-	if (args[0]->IsNull())
-	{
-		g_cb_onMixedAudioRawDataReceived.Empty();
-	}
-	else
-	{
-		if (!args[0]->IsFunction())
-			wrongArguments = true;
-		else
-		{
-			v8::Local<v8::Function> cbfunc_mix = v8::Local<v8::Function>::Cast(args[0]);
-			v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb_mix(isolate, cbfunc_mix);
-			g_cb_onMixedAudioRawDataReceived = cb_mix;
-		}
-	}
-	if (args[1]->IsNull())
-	{
-		g_cb_onOneWayAudioRawDataReceived.Empty();
-	}
-	else
-	{
-		if (!args[1]->IsFunction())
-			wrongArguments = true;
-		else
-		{
-			v8::Local<v8::Function> cbfunc_oneway = v8::Local<v8::Function>::Cast(args[1]);
-			v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb_oneway(isolate, cbfunc_oneway);
-			g_cb_onOneWayAudioRawDataReceived = cb_oneway;
-		}
-	}
-	if (wrongArguments)
-	{
-		isolate->ThrowException(v8::Exception::TypeError(
-			v8::String::NewFromUtf8(isolate, "Wrong arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
-		return;
-	}
-
 	ZNSDKError err = ZNSDKERR_SUCCESS;
+	do
+	{
+		if (args.Length() < 2) {
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+
+		bool wrongArguments = false;
+		if (args[0]->IsNull())
+		{
+			g_cb_onMixedAudioRawDataReceived.Empty();
+		}
+		else
+		{
+			if (!args[0]->IsFunction())
+				wrongArguments = true;
+			else
+			{
+				v8::Local<v8::Function> cbfunc_mix = v8::Local<v8::Function>::Cast(args[0]);
+				v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb_mix(isolate, cbfunc_mix);
+				g_cb_onMixedAudioRawDataReceived = cb_mix;
+			}
+		}
+		if (args[1]->IsNull())
+		{
+			g_cb_onOneWayAudioRawDataReceived.Empty();
+		}
+		else
+		{
+			if (!args[1]->IsFunction())
+				wrongArguments = true;
+			else
+			{
+				v8::Local<v8::Function> cbfunc_oneway = v8::Local<v8::Function>::Cast(args[1]);
+				v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb_oneway(isolate, cbfunc_oneway);
+				g_cb_onOneWayAudioRawDataReceived = cb_oneway;
+			}
+		}
+		if (wrongArguments)
+		{
+			err = ZNSDKERR_INVALID_PARAMETER;
+			break;
+		}
+
+	} while (false);
+	
 	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
 	args.GetReturnValue().Set(bret);
 }

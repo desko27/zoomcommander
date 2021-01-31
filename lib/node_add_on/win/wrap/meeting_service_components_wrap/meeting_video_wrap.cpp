@@ -29,9 +29,35 @@ IMPL_FUNC_0(IMeetingVideoController, MuteVideo, SDKError, SDKERR_UNINITIALIZE)
 //virtual SDKError UnmuteVideo() = 0;
 IMPL_FUNC_0(IMeetingVideoController, UnmuteVideo, SDKError, SDKERR_UNINITIALIZE)
 //virtual SDKError PinVideo(bool bPin, bool bFirstView, unsigned int userid) = 0;
-IMPL_FUNC_3(IMeetingVideoController, PinVideo, SDKError, bool, bPin, bool, bFirstView, unsigned int, userid, SDKERR_UNINITIALIZE)
+IMPL_FUNC_1(IMeetingVideoController, PinVideoToFirstView, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
+//virtual SDKError CanPinToFirstView(unsigned int userid, PinResult& result) = 0;
+IMPL_FUNC_2(IMeetingVideoController, CanPinToFirstView, SDKError, unsigned int, userid, PinResult&, result, SDKERR_UNINITIALIZE)
+//virtual SDKError UnPinVideoFromFirstView(unsigned int userid) = 0;
+IMPL_FUNC_1(IMeetingVideoController, UnPinVideoFromFirstView, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
+//virtual SDKError UnPinAllVideosFromFirstView() = 0;
+IMPL_FUNC_0(IMeetingVideoController, UnPinAllVideosFromFirstView, SDKError, SDKERR_UNINITIALIZE)
+//virtual IList<unsigned int >* GetPinnedUserListFromFirstView() = 0;
+IMPL_FUNC_0(IMeetingVideoController, GetPinnedUserListFromFirstView, IList<unsigned int >*, NULL)
+//virtual SDKError CanPinToSecondView(unsigned int userid, PinResult& result) = 0;
+IMPL_FUNC_2(IMeetingVideoController, CanPinToSecondView, SDKError, unsigned int, userid, PinResult&, result, SDKERR_UNINITIALIZE)
+//virtual SDKError PinVideoToSecondView(unsigned int userid) = 0;
+IMPL_FUNC_1(IMeetingVideoController, PinVideoToSecondView, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
+//virtual SDKError UnPinVideoFromSecondView(unsigned int userid) = 0;
+IMPL_FUNC_1(IMeetingVideoController, UnPinVideoFromSecondView, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
+//virtual IList<unsigned int >* GetPinnedUserListFromSecondView() = 0;
+IMPL_FUNC_0(IMeetingVideoController, GetPinnedUserListFromSecondView, IList<unsigned int >*, NULL)
+//virtual SDKError CanSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+IMPL_FUNC_2(IMeetingVideoController, CanSpotlight, SDKError, unsigned int, userid, SpotlightResult&, result, SDKERR_UNINITIALIZE)
+//virtual SDKError CanUnSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+IMPL_FUNC_2(IMeetingVideoController, CanUnSpotlight, SDKError, unsigned int, userid, SpotlightResult&, result, SDKERR_UNINITIALIZE)
+//virtual SDKError UnSpotlightVideo(unsigned int userid) = 0;
+IMPL_FUNC_1(IMeetingVideoController, UnSpotlightVideo, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
+//virtual SDKError UnSpotlightAllVideos() = 0;
+IMPL_FUNC_0(IMeetingVideoController, UnSpotlightAllVideos, SDKError, SDKERR_UNINITIALIZE)
+//virtual IList<unsigned int >* GetSpotlightedUserList() = 0;
+IMPL_FUNC_0(IMeetingVideoController, GetSpotlightedUserList, IList<unsigned int >*, NULL)
 //virtual SDKError SpotlightVideo(bool bSpotlight, unsigned int userid) = 0;
-IMPL_FUNC_2(IMeetingVideoController, SpotlightVideo, SDKError, bool, bSpotlight, unsigned int, userid, SDKERR_UNINITIALIZE)
+IMPL_FUNC_1(IMeetingVideoController, SpotlightVideo, SDKError, unsigned int, userid, SDKERR_UNINITIALIZE)
 //virtual SDKError HideOrShowNoVideoUserOnVideoWall(bool bHide) = 0;
 IMPL_FUNC_1(IMeetingVideoController, HideOrShowNoVideoUserOnVideoWall, SDKError, bool, bHide, SDKERR_UNINITIALIZE)
 //virtual SDKError CanAskAttendeeToStartVideo(unsigned int userid) = 0;

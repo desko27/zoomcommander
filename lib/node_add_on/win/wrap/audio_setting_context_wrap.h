@@ -61,11 +61,22 @@ DEFINE_FUNC_1(SetSpeakerVol, SDKError, FLOAT&, value)
 //virtual SDKError GetSpeakerVol(FLOAT& value) = 0;
 DEFINE_FUNC_1(GetSpeakerVol, SDKError, FLOAT&, value)
 
-//virtual SDKError EnableEchoCancellation(bool bEnable) = 0;
-DEFINE_FUNC_1(EnableEchoCancellation, SDKError, bool, bEnable)
-//virtual bool IsEchoCancellationEnabled() = 0;
-DEFINE_FUNC_0(IsEchoCancellationEnabled, bool)
-
+//virtual SDKError SetEchoCancellationLevel(SDK_ECHO_CANCELLATION_LEVEL level) = 0;
+DEFINE_FUNC_1(SetEchoCancellationLevel, SDKError, SDK_ECHO_CANCELLATION_LEVEL, level)
+//virtual SDK_ECHO_CANCELLATION_LEVEL GetEchoCancellationLevel() = 0;
+DEFINE_FUNC_0(GetEchoCancellationLevel, SDK_ECHO_CANCELLATION_LEVEL)
+//virtual SDK_AUDIO_DEVICE_RAW_MODE_TYPE GetAudioSignalProcessType() = 0;
+DEFINE_FUNC_0(GetAudioSignalProcessType, SDK_AUDIO_DEVICE_RAW_MODE_TYPE)
+//virtual SDKError SetAudioSignalProcessType(SDK_AUDIO_DEVICE_RAW_MODE_TYPE type) = 0;
+DEFINE_FUNC_1(SetAudioSignalProcessType, SDKError, SDK_AUDIO_DEVICE_RAW_MODE_TYPE, type)
+//virtual SDKError DisableEchoCancellation(bool bDisable) = 0;
+DEFINE_FUNC_1(DisableEchoCancellation, SDKError, bool, bDisable)
+//virtual bool IsEchoCancellationDisabled() = 0;
+DEFINE_FUNC_0(IsEchoCancellationDisabled, bool)
+//virtual SDKError EnableHighFidelityMusicMode(bool bEnable) = 0;
+DEFINE_FUNC_1(EnableHighFidelityMusicMode, SDKError, bool, bEnable)
+//virtual bool IsHighFidelityMusicModeDisabled() = 0;
+DEFINE_FUNC_0(IsHighFidelityMusicModeDisabled, bool)
 //virtual void onComputerMicDeviceChanged(IList<IMicInfo*>* pNewMicList) = 0;
 CallBack_FUNC_1(onComputerMicDeviceChanged, IList<IMicInfo*>*, pNewMicList)
 //virtual void onComputerSpeakerDeviceChanged(IList<ISpeakerInfo*>* pNewSpeakerList) = 0;

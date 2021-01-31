@@ -227,6 +227,11 @@ public:
 		IN	const AnnoWindowMultiMonitor& annoWindowMultiMonitor
 		) = 0;
 
+	// just for presenter: set the snapshot size info for camra share/ direct share/hdmi share, whitch need the backing store snapshot
+	virtual int SetAnnoCaptureSize(
+		IN	const AnnoSize& captureSize
+		) = 0;
+
     //
 	// Call this method to OVERRIDE the default tool format including line, fill formats.
 	// If this method is not called, built-in format will be used
@@ -397,29 +402,21 @@ public:
 		) = 0;
 
 	//
-	// Call this method to save current snapshot of shared region to file, in PNG format
-	// @savePath:		file path the snapshot will be saved to
-	// @type  :         file type for saving
-	virtual int SaveSnapshotToPath(
-		IN	const wchar_t* savePath,
-		IN	const void*	   savePageList,
-		IN  AnnoSaveType   type = ANNO_SAVE_IMG
-		)=0;
+	// Call this method to save current snapshot of shared region to file or memory
+	// @saveInfo:		all save information
 	//
-	// Call this method to save a bitmap data buffer to file, in PNG format
-	// @bitmapWidth:	width of the bitmap, in piexles
-	// @bitmapHeight:	height of the bitmap, in piexles
-	// @bitCount:		number of bits to represent a pixel
-	// @bitmapData:		a pointer to the bitmap data, the data must be 4 bytes aligned per scan line,
-	//					caller is responsible to release this memory.
-	// @savePath:		file path the snapshot will be saved to
-	virtual int SaveSnapshotBitmapToPath(
-		IN	const long bitmapWidth,
-		IN	const long bitmapHeight,
-		IN	const unsigned short bitCount,
-		IN	const unsigned char* bitmapData,
-		IN	const wchar_t* savePath
-		) = 0;
+    virtual int SaveAnnotation(
+        IN  const void* pSaveInfo
+        ) = 0;
+
+
+    //
+    // Call this method to load bitmaps to the annotate
+    // @bitmapList:		all bitmaps list.
+    // 
+    virtual int LoadBitmapList(
+        IN  const void* pList
+        ) = 0;
 
 	//
 	// Call this method to set whiteboard window frame for zoomroom
@@ -495,7 +492,18 @@ public:
 		OUT AnnoColor& bgColor
 		) = 0;
 
-	//
+	// Call this method to get bitmapInfo
+	// @bmInfo: bitmapInfo
+	virtual int GetAnnoBitmapInfo(
+		OUT AnnoBitmapInfo& bmInfo
+		) = 0;
+
+	// Call this method to get the latest snapshot bitmap data pointer
+	// @bmData: pointer to location of snapshot bitmap bit values
+	virtual int GetAnnoBitmapData(
+		OUT UInt8** bmData
+		) = 0;
+
 	// Call this method to synch attendee annoter page info 
 	// 
 	virtual int SynchPageInfo(

@@ -62,5 +62,7 @@ CallBack_FUNC_2(onListMeeting, PremeetingAPIResult, result, IList<UINT64 >*, lst
 CallBack_FUNC_2(onScheduleOrEditMeeting, PremeetingAPIResult, result, UINT64, meetingUniqueId)
 //virtual void onDeleteMeeting(PremeetingAPIResult result) = 0;
 CallBack_FUNC_1(onDeleteMeeting, PremeetingAPIResult, result)
+//virtual void onGetInviteEmailContent(PremeetingAPIResult result, UINT64 meetingUniqueID, const wchar_t* content) = 0;
+CallBack_FUNC_3(onGetInviteEmailContent, PremeetingAPIResult, result, UINT64, meetingUniqueID, const wchar_t*, content)
 END_CLASS_DEFINE(IPreMeetingService)
 END_ZOOM_SDK_NAMESPACE

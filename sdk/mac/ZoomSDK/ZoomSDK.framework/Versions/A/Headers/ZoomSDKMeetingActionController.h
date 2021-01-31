@@ -25,13 +25,14 @@
  */
 @interface ZoomSDKChatInfo : NSObject
 {
-    unsigned int _sendID;
-    unsigned int _receiverID;
-    NSString*    _sendName;
-    NSString*    _receiverName;
-    NSString*    _content;
-    time_t       _timestamp;
-    BOOL         _isChatToWaitingRoom;
+    unsigned int                      _sendID;
+    unsigned int                      _receiverID;
+    NSString*                         _sendName;
+    NSString*                         _receiverName;
+    NSString*                         _content;
+    time_t                            _timestamp;
+    BOOL                              _isChatToWaitingRoom;
+    ZoomSDKChatMessageType            _chatMessageType;
 }
 /**
  * @brief Get the user ID of whom sending message.
@@ -65,14 +66,19 @@
 - (time_t)getTimeStamp;
 /**
  * @brief The current message is send to waiting room.
- * @return If return YES means the message is send to waiting room,otherwise not.
+ * @return If return YES means the message is send to waiting room, otherwise not.
  */
 -(BOOL)isChatToWaitingRoom;
+/**
+ * @brief Get the type of the current message.
+ * @return If the function succeeds, the return value is the enum of ZoomSDKChatMessageType.
+ */
+-(ZoomSDKChatMessageType)getChatMessageType;
 @end
 /**
  * @brief ZOOM SDK audio information.
  */
-@interface ZoomSDKUserAudioStauts : NSObject
+@interface ZoomSDKUserAudioStatus : NSObject
 {
     unsigned int _userID;
     ZoomSDKAudioStatus _status;
@@ -161,6 +167,11 @@
  */
 - (BOOL)isPurePhoneUser;
 /**
+ * @brief Determine whether the user corresponding to the current information joins the meeting by h323 or not.
+ * @return YES indicates that the user joins the meeting by h323.
+ */
+- (BOOL)isH323User;
+/**
  * @brief Determine if it is able to change the specified user role as the co-host.
  * @return If the specified user can be the co-host, the return value is YES. Otherwise failed.
  */
@@ -176,6 +187,30 @@
  *@return YES means that the user is talking.
  */
 - (BOOL)isTalking;
+
+/**
+ *@brief Get the participant ID matched with the current user information.
+ *@return The user participant ID.
+ */
+- (NSString *)getParticipantID;
+
+/**
+ *@brief Determine if user is interpreter.
+ *@return YES means that the user is interpreter.
+ */
+- (BOOL)isInterpreter;
+
+/**
+ *@brief Get interpreter active language.
+ *@return Value of language id.
+ */
+- (NSString *)getInterpreterActiveLanguage;
+
+/**
+ *@brief Get the raising hand status.
+ *@return YES means that the user is raising hand.
+ */
+- (BOOL)isRaisingHand;
 @end
 /**
  * @brief Join meeting helper.
@@ -207,7 +242,7 @@
 
 /**
  * @brief Notification of user's audio status changes. 
- * @param userAudioStatusArray An array contains ZoomSDKUserAudioStauts elements of each user's audio status.
+ * @param userAudioStatusArray An array contains ZoomSDKUserAudioStatus elements of each user's audio status.
  *
  */
 - (void)onUserAudioStatusChange:(NSArray*)userAudioStatusArray;
@@ -268,8 +303,7 @@
  * @param userID The ID of user who video status changes.
  *
  */
-- (void)onVideoStatusChange:(BOOL)videoOn UserID:(unsigned int)userID;
-
+- (void)onVideoStatusChange:(ZoomSDKVideoStatus)videoStatus UserID:(unsigned int)userID;
 /**
  * @brief Notification of user's hand status changes.
  * @param raise YES means that the specified user raises hand, otherwise, puts hand down.  
@@ -310,7 +344,10 @@
  * @brief Notify that host ask you to unmute yourself.
  */
 - (void)onHostAskUnmute;
-
+/**
+ * @brief Notify that host ask you to start video.
+ */
+- (void)onHostAskStartVideo;
 /**
  *@brief Notification of in-meeting active speakers.
  *@param useridArray The array contain userid of the active speakers.
@@ -353,14 +390,20 @@
  * @param userID The ID of user who will receive the message. 
  * @return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
  */
-- (ZoomSDKError)sendChat:(NSString*)content toUser:(unsigned int)userID;
+- (ZoomSDKError)sendChat:(NSString*)content toUser:(unsigned int)userID chatType:(ZoomSDKChatMessageType)type;
 
 /**
  * @brief Get the information of the specified user. 
  * @param userID The ID of the specified user. 
- * @return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ * @return If the function succeeds, it will return the object of ZoomSDKUserInfo, otherwise nil.
  */
 - (ZoomSDKUserInfo*)getUserByUserID:(unsigned int)userID;
+
+/**
+ * @brief Get the information of myself.
+ * @return If the function succeeds, it will return the object of ZoomSDKUserInfo, otherwise nil.
+ */
+- (ZoomSDKUserInfo*)getMyself;
 
 /**
  * @brief Change user's screen name in the meeting.
@@ -488,13 +531,24 @@
  * @brief Determine if the user can swap to show sharing screen or video now.
  * @return YES means can, otherwise not.
  */
-- (BOOL)canSwapToShowShareViewOrVideo;
+- (BOOL)canSwapToShowShareViewOrVideo NS_DEPRECATED_MAC(4.3, 5.4);
+/**
+ * @brief Determine if the user can swap between show sharing screen or video now.
+ * @return YES means can, otherwise not.
+ */
+- (BOOL)canSwapBetweenShareViewOrVideo NS_AVAILABLE_MAC(5.4);
 
 /**
  * @brief Determine if the meeting is displaying the sharing screen now.
  * @return YES means is showing sharing screen, NO means is showing video.
  */
-- (BOOL)isDisplayingShareViewOrVideo;
+- (BOOL)isDisplayingShareViewOrVideo NS_DEPRECATED_MAC(4.3, 5.4);
+/**
+ * @brief Determine if the meeting is displaying the sharing screen now.
+ * @param isDisplayingShareView YES means is showing sharing screen, NO means is showing video.
+ * @return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)isDisplayingShareViewOrVideo:(BOOL*)isShowingShareView NS_AVAILABLE_MAC(5.4);
 
 /**
  * @brief Set the meeting topic on meeting info.
@@ -502,4 +556,153 @@
  * @return  If the function succeeds, it will return ZoomSDKError_success, otherwise not.
  */
 - (ZoomSDKError)setMeetingTopicOnMeetingInfo:(NSString *)topic;
+
+/**
+ *@brief Determine if the share screen is allowed.
+ *@return YES means is disable share screen,otherwise not.
+ */
+-(BOOL)isParticipantsShareAllowed;
+
+/**
+ *@brief Allow participants to share screen.
+ *@param allow YES means allow participants use share screen,otherwise not.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)allowParticipantsToShare:(BOOL)allow;
+
+/**
+ *@brief Determine if the chat is allowed.
+ *@return YES means is disable chat,otherwise not.
+ */
+-(BOOL)isParticipantsChatAllowed;
+
+/**
+ *@brief Allow participants to chat.
+ *@param allow YES means allow participants to chat,otherwise not.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)allowParticipantsToChat:(BOOL)allow;
+
+/**
+ *@brief Determine if the participant rename is disabled.
+ *@return YES means is disable participant rename,otherwise not.
+ */
+-(BOOL)isParticipantsRenameAllowed;
+
+/**
+ *@brief Allow participants to rename.
+ *@param allow YES means allow participants to rename,otherwise not.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)allowParticipantsToRename:(BOOL)allow;
+
+/**
+ *@brief Determine if user can spotlight someone.
+ *@param userID The user id of the user you want to spotlight.
+ *@param result A point to enum ZoomSDKSpotlightResult, if the function call successfully, the value of 'result' means whether the user can be spotlighted.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)canSpotlight:(unsigned int)userID result:(ZoomSDKSpotlightResult*)result;
+
+/**
+ *@brief Determine if user can unspotlight someone.
+ *@param userID The user id of the user you want to unspotlight.
+ *@param result A point to enum ZoomSDKSpotlightResult, if the function call successfully, the value of 'result' means whether the user can be unspotlighted.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)canUnSpotlight:(unsigned int)userID result:(ZoomSDKSpotlightResult*)result;
+
+/**
+ *@brief Spotlight someone's video.
+ *@param userID The user id of the user you want to spotlight.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)spotlightVideo:(unsigned int)userID;
+
+/**
+ *@brief Unspotlight someone's video.
+ *@param userID The user id of the user you want to unspotlight.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)unSpotlightVideo:(unsigned int)userID;
+
+/**
+ *@brief Unspotlight all videos.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)unSpotlightAllVideos;
+
+/**
+ *@brief Get all users that has been spotlighted.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (NSArray*)getSpotlightedUserList;
+
+/**
+ *@brief Determine if user can pin someone to first view.
+ *@param userID The user id of the user you want to pin.
+ *@param result A point to enum ZoomSDKPinResult, if the function call successfully, the value of 'result' means whether the user can be pined.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)canPinToFirstView:(unsigned int)userID result:(ZoomSDKPinResult*)result;
+
+/**
+ *@brief Pin user's video to first view.
+ *@param userID The user id of the user you want to pin.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)pinVideoToFirstView:(unsigned int)userID;
+
+/**
+ *@brief Unpin user's video to first view.
+ *@param userID The user id of the user you want to unpin.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)unPinVideoFromFirstView:(unsigned int)userID;
+
+/**
+ *@brief Unpin all videos to first view.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)unPinAllVideosFromFirstView;
+
+/**
+ *@brief Get all users that has been pined in first view.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (NSArray*)getPinnedUserListFromFirstView;
+
+/**
+ *@brief Determine if user can pin someone to second view.
+ *@param userID The user id of the user you want to pin.
+ *@param result A point to enum ZoomSDKPinResult, if the function call successfully, the value of 'result' means whether the user can be pined.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)canPinToSecondView:(unsigned int)userID result:(ZoomSDKPinResult*)result;
+
+/**
+ *@brief Pin user's video to second view.
+ *@param userID The user id of the user you want to pin.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)pinVideoToSecondView:(unsigned int)userID;
+
+/**
+ *@brief Unpin user's video to second view.
+ *@param userID The user id of the user you want to unpin.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)unPinVideoFromSecondView:(unsigned int)userID;
+
+/**
+ *@brief Get all users that has been pined in second view.
+ *@return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (NSArray*)getPinnedUserListFromSecondView;
+
+/**
+ *@brief Determine if participants can unmute themselves.
+ *@return YES means can unmute themselves, otherwise not.
+ */
+- (BOOL)isParticipantsUnmuteSelfAllowed;
 @end

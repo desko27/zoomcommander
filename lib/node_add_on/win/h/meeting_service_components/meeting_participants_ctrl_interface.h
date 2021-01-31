@@ -54,6 +54,13 @@ public:
 	///Otherwise failed, the return value is ZERO(0).
 	virtual unsigned int GetUserID() = 0;
 
+	/// \brief Get the participant ID matched with the current user information.
+	///If you assign a participant ID for a user in the start/join meeting parameter, the value you assigned will be returned.
+	///Otherwise a Zoom assigned id or NULL will be returned.
+	/// \return If the function succeeds, the return value is the participant ID.
+	///Otherwise failed, the return value is ZERO(0).
+	virtual const wchar_t* GetParticipantID() = 0;
+
 	/// \brief Determine the video status of the user specified by the current information.
 	/// \return TRUE indicates that the video is turned on.
 	virtual bool IsVideoOn() = 0;
@@ -97,10 +104,22 @@ public:
 	/// \brief Determine whether the user specified by the current information is talking or not.
 	/// \return TRUE indicates that the specified user is talking.
 	virtual bool IsTalking() = 0;
+	
+	/// \brief Determine whether the user specified by the current information is H323 user or not.
+	/// \return TRUE indicates that the specified user is H323 user.
+	virtual bool IsH323User() = 0;
 
 	/// \brief Get the webinar status of the user specified by the current information.
 	/// \return The status of the specified user. For more details, see \link WebinarAttendeeStatus \endlink structure.
 	virtual WebinarAttendeeStatus* GetWebinarAttendeeStauts() = 0;
+	
+	/// \brief Determine whether the user specified by the current information is a interpreter or not.
+	/// \return TRUE indicates that the specified user is a interpreter, otherwise not.
+	virtual bool IsInterpreter() = 0;
+
+	/// \brief Get the active language, if the user is a interpreter.
+	/// \return If success, the return value is the active language abbreviation, Otherwise the return value is ZERO(0).
+	virtual const wchar_t* GetInterpreterActiveLanguage() = 0;
 
 	virtual ~IUserInfo(){};
 };
@@ -159,11 +178,16 @@ public:
 
 	/// \brief Get the information of specified user.
 	/// \param userid Specify the user ID for which you want to get the information. 
-	///Zero(0) indicates to get the information of the current user.
+	/// \return If the function succeeds, the return value is a pointer to the IUserInfo. For more details, see \link IUserInfo \endlink.
+	///Otherwise failed, the return value is NULL.
+	/// \remarks Valid for both ZOOM style and user custom interface mode.
+	virtual IUserInfo* GetUserByUserID(unsigned int userid) = 0;
+
+	/// \brief Get the information of current user.
 	/// \return If the function succeeds, the return value is a pointer to the IUserInfo. For more details, see \link IUserInfo \endlink.
 	///Otherwise failed, the return value is NULL.
 	/// \remarks Valid for both ZOOM style and user custom interface mode..
-	virtual IUserInfo* GetUserByUserID(unsigned int userid) = 0;
+	virtual IUserInfo* GetMySelfUser() = 0;
 
 	/// \brief Cancel all hands raised.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
@@ -247,6 +271,16 @@ public:
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
 	/// \remarks Valid for both ZOOM style and user custom interface mode..
 	virtual SDKError ReclaimHostByHostKey(const wchar_t* host_key) = 0;
+
+	virtual SDKError AllowParticipantsToRename(bool bAllow) = 0;
+
+	virtual bool IsParticipantsRenameAllowed() = 0;
+
+	virtual SDKError AllowParticipantsToUnmuteSelf(bool bAllow) = 0;
+
+	virtual bool IsParticipantsUnmuteSelfAllowed() = 0;
+
+	virtual SDKError AskAllToUnmute() = 0;
 };
 END_ZOOM_SDK_NAMESPACE
 #endif

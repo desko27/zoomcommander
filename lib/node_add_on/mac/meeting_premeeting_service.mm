@@ -270,25 +270,27 @@ void ZPremeetingServiceWrap::onScheduleOrEditMeeting(ZNPremeetingAPIResult resul
         m_pSink->onScheduleOrEditMeeting(result, meetingUniqueID);
     }
 }
-
 void ZPremeetingServiceWrap::onListMeeting(ZNPremeetingAPIResult result, std::vector<unsigned long long> lst_meeting_list)
 {
     if (m_pSink) {
         m_pSink->onListMeeting(result, lst_meeting_list);
     }
 }
-
 void ZPremeetingServiceWrap::onDeleteMeeting(ZNPremeetingAPIResult result)
 {
     if (m_pSink) {
         m_pSink->onDeleteMeeting(result);
     }
 }
-
-
 void ZDirectShareHelperWrap::OnDirectShareStatusUpdate(ZNDirectShareStatus status)
 {
     if (m_pSink) {
         m_pSink->OnDirectShareStatusUpdate(status);
+    }
+}
+void ZPremeetingServiceWrap::onGetInviteEmailContent(ZNPremeetingAPIResult result, unsigned long long meetingUniqueID, ZoomSTRING content)
+{
+    if (m_pSink) {
+        m_pSink->onGetInviteEmailContent(result,meetingUniqueID,content);
     }
 }

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/SaasBeeWebServiceModule-Info.plist</key>
 		<data>
-		HNhJyfY3j8+tLpEsyZC4Cd0pV6g=
+		8ZlfLy4GuLB7FVA0N1ulkOQINhc=
 		</data>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -17,14 +17,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/immetrics.proto</key>
-		<data>
-		9zlQfyK+8wJKagSGt0d3qWJmjo4=
-		</data>
-		<key>Resources/meeting.proto</key>
-		<data>
-		6QCJQAwD/73ZvEkdtqBXxXN6Q6E=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -32,11 +24,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HNhJyfY3j8+tLpEsyZC4Cd0pV6g=
+			8ZlfLy4GuLB7FVA0N1ulkOQINhc=
 			</data>
 			<key>hash2</key>
 			<data>
-			CTtYQRhJz0mzkB2i3rqmc6rYeayMQRA0VhdD/IfrHlY=
+			YmFbfE+nqlM4lAomxUeJkPUCmIxzq49GakSTyEvdykw=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
@@ -51,28 +43,6 @@
 			</data>
 			<key>optional</key>
 			<true/>
-		</dict>
-		<key>Resources/immetrics.proto</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9zlQfyK+8wJKagSGt0d3qWJmjo4=
-			</data>
-			<key>hash2</key>
-			<data>
-			36LqwA924G8nZSCeTASXl+T76cOOT5avg6hJ/dH8j8E=
-			</data>
-		</dict>
-		<key>Resources/meeting.proto</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6QCJQAwD/73ZvEkdtqBXxXN6Q6E=
-			</data>
-			<key>hash2</key>
-			<data>
-			+6iANruRR0HTuCn16vXR16F6pzTuckhjyFVv4K4Qr2w=
-			</data>
 		</dict>
 	</dict>
 	<key>rules</key>

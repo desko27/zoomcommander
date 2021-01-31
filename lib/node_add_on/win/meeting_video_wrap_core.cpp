@@ -70,12 +70,12 @@ ZNSDKError ZMeetingVideoWrap::UnMuteVideo(unsigned int userId)
 ZNSDKError ZMeetingVideoWrap::PinVideo(bool bPin, bool bFirstView, unsigned int userId)
 {
 	
-	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingVideoController().PinVideo(bPin, bFirstView, userId));
+	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingVideoController().PinVideoToFirstView(userId));
 }
 ZNSDKError ZMeetingVideoWrap::SpotlightVideo(bool bSpotlight, unsigned int userId)
 {
 	
-	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingVideoController().SpotlightVideo(bSpotlight, userId));
+	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingVideoController().SpotlightVideo(userId));
 }
 ZNSDKError ZMeetingVideoWrap::HideOrShowNoVideoUserOnVideoWall(bool bHide)
 {

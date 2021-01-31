@@ -23,6 +23,8 @@ IMPL_FUNC_0(ISettingService, GetGeneralSettings, IGeneralSettingContext*, NULL)
 IMPL_FUNC_0(ISettingService, GetStatisticSettings, IStatisticSettingContext*, NULL)
 //virtual IAccessibilitySettingContext* GetAccessibilitySettings() = 0;
 IMPL_FUNC_0(ISettingService, GetAccessibilitySettings, IAccessibilitySettingContext*, NULL)
+//virtual IShareSettingContext* GetShareSettings() = 0;
+IMPL_FUNC_0(ISettingService, GetShareSettings, IShareSettingContext*, NULL)
 
 #if (defined UserInterfaceClass)
 //virtual IVideoSettingContext* GetVideoSettings() = 0;

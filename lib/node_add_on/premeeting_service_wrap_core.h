@@ -24,6 +24,7 @@ public:
 	void onScheduleOrEditMeeting(ZNPremeetingAPIResult result, unsigned long long meetingUniqueID);
 	void onListMeeting(ZNPremeetingAPIResult result, ZNList<unsigned long long> lst_meeting_list);
 	void onDeleteMeeting(ZNPremeetingAPIResult result);
+	virtual void onGetInviteEmailContent(ZNPremeetingAPIResult result, unsigned long long meetingUniqueID, ZoomSTRING content);
 	
 private:
 	ZNativeSDKPreMeetingWrapSink* m_pSink;

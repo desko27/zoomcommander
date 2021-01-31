@@ -525,10 +525,18 @@ public:
 	/// \return TRUE indicates that it is a webinar. False no.
 	virtual bool   IsWebinar() = 0;
 	
+	/// \deprecated This interface will be deprecated, please stop using it.
 	/// \brief Get the content of the email to invite the users to join the meeting.
 	/// \return If the function succeeds, the return value is the content of the email. Otherwise failed, returns NULL.
+	/// \Remark If the return value is NULL, you can try to call IMeetingItemInfo::SyncGetInviteEmailContent() interface. 
 	virtual const wchar_t* GetInviteEmailContent() = 0;
 	
+	/// \brief Get the content of the email to invite the users to join the meeting asynchronously.
+	/// \return If the function succeeds, the return value is SDKErr_Success. 
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Once the function is called successfully, the user will receive the callback event via IPreMeetingServiceEvent::onGetInviteEmailContent().
+	virtual SDKError AsyncGetInviteEmailContent() = 0;
+
 	/// \brief Get the subject of the email to invite the users to join the meeting.
 	/// \return If the function succeeds, the return value is the subject of the email. Otherwise failed, returns NULL.
 	virtual const wchar_t* GetInviteEmailSubject() = 0;
@@ -594,6 +602,12 @@ public:
 	/// \brief Delete meeting callback.
 	/// \param result The result of calling IPreMeetingService::DeleteMeeting(). For more details, see \link PremeetingAPIResult \endlink enum.
 	virtual void onDeleteMeeting(PremeetingAPIResult result) = 0;
+
+	/// \brief synchronize the content meeting invite email callback.
+	/// \param result The result of calling IPreMeetingService::AsyncGetInviteEmailContent(). For more details, see \link PremeetingAPIResult \endlink enum.
+	/// \param meetingUniqueID The meeting ID that the content of meeting invite email belongs to. Valid only when result is PREMETAPIRET_SUCCESS.
+	/// \param content The content of meeting invite email. Valid only when result is PREMETAPIRET_SUCCESS.
+	virtual void onGetInviteEmailContent(PremeetingAPIResult result, UINT64 meetingUniqueID, const wchar_t* content) = 0;
 };
 
 /// \brief Pre-meeting service interface.

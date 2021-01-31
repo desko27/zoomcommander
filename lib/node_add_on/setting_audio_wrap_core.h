@@ -34,8 +34,8 @@ public:
 	ZNSDKError GetMicVol(float& value);
 	ZNSDKError SetSpeakerVol(float& value);
 	ZNSDKError GetSpeakerVol(float& value);
-	ZNSDKError EnableEchoCancellation(bool bEnable);
-	bool IsEchoCancellationEnabled();
+	ZNSDKError SetEchoCancellationLevel(ZN_SDK_ECHO_CANCELLATION_LEVEL level);
+	ZN_SDK_ECHO_CANCELLATION_LEVEL GetEchoCancellationLevel();
 
 
 	//callback

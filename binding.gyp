@@ -45,7 +45,26 @@
                  "./lib/node_add_on/mac/meeting_config_service.mm",
                  "./lib/node_add_on/mac/meeting_premeeting_service.mm",
                  "./lib/node_add_on/mac/task_to_main.mm",
-                 "./lib/node_add_on/zoom_node_meeting_annotation.cpp",
+                  "./lib/node_add_on/mac/zoom_sms_wrap.mm",
+			      "./lib/node_add_on/mac/settingServiceDelegate.mm",
+			      "./lib/node_add_on/mac/setting_statistic_service.mm",
+			      "./lib/node_add_on/mac/setting_accessibility_service.mm",
+			      "./lib/node_add_on/mac/meeting_recording_service.mm",
+			      "./lib/node_add_on/mac/rawdata_api_wrap_core.mm",
+			      "./lib/node_add_on/mac/rawdataDelegate.mm",
+			      "./lib/node_add_on/mac/setting_shareScreen_service.mm",
+
+			      "./lib/node_add_on/zoom_node_setting_share_ctrl.cpp",
+			      "./lib/node_add_on/zoom_node_rawdata_api_ctrl.cpp",
+			      "./lib/node_add_on/zoom_node_rawdata_helper_mgr_class.cpp",
+			      "./lib/node_add_on/electron_sdk.pb.cc",
+			      "./lib/node_add_on/zoom_node_meeting_recording_ctrl.cpp",
+			      "./lib/node_add_on/raw_data_format.cpp",
+			      "./lib/node_add_on/uv_ipc_common.cpp",
+			      "./lib/node_add_on/raw_data_uv_ipc_server.cpp",
+			      "./lib/node_add_on/zoom_node_setting_statistic_ctrl.cpp",
+			      "./lib/node_add_on/zoom_node_setting_accessibility_ctrl.cpp",
+			      "./lib/node_add_on/zoom_node_meeting_annotation.cpp",
 				  "./lib/node_add_on/zoom_node_meeting_audio_ctrl.cpp",
 				  "./lib/node_add_on/zoom_node_meeting_video_ctrl.cpp",
 				  "./lib/node_add_on/zoom_node_meeting_participants_ctrl.cpp",
@@ -58,25 +77,10 @@
 				  "./lib/node_add_on/zoom_node_setting_recording_ctrl.cpp",
 				  "./lib/node_add_on/zoom_node_customized_resource.cpp",
 				  "./lib/node_add_on/zoom_node_direct_share_helper.cpp",
-				  "./lib/node_add_on/zoom_node_video_raw_data.cpp",
-				  "./lib/node_add_on/zoom_node_audio_raw_data.cpp",
-				  "./lib/node_add_on/zoom_node_share_raw_data.cpp",
 				  "./lib/node_add_on/zoom_v8_to_c.cpp",
 				  "./lib/node_add_on/run_task_to_main_thread.cpp",
-				  "./lib/node_add_on/zoom_node_raw_data_license.cpp",
-				  "./lib/node_add_on/zoom_raw_data_wrap.cpp",
 				  "./lib/node_add_on/zoom_node_setting_ui_strategy_ctrl.cpp",
                   "./lib/node_add_on/zoom_node_sdk_sms_helper.cpp",
-                  "./lib/node_add_on/mac/zoom_sms_wrap.mm",
-
-			      "./lib/node_add_on/zoom_node_setting_statistic_ctrl.cpp",
-			      "./lib/node_add_on/zoom_node_setting_accessibility_ctrl.cpp",
-			      "./lib/node_add_on/mac/settingServiceDelegate.mm",
-			      "./lib/node_add_on/mac/setting_statistic_service.mm",
-			      "./lib/node_add_on/mac/setting_accessibility_service.mm",
-			       "./lib/node_add_on/raw_data_format.cpp",
-			      "./lib/node_add_on/uv_ipc_common.cpp",
-			      "./lib/node_add_on/raw_data_uv_ipc_server.cpp",
 
 			  ],
 			  'mac_framework_dirs':[
@@ -86,12 +90,16 @@
 			  'libraries':[
 			   "ZoomSDK.framework",
 
+			   "../sdk/mac/libprotobuf-lite.14.dylib",
 			   ],
+			   'include_dirs':[
+			   "./lib/node_add_on/protobuf_src",
+				],
 			   },
    		      "xcode_settings":{
                     "DEBUG_INFORMATION_FORMAT": "dwarf-with-dsym",
                     "BUILD_DIR":"<(module_mac)",
-                    "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++11", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
+                    "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++14", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
                     "OTHER_LDFLAGS": [ "-stdlib=libc++"],
                     "DEPLOYMENT_POSTPROCESSING": "YES",
            
@@ -115,6 +123,11 @@
 				  }, 
 				},
 		  }, # configurations
+		  'link_settings':{
+			  'libraries':[
+			   "./../sdk/win64/libprotobuf-lite.lib",
+			   ],
+			   },
 		  }
 		  ],
 		  [
@@ -129,9 +142,17 @@
 					  'GenerateMapFile': 'true',
 					  'ProgramDatabaseFile': "<(module_32pdbfile_name)",
 					},
+					'VCCLCompilerTool': {
+                     'RuntimeLibrary': '2',
+                    },
 				  }, 
 				},
 		  }, # configurations
+		  'link_settings':{
+			  'libraries':[
+			   "./../sdk/win32/libprotobuf-lite.lib",
+			   ],
+			   },
 		  }
 		  ],
 		  [
@@ -154,6 +175,8 @@
 			  "./lib/node_add_on/win/setting_audio_wrap_core.cpp",
 			  "./lib/node_add_on/win/setting_general_wrap_core.cpp",
 			  "./lib/node_add_on/win/setting_ui_strategy_wrap_core.cpp",
+			  "./lib/node_add_on/win/setting_share_wrap_core.cpp",
+			  "./lib/node_add_on/win/meeting_recording_wrap_core.cpp",
 			  
 			  "./lib/node_add_on/win/setting_statistic_wrap_core.cpp",
 			  "./lib/node_add_on/win/setting_accessibility_wrap_core.cpp",
@@ -163,8 +186,11 @@
 			  "./lib/node_add_on/win/customized_resource_wrap_core.cpp",
 			  "./lib/node_add_on/win/zoom_sdk_sms_helper_wrap_core.cpp",
 			  "./lib/node_add_on/zoom_node_addon.cpp",
+			  "./lib/node_add_on/electron_sdk.pb.cc",
 			  "./lib/node_add_on/node_res.rc",
 			  "./lib/node_add_on/win/zoom_native_to_wrap.cpp",
+			  
+			  "./lib/node_add_on/zoom_node_rawdata_api_ctrl.cpp",
 			  
 			  "./lib/node_add_on/zoom_node_meeting_annotation.cpp",
 			  "./lib/node_add_on/zoom_node_meeting_audio_ctrl.cpp",
@@ -173,34 +199,42 @@
 			  "./lib/node_add_on/zoom_node_meeting_share_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_meeting_h323_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_meeting_config_ctrl.cpp",
+			  "./lib/node_add_on/zoom_node_meeting_recording_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_video_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_audio_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_general_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_ui_strategy_ctrl.cpp",
-			  
+			  "./lib/node_add_on/zoom_node_setting_share_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_statistic_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_setting_accessibility_ctrl.cpp",
 			  
 			  "./lib/node_add_on/zoom_node_setting_recording_ctrl.cpp",
 			  "./lib/node_add_on/zoom_node_customized_resource.cpp",
 			  "./lib/node_add_on/zoom_node_direct_share_helper.cpp",
-			  "./lib/node_add_on/zoom_node_video_raw_data.cpp",
-			  "./lib/node_add_on/zoom_node_audio_raw_data.cpp",
-			  "./lib/node_add_on/zoom_node_share_raw_data.cpp",
 			  "./lib/node_add_on/zoom_v8_to_c.cpp",
 			  "./lib/node_add_on/raw_data_format.cpp",
 			  "./lib/node_add_on/uv_ipc_common.cpp",
 			  "./lib/node_add_on/raw_data_uv_ipc_server.cpp",
 			  "./lib/node_add_on/run_task_to_main_thread.cpp",
-			  "./lib/node_add_on/zoom_raw_data_wrap.cpp",
-			  "./lib/node_add_on/zoom_node_raw_data_license.cpp",
+			  
+			  "./lib/node_add_on/zoom_node_rawdata_helper_mgr_class.cpp",
+			  
+			  "./lib/node_add_on/win/zoom_native_raw_api_wrap_core.cpp",
+			  "./lib/node_add_on/win/zoom_native_raw_render_wrap_core.cpp",
+			  "./lib/node_add_on/win/zoom_native_audio_rawdata_wrap_core.cpp",
 			  "./lib/node_add_on/zoom_node_sdk_sms_helper.cpp"
+			  
+			  
 			  
 			  
 
 		  ],
 			  
 			  'defines':['BUILD_WIN'],
+			  
+			   'include_dirs':[
+			   "./lib/node_add_on/protobuf_src",
+				],
 		  
 		  }
 		  
@@ -222,6 +256,7 @@
 			     "./lib/node_add_on/zoom_v8_to_c.cpp",
 			     "./lib/node_add_on/uv_ipc_common.cpp",
 			     "./lib/node_add_on/zoom_v8_to_c.cpp",
+			     "./lib/node_add_on/electron_sdk.pb.cc",
 			  ],
 			  'mac_framework_dirs':[
 			  './../sdk/mac/ZoomSDK',
@@ -229,13 +264,17 @@
 			  'link_settings':{
 			  'libraries':[
 			   "ZoomSDK.framework",
+			   "../sdk/mac/libprotobuf-lite.14.dylib",
 
 			   ],
+			   'include_dirs':[
+			   "./lib/node_add_on/protobuf_src",
+				],
 			   },
 			   "xcode_settings":{
                     "DEBUG_INFORMATION_FORMAT": "dwarf-with-dsym",
                     "BUILD_DIR":"<(module_mac)",
-                    "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++11", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
+                    "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++14", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
                     "OTHER_LDFLAGS": [ "-stdlib=libc++"],
                     "DEPLOYMENT_POSTPROCESSING": "YES",
 	        }
@@ -257,6 +296,12 @@
 				  }, 
 				},
 		  }, # configurations
+		  'link_settings':{
+			  'libraries':[
+			   "./../sdk/win64/libprotobuf-lite.lib",
+
+			   ],
+			   },
 		  }
 		  ],
 		  [
@@ -271,16 +316,25 @@
 					  'GenerateMapFile': 'true',
 					  'ProgramDatabaseFile': "<(render_module_32pdbfile_name)",
 					},
+					'VCCLCompilerTool': {
+                     'RuntimeLibrary': '2',
+                    },
 				  }, 
 				},
 		  }, # configurations
+		  'link_settings':{
+			  'libraries':[
+			   "./../sdk/win32/libprotobuf-lite.lib",
+
+			   ],
+			   },
 		  }
 		  ],
 		  [
 		  'OS=="win"',
 		  {
 		  "sources":[
-			
+			  "./lib/node_add_on/electron_sdk.pb.cc",
 			  "./lib/node_add_on/zoom_node_render_addon.cpp",
 			  "./lib/node_add_on/node_res.rc",
 			  "./lib/node_add_on/win/zoom_native_to_wrap.cpp",
@@ -292,7 +346,10 @@
 		  ],
 			  
 			'defines':['BUILD_WIN'],  
-		  
+			
+			   'include_dirs':[
+			   "./lib/node_add_on/protobuf_src",
+				],
 		  }
 		  
 		  ]

@@ -18,6 +18,8 @@
 #include "meeting_service_components_wrap/meeting_webinar_ctrl_wrap.h"
 #include "meeting_service_components_wrap/meeting_closedcaption_ctrl_wrap.h"
 #include "meeting_service_components_wrap/meeting_realname_auth_helper_wrap.h"
+#include "meeting_service_components_wrap/meeting_interpretation_ctrl_wrap.h"
+#include "meeting_service_components_wrap/meeting_emoji_reaction_wrap.h"
 
 BEGIN_ZOOM_SDK_NAMESPACE
 ZOOM_SDK_NAMESPACE::IMeetingService* InitIMeetingServiceFunc(ZOOM_SDK_NAMESPACE::IMeetingServiceEvent* pEvent);
@@ -82,6 +84,7 @@ DEFINE_FUNC_0(GetMeetingLiveStreamController, IMeetingLiveStreamController*)
 DEFINE_FUNC_0(GetMeetingWebinarController, IMeetingWebinarController*)
 DEFINE_FUNC_0(GetMeetingClosedCaptionController, IClosedCaptionController*)
 DEFINE_FUNC_0(GetMeetingRealNameAuthController IZoomRealNameAuthMeetingHelper*)
+DEFINE_FUNC_0(GetMeetingEmojiReactionController, IEmojiReactionController*)
 public:
 #define T_GetMeetingConfiguration _GetMeetingConfiguration
 #define T_GetUIController _GetUIController
@@ -101,6 +104,10 @@ public:
 #define T_GetMeetingWebinarController _GetMeetingWebinarController
 #define T_GetMeetingClosedCaptionController _GetMeetingClosedCaptionController
 #define T_GetMeetingRealNameAuthController _GetMeetingRealNameAuthController
+#define T_GetMeetingQAController _GetMeetingQAController
+#define T_GetMeetingBOController _GetMeetingBOController
+#define T_GetMeetingInterpretationController _GetMeetingInterpretationController
+#define T_GetMeetingEmojiReactionController _GetMeetingEmojiReactionController
 #else
 #define T_GetMeetingConfiguration GetMeetingConfiguration
 #define T_GetUIController GetUIController
@@ -120,6 +127,10 @@ public:
 #define T_GetMeetingWebinarController GetMeetingWebinarController
 #define T_GetMeetingClosedCaptionController GetMeetingClosedCaptionController
 #define T_GetMeetingRealNameAuthController GetMeetingRealNameAuthController
+#define T_GetMeetingQAController GetMeetingQAController
+#define T_GetMeetingBOController GetMeetingBOController
+#define T_GetMeetingInterpretationController GetMeetingInterpretationController
+#define T_GetMeetingEmojiReactionController GetMeetingEmojiReactionController
 #endif
 DEFINE_FUNC_AND_MEMBER(T_GetMeetingConfiguration, IMeetingConfigurationWrap)
 DEFINE_FUNC_AND_MEMBER(T_GetUIController, IMeetingUIControllerWrap)
@@ -139,7 +150,10 @@ DEFINE_FUNC_AND_MEMBER(T_GetMeetingLiveStreamController, IMeetingLiveStreamContr
 DEFINE_FUNC_AND_MEMBER(T_GetMeetingWebinarController, IMeetingWebinarControllerWrap)
 DEFINE_FUNC_AND_MEMBER(T_GetMeetingClosedCaptionController, IClosedCaptionControllerWrap)
 DEFINE_FUNC_AND_MEMBER(T_GetMeetingRealNameAuthController, IZoomRealNameAuthMeetingHelperWrap)
-
+//DEFINE_FUNC_AND_MEMBER(T_GetMeetingQAController, IMeetingQAControllerWrap)
+//DEFINE_FUNC_AND_MEMBER(T_GetMeetingBOController, IMeetingBOControllerWrap)
+DEFINE_FUNC_AND_MEMBER(T_GetMeetingInterpretationController, IMeetingInterpretationControllerWrap)
+DEFINE_FUNC_AND_MEMBER(T_GetMeetingEmojiReactionController, IEmojiReactionControllerWrap)
 //need wrap it in next release.todo
 /*
 virtual IMeetingLiveStreamController* GetMeetingLiveStreamController()
