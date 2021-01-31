@@ -31,7 +31,7 @@ const BlockComments = ({
     }
 
     const usersWithRaisedHand = users
-      .filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
+      .filter(user => user.isRaisedHand)
       .sort((userA, userB) =>
         Math.sign(userA.lastRaisedHandTimestamp - userB.lastRaisedHandTimestamp))
     return usersWithRaisedHand
@@ -84,7 +84,7 @@ const BlockComments = ({
             {...user}
             key={user.id}
             actionsRef={userActionsRef}
-            nameColor={!isHistory && user.isNonVerbalFeedback ? 'error' : LIST_COLOR}
+            nameColor={LIST_COLOR}
             updateUserData={updateUserData}
             isGhost={!isHistory && user.isRaisedHandRevoked}
           />

@@ -7,9 +7,6 @@ import useZoomEvents from '../useZoomEvents'
 const { ZoomMeetingAudioStatus } = require('../../../../lib/settings')
 
 const SYNCING_DUE_TO_MUTE_ALL_TIMEOUT = 500
-const FIELDS_TO_COMPARE = [
-  'userName', 'isHost', 'isVideoOn', 'isAudioMuted', 'audioStatus', 'userRole', 'userInfoType'
-]
 
 const ZN_USERROLE_HOST = 1
 const ZN_USERROLE_COHOST = 2
@@ -68,8 +65,6 @@ export default function useUsers () {
 
       // retrieve user data for newcomers
       joinedUserIds.forEach(id => {
-        const isExistingUser = userIds.includes(id)
-
         sendZoomCommand('getUserInfoByUserID', id).then(
           response => {
             const { userID: id } = response
@@ -86,30 +81,6 @@ export default function useUsers () {
                   // replace `isAudioMuted` by our own `audioStatus` treatment approach
                   isAudioMuted: getIsAudioMutedFromAudioStatus(response)
                 }
-
-                // [START] joinUsers hack to notice non-verbal feedback !!
-                const { isNonVerbalFeedback } = currentUserObject
-                const isCurrentVsNewTheSame = () =>
-                  FIELDS_TO_COMPARE
-                    .every(field => currentUserObject[field] === newUserObject[field])
-
-                const isUserWhoCannotRaiseHand = hostUsersFilter(newUserObject)
-                if (
-                  !isSync &&
-                  isUserWhoCannotRaiseHand &&
-                  isExistingUser &&
-                  !isNonVerbalFeedback &&
-                  isCurrentVsNewTheSame()
-                ) {
-                  // No info has changed! "Raise hand"! (via `isNonVerbalFeedback` property)
-                  // This makes possible to see non-verbal feedback on the comments block
-                  return {
-                    ...newUserObject,
-                    isNonVerbalFeedback: true,
-                    lastRaisedHandTimestamp: Date.now()
-                  }
-                }
-                // [END] joinUsers hack to notice non-verbal feedback !!
 
                 return newUserObject
               }
