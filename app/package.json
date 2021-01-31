@@ -11,11 +11,12 @@
     "copy-global-electron": "cp -r /c/Users/ismael.ramon/AppData/Roaming/npm/node_modules/electron ./node_modules/electron",
     "packager-win": "npm run react-build && electron-packager ./ zoomcommander --asar --platform=win32 --arch=ia32 --out ./OutAppWin32 --electron-version=8.2.0 --overwrite --icon=./public/icon.ico && cp -r ../lib ./OutAppWin32/zoomcommander-win32-ia32/resources/lib && mkdir .\\OutAppWin32\\zoomcommander-win32-ia32\\resources\\sdk && cp -r ../sdk/win32 ./OutAppWin32/zoomcommander-win32-ia32/resources/sdk/win32",
     "packager-win:installer": "node scripts/gen-win-installer.js",
+    "packager-mac": "electron-packager ./ zoomcommander --platform=darwin --arch=x64 --out ./OutApp --electron-version=8.2.4 --overwrite --icon=./app.icns&& yes|cp -R  -H ../lib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ && rm -rf ../sdk/win32 && rm -rf ../sdk/win64 && yes|cp -R  -H ../sdk ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ &&yes|cp -R  -H ../sdk/mac/Plugins ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/ && yes|cp -R  -H ../sdk/mac/Resources ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/&& yes|cp -R  -H ../sdk/mac/ZoomSDK/* ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks && yes|cp -R  -H ../sdk/mac/libprotobuf-lite.14.dylib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks",
     "electron-build": "electron-builder --win",
     "build": "npm run react-build && npm run electron-build",
     "start": "env-cmd concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
     "lint": "npx standard",
-    "postinstall-mac": "yes|cp -R  -H ../sdk/mac/Plugins ./node_modules/electron/dist/Electron.app/Contents/&& yes|cp -R  -H ../sdk/mac/Resources ./node_modules/electron/dist/Electron.app/Contents/ && yes|cp -R  -H ../sdk/mac/ZoomSDK/ ./node_modules/electron/dist/Electron.app/Contents/Frameworks"
+    "postinstall-mac": "yes|cp -R  -H ../sdk/mac/Plugins ./node_modules/electron/dist/Electron.app/Contents/&& yes|cp -R  -H ../sdk/mac/Resources ./node_modules/electron/dist/Electron.app/Contents/ && yes|cp -R  -H ../sdk/mac/ZoomSDK/ ./node_modules/electron/dist/Electron.app/Contents/Frameworks && yes|cp -R  -H ../sdk/mac/libprotobuf-lite.14.dylib ./node_modules/electron/dist/Electron.app/Contents/Frameworks"
   },
   "husky": {
     "hooks": {
