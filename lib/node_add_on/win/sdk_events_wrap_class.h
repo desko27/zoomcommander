@@ -22,6 +22,7 @@ public:
 				_g_native_wrap.GetMeetingServiceWrap().GetMeetingH323Ctrl().Init();
 				_g_native_wrap.GetMeetingServiceWrap().GetMeetingParticipantsCtrl().Init();
 				_g_native_wrap.GetMeetingServiceWrap().GetMeetingShareCtrl().Init();
+				_g_native_wrap.GetMeetingServiceWrap().GetMeetingRecordingCtrl().Init();
 				_g_native_wrap.GetMeetingServiceWrap().GetMeetingUICtrl().Init();
 				_g_native_wrap.GetMeetingServiceWrap().GetSDKSMSHelper().Init();
 				_g_native_wrap.GetSettingServiceWrap().Init();
@@ -56,6 +57,13 @@ public:
 	virtual void onZoomAuthIdentityExpired() {
 		if (owner_) {
 			owner_->onZoomAuthIdentityExpired();
+		}
+	}
+	virtual void onLoginReturnWithReason(ZOOM_SDK_NAMESPACE::LOGINSTATUS ret, ZOOM_SDK_NAMESPACE::IAccountInfo* pAccountInfo, ZOOM_SDK_NAMESPACE::LoginFailReason reason)
+	{
+		if (owner_)
+		{
+			owner_->onLoginReturnWithReason(Map2WrapDefine(ret), Map2WrapDefine(reason));
 		}
 	}
 private:
@@ -119,6 +127,12 @@ public:
 	{
 		if (owner_) {
 			owner_->onDeleteMeeting(Map2WrapDefine(result));
+		}
+	}
+	virtual void onGetInviteEmailContent(ZOOM_SDK_NAMESPACE::PremeetingAPIResult result, UINT64 meetingUniqueID, const wchar_t* content)
+	{
+		if (owner_) {
+			owner_->onGetInviteEmailContent(Map2WrapDefine(result), meetingUniqueID, content);
 		}
 	}
 private:
@@ -290,6 +304,62 @@ public:
 	}
 private:
 	ZMeetingVideoWrap* owner_;
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class ZMeetingRecordingCtrlWrapEvent : public ZOOM_SDK_NAMESPACE::IMeetingRecordingCtrlEvent
+{
+public:
+	void SetOwner(ZMeetingRecordingWrap* obj) { owner_ = obj; }
+	virtual void onRecording2MP4Done(bool bsuccess, int iResult, const wchar_t* szPath)
+	{
+		if (owner_)
+		{
+			ZoomSTRING zn_szPath;
+			if (szPath)
+			{
+				zn_szPath = szPath;
+			}
+			owner_->onRecording2MP4Done(bsuccess, iResult, zn_szPath);
+		}
+	}
+	virtual void onRecording2MP4Processing(int iPercentage)
+	{
+		if (owner_)
+		{
+			owner_->onRecording2MP4Processing(iPercentage);
+		}
+	}
+	virtual void onRecordingStatus(ZOOM_SDK_NAMESPACE::RecordingStatus status)
+	{
+		if (owner_)
+		{
+			owner_->onRecordingStatus(Map2WrapDefine(status));
+		}
+	}
+	virtual void onCloudRecordingStatus(ZOOM_SDK_NAMESPACE::RecordingStatus status)
+	{
+		if (owner_)
+		{
+			owner_->onCloudRecordingStatus(Map2WrapDefine(status));
+		}
+	}
+	virtual void onRecordPriviligeChanged(bool bCanRec)
+	{
+		if (owner_)
+		{
+			owner_->onRecordPriviligeChanged(bCanRec);
+		}
+	}
+	virtual void onCustomizedLocalRecordingSourceNotification(ZOOM_SDK_NAMESPACE::ICustomizedLocalRecordingLayoutHelper* layout_helper)
+	{
+		if (owner_)
+		{
+			//fix me
+			owner_->onCustomizedLocalRecordingSourceNotification();
+		}
+	}
+private:
+	ZMeetingRecordingWrap* owner_;
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class ZMeetingShareCtrlWrapEvent : public ZOOM_SDK_NAMESPACE::IMeetingShareCtrlEvent
@@ -631,7 +701,10 @@ public:
 	}
 	virtual void onFreeMeetingEndingReminderNotification(ZOOM_SDK_NAMESPACE::IFreeMeetingEndingReminderHandler* handler_)
 	{
-		FreeMeetingReminderHandler::GetInst().SetHandler(handler_);
+		if (owner_ && handler_) {
+			FreeMeetingReminderHandler::GetInst().SetHandler(handler_);
+			owner_->onFreeMeetingEndingReminderNotification();
+		}
 	}
 	virtual void onFreeMeetingNeedToUpgrade(ZOOM_SDK_NAMESPACE::IMeetingConfigurationFreeMeetingEvent::FreeMeetingNeedUpgradeType type_, const wchar_t* gift_url)
 	{
@@ -857,8 +930,12 @@ public:
 				}
 				SMSCountryInfo_list.push_back(countryInfo);
 			}
-			ZoomSTRING zn_privacy_url;
-			zn_privacy_url = (const wchar_t*)privacy_url;
+			ZoomSTRING zn_privacy_url = L"";
+			if (privacy_url)
+			{
+				zn_privacy_url = (const wchar_t*)privacy_url;
+			}
+			
 			owner_->onNeedRealNameAuthMeetingNotification(SMSCountryInfo_list, zn_privacy_url);
 		}
 	}
@@ -1082,6 +1159,9 @@ public:
 
 	//meeting_share_ctrl_cb
 	ZMeetingShareCtrlWrapEvent m_meetingShareCtrlWrapEvent;
+
+	//meeting_recording_ctrl_cb
+	ZMeetingRecordingCtrlWrapEvent m_meetingRecordingCtrlWrapEvent;
 
 	//meeting_participants_ctrl_cb
 	ZMeetingParticipantsCtrlEvent m_meetingParticipantsCtrlEvent;

@@ -42,21 +42,6 @@ ZNSDKError ZSettingGeneralWrap::TurnOffAeroModeInSharing(bool bEnable)
     return ZNSDKERR_NO_IMPL;
 }
 
-ZNSDKError ZSettingGeneralWrap::EnableAutoFitToWindowWhenViewSharing(bool bEnable)
-{
-    ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
-    if (!service){
-        return ZNSDKERR_SERVICE_FAILED;
-    }
-    ZoomSDKGeneralSetting *general = [service getGeneralSetting];
-    if(general){
-        ZoomSDKError ret =[general enableMeetingSetting:bEnable SettingCmd:MeetingSettingCmd_AutoFitToWindowWhenViewShare];
-        nativeErrorTypeHelp  Help_type;
-        return Help_type.ZoomSDKErrorType(ret);
-    }
-    return ZNSDKERR_SERVICE_FAILED;
-}
-
 ZNSDKError ZSettingGeneralWrap::EnableAutoFullScreenVideoWhenJoinMeeting(bool bEnable)
 {
     ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
@@ -98,10 +83,6 @@ bool ZSettingGeneralWrap::IsAeroModeInSharingTurnOff()
     return false;
 }
 
-bool ZSettingGeneralWrap::IsAutoFitToWindowWhenViewSharingEnabled()
-{
-    return false;
-}
 
 bool ZSettingGeneralWrap::IsAutoFullScreenVideoWhenJoinMeetingEnabled()
 {
@@ -117,36 +98,6 @@ bool ZSettingGeneralWrap::IsSplitScreenModeEnabled()
     ZoomSDKGeneralSetting *general = [service getGeneralSetting];
     if(general){
         BOOL ret = [general isEnableToSettingShare:shareSettingCmd_sideToSideMode];
-        return (ret == YES) ? true : false;
-    }
-    return false;
-    
-}
-
-ZNSDKError ZSettingGeneralWrap::EnableAutoFullScreenVideoWhenViewShare(bool bEnable)
-{
-    ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
-    if (!service){
-        return ZNSDKERR_SERVICE_FAILED;
-    }
-    ZoomSDKGeneralSetting *general = [service getGeneralSetting];
-    if(!general){
-        return ZNSDKERR_SERVICE_FAILED;
-    }
-    ZoomSDKError ret =[general enableSetShareScreen:bEnable SettingCmd:shareSettingCmd_enterFullScreen];
-    nativeErrorTypeHelp  Help_type;
-    return Help_type.ZoomSDKErrorType(ret);
-}
-
-bool ZSettingGeneralWrap::IsAutoFullScreenVideoWhenViewShareEnabled()
-{
-    ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
-    if (!service){
-        return false;
-    }
-    ZoomSDKGeneralSetting *general = [service getGeneralSetting];
-    if(general){
-        BOOL ret = [general isEnableToSettingShare:shareSettingCmd_enterFullScreen];
         return (ret == YES) ? true : false;
     }
     return false;
@@ -207,26 +158,5 @@ bool ZSettingGeneralWrap::IsShowMyMeetingElapseTimeEnabled()
         BOOL ret = [general isShowLockMeetingTime];
         return (ret == YES) ? true : false;
     }
-    return false;
-}
-
-bool ZSettingGeneralWrap::IsCurrentOSSupportAccelerateGPUWhenShare()
-{
-    return false;
-}
-ZNSDKError ZSettingGeneralWrap::EnableAccelerateGPUWhenShare(bool bEnable)
-{
-    return ZNSDKERR_NO_IMPL;
-}
-ZNSDKError ZSettingGeneralWrap::IsAccelerateGPUWhenShareEnabled(bool& bEnable)
-{
-    return ZNSDKERR_NO_IMPL;
-}
-ZNSDKError ZSettingGeneralWrap::EnableRemoteControlAllApplications(bool bEnable)
-{
-    return ZNSDKERR_NO_IMPL;
-}
-bool ZSettingGeneralWrap::IsRemoteControlAllApplicationsEnabled()
-{
     return false;
 }

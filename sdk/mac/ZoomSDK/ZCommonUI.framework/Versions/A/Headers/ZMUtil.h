@@ -83,6 +83,7 @@ typedef enum
     ID_Portuguese_Language,
     ID_Russian_Language,
     ID_Korean_Languate,
+    ID_Vietnamese_Languate,
 } ID_CLIENT_LANGUAGE;
 
 @interface ZMUtil : NSObject
@@ -115,6 +116,7 @@ typedef enum
 + (NSMutableArray*)parseHTTPURLs:(NSString*)body;
 + (NSArray*)parseURLs:(NSMutableAttributedString*)inMsg;
 + (NSArray*)parseURLs:(NSMutableAttributedString*)inMsg forCommonApp:(BOOL)isCommonApp;
++ (NSArray*)parseURLs:(NSMutableAttributedString*)inMsg urlOnly:(BOOL)urlOnly;
 
 #pragma mark - window level
 + (NSInteger)getNormalWindowLevel;//0
@@ -123,8 +125,6 @@ typedef enum
 + (NSInteger)getPopUpWindowLevel;//100
 + (NSInteger)getPopUpMenuLevel;//101
 
-+ (NSInteger)getSystemVersion;
-
 + (NSData*)getPicPreviewDateWithPath:(NSString*)filePath;
 + (NSString *)getFileIntegrationTypeString:(NSInteger)fileIntegrationType defaultRetString:(NSString*)ret;
 + (NSComparisonResult)compareVersionString:(NSString*)string1 with:(NSString*)string2;//ZOOM-68189
@@ -132,6 +132,7 @@ typedef enum
 + (NSSize)calculateAttributeString:(NSAttributedString *)string maxWidth:(CGFloat)maxWidth textContainer:(NSTextContainer *)textContainer isBotFieldMessage:(BOOL)isBotField;
 + (NSSize)calculateAttributeString:(NSAttributedString *)string maxWidth:(CGFloat)maxWidth textContainer:(NSTextContainer *)textContainer;
 + (NSSize)calculateAttributeString:(NSAttributedString *)string maxWidth:(CGFloat)maxWidth textContainer:(NSTextContainer *)textContainer isBotFieldMessage:(BOOL)isBotField font:(NSFont*)font;
++ (NSSize)calculateAttributeString:(NSAttributedString *)string maxWidth:(CGFloat)maxWidth textContainer:(NSTextContainer *)textContainer maxLine:(NSInteger)maxLine;
 
 #pragma mark - draw elements
 //ZOOM-72640 RTT

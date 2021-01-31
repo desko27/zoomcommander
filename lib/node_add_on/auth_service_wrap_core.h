@@ -27,6 +27,7 @@ public:
 	void onLogout();
 	void onZoomIdentityExpired();
 	void onZoomAuthIdentityExpired();
+	void onLoginReturnWithReason(ZNLOGINSTATUS ret, ZNLoginFailReason reason);
 	
 private:
 	ZNativeSDKAuthWrapSink* m_pSink;

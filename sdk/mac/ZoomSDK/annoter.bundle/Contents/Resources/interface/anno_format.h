@@ -46,11 +46,26 @@ typedef enum tagAnnoLineDashStyle
     ANNO_LINE_DASH_STYLE_DEFAULT    = ANNO_LINE_DASH_STYLE_SOLID
 } AnnoLineDashStyle;
 
+typedef struct tagAnnoDashPattern
+{
+    AnnoLineDashStyle   dashStyle;
+    Float32*            dashArray;
+    Int32               arrayLen;
+
+    tagAnnoDashPattern() 
+        : dashStyle(ANNO_LINE_DASH_STYLE_DEFAULT)
+        , dashArray(0)
+        , arrayLen(0)
+    {
+    }
+}AnnoDashPattern;
+
 typedef enum tagAnnoLineJoinStyle
 {
-    ANNO_LINE_JOIN_STYLE_MITER,
+    ANNO_LINE_JOIN_STYLE_JOINMITER,
     ANNO_LINE_JOIN_STYLE_JOINROUND,
     ANNO_LINE_JOIN_STYLE_JOINBEVEL,
+    ANNO_LINE_JOIN_STYLE_MITERORBEVEL,
     ANNO_LINE_JOIN_STYLE_DEFAULT	= ANNO_LINE_JOIN_STYLE_JOINROUND
 } AnnoLineJoinStyle;
 
@@ -59,6 +74,7 @@ typedef enum tagAnnoLineCapStyle
     ANNO_LINE_CAP_STYLE_BUTT,
     ANNO_LINE_CAP_STYLE_CAPROUND,
     ANNO_LINE_CAP_STYLE_CAPSQUARE,
+    ANNO_LINE_CAP_STYLE_CAPTRIANGLE,
     ANNO_LINE_CAP_STYLE_DEFAULT		= ANNO_LINE_CAP_STYLE_CAPROUND
 } AnnoLineCapStyle;
 

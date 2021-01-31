@@ -197,7 +197,7 @@ public:
 	/// \brief Start sharing camera.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
-	/// \remarks Valid for both ZOOM style and user custom interface mode.	
+	/// \remarks Valid for ZOOM style only.	
 	virtual SDKError StartShareCamera() = 0;
 	
 	/// \brief Stop the current sharing.
@@ -300,7 +300,7 @@ public:
 	/// \remarks Valid for both ZOOM style and user custom interface mode.
 	virtual SDKError IsShareLocked(bool& bLocked) = 0;
 
-	/// \brief Determine if the sound of the computer in the current sharing is supported. 
+	/// \brief Determine if the sound of the computer in the current sharing or before share is supported. 
 	/// \param [out] bCurEnableOrNot The parameter is valid only when the return value is TRUE. And TRUE indicates to sharing the sound of the computer for the moment.
 	/// \return If it is TRUE, the value of bCurEnableOrNot can be used to check whether the computer sound is supported or not when sharing. FALSE not.
 	/// \remarks Valid for both ZOOM style and user custom interface mode.
@@ -312,19 +312,33 @@ public:
 	/// \remarks Valid for both ZOOM style and user custom interface mode.
 	virtual bool IsSupportEnableOptimizeForFullScreenVideoClip(bool& bCurEnableOrNot) = 0;
 
-	/// \brief Set to enable or disable the audio when sharing.
+	/// \brief Set to enable or disable the audio before sharing.
 	/// \param bEnable TRUE indicates to enable. FALSE not.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
 	/// \remarks Valid for both ZOOM style and user custom interface mode.
 	virtual SDKError EnableShareComputerSound(bool bEnable) = 0;
 
-	/// \brief Set to enable the video optimization when sharing. 
+	/// \brief Set to enable or disable the audio when sharing.
+	/// \param bEnable TRUE indicates to enable. FALSE not.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid for both ZOOM style and user custom interface mode.
+	virtual SDKError EnableShareComputerSoundWhenSharing(bool bEnable) = 0;
+
+	/// \brief Set to enable the video optimization before sharing. 
 	/// \param bEnable TRUE indicates to enable. FALSE not.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
 	/// \remarks Valid for both ZOOM style and user custom interface mode.
 	virtual SDKError EnableOptimizeForFullScreenVideoClip(bool bEnable) = 0;
+
+	/// \brief Set to enable the video optimization when sharing. 
+	/// \param bEnable TRUE indicates to enable. FALSE not.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid for both ZOOM style and user custom interface mode.
+	virtual SDKError EnableOptimizeForFullScreenVideoClipWhenSharing(bool bEnable) = 0;
 
 	/// \brief Set the options for multi-participants share.
 	/// \param [in] shareOption New options for sharing, see \link MultiShareOption \endlink enum.

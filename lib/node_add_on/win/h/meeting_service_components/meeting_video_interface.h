@@ -17,6 +17,7 @@ enum VideoStatus
 {
 	Video_ON, ///<Video is on.
 	Video_OFF, ///<Video is off.
+	Video_Mute_ByHost, ///<Video is muted by host.
 };
 
 /// \brief Process after the user receives the requirement from the host to turn on the video.
@@ -64,6 +65,29 @@ public:
 	virtual void onActiveVideoUserChanged(unsigned int userid) = 0;
 };
 
+enum PinResult
+{
+	PinResult_Success = 0,
+	PinResult_Fail_NotEnoughUsers,  /// user counts less than 2
+	PinResult_Fail_ToMuchPinnedUsers, /// pinned user counts more than 9
+	PinResult_Fail_UserCannotBePinned, /// user in view only mode or silent mode or active
+	PinResult_Fail_VideoModeDoNotSupport, /// other reasons	
+	PinResult_Fail_NoPrivilegeToPin,  /// current user has no privilege to pin
+	PinResult_Fail_MeetingDoNotSupport, /// webinar and in view only meeting
+	PinResult_Unknown = 100,
+};
+
+enum SpotlightResult
+{
+	SpotResult_Success = 0,
+	SpotResult_Fail_NotEnoughUsers,  /// user counts less than 2
+	SpotResult_Fail_ToMuchSpotlightedUsers, /// spotlighted user counts is more than 9
+	SpotResult_Fail_UserCannotBeSpotlighted, /// user in view only mode or silent mode or active
+	SpotResult_Fail_UserWithoutVideo, /// user doesn't turn on video
+	SpotResult_Fail_NoPrivilegeToSpotlight,  /// current user has no privilege to spotlight
+	SpotResult_Fail_UserNotSpotlighted, ///user is not spotlighted
+	SpotResult_Unknown = 100,
+};
 /// \brief Meeting video controller interface
 ///
 class IMeetingVideoController
@@ -87,22 +111,109 @@ public:
 	/// \remarks Valid for both Zoom style and customize user interface mode.
 	virtual SDKError UnmuteVideo() = 0;
 
-	/// \brief Pin the video of the assigned user.
-	/// \param bPin TRUE indicates to pin.
-	/// \param bFirstView TRUE indicates to pin the video on the primary view. FALSE indicates to pin the video on the secondary view. The function does not work when the user chooses FALSE without dual view.
+	/// \brief Determine if it is able to pin the video of the specified user to the first view. 
+	/// \param userid Specifies the user ID to be determined.
+	/// \param [out] result Indicates if it is able to pin. It validates only when the return value is SDKErr_Success.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode. 
+	virtual SDKError CanPinToFirstView(unsigned int userid, PinResult& result) = 0;
+
+	/// \brief Pin the video of the assigned user to the first view.
 	/// \param userid Specifies the user ID to be pinned. 
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
 	/// \remarks Valid only for Zoom style user interface mode. 
-	virtual SDKError PinVideo(bool bPin, bool bFirstView, unsigned int userid) = 0;
+	virtual SDKError PinVideoToFirstView(unsigned int userid) = 0;
 
-	/// \brief Spotlight the video of the assigned user.
-	/// \param bSpotlight TRUE indicates to spotlight.
+	/// \brief Unpin the video of the assigned user from the first view.
+	/// \param userid Specifies the user ID to be unpinned. 
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode. 
+	virtual SDKError UnPinVideoFromFirstView(unsigned int userid) = 0;
+
+	/// \brief Unpin all the videos from the first view.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError UnPinAllVideosFromFirstView() = 0;
+
+	/// \brief Get the list of all the pinned user in the first view.
+	/// \return If the function succeeds, the return value is the list of the pinned user in the first view.
+	///Otherwise failed, the return value is NULL.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual IList<unsigned int >* GetPinnedUserListFromFirstView() = 0;
+
+	/// \brief Determine if it is able to pin the video of the specified user to the second view. 
+	/// \param userid Specifies the user ID to be determined.
+	/// \param [out] result Indicates if it is able to pin. It validates only when the return value is SDKErr_Success.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode. 
+	virtual SDKError CanPinToSecondView(unsigned int userid, PinResult& result) = 0;
+
+	/// \brief Pin the video of the assigned user to the second view.
+	/// \param userid Specifies the user ID to be pinned. 
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode. 
+	virtual SDKError PinVideoToSecondView(unsigned int userid) = 0;
+
+	/// \brief Unpin the video of the assigned user from the second view.
+	/// \param userid Specifies the user ID to be unpinned. 
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode. 
+	virtual SDKError UnPinVideoFromSecondView(unsigned int userid) = 0;
+
+	/// \brief Get the list of all the pinned user in the second view.
+	/// \return If the function succeeds, the return value is the list of the pinned user in the second view.
+	///Otherwise failed, the return value is NULL.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual IList<unsigned int >* GetPinnedUserListFromSecondView() = 0;
+
+	/// \brief Determine if it is able to spotlight the video of the specified user in the meeting. 
+	/// \param userid Specifies the user ID to be determined.
+	/// \param [out] result Indicates if it is able to spotlight. It validates only when the return value is SDKErr_Success.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError CanSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+	
+	/// \brief Determine if it is able to unspotlight the video of the specified user in the meeting. 
+	/// \param userid Specifies the user ID to be determined.
+	/// \param [out] result Indicates if it is able to unspotlight. It validates only when the return value is SDKErr_Success.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError CanUnSpotlight(unsigned int userid, SpotlightResult& result) = 0;
+
+	/// \brief Spotlight the video of the assigned user to the first view.
 	/// \param userid Specifies the user ID to be spotlighted.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
-	/// \remarks Valid for both Zoom style and customize user interface mode.
-	virtual SDKError SpotlightVideo(bool bSpotlight, unsigned int userid) = 0;
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError SpotlightVideo(unsigned int userid) = 0;
+
+	/// \brief Unspotlight the video of the assigned user to the first view.
+	/// \param userid Specifies the user ID to be unspotlighted.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError UnSpotlightVideo(unsigned int userid) = 0;
+
+	/// \brief Unpin all the videos from the first view.
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual SDKError UnSpotlightAllVideos() = 0;
+
+	/// \brief Get the list of all the spotlighted user in the meeting.
+	/// \return If the function succeeds, the return value is the list of the spotlighted user in the meeting.
+	///Otherwise failed, the return value is NULL.
+	/// \remarks Valid only for Zoom style user interface mode.
+	virtual IList<unsigned int >* GetSpotlightedUserList() = 0;
 
 	/// \brief Display or not the user who does not turn on the video in the video all mode.
 	/// \return TRUE indicates to hide, FALSE show.

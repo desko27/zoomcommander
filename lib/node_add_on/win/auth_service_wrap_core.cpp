@@ -72,6 +72,13 @@ void ZAuthServiceWrap::onLoginRet(ZNLOGINSTATUS ret)
 		m_pSink->onLoginRet(ret);
 	}
 }
+void ZAuthServiceWrap::onLoginReturnWithReason(ZNLOGINSTATUS ret, ZNLoginFailReason reason)
+{
+	if (m_pSink)
+	{
+		m_pSink->onLoginReturnWithReason(ret, reason);
+	}
+}
 ZNSDKError ZAuthServiceWrap::LoginWithSSOToken(ZNLoginParam& loginParam)
 {
 	ZOOM_SDK_NAMESPACE::LoginParam param;

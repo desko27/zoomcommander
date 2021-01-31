@@ -392,7 +392,7 @@ ZNSDKError ZSettingAudioWrap::GetSpeakerVol(float& value)
     return ZNSDKERR_SUCCESS;
 }
 
-ZNSDKError ZSettingAudioWrap::EnableEchoCancellation(bool bEnable)
+ZNSDKError ZSettingAudioWrap::SetEchoCancellationLevel(ZN_SDK_ECHO_CANCELLATION_LEVEL level)
 {
     ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
     if (!service){
@@ -402,23 +402,43 @@ ZNSDKError ZSettingAudioWrap::EnableEchoCancellation(bool bEnable)
     if(!audio){
         return ZNSDKERR_SERVICE_FAILED;
     }
-    ZoomSDKError ret = [audio enableEchoCancellation:bEnable];
+    ZN_SDK_ECHO_CANCELLATION_LEVEL defaultLevel = GetEchoCancellationLevel();
+    if (defaultLevel == level)
+        return ZNSDKERR_SUCCESS;
+    
+    ZoomSDKAudioEchoCancellationLevel ret = ZoomSDKAudioEchoCancellationLevel_Auto;
+    switch (level) {
+        case ZN_SDK_ECHO_CANCELLATION_DEFAULT:
+            ret = ZoomSDKAudioEchoCancellationLevel_Auto;
+            break;
+        case ZN_SDK_ECHO_CANCELLATION_AGGRESSIVE:
+            ret = ZoomSDKAudioEchoCancellationLevel_Aggressive;
+            break;
+        default:
+            break;
+    }
+    ZoomSDKError result = [audio setEchoCancellationLevel:ret];
     nativeErrorTypeHelp  Help_type;
-    return Help_type.ZoomSDKErrorType(ret);
+    return Help_type.ZoomSDKErrorType(result);
 }
 
-bool ZSettingAudioWrap::IsEchoCancellationEnabled()
+ZN_SDK_ECHO_CANCELLATION_LEVEL ZSettingAudioWrap::GetEchoCancellationLevel()
 {
     ZoomSDKSettingService *service = [[ZoomSDK sharedSDK] getSettingService];
     if (!service){
-        return ZNSDKERR_SERVICE_FAILED;
+        return ZN_SDK_ECHO_CANCELLATION_DEFAULT;
     }
     ZoomSDKAudioSetting *audio = [service getAudioSetting];
     if(!audio){
-        return ZNSDKERR_SERVICE_FAILED;
+        return ZN_SDK_ECHO_CANCELLATION_DEFAULT;
     }
-    BOOL enable = [audio isEchoCancellationOn];
-    return (enable == YES) ? true : false;
+    ZoomSDKAudioEchoCancellationLevel level = [audio getEchoCancellationLevel];
+    switch (level) {
+        case ZoomSDKAudioEchoCancellationLevel_Auto:
+            return ZN_SDK_ECHO_CANCELLATION_DEFAULT;
+        case ZoomSDKAudioEchoCancellationLevel_Aggressive:
+            return ZN_SDK_ECHO_CANCELLATION_AGGRESSIVE;
+    }
 }
 //callback
 void ZSettingAudioWrap::onComputerMicDeviceChanged(ZNList<ZNMicInfo> newMicList)

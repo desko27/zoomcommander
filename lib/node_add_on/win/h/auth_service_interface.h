@@ -40,6 +40,21 @@ enum LOGINSTATUS
 	LOGIN_FAILED,///<Login failed.
 };
 
+enum LoginFailReason
+{
+	LoginFail_None = 0,
+	LoginFail_EmailLoginDisable,
+	LoginFail_UserNotExist,		
+	LoginFail_WrongPassword,	
+	LoginFail_AccountLocked,	
+	LoginFail_SDKNeedUpdate,	
+	LoginFail_TooManyFailedAttempts,	
+	LoginFail_SMSCodeError,		
+	LoginFail_SMSCodeExpired,	
+	LoginFail_PhoneNumberFormatInValid, 
+	LoginFail_OtherIssue = 100, 
+};
+
 /*! \struct tagAuthParam
     \brief SDK Authentication parameter with sdk key/secret.
     Here are more detailed structural descriptions.
@@ -171,6 +186,12 @@ public:
 	/// \param ret Login status. see \link LOGINSTATUS \endlink enum.
 	/// \param pAccountInfo Valid when the ret is LOGINRET_SUCCESS. Otherwise NULL.
 	virtual void onLoginRet(LOGINSTATUS ret, IAccountInfo* pAccountInfo) = 0;
+
+	/// \brief Callback of login result with fail reason.
+	/// \param ret Login status. see \link LOGINSTATUS \endlink enum.
+	/// \param pAccountInfo Valid when the ret is LOGINRET_SUCCESS. Otherwise NULL.
+	/// \param reason Login fail reason. Valid when the ret is LOGIN_FAILED. Otherwise LoginFail_None. see \link LoginFailReason \endlink enum.
+	virtual void onLoginReturnWithReason(LOGINSTATUS ret, IAccountInfo* pAccountInfo, LoginFailReason reason) = 0;
 	
 	/// \brief Logout result callback.
 	virtual void onLogout() = 0;

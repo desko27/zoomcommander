@@ -173,13 +173,13 @@ ZNSDKError ZSettingAudioWrap::GetSpeakerVol(float& value)
 {
 	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().T_GetAudioSettings().GetSpeakerVol(value));
 }
-ZNSDKError ZSettingAudioWrap::EnableEchoCancellation(bool bEnable)
+ZNSDKError ZSettingAudioWrap::SetEchoCancellationLevel(ZN_SDK_ECHO_CANCELLATION_LEVEL level)
 {
-	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().T_GetAudioSettings().EnableEchoCancellation(bEnable));
+	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().T_GetAudioSettings().SetEchoCancellationLevel(Map2SDKDefine(level)));
 }
-bool ZSettingAudioWrap::IsEchoCancellationEnabled()
+ZN_SDK_ECHO_CANCELLATION_LEVEL ZSettingAudioWrap::GetEchoCancellationLevel()
 {
-	return ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().T_GetAudioSettings().IsEchoCancellationEnabled();
+	return Map2WrapDefine(ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().T_GetAudioSettings().GetEchoCancellationLevel());
 }
 
 void ZSettingAudioWrap::onComputerMicDeviceChanged(ZNList<ZNMicInfo> newMicList)

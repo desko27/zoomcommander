@@ -71,8 +71,8 @@ public:
 	static void EnableSuppressAudioNotify(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void IsSuppressAudioNotifyEnabled(const v8::FunctionCallbackInfo<v8::Value>& args);
 
-	static void EnableEchoCancellation(const v8::FunctionCallbackInfo<v8::Value>& args);
-	static void IsEchoCancellationEnabled(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void SetEchoCancellationLevel(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void GetEchoCancellationLevel(const v8::FunctionCallbackInfo<v8::Value>& args);
 
 	static void SetMicVol(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void GetMicVol(const v8::FunctionCallbackInfo<v8::Value>& args);
@@ -119,8 +119,8 @@ static void InitClassAttribute<ZoomNodeSettingAudioCtrlWrap >(const v8::Local<v8
 	NODE_SET_PROTOTYPE_METHOD(tpl, "EnableSuppressAudioNotify", ZoomNodeSettingAudioCtrlWrap::EnableSuppressAudioNotify);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "IsSuppressAudioNotifyEnabled", ZoomNodeSettingAudioCtrlWrap::IsSuppressAudioNotifyEnabled);
 
-	NODE_SET_PROTOTYPE_METHOD(tpl, "EnableEchoCancellation", ZoomNodeSettingAudioCtrlWrap::EnableEchoCancellation);
-	NODE_SET_PROTOTYPE_METHOD(tpl, "IsEchoCancellationEnabled", ZoomNodeSettingAudioCtrlWrap::IsEchoCancellationEnabled);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetEchoCancellationLevel", ZoomNodeSettingAudioCtrlWrap::SetEchoCancellationLevel);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "GetEchoCancellationLevel", ZoomNodeSettingAudioCtrlWrap::GetEchoCancellationLevel);
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMicVol", ZoomNodeSettingAudioCtrlWrap::SetMicVol);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMicVol", ZoomNodeSettingAudioCtrlWrap::GetMicVol);

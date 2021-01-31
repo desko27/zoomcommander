@@ -170,6 +170,10 @@ DEFINE_FUNC_1(HideShareButtonOnMeetingUI, void, bool, bHide)
 DEFINE_FUNC_1(DisablePanelistMenuItem, void, PanelistMenuItemOption, menuOption)
 //virtual void DisableAttendeeMenuItem(AttendeeMenuItemOption menuOption) = 0;
 DEFINE_FUNC_1(DisableAttendeeMenuItem, void, AttendeeMenuItemOption, menuOption)
+//virtual void EnableInviteLinkOnMeetingUI(bool bEnable) = 0;
+DEFINE_FUNC_1(EnableInviteLinkOnMeetingUI, void, bool, bEnable)
+//virtual void DisableConfidentialWatermark(bool bDisable) = 0;
+DEFINE_FUNC_1(DisableConfidentialWatermark, void, bool, bDisable)
 
 //virtual void SetMaxDurationForOnlyHostInMeeting(int nDuration) = 0;
 DEFINE_FUNC_1(SetMaxDurationForOnlyHostInMeeting, void, int, nDuration)

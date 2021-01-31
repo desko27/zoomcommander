@@ -24,6 +24,8 @@ DEFINE_FUNC_0(GetStatisticSettings, IStatisticSettingContext*)
 DEFINE_FUNC_0(GetSettingUIStrategy, ISettingUIStrategy*)
 //virtual IAccessibilitySettingContext* GetAccessibilitySettings() = 0;
 DEFINE_FUNC_0(GetAccessibilitySettings, IAccessibilitySettingContext*)
+//virtual IShareSettingContext* GetShareSettings() = 0;
+DEFINE_FUNC_0(GetShareSettings, IShareSettingContext*)
 
 #if (defined UserInterfaceClass)
 private:

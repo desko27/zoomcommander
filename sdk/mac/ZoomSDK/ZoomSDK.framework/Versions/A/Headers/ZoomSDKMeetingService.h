@@ -21,10 +21,11 @@
 #import "ZoomSDKMeetingRecordController.h"
 #import "ZoomSDKWebinarController.h"
 #import "ZoomSDKCloseCaptionController.h"
-#import "ZoomSDKRawDataController.h"
 #import "ZoomSDKRealNameAuthenticationController.h"
 #import "ZoomSDKQAController.h"
 #import "ZoomSDKNewBreakoutRoomController.h"
+#import "ZoomSDKInterpretationController.h"
+#import "ZoomSDKReactionController.h"
 
 @interface ZoomSDKSecuritySessionKey : NSObject
 {
@@ -42,7 +43,7 @@
 /**
  * @brief User's screen name displayed in the meeting.
  */
-@property(nonatomic, copy)NSString* displayName;
+@property(nonatomic, copy)NSString* displayName NS_DEPRECATED_MAC(4.3, 5.0);
 /**
  * @brief Set meetingNumber to 0 if you want to start a meeting with vanityID.
  */
@@ -54,7 +55,7 @@
 /**
  * @brief The userId generates from ZOOM site of user account.
  */
-@property(nonatomic, copy)NSString* userId;
+@property(nonatomic, copy)NSString* userId NS_DEPRECATED_MAC(4.3, 5.0);
 /**
  * @brief It may be the number of a scheduled meeting or a Personal Meeting ID. Set it to 0 to start an instant meeting.
  */
@@ -75,7 +76,10 @@
  * @brief Set it to YES to turn off the audio when user joins meeting.
  */
 @property(nonatomic, assign)BOOL isNoAuido;
-
+/**
+ * @brief Participant ID the participant id of user.
+ */
+@property(nonatomic, copy)NSString* participantId;
 @end
 
 @interface ZoomSDKStartMeetingUseZakElements : NSObject
@@ -119,7 +123,10 @@
  * @brief Set it to YES to turn off the audio when user joins meeting.
  */
 @property(nonatomic, assign)BOOL isNoAuido;
-
+/**
+ * @brief Participant ID the participant id of user.
+ */
+@property(nonatomic, copy)NSString* participantId;
 @end
 
 @interface ZoomSDKJoinMeetingElements : NSObject
@@ -144,7 +151,7 @@
  */
 @property(nonatomic, assign)ZoomSDKUserType userType;
 /**
- * @brief Participant ID displayed in web report.
+ * @brief Participant ID the participant id of user.
  */
 @property(nonatomic, copy)NSString* participantId;
 /**
@@ -253,10 +260,11 @@
     ZoomSDKMeetingRecordController*  _recordController;
     ZoomSDKWebinarController*        _webinarController;
     ZoomSDKCloseCaptionController*   _closeCaptionController;
-    ZoomSDKRawDataController*        _rawDataController;
     ZoomSDKRealNameAuthenticationController*       _realNameController;
     ZoomSDKQAController*             _QAController;
     ZoomSDKNewBreakoutRoomController*  _newBOController;
+    ZoomSDKInterpretationController *  _InterpretationController;
+    ZoomSDKReactionController*         _reactionController;
 }
 /**
  * Callback of receiving meeting events.
@@ -341,12 +349,6 @@
 - (ZoomSDKCloseCaptionController*)getCloseCaptionController;
 
 /**
- * @brief Get object of controller ZoomSDKRawDataController.
- * @return If the function succeeds, it will return a ZoomSDKRawDataController object which you can use to handle raw data in meeting.
- */
-- (ZoomSDKRawDataController*)getRawDataController;
-
-/**
  * @brief Get object of controller ZoomSDKRealNameAuthenticationController.
  * @return If the function succeeds, it will return a ZoomSDKRealNameAuthenticationController object which you can use to Real-name authentication.
  */
@@ -363,8 +365,20 @@
  *@return If the function succeeds, it will return a ZoomSDKNewBreakoutRoomController object.
  */
 -(ZoomSDKNewBreakoutRoomController *)getNewBreakoutRoomController;
+
 /**
- * @brief Start a ZOOM meeting with meeting number.
+ *@brief Get object of ZoomSDKInterpretationController.
+ *@return If the function succeeds, it will return a ZoomSDKInterpretationController object.
+ */
+-(ZoomSDKInterpretationController*)getInterpretationController;
+
+/**
+ *@brief Get object of ZoomSDKReactionController.
+ *@return If the function succeeds, it will return a ZoomSDKReactionController object.
+ */
+-(ZoomSDKReactionController*)getReactionController;
+/**
+ * @brief Start a ZOOM meeting with meeting number for login user.
  * @param context It is a ZoomSDKStartMeetingElements class,contain all params to start meeting.
  * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
  */

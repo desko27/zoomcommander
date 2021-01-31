@@ -48,6 +48,7 @@ typedef BOOL(^ZMHMenuItemBackgroundDrawer)(NSRect bounds, NSRect dirtyRect, BOOL
 
 @property (readonly, nonatomic) BOOL isRoot;
 @property (readonly, nonatomic) BOOL isSeparated;
+@property (readonly, nonatomic) BOOL isCustomView;
 @property (nonatomic) BOOL canSelect;//can highlight
 @property (nonatomic) BOOL enable;
 @property (nullable, copy) ZMHMenuItemBackgroundDrawer backgroundDrawer;
@@ -55,6 +56,8 @@ typedef BOOL(^ZMHMenuItemBackgroundDrawer)(NSRect bounds, NSRect dirtyRect, BOOL
 @property (nonatomic) BOOL eventFree;
 
 @property (nonatomic) BOOL checked;
+
+@property (nonatomic) BOOL defaultSelectedWithChecked;
 
 @property (copy) NSString *tooltip;
 
