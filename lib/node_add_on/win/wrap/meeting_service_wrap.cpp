@@ -53,6 +53,8 @@ IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingLiveStreamController, IMeeting
 IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingWebinarController, IMeetingWebinarControllerWrap);
 IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingClosedCaptionController, IClosedCaptionControllerWrap);
 IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingRealNameAuthController, IZoomRealNameAuthMeetingHelperWrap);
+IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingInterpretationController, IMeetingInterpretationControllerWrap);
+IMPL_FUNC_AND_MEMBER(IMeetingService, T_GetMeetingEmojiReactionController, IEmojiReactionControllerWrap);
 #if (defined UserInterfaceClass)
 IMPL_FUNC_0(IMeetingService, GetMeetingConfiguration, IMeetingConfiguration*, NULL)
 IMPL_FUNC_0(IMeetingService, GetUIController, IMeetingUIController*, NULL)
@@ -72,5 +74,7 @@ IMPL_FUNC_0(IMeetingService, GetMeetingLiveStreamController, IMeetingLiveStreamC
 IMPL_FUNC_0(IMeetingService, GetMeetingWebinarController, IMeetingWebinarController*, NULL)
 IMPL_FUNC_0(IMeetingService, GetMeetingClosedCaptionController, IClosedCaptionController*, NULL)
 IMPL_FUNC_0(IMeetingService, GetMeetingRealNameAuthController, IZoomRealNameAuthMeetingHelper*, NULL)
+IMPL_FUNC_0(IMeetingService, GetMeetingInterpretationController, IMeetingInterpretationControllerWrap*, NULL)
+IMPL_FUNC_0(IMeetingService, GetMeetingEmojiReactionController, IEmojiReactionController*, NULL)
 #endif
 END_ZOOM_SDK_NAMESPACE

@@ -159,12 +159,11 @@ const MainRoute = () => {
   }
 
   const lowerAllHandsLocally = () => {
-    const usersWithRaisedHand = users.filter(user => user.isRaisedHand || user.isNonVerbalFeedback)
+    const usersWithRaisedHand = users.filter(user => user.isRaisedHand)
     usersWithRaisedHand.forEach(user =>
       updateUserData(user.id, {
         isRaisedHand: false,
-        isRaisedHandRevoked: false,
-        isNonVerbalFeedback: false
+        isRaisedHandRevoked: false
       }))
 
     // move users to history
@@ -332,7 +331,7 @@ const MainRoute = () => {
       </KeyPressedProvider>
       <Sidebar
         startMeeting={startMeeting}
-        toggleHostBlock={() => setIsHostsBlockVisible(prev => !prev)}
+        toggleHostsBlock={() => setIsHostsBlockVisible(prev => !prev)}
       />
     </div>
   )

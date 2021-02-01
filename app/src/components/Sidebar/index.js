@@ -4,7 +4,7 @@ import vex from 'vex-js'
 import sendZoomCommand from '../../common/sendZoomCommand'
 import useShortcuts from '../../hooks/useShortcuts'
 
-import { ReactComponent as ColumnsIcon } from './icons/columns.svg'
+// import { ReactComponent as ColumnsIcon } from './icons/columns.svg'
 import { ReactComponent as LogInIcon } from './icons/log-in.svg'
 import { ReactComponent as LogOutIcon } from './icons/log-out.svg'
 import { ReactComponent as RadioIcon } from './icons/radio.svg'
@@ -16,7 +16,7 @@ const { ipcRenderer } = window.require('electron')
 const navOs = navigator.platform.toLowerCase()
 const isMac = navOs.startsWith('mac')
 
-function Sidebar ({ startMeeting, toggleHostBlock }) {
+function Sidebar ({ startMeeting, toggleHostsBlock }) {
   const [appShare, setAppShare] = useState(isMac ? 'mediaportal.app' : 'mediaportal.exe')
   const [windowShare, setWindowShare] = useState('Portal')
 
@@ -69,6 +69,19 @@ esta información en el siguiente formato: aplicación.exe/título de ventana`,
     stopShare: handleStopShareClick
   }, [appShare, windowShare])
 
+  /**
+   * Hosts Block is disabled by now.
+   */
+  // const renderToggleHostsBlock = () => (
+  //   <button
+  //     className={styles.button}
+  //     style={{ background: 'var(--c-error)' }}
+  //     onClick={toggleHostBlock}
+  //   >
+  //     <ColumnsIcon />
+  //   </button>
+  // )
+
   return (
     <div className={styles.wrapper}>
       <div>
@@ -79,13 +92,7 @@ esta información en el siguiente formato: aplicación.exe/título de ventana`,
         >
           <LogInIcon />
         </button>
-        <button
-          className={styles.button}
-          style={{ background: 'var(--c-error)' }}
-          onClick={toggleHostBlock}
-        >
-          <ColumnsIcon />
-        </button>
+        {/* renderToggleHostsBlock() */}
       </div>
       <div>
         <button

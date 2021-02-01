@@ -84,6 +84,12 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
     ZNAudioStatus znStatus = Help_type.ZNSDKUserAudioStatus(status);
     user.audioStatus = znStatus;
     user.userInfoType = ZN_REAL_USERINFO;
+    NSString *participantID = [userInfo getParticipantID];
+    if (!participantID) {
+        participantID = @"";
+    }
+    user.participantID = [participantID UTF8String];
+
     return user;
 }
 
@@ -159,6 +165,14 @@ void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId,
     if (m_pSink)
     {
         m_pSink->onLowOrRaiseHandStatusChange(userId,isRaisedHand);
+    }
+}
+
+void ZMeetingParticipantsWrap::onUserNameChange(unsigned int userId, ZoomSTRING userName)
+{
+    if (m_pSink)
+    {
+        m_pSink->onUserNameChange(userId,userName);
     }
 }
 

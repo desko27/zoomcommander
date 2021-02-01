@@ -123,6 +123,7 @@
     ZoomSDKRemoteControllerHelper*  _remoteControllerHelper;
 }
 @property(nonatomic, assign)id<ZoomSDKASControllerDelegate> delegate;
+
 /**
  * @brief Start to share application. 
  * @param shareAppWindow The App window to be shared.
@@ -328,6 +329,51 @@
  */
 - (ZoomSDKError)canDoAnnotation:(ScreenType)screenType canAnnotate:(BOOL*)canAnnotate;
 
+/**
+ * @brief Determine if support enable or disable optimizing for full screen video clip.
+ * @return If support, it will return YES, otherwise not.
+ */
+- (BOOL)isSupportEnableOptimizeForFullScreenVideoClip;
+
+/**
+ * @brief Determine if share computer sound option is on or off.
+ * @return If the function succeeds, it will return YES, otherwise not.
+ */
+- (BOOL)isEnableShareComputerSoundOn;
+
+/**
+ * @brief Determine if optimizing for full screen video clip option is on or off.
+ * @return If the function succeeds, it will return YES, otherwise not.
+ */
+- (BOOL)isEnableOptimizeForFullScreenVideoClipOn;
+
+/**
+ * @brief Determine enable share computer sound.
+ * @param enable Enable or disable share computer sound.
+ * @return A ZoomSDKError to tell client function call successful or not.
+ */
+- (ZoomSDKError)enableShareComputerSound:(BOOL)enable;
+
+/**
+ * @brief Determine enable optimizing for full screen video clip.
+ * @param enable Enable or disable optimizing for full screen video clip.
+ * @return A ZoomSDKError to tell client function call successful or not.
+ */
+- (ZoomSDKError)enableOptimizingScreenShareForVideoClip:(BOOL)enable;
+
+/**
+ * @brief Determine enable share computer sound when shaing.
+ * @param enable Enable or disable share computer sound.
+ * @return A ZoomSDKError to tell client function call successful or not.
+ */
+- (ZoomSDKError)enableShareComputerSoundWhenSharing:(BOOL)enable;
+
+/**
+ * @brief Determine enable optimizing for full screen video clip when shaing.
+ * @param enable Enable or disable optimizing for full screen video clip.
+ * @return A ZoomSDKError to tell client function call successful or not.
+ */
+- (ZoomSDKError)enableOptimizingScreenShareForVideoClipWhenSharing:(BOOL)enable;
 @end
 
 

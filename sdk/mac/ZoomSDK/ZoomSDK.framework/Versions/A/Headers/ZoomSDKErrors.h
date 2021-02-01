@@ -72,6 +72,8 @@ typedef enum{
     ActionMeetingCmd_DisableUnmuteBySelf,
     //Mute all participants in the meeting, available only for the host/co-host. 
     ActionMeetingCmd_MuteAll,
+    //Unmute all participants in the meeting, available only for the host/co-host. 
+    ActionMeetingCmd_UnmuteAll,
     //Lock the meeting, available only for the host/co-host. Once locked, the new participants can no longer join the meeting/co-host.
     ActionMeetingCmd_LockMeeting,
 	//Unlock the meeting, available only for the host/co-host. 
@@ -97,13 +99,13 @@ typedef enum{
 	//Share in original size.
     ActionMeetingCmd_ShareOriginSizeMode,
     //Pin the video of specified user. Once the video is pined, it will show fixed video in main view.
-    ActionMeetingCmd_PinVideo,
+    ActionMeetingCmd_PinVideo, //This enum has been deprecated, will be deleted next release.
 	//Unpin the video of specified user.
-    ActionMeetingCmd_UnPinVideo,
+    ActionMeetingCmd_UnPinVideo, //This enum has been deprecated, will be deleted next release.
     //Spotlight the video of the specified user.
-    ActionMeetingCmd_SpotlightVideo,
+    ActionMeetingCmd_SpotlightVideo, //This enum has been deprecated, will be deleted next release.
 	//Spotlight falloff the video of the specified user.
-    ActionMeetingCmd_UnSpotlightVideo,
+    ActionMeetingCmd_UnSpotlightVideo, //This enum has been deprecated, will be deleted next release.
     //Pause sharing.
     ActionMeetingCmd_PauseShare,
     //Resume sharing.
@@ -201,8 +203,6 @@ typedef enum{
     MeetingComponent_AuxShareToolBar,
 	//Setting components.
     MeetingComponent_Setting,
-	//Window for joining meeting before host.
-    MeetingComponent_JBHWindow,
 	//Window for sharing options. 
     MeetingComponent_ShareOptionWindow,
 	//Thumbnail video layout.
@@ -219,7 +219,7 @@ typedef enum{
 typedef enum{
 	//Dual screen mode.
     MeetingSettingCmd_DualScreenMode,
-	//Adjust the size of sharing content to fit the window.
+	//Adjust the size of sharing content to fit the window (NS_DEPRECATED_MAC(4.4, 5.0)).
     MeetingSettingCmd_AutoFitToWindowWhenViewShare,
 	//Enter full screen mode when user joins the meeting.
     MeetingSettingCmd_AutoFullScreenWhenJoinMeeting,
@@ -255,7 +255,31 @@ typedef enum{
     ZoomSDKError_UnSupportedFeature,
     //unsupport email login
     ZoomSDKError_EmailLoginIsDisabled,
-	//Unknown error.
+    //Module load fail.
+    ZoomSDKError_ModuleLoadFail,
+    //No video data.
+    ZoomSDKError_NoVideoData,
+    //No audio data.
+    ZoomSDKError_NoAudioData,
+    //No share data.
+    ZoomSDKError_NoShareData,
+    //Not found video device.
+    ZoomSDKError_NoVideoDeviceFound,
+    //Device error.
+    ZoomSDKError_DeviceError,
+    //Not in meeting.
+    ZoomSDKError_NotInMeeting,
+    //Init device.
+    ZoomSDKError_initDevice,
+    //Can't chanage virtual device.
+    ZoomSDKError_CanNotChanageVirtualDevice,
+    //Preprocess rawdata error.
+    ZoomSDKError_PreprocessRawdataError,
+    //No license.
+    ZoomSDKError_NoLicense,
+    //Malloc failed.
+    ZoomSDKError_Malloc_Failed,
+    //Unknown error.
     ZoomSDKError_UnKnow,
 }ZoomSDKError;
 
@@ -454,6 +478,8 @@ typedef enum{
     ZoomSDKShareStatus_OtherStartAudioShare,
 	//Other user stops sharing the sounds of computer audio.
     ZoomSDKShareStatus_OtherStopAudioShare,
+    //The share is disconnected.
+    ZoomSDKShareStatus_Disconnected,
 }ZoomSDKShareStatus;
 
 /**
@@ -475,6 +501,14 @@ typedef enum{
 	//Host unmutes all participants.
     ZoomSDKAudioStatus_UnMutedAllByHost = 6,
 }ZoomSDKAudioStatus;
+
+typedef enum{
+    ZoomSDKVideoStatus_Off,
+    ZoomSDKVideoStatus_On,
+    ZoomSDKVideoStatus_MutedByHost,
+    ZoomSDKVideoStatus_None,
+}ZoomSDKVideoStatus;
+
 
 typedef enum{
 	//No audio.
@@ -663,7 +697,7 @@ typedef enum
     UserRole_Host,
 	//Co-host.
     UserRole_CoHost,
-	//Attendee in the webinar.
+	//Attendee or webinar attendee.
     UserRole_Attendee,
 	//Panelist.
     UserRole_Panelist,
@@ -1144,6 +1178,10 @@ typedef enum {
     shareSettingCmd_enterMaxWindow,
     //When user user side to side mode
     shareSettingCmd_sideToSideMode,
+    //Keep current size.
+    shareSettingCmd_MaintainCurrentSize,
+    //Scale to fit shared content to Zoom window
+    shareSettingCmd_AutoFitWindowWhenViewShare,
 }shareSettingCmd;
 
 /**
@@ -1219,32 +1257,6 @@ typedef  enum{
 }ZoomSDKBOUserStatus;
 
 /**
- * @brief Enumerations of Interpreter Language.
- */
-typedef enum{
-    //For initialization.
-    ZoomSDKInterpreLanguage_NONE,
-    //English
-    ZoomSDKInterpreLanguage_US,
-    //Chinese
-    ZoomSDKInterpreLanguage_CN,
-    //Japanese
-    ZoomSDKInterpreLanguage_JP,
-    //German
-    ZoomSDKInterpreLanguage_DE,
-    //French
-    ZoomSDKInterpreLanguage_FR,
-    //Russian
-    ZoomSDKInterpreLanguage_RU,
-    //Portuguese
-    ZoomSDKInterpreLanguage_PT,
-    //Spanish
-    ZoomSDKInterpreLanguage_ES,
-    //Korean
-    ZoomSDKInterpreLanguage_KR,
-} ZoomSDKInterpreLanguage;
-
-/**
  * @brief Enumerations of limited FPS value.
  */
 typedef enum {
@@ -1263,3 +1275,255 @@ typedef enum {
     //The value is fifteen.
     ZoomSDKFPSValue_Fifteen,
 }ZoomSDKFPSValue;
+
+/**
+ * @brief Enumerations of attendee request for help result.
+ */
+typedef enum {
+    //Host is handling other's request with the request dialog, no chance to show dialog for this request.
+    ZoomSDKRequest4HelpResult_Busy,
+    //Host click "later" button or close the request dialog directly.
+    ZoomSDKRequest4HelpResult_Ignore,
+    //Host already in your BO meeting.
+    ZoomSDKRequest4HelpResult_HostAlreadyInBO,
+    //For initialization (Host receive the help request and there is no other one currently requesting for help).
+    ZoomSDKRequest4HelpResult_Idle,
+}ZoomSDKRequest4HelpResult;
+
+
+typedef enum
+{
+    ZoomSDKRawDataMemoryMode_Stack,
+    ZoomSDKRawDataMemoryMode_Heap,
+}ZoomSDKRawDataMemoryMode;
+
+typedef enum
+{
+    ZoomSDKResolution_90P,
+    ZoomSDKResolution_180P,
+    ZoomSDKResolution_360P,
+    ZoomSDKResolution_720P,
+    ZoomSDKResolution_1080P,
+    ZoomSDKResolution_NoUse = 100
+}ZoomSDKResolution;
+
+typedef enum
+{
+    ZoomSDKLOCAL_DEVICE_ROTATION_ACTION_UNKnown,
+    ZoomSDKLOCAL_DEVICE_ROTATION_ACTION_0,
+    ZoomSDKLOCAL_DEVICE_ROTATION_ACTION_CLOCK90,
+    ZoomSDKLOCAL_DEVICE_ROTATION_ACTION_CLOCK180,
+    ZoomSDKLOCAL_DEVICE_ROTATION_ACTION_ANTI_CLOCK90,
+}ZoomSDKLocalVideoDeviceRotation;
+
+typedef enum
+{
+    ZoomSDKRawDataType_Video = 1,
+    ZoomSDKRawDataType_Share,
+}ZoomSDKRawDataType;
+
+/**
+ * @brief Enumerations of the type for save screenshot file.
+ */
+typedef enum
+{
+    //The file type is PNG.
+    ZoomSDKAnnotationSavedType_PNG,
+    //The file type is PDF.
+    ZoomSDKAnnotationSavedType_PDF
+}ZoomSDKAnnotationSavedType;
+
+/**
+ * @brief Enumerations of the priviledge for attendee chat.
+ */
+typedef enum
+{
+    //Allow attendee to chat with everyone.[for webinar]
+    ZoomSDKChatPriviledgeType_To_EveryOne,
+    //Allow attendee to chat with all panelists only.[for webinar]
+    ZoomSDKChatPriviledgeType_To_All_Panelist,
+}ZoomSDKChatPriviledgeType;
+
+/**
+ * @brief Enumerations of the type for chat message.
+ */
+typedef enum
+{
+    //For initialize
+    ZoomSDKChatMessageType_To_None,
+    //Chat message is send to all in normal meeting ,also means to all panelist and attendees when webinar meeting.
+    ZoomSDKChatMessageType_To_All,
+    //Chat message is send to all panelists.
+    ZoomSDKChatMessageType_To_All_Panelist,
+    //Chat message is send to individual attendee and cc panelists.
+    ZoomSDKChatMessageType_To_Individual_Panelist,
+    //Chat message is send to individual user.
+    ZoomSDKChatMessageType_To_Individual,
+    //Chat message is send to waiting room user.
+    ZoomSDKChatMessageType_To_WaitingRoomUsers,
+}ZoomSDKChatMessageType;
+
+typedef enum
+{
+    //For initialize
+    ZoomSDKSuppressBackgroundNoiseLevel_None,
+    ZoomSDKSuppressBackgroundNoiseLevel_Auto,
+    ZoomSDKSuppressBackgroundNoiseLevel_Low,
+    ZoomSDKSuppressBackgroundNoiseLevel_Medium,
+    ZoomSDKSuppressBackgroundNoiseLevel_High,
+}ZoomSDKSuppressBackgroundNoiseLevel;
+
+/**
+ * @brief Enumerations of the type for screen capture.
+ */
+
+typedef enum
+{
+    //Screen capture mode is automatically.
+    ZoomSDKScreenCaptureMode_Auto,
+    //Screen capture mode is legacy.
+    ZoomSDKScreenCaptureMode_Legacy,
+    //Screen capture mode is copy with window filter.
+    ZoomSDKScreenCaptureMode_GPU_Copy_Filter,
+    //Screen capture mode is advanced copy with window filter.
+    ZoomSDKScreenCaptureMode_ADA_Copy_Filter,
+    //Screen capture mode is advanced copy without window filter.
+    ZoomSDKScreenCaptureMode_ADA_Copy_Without_Filter,
+}ZoomSDKScreenCaptureMode;
+
+/**
+ * @brief Enumerations of the type for light adaption.
+ */
+
+typedef enum
+{
+    //Light adaption is none.
+    ZoomSDKSettingVideoLightAdaptionModel_None,
+    //Light adaption by automatically.
+    ZoomSDKSettingVideoLightAdaptionModel_Auto,
+    //Light adaption by manual.
+    ZoomSDKSettingVideoLightAdaptionModel_Manual,
+}ZoomSDKSettingVideoLightAdaptionModel;
+
+typedef enum
+{
+    ZoomSDKSettingVBVideoError_None = 0,
+    ZoomSDKSettingVBVideoError_UnknowFormat,
+    ZoomSDKSettingVBVideoError_ResolutionBig,
+    ZoomSDKSettingVBVideoError_ResolutionHigh720P,
+    ZoomSDKSettingVBVideoError_ResolutionLow,
+    ZoomSDKSettingVBVideoError_PlayError,
+    ZoomSDKSettingVBVideoError_OpenError,
+}ZoomSDKSettingVBVideoError;
+
+typedef enum
+{
+    ZoomSDKVideoEffectType_None = 0,
+    ZoomSDKVideoEffectType_Filter = 1,
+    ZoomSDKVideoEffectType_Frame = 2,
+    ZoomSDKVideoEffectType_Sticker = 4,
+}ZoomSDKVideoEffectType;
+
+typedef enum
+{
+    ZoomSDKUIAppearance_System,
+    ZoomSDKUIAppearance_Light,
+    ZoomSDKUIAppearance_Dark,
+}ZoomSDKUIAppearance;
+
+typedef enum
+{
+    ZoomSDKEmojiReactionType_Unknow = 0,
+    ZoomSDKEmojiReactionType_Clap,
+    ZoomSDKEmojiReactionType_Thumbsup,
+    ZoomSDKEmojiReactionType_Heart,
+    ZoomSDKEmojiReactionType_Joy,
+    ZoomSDKEmojiReactionType_Openmouth,
+    ZoomSDKEmojiReactionType_Tada,
+}ZoomSDKEmojiReactionType;
+
+typedef enum
+{
+    ZoomSDKEmojiReactionSkinTone_Unknow = 0,
+    ZoomSDKEmojiReactionSkinTone_Default,
+    ZoomSDKEmojiReactionSkinTone_Light,
+    ZoomSDKEmojiReactionSkinTone_MediumLight,
+    ZoomSDKEmojiReactionSkinTone_Medium,
+    ZoomSDKEmojiReactionSkinTone_MediumDark,
+    ZoomSDKEmojiReactionSkinTone_Dark,
+}ZoomSDKEmojiReactionSkinTone;
+
+/**
+ * @brief Enumerations of the Echo Cancellation.
+ */
+typedef enum
+{
+    //The echo cancellation Level is automatically.
+    ZoomSDKAudioEchoCancellationLevel_Auto = 0,
+    //The echo cancellation Level is aggressive.
+    ZoomSDKAudioEchoCancellationLevel_Aggressive,
+}ZoomSDKAudioEchoCancellationLevel;
+
+/**
+ * @brief Enumerations of the share option for setting Page share screen item.
+ */
+typedef enum
+{
+    //Share individual Window .Only for set share application.
+    ZoomSDKSettingShareScreenShareOption_IndividualWindow,
+    //Share all window from a application. Only for set share application.
+    ZoomSDKSettingShareScreenShareOption_AllWindowFromApplication,
+    //Automatically share desktop(for meeting share or direct share).
+    ZoomSDKSettingShareScreenShareOption_AutoShareDesktop,
+    //show all option (for meeting share or direct share).
+    ZoomSDKSettingShareScreenShareOption_AllOption,
+}ZoomSDKSettingShareScreenShareOption;
+
+typedef enum
+{
+    ZoomSDKSpotlightResult_Success = 0,
+    ZoomSDKSpotlightResult_Fail_NotEnoughUsers,  // user counts less than 2
+    ZoomSDKSpotlightResult_Fail_ToMuchSpotlightedUsers, // spotlighted user counts is more than 9
+    ZoomSDKSpotlightResult_Fail_UserCannotBeSpotlighted, // user in view only mode or silent mode or active
+    ZoomSDKSpotlightResult_Fail_UserWithoutVideo, // user doesn't turn on video
+    ZoomSDKSpotlightResult_Fail_NoPrivilegeToSpotlight,  // current user has no privilege to spotlight
+    ZoomSDKSpotlightResult_Fail_UserNotSpotlighted, //user is not spotlighted
+    ZoomSDKSpotlightResult_Unknown = 100,
+}ZoomSDKSpotlightResult;
+
+typedef enum
+{
+    ZoomSDKPinResult_Success = 0,
+    ZoomSDKPinResult_Fail_NotEnoughUsers, // user counts less than 2
+    ZoomSDKPinResult_Fail_ToMuchPinnedUsers, // pinned user counts more than 9
+    ZoomSDKPinResult_Fail_UserCannotBePinned, // user in view only mode or silent mode or active
+    ZoomSDKPinResult_Fail_VideoModeDoNotSupport, // other reasons
+    ZoomSDKPinResult_Fail_NoPrivilegeToPin,  // current user has no privilege to pin
+    ZoomSDKPinResult_Fail_MeetingDoNotSupport, // webinar and in view only meeting
+    ZoomSDKPinResult_Unknown = 100,
+}ZoomSDKPinResult;
+
+typedef enum
+{
+    ZoomSDKLoginFailReason_None = 0,
+    //Email login disabled.
+    ZoomSDKLoginFailReason_EmailLoginDisabled,
+    //User not exist.
+    ZoomSDKLoginFailReason_UserNotExist,
+    //Password is wrong.
+    ZoomSDKLoginFailReason_WrongPassword,
+    //Account is locked.
+    ZoomSDKLoginFailReason_AccountLocked,
+    //SDK need update.
+    ZoomSDKLoginFailReason_SDKNeedUpdate,
+    //Attemps too many times.
+    ZoomSDKLoginFailReason_TooManyFailedAttempts,
+    // SMS code error.
+    ZoomSDKLoginFailReason_SMSCodeError,
+    //SMS code expired.
+    ZoomSDKLoginFailReason_SMSCodeExpired,
+    //Phone number format invalid.
+    ZoomSDKLoginFailReason_PhoneNumberFormatInValid,
+    //Login fail other reason.
+    ZoomSDKLoginFailReason_Other_Issue = 100,
+}ZoomSDKLoginFailReason;

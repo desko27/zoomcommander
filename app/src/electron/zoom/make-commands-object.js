@@ -11,9 +11,6 @@ module.exports = function makeCommandsObject ({
   // get required sdk instances for 'simple' commands object generation
   /* eslint-disable no-unused-vars */
   const zoomparticipantsctrl = zoommeeting.GetMeetingParticipantsCtrl(meetingEvents)
-  const zoomvideorawdata = sdk.VideoRawData()
-  const zoomaudiorawdata = sdk.AudioRawData()
-  const zoomsharerawdata = sdk.ShareRawData()
   const zoominfomod = zoommeeting.GetMeetingInfo()
   const zoomuicontroller = zoommeeting.GetMeetingUICtrl()
   const zoomannotation = zoommeeting.GetAnnotationCtrl()

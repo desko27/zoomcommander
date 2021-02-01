@@ -137,8 +137,8 @@
  * @param loginStatus Notify user of login status.
  *
  */
-- (void)onZoomSDKLogin:(ZoomSDKLoginStatus)loginStatus failReason:(NSString*)reason;
-
+- (void)onZoomSDKLogin:(ZoomSDKLoginStatus)loginStatus failReason:(NSString*)reason NS_DEPRECATED_MAC(1.0, 5.4);
+- (void)onZoomSDKLoginResult:(ZoomSDKLoginStatus)loginStatus failReason:(ZoomSDKLoginFailReason)reason NS_AVAILABLE_MAC(5.4);
 /**
  * @brief Specify to get the response of ZOOM SDK logout.
  */

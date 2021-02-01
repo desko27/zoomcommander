@@ -91,3 +91,8 @@ void ZPremeetingServiceWrap::onDeleteMeeting(ZNPremeetingAPIResult result)
 	if (m_pSink)
 		m_pSink->onDeleteMeeting(result);
 }
+void ZPremeetingServiceWrap::onGetInviteEmailContent(ZNPremeetingAPIResult result, unsigned long long meetingUniqueID, ZoomSTRING content)
+{
+	if (m_pSink)
+		m_pSink->onGetInviteEmailContent(result, meetingUniqueID, content);
+}

@@ -8,6 +8,19 @@
 #include "..\zoom_sdk_def.h"
 
 BEGIN_ZOOM_SDK_NAMESPACE
+/**
+ * @brief Enumerations of the type for chat message.
+ */
+	typedef enum
+{
+	SDKChatMessageType_To_None, ///For initialize	
+	SDKChatMessageType_To_All,///Chat message is send to all.	
+	SDKChatMessageType_To_All_Panelist,///Chat message is send to all panelists.	
+	SDKChatMessageType_To_Individual_Panelist,///Chat message is send to individual attendee and cc panelists.	
+	SDKChatMessageType_To_Individual,///Chat message is send to individual user.	
+	SDKChatMessageType_To_WaitingRoomUsers,///Chat message is send to waiting room user.
+}SDKChatMessageType;
+
 /// \brief Chat message interface.
 ///
 class IChatMsgInfo
@@ -57,6 +70,10 @@ public:
 	/// \return TRUE indicates that the current message is sent to waiting room. Otherwise not.
 	virtual bool IsChatToWaitingroom() = 0;
 
+	/// \brief Get the chat message type of the current message.
+	/// \return If the function succeeds, the return value is the chat message type of the current message.
+	virtual SDKChatMessageType GetChatMessageType() = 0;
+
 	virtual ~IChatMsgInfo() {};
 };
 
@@ -66,9 +83,10 @@ public:
 */
 typedef struct tagNormalMeetingChatStaus
 {
+	bool can_chat;///<TRUE indicates that the user owns the authority to send message to chat.
 	bool can_chat_to_all;///<TRUE indicates that the user owns the authority to send message to all.
 	bool can_chat_to_individual;///<TRUE indicates that the user owns the authority to send message to an individual attendee in the meeting.
-	bool is_only_can_chat_to_host;///<TRUE indicates that the user owns the authority to send message only to the host.
+	bool is_only_can_chat_to_host;///<TRUE indicates that the user owns the authority to send message only to the host. 
 }NormalMeetingChatStaus;
 
 /*! \struct tagWebinarAttendeeChatStatus
@@ -119,6 +137,19 @@ typedef struct tagChatStatus
 		memset(this, 0, sizeof(tagChatStatus));
 	}
 }ChatStatus;
+
+/**
+ * @brief Enumerations of the chat priviledge.
+ */
+typedef enum {
+	SDK_CHAT_PRIVILEDGE_ALL = 1,                    	/// allow attendee to chat with everyone [meeting & webinar]
+	SDK_CHAT_PRIVILEDGE_ALL_PANELIST = 2,		          /// allow attendee to chat with all panelists only, but cannot to "all panelists and attendees" [webinar]
+	SDK_CHAT_PRIVILEDGE_HOST = 3,	                    /// allow attendee to chat with host only [meeting]
+	SDK_CHAT_PRIVILEDGE_DISABLE_ATTENDEE_CHAT = 4,    /// allow attendee to chat with no one [meeting & webinar]
+	SDK_CHAT_PRIVILEDGE_HOST_PUBLIC = 5,              /// allow attendee to chat with host and public [meeting]
+	SDK_CHAT_PRIVILEDGE_END
+} SDKChatPriviledge;
+
 
 /// \brief Meeting chat callback event.
 ///
@@ -181,18 +212,34 @@ public:
 	/// \param content The content of the chat message. 
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \deprecated This interface will be deprecated, please use the interface SendChatMsgTo. 
 	virtual SDKError SendChatTo(unsigned int receiver, wchar_t* content) = 0;
 
 	/// \brief Send chat message in webinar.
 	/// \param chatIteam An instance of the structure of the chat message. For more details, see \link SendChatItem4Webinar \endlink structure.
 	/// \return If the function succeeds, the return value is SDKErr_Success.
 	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	/// \deprecated This interface will be deprecated, please use the interface SendChatMsgTo. 
 	virtual SDKError SendChat4WebinarMeeting(SendChatItem4Webinar& chatIteam) = 0;
 
 	/// \brief Get the authority status to send current message. 
 	/// \return If the function succeeds, the return value is a pointer to the structure of ChatStatus. For more details, see \link ChatStatus \endlink structure.
 	///Otherwise failed, the return value is NULL. To get extended error information, see \link ChatStatus \endlink.
 	virtual const ChatStatus* GetChatStatus() = 0;
+
+	/// \brief Set the chat priviledge of participants.
+	/// \param priviledge The chat priviledge of participants
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	virtual SDKError SetParticipantsChatPriviledge(SDKChatPriviledge priviledge) = 0;
+
+	/// \brief Send chat message in the normal meeting.
+	/// \param receiver Specify the user ID who receives the chat message. The message will be sent to all when the value is zero(0). 
+	/// \param content The content of the chat message. 
+	/// \param type The type of the chat message
+	/// \return If the function succeeds, the return value is SDKErr_Success.
+	///Otherwise failed. To get extended error information, see \link SDKError \endlink enum.
+	virtual SDKError SendChatMsgTo(wchar_t* content, unsigned int receiver, SDKChatMessageType type) = 0;
 };
 END_ZOOM_SDK_NAMESPACE
 #endif

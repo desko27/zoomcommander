@@ -21,12 +21,15 @@ ZNShareStatus Map2WrapDefine(ZOOM_SDK_NAMESPACE::SharingStatus status);
 ZNAudioType Map2WrapDefine(ZOOM_SDK_NAMESPACE::AudioType type);
 ZNUserRole Map2WrapDefine(ZOOM_SDK_NAMESPACE::UserRole role);
 ZNSMSVerificationCodeErr Map2WrapDefine(SMSVerificationCodeErr err);
+ZNLoginFailReason Map2WrapDefine(ZOOM_SDK_NAMESPACE::LoginFailReason reason);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZNSettingsNetWorkType Map2WrapDefine(ZOOM_SDK_NAMESPACE::SettingsNetWorkType role);
 ZNSettingConnectionType Map2WrapDefine(ZOOM_SDK_NAMESPACE::SettingConnectionType role);
 ZNRequiredInfoType Map2WrapDefine(ZOOM_SDK_NAMESPACE::IMeetingPasswordAndScreenNameHandler::RequiredInfoType type);
 ZNWebinarNeedRegisterType Map2WrapDefine(ZOOM_SDK_NAMESPACE::IWebinarNeedRegisterHandler::WebinarNeedRegisterType type);
 ZNAudioCallbackActionInfo Map2WrapDefine(ZOOM_SDK_NAMESPACE::AudioCallbackActionInfo info);
+ZNRecordingStatus Map2WrapDefine(ZOOM_SDK_NAMESPACE::RecordingStatus info);
+ZN_SDK_ECHO_CANCELLATION_LEVEL Map2WrapDefine(ZOOM_SDK_NAMESPACE::SDK_ECHO_CANCELLATION_LEVEL level);
 //convert js to sdk
 ZOOM_SDK_NAMESPACE::SDK_LANGUAGE_ID Map2SDKDefine(ZNSDK_LANGUAGE_ID id);
 ZOOM_SDK_NAMESPACE::SDKUserType Map2SDKDefine(ZNSDKUserType type);
@@ -42,6 +45,16 @@ ZOOM_SDK_NAMESPACE::SDKCustomizedURLType Map2SDKDefine(ZNSDKCustomizedURLType ty
 ZOOM_SDK_NAMESPACE::H323DeviceType Map2SDKDefine(ZNH323DeviceType type);
 ZOOM_SDK_NAMESPACE::SDKMinimizeUIMode Map2SDKDefine(ZNSDKMinimizeUIMode mode);
 ZOOM_SDK_NAMESPACE::SDK_APP_Locale Map2SDKDefine(ZNSDK_APP_Locale mode);
+ZOOM_SDK_NAMESPACE::CustomizedLanguageType Map2SDKDefine(ZNCustomizedLanguageType customizedLanguageType);
+
+ZOOM_SDK_NAMESPACE::ZoomSDKVideoRenderMode Map2SDKDefine(ZNZoomSDKVideoRenderMode videoRenderType);
+ZOOM_SDK_NAMESPACE::ZoomSDKRawDataMemoryMode Map2SDKDefine(ZNSDKRawDataMemoryMode rawdataMemoryMode);
+ZOOM_SDK_NAMESPACE::ZoomSDKRawDataType Map2SDKDefine(ZNZoomSDKRawDataType type);
+ZOOM_SDK_NAMESPACE::ZoomSDKResolution Map2SDKDefine(ZNZoomSDKResolution resolution);
+ZOOM_SDK_NAMESPACE::VIDEO_HARDWARE_ENCODE_TYPE Map2SDKDefine(ZN_VIDEO_HARDWARE_ENCODE_TYPE encodeType);
+ZOOM_SDK_NAMESPACE::ZoomSDKRenderPostProcessing Map2SDKDefine(ZNZoomSDKRenderPostProcessing postProcessing);
+ZOOM_SDK_NAMESPACE::ZoomSDKVideoCaptureMethod Map2SDKDefine(ZNZoomSDKVideoCaptureMethod method);
+ZOOM_SDK_NAMESPACE::SDK_ECHO_CANCELLATION_LEVEL Map2SDKDefine(ZN_SDK_ECHO_CANCELLATION_LEVEL level);
 //convert zoomstring to string
 std::string wStr2Str(const ZoomSTRING& s);
 //convert string to zoomstring

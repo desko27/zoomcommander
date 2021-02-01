@@ -101,11 +101,13 @@ app.on('ready', async () => {
             onUserLeft: user => mainWindow.webContents.send('zoom-event', 'USER_LEFT', user),
             onUserAudioStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_AUDIO_STATUS_CHANGE', data),
             onUserVideoStatusChange: data => mainWindow.webContents.send('zoom-event', 'USER_VIDEO_STATUS_CHANGE', data),
-            onLowOrRaiseHandStatusChanged: data => mainWindow.webContents.send('zoom-event', 'ON_LOW_OR_RAISE_HAND_STATUS_CHANGED', data)
+            onLowOrRaiseHandStatusChanged: data => mainWindow.webContents.send('zoom-event', 'ON_LOW_OR_RAISE_HAND_STATUS_CHANGED', data),
+            onUserNameChanged: data => mainWindow.webContents.send('zoom-event', 'ON_USER_NAME_CHANGED', data)
           }
         })
         return zoomMeeting
       } catch (error) {
+        console.error(error) // keep this so we can see stuff in the console
         mainWindow.webContents.send('join-meeting-error')
       }
     }

@@ -11,23 +11,24 @@ public:
 	virtual ~ZUserInfoWrap();
 	
 
-	ZoomSTRING GetUserNamme(unsigned int userid);
-	//ZoomSTRING GetEmail(unsigned int userid);
-	bool IsHost(unsigned int userid);
-	unsigned int GetUserID(unsigned int userid);
-	bool IsVideoOn(unsigned int userid);
-	bool IsAudioMuted(unsigned int userid);
-	ZNAudioType GetAudioJoinType(unsigned int userid);
-	bool IsMySelf(unsigned int userid);
-	bool IsInWaitingRoom(unsigned int userid);
-	bool IsRaiseHand(unsigned int userid);
-	ZNUserRole GetUserRole(unsigned int userid);
-	ZNAudioStatus GetAudioStatus(unsigned int userid);
-	bool IsPurePhoneUser(unsigned int userid);
-	ZoomSTRING GetAudioVoiceLevel(unsigned int userid);
-	bool IsClosedCaptionSender(unsigned int userid);
-	bool GetWebinarAttendeeStauts(unsigned int userid);
+	ZoomSTRING GetUserNamme();
+	bool IsH323User();
+	bool IsHost();
+	unsigned int GetUserID();
+	bool IsVideoOn();
+	bool IsAudioMuted();
+	ZNAudioType GetAudioJoinType();
+	bool IsMySelf();
+	bool IsInWaitingRoom();
+	bool IsRaiseHand();
+	ZNUserRole GetUserRole();
+	ZNAudioStatus GetAudioStatus();
+	bool IsPurePhoneUser();
+	ZoomSTRING GetAudioVoiceLevel();
+	bool IsClosedCaptionSender();
+	bool GetWebinarAttendeeStauts();
 	bool IsValidUserID(unsigned int userid);
+	ZoomSTRING GetParticipantID();
 private:
 	ZOOM_SDK_NAMESPACE::IUserInfo* m_pUserInfo;
 };
@@ -53,6 +54,7 @@ public:
 	void onUserLeft(ZNList<unsigned int> lstUserID, ZoomSTRING strUserList);
 	void onHostChangeNotification(unsigned int userId);
 	void onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand);
+	void onUserNameChange(unsigned int userId, ZoomSTRING userName);
 private:
 	ZNativeSDKMeetingParticipantsWrapSink* m_pSink;
 #if (defined _WIN32)

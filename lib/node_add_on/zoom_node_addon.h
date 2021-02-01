@@ -66,6 +66,7 @@ public:
 	/// \brief Get Zoom SDK Direct Share Service Module.
 	static void GetDirectShareHelperObj(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void SetOnZoomAuthIdentityExpiredCB(const v8::FunctionCallbackInfo<v8::Value>& args);
+	static void SetLoginReturnWithReasonCB(const v8::FunctionCallbackInfo<v8::Value>& args);
 
 	static v8::Persistent<v8::Function> constructor;
 };
@@ -91,6 +92,7 @@ static void InitClassAttribute<ZoomNodeAuthWrap >(const v8::Local<v8::FunctionTe
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnAuthReturnCB", ZoomNodeAuthWrap::SetOnAuthReturnCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnZoomIdentityExpiredCB", ZoomNodeAuthWrap::SetOnZoomIdentityExpiredCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnZoomAuthIdentityExpiredCB", ZoomNodeAuthWrap::SetOnZoomAuthIdentityExpiredCB);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetLoginReturnWithReasonCB", ZoomNodeAuthWrap::SetLoginReturnWithReasonCB);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeAuthWrap >() {
@@ -131,19 +133,16 @@ public:
 	static void GetPremeetingObj(const v8::FunctionCallbackInfo<v8::Value>& args);
 	/// \brief Get Zoom SDK Customized Resource Service Module.
 	static void GetCustomizedResourceObj(const v8::FunctionCallbackInfo<v8::Value>& args);
-	/// \brief Get Zoom SDK Video RawData Service Module.
-	static void GetVideoRawDataObj(const v8::FunctionCallbackInfo<v8::Value>& args);
-	/// \brief Get Zoom SDK Audio RawData Service Module.
-	static void GetAudioRawDataObj(const v8::FunctionCallbackInfo<v8::Value>& args);
-	/// \brief Get Zoom SDK Share RawData Service Module.
-	static void GetShareRawDataObj(const v8::FunctionCallbackInfo<v8::Value>& args);
-	/// \brief Get Zoom SDK RawData License Service Module.
-	static void GetRawDataLicenseObj(const v8::FunctionCallbackInfo<v8::Value>& args);
+	
 	/// \brief Get Zoom SDK SMS Helper Service Module.
 	static void GetSDKSMSHelperObj(const v8::FunctionCallbackInfo<v8::Value>& args);
 	/// \brief Get the version of ZOOM SDK.
 	/// \return The version of ZOOM SDK.
 	static void GetZoomSDKVersion(const v8::FunctionCallbackInfo<v8::Value>& args);
+	
+	static void GetRawdataAPIWrap(const v8::FunctionCallbackInfo<v8::Value>& args);
+
+	static void SetTeamIdentifier(const v8::FunctionCallbackInfo<v8::Value>& args);
 
 	static v8::Persistent<v8::Function> constructor;
 };
@@ -162,17 +161,32 @@ static void InitClassAttribute<ZoomNodeWrap >(const v8::Local<v8::FunctionTempla
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSetObj", ZoomNodeWrap::GetSetObj);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetPremeetingObj", ZoomNodeWrap::GetPremeetingObj);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetCustomizedResourceObj", ZoomNodeWrap::GetCustomizedResourceObj);
-	NODE_SET_PROTOTYPE_METHOD(tpl, "GetVideoRawDataObj", ZoomNodeWrap::GetVideoRawDataObj);
-	NODE_SET_PROTOTYPE_METHOD(tpl, "GetAudioRawDataObj", ZoomNodeWrap::GetAudioRawDataObj);
-	NODE_SET_PROTOTYPE_METHOD(tpl, "GetShareRawDataObj", ZoomNodeWrap::GetShareRawDataObj);
-	NODE_SET_PROTOTYPE_METHOD(tpl, "GetRawDataLicenseObj", ZoomNodeWrap::GetRawDataLicenseObj);
+	
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetZoomSDKVersion", ZoomNodeWrap::GetZoomSDKVersion);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSDKSMSHelperObj", ZoomNodeWrap::GetSDKSMSHelperObj);
+
+	NODE_SET_PROTOTYPE_METHOD(tpl, "GetRawdataAPIWrap", ZoomNodeWrap::GetRawdataAPIWrap);
+
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetTeamIdentifier", ZoomNodeWrap::SetTeamIdentifier);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeWrap >() {
 	return &ZoomNodeWrap::constructor;
 }
+
+class AddonData {
+public:
+	explicit AddonData(v8::Isolate* isolate)
+	{
+		node::AddEnvironmentCleanupHook(isolate, DeleteInstance, this);
+	}
+
+	v8::Local<v8::Object> zoomNodeWrapInstance;
+
+	static void DeleteInstance(void* data) {
+		delete static_cast<AddonData*>(data);
+	}
+};
 
 class ZOOM_NODE_HIDE ZoomNodeMeetingWrap :
 	public ZoomWrapObject<ZoomNodeMeetingWrap >
@@ -265,6 +279,8 @@ public:
 	static void GetMeetingAudioCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
 	/// \brief Get Zoom SDK Meeting Video Controller Module.
 	static void GetMeetingVideoCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
+	/// \brief Get Zoom SDK Meeting Recording Controller Module.
+	static void GetMeetingRecordingCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
 	/// \brief Get Zoom SDK Meeting Participants Controller Module.
 	static void GetMeetingParticipantsCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
 	/// \brief Get Zoom SDK Meeting Share Controller Module.
@@ -312,6 +328,7 @@ static void InitClassAttribute<ZoomNodeMeetingWrap >(const v8::Local<v8::Functio
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingAnnotation", ZoomNodeMeetingWrap::GetMeetingAnnotation);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingAudioCtrl", ZoomNodeMeetingWrap::GetMeetingAudioCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingVideoCtrl", ZoomNodeMeetingWrap::GetMeetingVideoCtrl);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingRecordingCtrl", ZoomNodeMeetingWrap::GetMeetingRecordingCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingParticipantsCtrl", ZoomNodeMeetingWrap::GetMeetingParticipantsCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingShareCtrl", ZoomNodeMeetingWrap::GetMeetingShareCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetMeetingH323Ctrl", ZoomNodeMeetingWrap::GetMeetingH323Ctrl);
@@ -640,6 +657,8 @@ public:
 	static void GetSettingStatisticCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void GetSettingAccessibilityCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
 
+	static void GetSettingShareCtrl(const v8::FunctionCallbackInfo<v8::Value>& args);
+
 	static v8::Persistent<v8::Function> constructor;
 };
 
@@ -660,6 +679,7 @@ static void InitClassAttribute<ZoomNodeSettingWrap >(const v8::Local<v8::Functio
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSettingUIStrategyCtrl", ZoomNodeSettingWrap::GetSettingUIStrategyCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSettingStatisticCtrl", ZoomNodeSettingWrap::GetSettingStatisticCtrl);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSettingAccessibilityCtrl", ZoomNodeSettingWrap::GetSettingAccessibilityCtrl);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "GetSettingShareCtrl", ZoomNodeSettingWrap::GetSettingShareCtrl);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeSettingWrap >() {
@@ -731,6 +751,8 @@ public:
 	///Otherwise failed. To get extended error information, see \link ZNSDKError \endlink enum.
 	static void SetOnDeleteMeetingCB(const v8::FunctionCallbackInfo<v8::Value>& args);
 
+	static void SetonGetInviteEmailContentCB(const v8::FunctionCallbackInfo<v8::Value>& args);
+
 	static v8::Persistent<v8::Function> constructor;
 };
 
@@ -752,6 +774,7 @@ static void InitClassAttribute<ZoomNodePremeetingWrap >(const v8::Local<v8::Func
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnScheduleOrEditMeetingCB", ZoomNodePremeetingWrap::SetOnScheduleOrEditMeetingCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnListMeetingCB", ZoomNodePremeetingWrap::SetOnListMeetingCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetOnDeleteMeetingCB", ZoomNodePremeetingWrap::SetOnDeleteMeetingCB);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetonGetInviteEmailContentCB", ZoomNodePremeetingWrap::SetonGetInviteEmailContentCB);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodePremeetingWrap >() {

@@ -60,6 +60,11 @@ void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId,
 	if (m_pSink)
 		m_pSink->onLowOrRaiseHandStatusChange(userId, isRaisedHand);
 }
+void ZMeetingParticipantsWrap::onUserNameChange(unsigned int userId, ZoomSTRING userName)
+{
+	if (m_pSink)
+		m_pSink->onUserNameChange(userId, userName);
+}
 ZNSDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
 {
 	ZOOM_SDK_NAMESPACE::SDKError sdk_err = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().LowerHand(userid);
@@ -101,22 +106,23 @@ ZNUserInfomation ZMeetingParticipantsWrap::GetUserInfomationByUserID(unsigned in
 	}
 	else
 	{
-		zn_UserInfomation.userName = m_user_info.GetUserNamme(userid);
-		//zn_UserInfomation.email = m_user_info.GetEmail(userid);
-		zn_UserInfomation.isHost = m_user_info.IsHost(userid);
-		zn_UserInfomation.userID = m_user_info.GetUserID(userid);
-		zn_UserInfomation.isVideoOn = m_user_info.IsVideoOn(userid);
-		zn_UserInfomation.isAudioMuted = m_user_info.IsAudioMuted(userid);
-		zn_UserInfomation.audioJoinType = m_user_info.GetAudioJoinType(userid);
-		zn_UserInfomation.isMySelf = m_user_info.IsMySelf(userid);
-		zn_UserInfomation.isInWaitingRoom = m_user_info.IsInWaitingRoom(userid);
-		zn_UserInfomation.isRaiseHand = m_user_info.IsRaiseHand(userid);
-		zn_UserInfomation.userRole = m_user_info.GetUserRole(userid);
-		zn_UserInfomation.isPurePhoneUser = m_user_info.IsPurePhoneUser(userid);
-		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel(userid);
-		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender(userid);
-		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts(userid);
-		zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus(userid);
+		zn_UserInfomation.userName = m_user_info.GetUserNamme();
+		zn_UserInfomation.isH323User = m_user_info.IsH323User();
+		zn_UserInfomation.isHost = m_user_info.IsHost();
+		zn_UserInfomation.userID = m_user_info.GetUserID();
+		zn_UserInfomation.isVideoOn = m_user_info.IsVideoOn();
+		zn_UserInfomation.isAudioMuted = m_user_info.IsAudioMuted();
+		zn_UserInfomation.audioJoinType = m_user_info.GetAudioJoinType();
+		zn_UserInfomation.isMySelf = m_user_info.IsMySelf();
+		zn_UserInfomation.isInWaitingRoom = m_user_info.IsInWaitingRoom();
+		zn_UserInfomation.isRaiseHand = m_user_info.IsRaiseHand();
+		zn_UserInfomation.userRole = m_user_info.GetUserRole();
+		zn_UserInfomation.isPurePhoneUser = m_user_info.IsPurePhoneUser();
+		zn_UserInfomation.AudioVoiceLevel = m_user_info.GetAudioVoiceLevel();
+		zn_UserInfomation.isClosedCaptionSender = m_user_info.IsClosedCaptionSender();
+		zn_UserInfomation.webinarAttendeeStatus = m_user_info.GetWebinarAttendeeStauts();
+		zn_UserInfomation.audioStatus = m_user_info.GetAudioStatus();
+		zn_UserInfomation.participantID = m_user_info.GetParticipantID();
 		zn_UserInfomation.userInfoType = ZN_REAL_USERINFO;
 	}
 
@@ -128,8 +134,7 @@ bool ZUserInfoWrap::IsValidUserID(unsigned int userid)
 {
 
 	bool bIsValid = false;
-	ZOOM_SDK_NAMESPACE::IUserInfo* userinfo = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().
-		GetUserByUserID(userid);
+	ZOOM_SDK_NAMESPACE::IUserInfo* userinfo = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().GetUserByUserID(userid);
 	if (userinfo)
 	{
 		m_pUserInfo = userinfo;
@@ -142,7 +147,7 @@ bool ZUserInfoWrap::IsValidUserID(unsigned int userid)
 	return bIsValid;
 }
 
-ZoomSTRING ZUserInfoWrap::GetUserNamme(unsigned int userid)
+ZoomSTRING ZUserInfoWrap::GetUserNamme()
 {
 	
 	ZoomSTRING zn_user_name;
@@ -152,17 +157,17 @@ ZoomSTRING ZUserInfoWrap::GetUserNamme(unsigned int userid)
 	}
 	return zn_user_name;
 }
-//ZoomSTRING ZUserInfoWrap::GetEmail(unsigned int userid)
-//{
-//	
-//	ZoomSTRING zn_user_email;
-//	if (m_pUserInfo)
-//	{
-//		zn_user_email = m_pUserInfo->GetEmail();
-//	}
-//	return zn_user_email;
-//}
-bool ZUserInfoWrap::IsHost(unsigned int userid)
+bool ZUserInfoWrap::IsH323User()
+{
+	
+	bool zn_is_h323user = false;
+	if (m_pUserInfo)
+	{
+		zn_is_h323user = m_pUserInfo->IsH323User();
+	}
+	return zn_is_h323user;
+}
+bool ZUserInfoWrap::IsHost()
 {
 	
 	bool zn_is_host = false;
@@ -172,7 +177,7 @@ bool ZUserInfoWrap::IsHost(unsigned int userid)
 	}
 	return zn_is_host;
 }
-unsigned int ZUserInfoWrap::GetUserID(unsigned int userid)
+unsigned int ZUserInfoWrap::GetUserID()
 {
 	
 	unsigned int user_id = 0;
@@ -183,7 +188,7 @@ unsigned int ZUserInfoWrap::GetUserID(unsigned int userid)
 	}
 	return user_id;
 }
-bool ZUserInfoWrap::IsVideoOn(unsigned int userid)
+bool ZUserInfoWrap::IsVideoOn()
 {
 	
 	bool zn_is_on = false;
@@ -194,7 +199,7 @@ bool ZUserInfoWrap::IsVideoOn(unsigned int userid)
 	}
 	return zn_is_on;
 }
-bool ZUserInfoWrap::IsAudioMuted(unsigned int userid)
+bool ZUserInfoWrap::IsAudioMuted()
 {
 	
 	bool zn_is_muted = true;
@@ -205,11 +210,11 @@ bool ZUserInfoWrap::IsAudioMuted(unsigned int userid)
 	}
 	return zn_is_muted;
 }
-ZNAudioType ZUserInfoWrap::GetAudioJoinType(unsigned int userid)
+ZNAudioType ZUserInfoWrap::GetAudioJoinType()
 {
 	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetAudioJoinType() : ZOOM_SDK_NAMESPACE::AUDIOTYPE_NONE);
 }
-ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
+ZNAudioStatus ZUserInfoWrap::GetAudioStatus()
 {
 	// A workaround for:
 	// https://devforum.zoom.us/t/how-can-i-get-iuseraudiostatus-from-iuserinfo-in-c/26853
@@ -220,7 +225,7 @@ ZNAudioStatus ZUserInfoWrap::GetAudioStatus(unsigned int userid)
 	}
 	return Map2WrapDefine(ZOOMSDK::Audio_Muted);
 }
-bool ZUserInfoWrap::IsMySelf(unsigned int userid)
+bool ZUserInfoWrap::IsMySelf()
 {
 	
 	bool zn_is_myself = false;
@@ -230,7 +235,7 @@ bool ZUserInfoWrap::IsMySelf(unsigned int userid)
 	}
 	return zn_is_myself;
 }
-bool ZUserInfoWrap::IsInWaitingRoom(unsigned int userid)
+bool ZUserInfoWrap::IsInWaitingRoom()
 {
 	
 	bool zn_is_in = false;
@@ -241,7 +246,7 @@ bool ZUserInfoWrap::IsInWaitingRoom(unsigned int userid)
 	}
 	return zn_is_in;
 }
-bool ZUserInfoWrap::IsRaiseHand(unsigned int userid)
+bool ZUserInfoWrap::IsRaiseHand()
 {
 	
 	bool zn_is_raise = false;
@@ -252,11 +257,11 @@ bool ZUserInfoWrap::IsRaiseHand(unsigned int userid)
 	}
 	return zn_is_raise;
 }
-ZNUserRole ZUserInfoWrap::GetUserRole(unsigned int userid)
+ZNUserRole ZUserInfoWrap::GetUserRole()
 {
 	return Map2WrapDefine(m_pUserInfo ? m_pUserInfo->GetUserRole() : ZOOM_SDK_NAMESPACE::USERROLE_NONE);
 }
-bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
+bool ZUserInfoWrap::IsPurePhoneUser()
 {
 	
 	bool zn_is_pure_phone = false;
@@ -267,7 +272,7 @@ bool ZUserInfoWrap::IsPurePhoneUser(unsigned int userid)
 	}
 	return zn_is_pure_phone;
 }
-bool ZUserInfoWrap::IsClosedCaptionSender(unsigned int userid)
+bool ZUserInfoWrap::IsClosedCaptionSender()
 {
 	
 	bool zn_is_ = false;
@@ -278,7 +283,7 @@ bool ZUserInfoWrap::IsClosedCaptionSender(unsigned int userid)
 	}
 	return zn_is_;
 }
-bool ZUserInfoWrap::GetWebinarAttendeeStauts(unsigned int userid)
+bool ZUserInfoWrap::GetWebinarAttendeeStauts()
 {
 	
 	if (NULL == m_pUserInfo)
@@ -294,7 +299,7 @@ bool ZUserInfoWrap::GetWebinarAttendeeStauts(unsigned int userid)
 		return false;
 	}
 }
-ZoomSTRING ZUserInfoWrap::GetAudioVoiceLevel(unsigned int userid)
+ZoomSTRING ZUserInfoWrap::GetAudioVoiceLevel()
 {
 	int audio_voice_level = 0;
 
@@ -305,4 +310,16 @@ ZoomSTRING ZUserInfoWrap::GetAudioVoiceLevel(unsigned int userid)
 	_itow(audio_voice_level, temp, radix);
 	ZoomSTRING zn_audio_voice_level = temp;
 	return zn_audio_voice_level;
+}
+ZoomSTRING ZUserInfoWrap::GetParticipantID()
+{
+
+	ZoomSTRING zn_participant_id;
+	if (m_pUserInfo)
+	{
+		const wchar_t* temp_partiipant_id = m_pUserInfo->GetParticipantID();
+		if (temp_partiipant_id)
+			zn_participant_id = temp_partiipant_id;
+	}
+	return zn_participant_id;
 }

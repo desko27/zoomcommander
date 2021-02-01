@@ -72,8 +72,20 @@ IMPL_FUNC_1(IAudioSettingContext, GetMicVol, SDKError, FLOAT&, value, SDKERR_UNI
 IMPL_FUNC_1(IAudioSettingContext, SetSpeakerVol, SDKError, FLOAT&, value, SDKERR_UNINITIALIZE)
 //virtual SDKError    GetSpeakerVol(FLOAT& value) = 0;
 IMPL_FUNC_1(IAudioSettingContext, GetSpeakerVol, SDKError, FLOAT&, value, SDKERR_UNINITIALIZE)
-//virtual SDKError EnableEchoCancellation(bool bEnable) = 0;
-IMPL_FUNC_1(IAudioSettingContext, EnableEchoCancellation, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
-//virtual bool IsEchoCancellationEnabled() = 0;
-IMPL_FUNC_0(IAudioSettingContext, IsEchoCancellationEnabled, bool, false)
+//virtual SDKError SetEchoCancellationLevel(SDK_ECHO_CANCELLATION_LEVEL level) = 0;
+IMPL_FUNC_1(IAudioSettingContext, SetEchoCancellationLevel, SDKError, SDK_ECHO_CANCELLATION_LEVEL, level, SDKERR_UNINITIALIZE)
+//virtual SDK_ECHO_CANCELLATION_LEVEL GetEchoCancellationLevel() = 0;
+IMPL_FUNC_0(IAudioSettingContext, GetEchoCancellationLevel, SDK_ECHO_CANCELLATION_LEVEL, SDK_ECHO_CANCELLATION_DEFAULT)
+//virtual SDK_AUDIO_DEVICE_RAW_MODE_TYPE GetAudioSignalProcessType() = 0;
+IMPL_FUNC_0(IAudioSettingContext, GetAudioSignalProcessType, SDK_AUDIO_DEVICE_RAW_MODE_TYPE, SDK_AUDIO_DEVICE_RAW_MODE_DEFAULT)
+//virtual SDKError SetAudioSignalProcessType(SDK_AUDIO_DEVICE_RAW_MODE_TYPE type) = 0;
+IMPL_FUNC_1(IAudioSettingContext, SetAudioSignalProcessType, SDKError, SDK_AUDIO_DEVICE_RAW_MODE_TYPE, type, SDKERR_UNINITIALIZE)
+//virtual SDKError DisableEchoCancellation(bool bDisable) = 0;
+IMPL_FUNC_1(IAudioSettingContext, DisableEchoCancellation, SDKError, bool, bDisable, SDKERR_UNINITIALIZE)
+//virtual bool IsEchoCancellationDisabled() = 0;
+IMPL_FUNC_0(IAudioSettingContext, IsEchoCancellationDisabled, bool, false)
+//virtual SDKError EnableHighFidelityMusicMode(bool bEnable) = 0;
+IMPL_FUNC_1(IAudioSettingContext, EnableHighFidelityMusicMode, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
+//virtual bool IsHighFidelityMusicModeDisabled() = 0;
+IMPL_FUNC_0(IAudioSettingContext, IsHighFidelityMusicModeDisabled, bool, false)
 END_ZOOM_SDK_NAMESPACE

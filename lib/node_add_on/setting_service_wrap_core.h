@@ -5,7 +5,7 @@
 #include "setting_general_wrap_core.h"
 #include "setting_recording_wrap_core.h"
 #include "setting_ui_strategy_wrap_core.h"
-
+#include "setting_share_wrap_core.h"
 #include "setting_statistic_wrap_core.h"
 #include "setting_accessibility_wrap_core.h"
 
@@ -25,7 +25,7 @@ public:
 	ZSettingGeneralWrap& GetSettingGeneralCtrl();
 	ZSettingRecordingWrap& GetSettingRecordingCtrl();
 	ZSettingUIStrategyWrap& GetSettingStrategyCtrl();
-
+	ZSettingShareWrap& GetSettingShareCtrl();
 	ZSettingStatisticWrap& GetSettingStatisticCtrl();
 	ZSettingAccessibilityWrap& GetSettingAccessibilityCtrl();
 	
@@ -35,7 +35,7 @@ private:
 	ZSettingGeneralWrap m_setting_general_ctrl;
 	ZSettingRecordingWrap m_setting_recording_ctrl;
 	ZSettingUIStrategyWrap m_setting_ui_strategy_ctrl;
-
+	ZSettingShareWrap m_setting_share_ctrl;
 	ZSettingStatisticWrap m_setting_statistic_ctrl;
 	ZSettingAccessibilityWrap m_setting_accessibility_ctrl;
 };

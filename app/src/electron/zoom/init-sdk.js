@@ -6,6 +6,24 @@ const {
 } = require('../../../../lib/settings')
 const ZOOMSDKMOD = require('../../../../lib/zoom_sdk.js')
 
+// try to use system language for Zoom
+const systemLanguage = Intl.DateTimeFormat().resolvedOptions().locale.split('-')[0]
+const ZOOM_LANGUAGES_DICTIONARY = {
+  en: ZoomSdkLanguageId.LANGUAGE_English,
+  zh: ZoomSdkLanguageId.LANGUAGE_Chinese_Simplified,
+  ja: ZoomSdkLanguageId.LANGUAGE_Japanese,
+  es: ZoomSdkLanguageId.LANGUAGE_Spanish,
+  de: ZoomSdkLanguageId.LANGUAGE_German,
+  fr: ZoomSdkLanguageId.LANGUAGE_French,
+  pt: ZoomSdkLanguageId.LANGUAGE_Portuguese,
+  ru: ZoomSdkLanguageId.LANGUAGE_Russian,
+  ko: ZoomSdkLanguageId.LANGUAGE_Korean,
+  vi: ZoomSdkLanguageId.LANGUAGE_Vietnamese,
+  it: ZoomSdkLanguageId.LANGUAGE_Italian
+}
+const zoomSystemLanguage =
+  ZOOM_LANGUAGES_DICTIONARY[systemLanguage] || ZoomSdkLanguageId.LANGUAGE_English
+
 module.exports = function initSdk ({ app }) {
   // define sdk instance
   const sdk = ZOOMSDKMOD.ZoomSDK.getInstance({
@@ -18,7 +36,7 @@ module.exports = function initSdk ({ app }) {
   // setDomain
   const ret = sdk.InitSDK({
     enable_log: true,
-    langid: ZoomSdkLanguageId.LANGUAGE_English,
+    langid: zoomSystemLanguage,
     locale: ZoomAPPLocale.ZNSDK_APP_Locale_Default,
     logfilesize: 5
   })

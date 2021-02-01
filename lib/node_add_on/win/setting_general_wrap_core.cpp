@@ -40,17 +40,6 @@ ZNSDKError ZSettingGeneralWrap::TurnOffAeroModeInSharing(bool bEnable)
 	return err;
 	
 }
-ZNSDKError ZSettingGeneralWrap::EnableAutoFitToWindowWhenViewSharing(bool bEnable)
-{
-	ZNSDKError err = ZNSDKERR_UNKNOWN;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		err = Map2WrapDefine(pGeneralSettingContext->EnableAutoFitToWindowWhenViewSharing(bEnable));
-	}
-	return err;
-	
-}
 ZNSDKError ZSettingGeneralWrap::EnableAutoFullScreenVideoWhenJoinMeeting(bool bEnable)
 {
 	ZNSDKError err = ZNSDKERR_UNKNOWN;
@@ -95,17 +84,7 @@ bool ZSettingGeneralWrap::IsAeroModeInSharingTurnOff()
 	return b_isEnabled;
 	
 }
-bool ZSettingGeneralWrap::IsAutoFitToWindowWhenViewSharingEnabled()
-{
-	bool b_isEnabled = false;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		b_isEnabled = pGeneralSettingContext->IsAutoFitToWindowWhenViewSharingEnabled();
-	}
-	return b_isEnabled;
-	
-}
+
 bool ZSettingGeneralWrap::IsAutoFullScreenVideoWhenJoinMeetingEnabled()
 {
 	bool b_isEnabled = false;
@@ -129,27 +108,6 @@ bool ZSettingGeneralWrap::IsSplitScreenModeEnabled()
 	
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-ZNSDKError ZSettingGeneralWrap::EnableAutoFullScreenVideoWhenViewShare(bool bEnable)
-{
-	ZNSDKError err = ZNSDKERR_UNKNOWN;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		err = Map2WrapDefine(pGeneralSettingContext->EnableAutoFullScreenVideoWhenViewShare(bEnable));
-	}
-	return err;
-}
-bool ZSettingGeneralWrap::IsAutoFullScreenVideoWhenViewShareEnabled()
-{
-	bool b_isEnabled = false;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		b_isEnabled = pGeneralSettingContext->IsAutoFullScreenVideoWhenViewShareEnabled();
-	}
-	return b_isEnabled;
-
-}
 ZNSDKError ZSettingGeneralWrap::EnableDisplayReminderWindowWhenExit(bool bEnable)
 {
 	ZNSDKError err = ZNSDKERR_UNKNOWN;
@@ -188,58 +146,6 @@ bool ZSettingGeneralWrap::IsShowMyMeetingElapseTimeEnabled()
 	if (pGeneralSettingContext)
 	{
 		b_isEnabled = pGeneralSettingContext->IsShowMyMeetingElapseTimeEnabled();
-	}
-	return b_isEnabled;
-
-}
-bool ZSettingGeneralWrap::IsCurrentOSSupportAccelerateGPUWhenShare()
-{
-	bool b_isSupport = false;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		b_isSupport = pGeneralSettingContext->IsCurrentOSSupportAccelerateGPUWhenShare();
-	}
-	return b_isSupport;
-
-}
-ZNSDKError ZSettingGeneralWrap::EnableAccelerateGPUWhenShare(bool bEnable)
-{
-	ZNSDKError err = ZNSDKERR_UNKNOWN;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		err = Map2WrapDefine(pGeneralSettingContext->EnableAccelerateGPUWhenShare(bEnable));
-	}
-	return err;
-}
-ZNSDKError ZSettingGeneralWrap::IsAccelerateGPUWhenShareEnabled(bool& bEnable)
-{
-	ZNSDKError err = ZNSDKERR_UNKNOWN;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		err = Map2WrapDefine(pGeneralSettingContext->IsAccelerateGPUWhenShareEnabled(bEnable));
-	}
-	return err;
-}
-ZNSDKError ZSettingGeneralWrap::EnableRemoteControlAllApplications(bool bEnable)
-{
-	ZNSDKError err = ZNSDKERR_UNKNOWN;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		err = Map2WrapDefine(pGeneralSettingContext->EnableRemoteControlAllApplications(bEnable));
-	}
-	return err;
-}
-bool ZSettingGeneralWrap::IsRemoteControlAllApplicationsEnabled()
-{
-	bool b_isEnabled = false;
-	ZOOM_SDK_NAMESPACE::IGeneralSettingContext* pGeneralSettingContext = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetGeneralSettings();
-	if (pGeneralSettingContext)
-	{
-		b_isEnabled = pGeneralSettingContext->IsRemoteControlAllApplicationsEnabled();
 	}
 	return b_isEnabled;
 

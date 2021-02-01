@@ -73,7 +73,11 @@ enum _userAudioType
     BOOL                                _isInSilentMode;
     BOOL                                _isClientSupportSilentMode;
     BOOL                                _isGuest;
-
+    int                                 _interpreterActiveLanguage;
+    BOOL                                _isLeavingSilentMode;
+    BOOL                                _needAskToUnmute;
+    BOOL                                _isBOHost;
+    BOOL                                _isBOCohost;
 }
 
 @property (nonatomic, readwrite, assign)int                                     userID;
@@ -107,6 +111,20 @@ enum _userAudioType
 @property (nonatomic, readwrite, assign)BOOL                                    isInSilentMode;
 @property (nonatomic, readwrite, assign)BOOL                                    isClientSupportSilentMode;
 @property (nonatomic, readwrite, assign)BOOL                                    isGuest;
-
+@property (nonatomic, readwrite, assign)BOOL                                    isInterpreter;
+@property (nonatomic, readwrite, assign)int                                     interpreterActiveLanguage;
+@property (nonatomic, readwrite, assign)BOOL                                    isLeavingSilentMode;
+@property (nonatomic, readwrite, retain)NSString*                               gUID;
+@property (nonatomic, readwrite, assign)BOOL                                    isViewOnlyUser;
+@property (nonatomic, readwrite, assign)BOOL                                    isViewOnlyUserCanTalk;
+@property (nonatomic, readwrite, assign)BOOL                                    isUserInKbCrypto;
+@property (nonatomic, readwrite, assign)int                                     userAuthStatus;
+@property (nonatomic, readwrite, retain)NSString*                               confUserId;
+@property (nonatomic, readwrite, assign)BOOL                                    isFailoverUser;
+@property (nonatomic, readwrite, retain)NSString*                               userDeviceId;
+@property (nonatomic, readwrite, assign)uint64_t                                userUniqueUid;
+@property (nonatomic, readwrite, assign)BOOL                                    needAskToUnmute;
+@property (nonatomic, readwrite, assign)BOOL                                    isBOHost;
+@property (nonatomic, readwrite, assign)BOOL                                    isBOCohost;
 @end
 

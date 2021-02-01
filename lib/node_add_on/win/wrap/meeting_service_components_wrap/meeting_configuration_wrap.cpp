@@ -69,6 +69,8 @@ IMPL_FUNC_NORET_1(IMeetingConfiguration, HideShareButtonOnMeetingUI, void, bool,
 IMPL_FUNC_NORET_1(IMeetingConfiguration, DisablePanelistMenuItem, void, PanelistMenuItemOption, menuOption)
 //virtual void DisableAttendeeMenuItem(AttendeeMenuItemOption menuOption) = 0;
 IMPL_FUNC_NORET_1(IMeetingConfiguration, DisableAttendeeMenuItem, void, AttendeeMenuItemOption, menuOption)
+//virtual void EnableInviteLinkOnMeetingUI(bool bEnable) = 0;
+IMPL_FUNC_NORET_1(IMeetingConfiguration, EnableInviteLinkOnMeetingUI, void, bool, bEnable)
 
 //virtual void ConfigDSCP(int dscpAudio, int dscpVideo, bool bReset) = 0;
 IMPL_FUNC_NORET_3(IMeetingConfiguration,ConfigDSCP, void, int, dscpAudio, int, dscpVideo, bool, bReset)
@@ -155,5 +157,8 @@ IMPL_FUNC_NORET_1(IMeetingConfiguration, DisableAutoShowSelectJoinAudioDlgWhenJo
 IMPL_FUNC_NORET_1(IMeetingConfiguration, DisableShowJoinMeetingWnd, void, bool, bDisable)
 //virtual void SetMaxDurationForOnlyHostInMeeting(int nDuration) = 0;
 IMPL_FUNC_NORET_1(IMeetingConfiguration, SetMaxDurationForOnlyHostInMeeting, void, int, nDuration)
+
+//virtual void DisableConfidentialWatermark(bool bDisable) = 0;
+IMPL_FUNC_NORET_1(IMeetingConfiguration, DisableConfidentialWatermark, void, bool, bDisable)
 
 END_ZOOM_SDK_NAMESPACE

@@ -62,9 +62,9 @@ IMPL_FUNC_1(IVideoSettingContext, EnableSpotlightSelf, SDKError, bool, bEnable, 
 //virtual bool IsSpotlightSelfEnabled() = 0;
 IMPL_FUNC_0(IVideoSettingContext, IsSpotlightSelfEnabled, bool, false)
 //virtual SDKError EnableHardwareEncode(bool bEnable) = 0;
-IMPL_FUNC_1(IVideoSettingContext, EnableHardwareEncode, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
+IMPL_FUNC_2(IVideoSettingContext, EnableHardwareEncode, SDKError, bool, bEnable, VIDEO_HARDWARE_ENCODE_TYPE, encodeType, SDKERR_UNINITIALIZE)
 //virtual bool IsHardwareEncodeEnabled() = 0;
-IMPL_FUNC_0(IVideoSettingContext, IsHardwareEncodeEnabled, bool, false)
+IMPL_FUNC_1(IVideoSettingContext, IsHardwareEncodeEnabled, bool, VIDEO_HARDWARE_ENCODE_TYPE, encodeType, false)
 //virtual SDKError Enable49VideoesInGallaryView(bool bEnable) = 0;
 IMPL_FUNC_1(IVideoSettingContext, Enable49VideoesInGallaryView, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
 //virtual bool Is49VideoesInGallaryViewEnabled() = 0;
@@ -73,6 +73,10 @@ IMPL_FUNC_0(IVideoSettingContext, Is49VideoesInGallaryViewEnabled, bool, false)
 IMPL_FUNC_1(IVideoSettingContext, EnableHideNoVideoUsersOnWallView, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
 //virtual bool IsHideNoVideoUsersOnWallViewEnabled() = 0;
 IMPL_FUNC_0(IVideoSettingContext, IsHideNoVideoUsersOnWallViewEnabled, bool, false)
+//virtual SDKError EnableTemporalDeNoise(bool bEnable) = 0;
+IMPL_FUNC_1(IVideoSettingContext, EnableTemporalDeNoise, SDKError, bool, bEnable, SDKERR_UNINITIALIZE)
+//virtual bool IsTemporalDeNoiseEnabled() = 0;
+IMPL_FUNC_0(IVideoSettingContext, IsTemporalDeNoiseEnabled, bool, false)
 //virtual ITestVideoDeviceHelper* GetTestVideoDeviceHelper() = 0;
 IMPL_FUNC_0(IVideoSettingContext, GetTestVideoDeviceHelper, ITestVideoDeviceHelper*, NULL)
 
