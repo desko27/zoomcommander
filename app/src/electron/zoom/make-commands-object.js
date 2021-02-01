@@ -47,6 +47,13 @@ module.exports = function makeCommandsObject ({
     startAppShare: windowId => zoomshare.MeetingShare_StartAppShare({
       zn_hShare_app: windowId
     }),
-    stopShare: () => zoomshare.MeetingShare_StopShare()
+    stopShare: () => zoomshare.MeetingShare_StopShare(),
+    spotlightVideo: (userid, isActive) => {
+      const opts = {
+        bSpotlight: isActive,
+        userid
+      }
+      return zoomvideo.MeetingVideo_SpotlightVideo(opts)
+    }
   }
 }

@@ -18,6 +18,7 @@ const limiter = new Bottleneck({ minTime: 500 })
 
 const MainRoute = () => {
   const [settingMuteSpontaneousPeople, setSettingMuteSpontaneousPeople] = useState()
+  const [settingSpotlightPlatform, setSettingSpotlightPlatform] = useState()
   const [isHostsBlockVisible, setIsHostsBlockVisible] = useState()
   const { userIds, userData, updateUserData, syncUserData } = useUsers()
 
@@ -289,6 +290,8 @@ const MainRoute = () => {
                 updateUserData={updateUserData}
                 setPlatformUserIds={setPlatformUserIds}
                 targetSpeakerId={targetSpeakerId}
+                settingSpotlightPlatform={settingSpotlightPlatform}
+                setSettingSpotlightPlatform={setSettingSpotlightPlatform}
               />
               <Block.Queue
                 userIds={queueUserIds}
