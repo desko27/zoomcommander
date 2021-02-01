@@ -168,6 +168,10 @@ export default function useUsers () {
               ? Date.now() : currentUserObject.lastRaisedHandTimestamp
         }
       })
+    },
+    ON_USER_NAME_CHANGED: data => {
+      const { userId, userName } = data
+      updateUserData(userId, { userName })
     }
   }, [userIds])
 

@@ -673,6 +673,31 @@ public:
 
 		fn->Call(context, global, argc, argv);
 	}
+	/// \brief Callback event of the user name changes.
+	/// \param userId The user ID whose name changes.
+	/// \param userName The new name for the user.
+	virtual void onUserNameChange(unsigned int userId, ZoomSTRING userName)
+	{
+		if (ZoomNodeSinkHelper::GetInst().onUserNameChange.IsEmpty())
+		{
+			return;
+		}
+
+		auto isolate = v8::Isolate::GetCurrent();
+		v8::HandleScope scope(isolate);
+		auto context = isolate->GetCurrentContext();
+		auto global = context->Global();
+
+		v8::Local<v8::Object> node = v8::Object::New(isolate);
+		node->Set(context, v8::String::NewFromUtf8(isolate, "userId", v8::NewStringType::kInternalized).ToLocalChecked(), v8::Integer::New(isolate, (int32_t)userId));
+		node->Set(context, v8::String::NewFromUtf8(isolate, "userName", v8::NewStringType::kInternalized).ToLocalChecked(), v8::String::NewFromUtf8(isolate, zs2s(userName).c_str(), v8::NewStringType::kInternalized).ToLocalChecked());
+
+		int argc = 1;
+		v8::Local<v8::Value> argv[1] = {node};
+		auto fn = v8::Local<v8::Function>::New(isolate, ZoomNodeSinkHelper::GetInst().onUserNameChange);
+
+		fn->Call(context, global, argc, argv);
+	}
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class ZNativeSDKMeetingH323WrapSink

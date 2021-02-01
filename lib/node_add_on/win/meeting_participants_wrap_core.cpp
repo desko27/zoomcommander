@@ -60,6 +60,11 @@ void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId,
 	if (m_pSink)
 		m_pSink->onLowOrRaiseHandStatusChange(userId, isRaisedHand);
 }
+void ZMeetingParticipantsWrap::onUserNameChange(unsigned int userId, ZoomSTRING userName)
+{
+	if (m_pSink)
+		m_pSink->onUserNameChange(userId, userName);
+}
 ZNSDKError ZMeetingParticipantsWrap::LowerHand(unsigned int userid)
 {
 	ZOOM_SDK_NAMESPACE::SDKError sdk_err = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetMeetingServiceWrap().T_GetMeetingParticipantsController().LowerHand(userid);

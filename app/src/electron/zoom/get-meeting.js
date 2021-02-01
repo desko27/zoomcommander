@@ -20,7 +20,8 @@ module.exports = async function getMeeting ({ app, sdk, events }) {
           meetinguserjoincb: events.onUserJoined,
           meetinguserleftcb: events.onUserLeft,
           meetinghostchangecb: () => {},
-          meetingloworraisehandstatuschangecb: events.onLowOrRaiseHandStatusChanged
+          meetingloworraisehandstatuschangecb: events.onLowOrRaiseHandStatusChanged,
+          meetingusernamechangecb: events.onUserNameChanged
         }
 
         const zoommeeting = sdk.GetMeeting(meetingEvents)
