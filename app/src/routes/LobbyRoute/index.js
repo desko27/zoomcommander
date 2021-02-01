@@ -106,6 +106,7 @@ function LobbyRoute () {
             <button
               className={styles.updateButton}
               onClick={performUpdate}
+              type='button'
             >
               🎁 ¡Novedades!
             </button>
