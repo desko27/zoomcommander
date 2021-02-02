@@ -54,6 +54,7 @@ public:
 	void onUserLeft(ZNList<unsigned int> lstUserID, ZoomSTRING strUserList);
 	void onHostChangeNotification(unsigned int userId);
 	void onLowOrRaiseHandStatusChange(unsigned int userId, bool isRaisedHand);
+	void onUserNameChange(unsigned int userId, ZoomSTRING userName);
 private:
 	ZNativeSDKMeetingParticipantsWrapSink* m_pSink;
 #if (defined _WIN32)

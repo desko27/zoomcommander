@@ -168,6 +168,14 @@ void ZMeetingParticipantsWrap::onLowOrRaiseHandStatusChange(unsigned int userId,
     }
 }
 
+void ZMeetingParticipantsWrap::onUserNameChange(unsigned int userId, ZoomSTRING userName)
+{
+    if (m_pSink)
+    {
+        m_pSink->onUserNameChange(userId,userName);
+    }
+}
+
 
 void ZMeetingParticipantsWrap::onUserLeft(std::vector<unsigned int> lstUserID, std::string strUserList)
 {

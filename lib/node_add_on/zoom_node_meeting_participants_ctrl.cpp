@@ -130,6 +130,34 @@ void ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingLowOrRaiseHandStatusChangeCB
 	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
 	args.GetReturnValue().Set(bret);
 }
+void ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingUserNameChangeCB(const v8::FunctionCallbackInfo<v8::Value> &args)
+{
+	v8::Isolate* isolate = args.GetIsolate();
+	if (args.Length() < 1) {
+		isolate->ThrowException(v8::Exception::TypeError(
+			v8::String::NewFromUtf8(isolate, "Wrong number of arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
+		return;
+	}
+	if (args[0]->IsNull())
+	{
+		ZoomNodeSinkHelper::GetInst().onUserNameChange.Empty();
+		return;
+	}
+	if (!args[0]->IsFunction())
+	{
+		isolate->ThrowException(v8::Exception::TypeError(
+			v8::String::NewFromUtf8(isolate, "Wrong arguments", v8::NewStringType::kInternalized).ToLocalChecked()));
+		return;
+	}
+
+	v8::Local<v8::Function> cbfunc = v8::Local<v8::Function>::Cast(args[0]);
+	v8::Persistent<v8::Function, v8::CopyablePersistentTraits<v8::Function> > cb(isolate, cbfunc);
+	ZoomNodeSinkHelper::GetInst().onUserNameChange = cb;
+
+	ZNSDKError err = ZNSDKERR_SUCCESS;
+	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
+	args.GetReturnValue().Set(bret);
+}
 void ZoomNodeMeetingParticipantsCtrlWrap::GetParticipantsList(const v8::FunctionCallbackInfo<v8::Value>& args)
 {
 	v8::Isolate* isolate = args.GetIsolate();

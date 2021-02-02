@@ -454,7 +454,15 @@ public:
 	}
 	virtual void onUserNameChanged(unsigned int userId, const wchar_t* userName)
 	{
+		if (owner_) {
+			ZoomSTRING zn_userName = L"";
+			if (userName)
+			{
+				zn_userName = userName;
+			}
+			owner_->onUserNameChange(userId, zn_userName);
 
+		}
 	}
 	virtual void onCoHostChangeNotification(unsigned int userId, bool isCoHost)
 	{

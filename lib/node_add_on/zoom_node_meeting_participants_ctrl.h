@@ -42,6 +42,7 @@ public:
 	///Otherwise failed. To get extended error information, see \link ZNSDKError \endlink enum.
 	static void SetMeetingHostChangeCB(const v8::FunctionCallbackInfo<v8::Value>& args);
 	static void SetMeetingLowOrRaiseHandStatusChangeCB(const v8::FunctionCallbackInfo<v8::Value> &args);
+	static void SetMeetingUserNameChangeCB(const v8::FunctionCallbackInfo<v8::Value> &args);
 	static v8::Persistent<v8::Function> constructor;
 };
 template<>
@@ -61,6 +62,7 @@ static void InitClassAttribute<ZoomNodeMeetingParticipantsCtrlWrap >(const v8::L
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingUserLeftCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingUserLeftCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingHostChangeCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingHostChangeCB);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingLowOrRaiseHandStatusChangeCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingLowOrRaiseHandStatusChangeCB);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "SetMeetingUserNameChangeCB", ZoomNodeMeetingParticipantsCtrlWrap::SetMeetingUserNameChangeCB);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeMeetingParticipantsCtrlWrap >() {
