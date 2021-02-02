@@ -12,11 +12,10 @@
     "win:fix-x64-packages": "npm run win:fix-x64-extract-file-icon && npm run win:fix-x64-node-window-manager",
     "win:fix-x64-extract-file-icon": "cd ./node_modules/extract-file-icon && node-gyp rebuild --arch=ia32",
     "win:fix-x64-node-window-manager": "cd ./node_modules/node-window-manager && node-gyp rebuild --arch=ia32",
-    "packager-win": "npm run react-build && electron-packager ./ zoomcommander --asar --platform=win32 --arch=ia32 --out ./OutAppWin32 --electron-version=8.2.4 --overwrite --icon=./public/icon.ico && cp -r ../node_modules ./OutAppWin32/zoomcommander-win32-ia32/resources/node_modules && cp -r ../lib ./OutAppWin32/zoomcommander-win32-ia32/resources/lib && mkdir .\\OutAppWin32\\zoomcommander-win32-ia32\\resources\\sdk && cp -r ../sdk/win32 ./OutAppWin32/zoomcommander-win32-ia32/resources/sdk/win32",
+    "packager-win": "npm run react-build && electron-packager ./ zoomcommander --asar --platform=win32 --arch=ia32 --out ./OutAppWin32 --electron-version=8.2.4 --overwrite --icon=./public/icon.ico && cp -r ../node_modules ./OutAppWin32/zoomcommander-win32-ia32/resources/node_modules && cp -r ../lib ./OutAppWin32/zoomcommander-win32-ia32/resources/lib && mkdir .\\OutAppWin32\\zoomcommander-win32-ia32\\resources\\sdk && cp -r ../sdk/win32 ./OutAppWin32/zoomcommander-win32-ia32/resources/sdk/win32 && rm ./OutAppWin32/zoomcommander-win32-ia32/resources/app/.env",
     "packager-win:installer": "node scripts/gen-win-installer.js",
-    "packager-mac": "electron-packager ./ zoomcommander --platform=darwin --arch=x64 --out ./OutApp --electron-version=8.2.4 --overwrite --icon=./app.icns&& yes|cp -R  -H ../lib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ && rm -rf ../sdk/win32 && rm -rf ../sdk/win64 && yes|cp -R  -H ../sdk ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ &&yes|cp -R  -H ../sdk/mac/Plugins ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/ && yes|cp -R  -H ../sdk/mac/Resources ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/&& yes|cp -R  -H ../sdk/mac/ZoomSDK/* ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks && yes|cp -R  -H ../sdk/mac/libprotobuf-lite.14.dylib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks",
-    "electron-build": "electron-builder --win",
-    "build": "npm run react-build && npm run electron-build",
+    "packager-mac": "npm run react-build && electron-packager ./ zoomcommander --platform=darwin --arch=x64 --out ./OutApp --electron-version=8.2.4 --overwrite --icon=./public/icon.icns && yes|cp -R  -H ../node_modules ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ && yes|cp -R  -H ../lib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/ && mkdir ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/sdk && yes|cp -R  -H ../sdk/mac ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/sdk/ &&yes|cp -R  -H ../sdk/mac/Plugins ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/ && yes|cp -R  -H ../sdk/mac/Resources ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/&& yes|cp -R  -H ../sdk/mac/ZoomSDK/* ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks && yes|cp -R  -H ../sdk/mac/libprotobuf-lite.14.dylib ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Frameworks && rm ./OutApp/zoomcommander-darwin-x64/zoomcommander.app/Contents/Resources/app/.env",
+    "packager-mac:installer": "electron-installer-dmg ./OutApp/zoomcommander-darwin-x64/zoomcommander.app ZoomCommander --out=./OutApp/zoomcommander-darwin-x64/",
     "start": "env-cmd concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
     "lint": "npx standard",
     "postinstall-mac": "yes|cp -R  -H ../sdk/mac/Plugins ./node_modules/electron/dist/Electron.app/Contents/&& yes|cp -R  -H ../sdk/mac/Resources ./node_modules/electron/dist/Electron.app/Contents/ && yes|cp -R  -H ../sdk/mac/ZoomSDK/ ./node_modules/electron/dist/Electron.app/Contents/Frameworks && yes|cp -R  -H ../sdk/mac/libprotobuf-lite.14.dylib ./node_modules/electron/dist/Electron.app/Contents/Frameworks"
@@ -72,7 +71,7 @@
   "devDependencies": {
     "concurrently": "5.3.0",
     "electron": "8.2.4",
-    "electron-builder": "22.7.0",
+    "electron-installer-dmg": "3.0.0",
     "electron-packager": "15.0.0",
     "electron-rebuild": "1.11.0",
     "electron-wix-msi": "3.0.0",
