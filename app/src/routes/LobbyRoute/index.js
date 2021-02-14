@@ -4,6 +4,7 @@ import cx from 'classnames'
 
 import { version } from '../../../package.json'
 
+import News from './News'
 import Field from './Field'
 import styles from './index.module.css'
 
@@ -75,60 +76,63 @@ function LobbyRoute () {
   }
 
   return (
-    <form className={styles.wrapper} onSubmit={handleStartMeeting}>
-      <h1 className={styles.title}>Unirse a reunión</h1>
-      <div className={styles.fields}>
-        <Field
-          label='Nombre'
-          color='primary'
-          value={fieldName}
-          onChange={makeSetter(setFieldName)}
-        />
-        <Field
-          label='ID de reunión'
-          color='primary'
-          value={fieldMeeting}
-          onChange={makeSetter(setFieldMeeting)}
-        />
-        <Field
-          label='Contraseña'
-          color='primary'
-          value={fieldPassword}
-          onChange={makeSetter(setFieldPassword)}
-        />
-      </div>
-      <div className={styles.bottomSection}>
-        <div className={styles.versionColumn}>
-          <span className={styles.version}>
-            v{version} beta
-          </span>
-          {isUpdateAvailable ? (
-            <button
-              className={styles.updateButton}
-              onClick={performUpdate}
-              type='button'
-            >
-              🎁 ¡Novedades!
-            </button>
-          ) : (
-            !errUpdateAvailable
-              ? <span className={styles.versionIsUpdated}>Estás actualizado</span>
-              : (
-                <span className={cx(styles.versionIsUpdated, styles.error)}>
-                  Sin comprobar
-                </span>
-              )
-          )}
+    <div className={styles.wrapper}>
+      <form className={styles.form} onSubmit={handleStartMeeting}>
+        <h1 className={styles.title}>Unirse a reunión</h1>
+        <div className={styles.fields}>
+          <Field
+            label='Nombre'
+            color='primary'
+            value={fieldName}
+            onChange={makeSetter(setFieldName)}
+          />
+          <Field
+            label='ID de reunión'
+            color='primary'
+            value={fieldMeeting}
+            onChange={makeSetter(setFieldMeeting)}
+          />
+          <Field
+            label='Contraseña'
+            color='primary'
+            value={fieldPassword}
+            onChange={makeSetter(setFieldPassword)}
+          />
         </div>
-        <button
-          className={styles.goButton}
-          disabled={!(fieldName && fieldMeeting)}
-          type='submit'
-        >
-          Entrar →
-        </button>
-      </div>
-    </form>
+        <div className={styles.bottomSection}>
+          <div className={styles.versionColumn}>
+            <span className={styles.version}>
+              v{version} beta
+            </span>
+            {isUpdateAvailable ? (
+              <button
+                className={styles.updateButton}
+                onClick={performUpdate}
+                type='button'
+              >
+                🎁 ¡Novedades!
+              </button>
+            ) : (
+              !errUpdateAvailable
+                ? <span className={styles.versionIsUpdated}>Estás actualizado</span>
+                : (
+                  <span className={cx(styles.versionIsUpdated, styles.error)}>
+                    Sin comprobar
+                  </span>
+                )
+            )}
+          </div>
+          <button
+            className={styles.goButton}
+            disabled={!(fieldName && fieldMeeting)}
+            type='submit'
+          >
+            Entrar →
+          </button>
+        </div>
+      </form>
+      <News />
+    </div>
   )
 }
 
