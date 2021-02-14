@@ -159,12 +159,6 @@ Al hacer click en este botón, la siguiente cadena de acciones sucederá en apen
 3. Se deja de compartir pantalla (en el caso de que se esté haciendo).
 4. Se le da audio al *Presidente*.
 
-## Mostrar/ocultar columna hosts
-
-<img width="40" src="https://user-images.githubusercontent.com/4168389/90341329-0282c300-dfff-11ea-8e73-947d917c565c.png">
-
-No es indispensable pero puede venir bien, en especial si hay anfitriones o co-anfitriones que utilizan las "reacciones" al no disponer de "levantar la mano" para indicar que desean comentar, caso en el cual podemos tener visible esta columna para no tener que ir a buscarlos por nombre en el bloque *Todos*.
-
 ## Compartir ventana inmediata
 
 <img width="40" src="https://user-images.githubusercontent.com/4168389/90341328-0282c300-dfff-11ea-9039-bd44e67e4c50.png">
@@ -192,16 +186,13 @@ Deja de compartir pantalla. No hace nada diferente que el botón original de Zoo
 Al kit de desarrollo Electron Zoom SDK le faltan una serie de funcionalidades que imponen unas limitaciones en Zoom Commander:
 
 ## Silenciar a todos
-Si silencias a todos mediante Zoom Commander, todo bien, pero si otro anfitrión hace "silenciar a todos" no lo veremos reflejado en el estado de los participantes dentro de Zoom Commander, o al menos no automáticamente. Si eso ocurre, basta con hacer click al botón <kbd>Sync</kbd> del bloque *Todos*, esto actualizará el estado local de todos los participantes con el estado real de la interfaz original de Zoom. En general, esto no será un problema, porque nadie más que la persona que esté usando Zoom Commander debería lanzar un "silenciar a todos".
+Si silencias a todos mediante Zoom Commander no hay problema, pero si otro anfitrión hace "silenciar a todos" no lo veremos reflejado en el estado de los participantes dentro de Zoom Commander (muchos seguirán apareciendo como si tuvieran audio aunque no lo tengan). Si eso ocurre, basta con hacer click al botón <kbd>Sync</kbd> del bloque *Todos* para que se refresque el estado de los participantes. En general, esta limitación no será un problema porque nadie más que la persona que esté usando Zoom Commander debería lanzar un "silenciar a todos".
 
 ## Bajar todas las manos
-De manera similar a lo anterior, si bajas todas las manos mediante Zoom Commander (botón <kbd>Limpiar</kbd>), todo bien, pero si otro anfitrión "baja las manos" no lo veremos reflejado en la columna de *Comentarios* de Zoom Commander. En general esto tampoco será un problema, porque nadie más que la persona que esté usando Zoom Commander debería "bajar todas las manos".
-
-## Uso de las reacciones para comentar
-Como los anfitriones no tenemos "levantar la mano", algunos usamos las reacciones (por ej. aplauso) para conseguir un efecto similar. Zoom SDK no ofrece manera de conocer si alguien ha lanzado una reacción, así que en el bloque *Comentarios* no veremos a los anfitriones que hagan esto. Como medida de ayuda, podemos tener abierta la columna de anfitriones (o hosts) ya que son los únicos que hacen esto y probablemente sea más rápido identificarlos allí de un golpe de vista que irlos a buscar por nombre al bloque *Todos*, aunque tampoco pasa nada por hacerlo de esa otra manera.
+De manera similar a lo anterior, si bajas todas las manos mediante Zoom Commander no hay problema (botón <kbd>Limpiar</kbd>), pero si otro anfitrión "baja las manos" no lo veremos reflejado en la columna de *Comentarios* de Zoom Commander. En general, esta limitación tampoco será un problema porque nadie más que la persona que esté usando Zoom Commander debería "bajar todas las manos".
 
 ## Bajar manos sin efecto en reacciones
-Relacionado con lo anterior, la acción de "bajar manos" que ocurre dentro de Zoom Commander solo baja las manos, pero no las reacciones. Por tanto, si algún anfitrión ha usado este método y queremos retirarle la reacción, tendremos que ir al botón de limpiar reacciones de la interfaz original de Zoom.
+La acción de "bajar manos" que ocurre dentro de Zoom Commander solo baja las manos, pero no las reacciones. Por tanto, si queremos retirarle una reacción a alguien, tendremos que ir al botón de limpiar reacciones de la interfaz original de Zoom. Lo ideal es que nadie haga uso de las reacciones, sino que siempre usen la función "levantar la mano".
 
 ## Salas adicionales
 Electron Zoom SDK no tiene medios para saber si nos movemos entre salas adicionales de la reunión. Para ver correctamente la lista de participantes una vez nos unamos a una sala adicional, tendremos que usar el botón <kbd>Reset</kbd>.
