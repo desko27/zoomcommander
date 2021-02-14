@@ -60,6 +60,7 @@
     "electron-settings": "4.0.2",
     "fuse.js": "6.4.0",
     "jsonwebtoken": "8.5.1",
+    "markdown-it": "12.0.4",
     "node-fetch": "2.6.1",
     "node-window-manager": "2.2.3",
     "react": "16",
