@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import useZoomEvents from '../../hooks/useZoomEvents'
 
@@ -9,12 +10,11 @@ const { ipcRenderer } = window.require('electron')
 
 const WaitingRoute = () => {
   const history = useHistory()
+  const { t } = useTranslation('waiting')
 
   useEffect(() => {
     const joinMeetingErrorListener = () => {
-      window.alert(
-        'Error al unirse a la reunión. Es posible que los datos de acceso no sean correctos.'
-      )
+      window.alert(t('error'))
       ipcRenderer.send('relaunch-app')
     }
     ipcRenderer.on('join-meeting-error', joinMeetingErrorListener)
@@ -32,7 +32,7 @@ const WaitingRoute = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span>Entrando en la reunión...</span>
+      <span>{t('joining')}</span>
     </div>
   )
 }
