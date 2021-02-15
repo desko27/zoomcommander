@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import cx from 'classnames'
 
 import { version } from '../../../package.json'
@@ -18,6 +19,8 @@ const makeSetter = setter => {
 
 function LobbyRoute () {
   const history = useHistory()
+  const { t } = useTranslation('lobby')
+
   const [isUpdateAvailable, setIsUpdateAvailable] = useState()
   const [errUpdateAvailable, setErrUpdateAvailable] = useState()
   const [fieldName, setFieldName] = useState('')
@@ -78,22 +81,22 @@ function LobbyRoute () {
   return (
     <div className={styles.wrapper}>
       <form className={styles.form} onSubmit={handleStartMeeting}>
-        <h1 className={styles.title}>Unirse a reunión</h1>
+        <h1 className={styles.title}>{t('form.title')}</h1>
         <div className={styles.fields}>
           <Field
-            label='Nombre'
+            label={t('form.name')}
             color='primary'
             value={fieldName}
             onChange={makeSetter(setFieldName)}
           />
           <Field
-            label='ID de reunión'
+            label={t('form.meetingId')}
             color='primary'
             value={fieldMeeting}
             onChange={makeSetter(setFieldMeeting)}
           />
           <Field
-            label='Contraseña'
+            label={t('form.password')}
             color='primary'
             value={fieldPassword}
             onChange={makeSetter(setFieldPassword)}
@@ -110,14 +113,17 @@ function LobbyRoute () {
                 onClick={performUpdate}
                 type='button'
               >
-                🎁 ¡Novedades!
+                🎁 {t('updates.updateNow')}
               </button>
             ) : (
               !errUpdateAvailable
-                ? <span className={styles.versionIsUpdated}>Estás actualizado</span>
-                : (
+                ? (
+                  <span className={styles.versionIsUpdated}>
+                    {t('updates.alreadyUpdated')}
+                  </span>
+                ) : (
                   <span className={cx(styles.versionIsUpdated, styles.error)}>
-                    Sin comprobar
+                    {t('updates.error')}
                   </span>
                 )
             )}
@@ -127,7 +133,7 @@ function LobbyRoute () {
             disabled={!(fieldName && fieldMeeting)}
             type='submit'
           >
-            Entrar →
+            {t('form.join')} →
           </button>
         </div>
       </form>
