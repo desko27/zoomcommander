@@ -1,4 +1,15 @@
 # 15 / 02 / 2021
+## 🚩 Más acerca del problema “unirse a reuniones corporativas”
+
+El problema está relacionado con un requerimiento mínimo de versión de Zoom, establecido por la organización que administra las cuentas de Zoom que hospedan las reuniones.
+
+El SDK (kit de desarrollo) en el que se basa Zoom Commander actualmente contiene la versión 5.4.5 de Zoom, por lo que si la organización que administra la cuenta anfitriona ha impuesto un requerimiento mínimo de versión superior, Zoom Commander no podrá unirse.
+
+En cuanto Zoom [publique una nueva versión de SDK](https://marketplace.zoom.us/docs/sdk/native-sdks/web/release-notes), publicaré una actualización de Zoom Commander y entonces podrá volver a unirse.
+
+¡Ahora solo queda esperar!
+
+# 14 / 02 / 2021
 ## 🚩 Aviso: problemas al unirse a reuniones “corporativas”
 
 Debido a un problema de origen desconocido, Zoom Commander falla al intentar conectarse a reuniones “corporativas”.
