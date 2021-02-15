@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import getUserObjects from '../../../common/getUserObjects'
 
@@ -7,7 +8,7 @@ import LayoutBlock from '../../LayoutBlock'
 
 const LIST_ID = 'chairman'
 const GROUP_ID = 'speakers'
-const LIST_TITLE = 'Presidente'
+const LIST_TITLE_LITERAL = 'block.chairman.title'
 const LIST_COLOR = 'accent'
 
 const BlockChairman = ({
@@ -17,6 +18,8 @@ const BlockChairman = ({
   setChairmanUserId,
   targetSpeakerId
 }) => {
+  const { t } = useTranslation('app')
+
   const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
 
@@ -38,7 +41,7 @@ const BlockChairman = ({
       isDroppable
       dontGrow
       id={LIST_ID}
-      title={LIST_TITLE}
+      title={t(LIST_TITLE_LITERAL)}
       color={LIST_COLOR}
     >
       {users.map((user, index) => {

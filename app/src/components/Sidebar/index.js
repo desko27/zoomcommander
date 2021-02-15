@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import vex from 'vex-js'
 
 import sendZoomCommand from '../../common/sendZoomCommand'
@@ -17,6 +18,8 @@ const navOs = navigator.platform.toLowerCase()
 const isMac = navOs.startsWith('mac')
 
 function Sidebar ({ startMeeting, toggleHostsBlock }) {
+  const { t } = useTranslation('app')
+
   const [appShare, setAppShare] = useState(isMac ? 'mediaportal.app' : 'mediaportal.exe')
   const [windowShare, setWindowShare] = useState('Portal')
 
@@ -34,7 +37,7 @@ function Sidebar ({ startMeeting, toggleHostsBlock }) {
   }, [])
 
   const handleStartShareClick = async () => {
-    const appNotFound = () => window.alert(`No se encuentra '${appShare}'`)
+    const appNotFound = () => window.alert(t('sidebar.share.cannotFindApp', { appShare }))
     const appWindows = await ipcRenderer.invoke('request-windows-list', appShare)
     if (!(appWindows || {}).length) return appNotFound()
     const { id } = windowShare
@@ -47,8 +50,7 @@ function Sidebar ({ startMeeting, toggleHostsBlock }) {
 
   const handleStartShareConfigClick = () => {
     vex.dialog.prompt({
-      message: `¿Qué aplicación y ventana deben compartirse siempre? Introduce
-esta información en el siguiente formato: aplicación.exe/título de ventana`,
+      message: t('sidebar.share.configDialog'),
       callback: value => {
         if (value === false) return // cancel, original value is kept
         const [app, windowTitle] = value.split('/')
