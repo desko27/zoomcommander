@@ -1,0 +1,43 @@
+{
+  "searchBar": {
+    "placeholder": "Filtrer les participants..."
+  },
+  "sidebar": {
+    "share": {
+      "cannotFindApp": "Non trouvéa '{{appShare}}'...",
+      "configDialog": "Quelle application et quelle fenêtre doivent toujours être partagées? Entrez ces informations dans le format suivant: Application.exe/titre de fenêtre"
+    }
+  },
+  "userItem": {
+    "notesDialog": "Notes pour {{userName}}"
+  },
+  "block": {
+    "allUsers": {
+      "title": "Tous"
+    },
+    "audioNow": {
+      "title": "Audio",
+      "shieldActive": "Bouclier actif",
+      "activateShield": "Activer bouclier",
+      "muteAll": "Muets tous"
+    },
+    "chairman": {
+      "title": "Président"
+    },
+    "commenting": {
+      "title": "Commenter maintenant"
+    },
+    "comments": {
+      "title": "Commentaires",
+      "cleanUp": "Effacer",
+      "history": "Histoire",
+      "goBack": "Retour"
+    },
+    "platform": {
+      "title": "Estrade maintenant"
+    },
+    "queue": {
+      "title": "En attent"
+    }
+  }
+}
