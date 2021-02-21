@@ -41,7 +41,7 @@ Vale apontar que o kit de desenvolvimento em que se baseia (Electron Zoom SDK) i
 
 ## A seção *Participantes*
 
-Mostra uma lista com todos os particiapntes da reunião, incluindo você. Essa seção é parecida com a lista de participantes padrão do Zoom.
+Mostra uma lista com todos os participantes da reunião, incluindo você. Essa seção é parecida com a lista de participantes padrão do Zoom.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90339508-77e79700-dff1-11ea-9882-9b864e138519.png">
 
