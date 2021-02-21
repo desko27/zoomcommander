@@ -1,0 +1,14 @@
+{
+  "form": {
+    "title": "Unirse a reunión",
+    "name": "Nombre",
+    "meetingId": "ID de reunión",
+    "password": "Contraseña",
+    "join": "Entrar"
+  },
+  "updates": {
+    "error": "Sin comprobar",
+    "updateNow": "¡Novedades!",
+    "alreadyUpdated": "Estás actualizado"
+  }
+}

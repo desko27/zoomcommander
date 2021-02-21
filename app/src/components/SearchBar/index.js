@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import cx from 'classnames'
 
 import { ReactComponent as XCircleIcon } from './icons/x-circle.svg'
@@ -6,11 +7,13 @@ import { ReactComponent as XCircleIcon } from './icons/x-circle.svg'
 import styles from './index.module.css'
 
 function SearchBar ({ onChange, value, reset }) {
+  const { t } = useTranslation('app')
+
   return (
     <div className={styles.wrapper}>
       <input
         className={cx(styles.input, !!value && styles.hasValue)}
-        placeholder='Filtrar usuarios...'
+        placeholder={t('searchBar.placeholder')}
         onChange={onChange}
         value={value}
       />

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import getUserObjects from '../../../common/getUserObjects'
 import fuzzySearch from '../../../common/fuzzySearch'
@@ -7,7 +8,7 @@ import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
 const LIST_ID = 'comments'
-const LIST_TITLE = 'Comentarios'
+const LIST_TITLE_LITERAL = 'block.comments.title'
 const LIST_COLOR_NORMAL = 'primary'
 const LIST_COLOR_HISTORY = 'white'
 
@@ -19,6 +20,8 @@ const BlockComments = ({
   targetCommentingId,
   commentsHistoryUserIds
 }) => {
+  const { t } = useTranslation('app')
+
   const userActionsRef = useRef()
   const [filterString, setFilterString] = useState()
   const [isHistory, setIsHistory] = useState()
@@ -61,18 +64,24 @@ const BlockComments = ({
 
   const actionsNode = (
     <>
-      {!isHistory && <button onClick={handleCleanClick}>Limpiar</button>}
+      {!isHistory && (
+        <button onClick={handleCleanClick}>{t('block.comments.cleanUp')}</button>
+      )}
       <button onClick={handleHistoryClick}>
-        {isHistory ? '← Volver' : 'Historial'}
+        {isHistory ? `← ${t('block.comments.goBack')}` : t('block.comments.history')}
       </button>
     </>
   )
+
+  const title = isHistory
+    ? t('block.comments.history')
+    : `${t(LIST_TITLE_LITERAL)} / ${blockUsers.length}`
 
   return (
     <LayoutBlock
       id={LIST_ID}
       color={LIST_COLOR}
-      title={isHistory ? 'Historial' : `${LIST_TITLE} / ${blockUsers.length}`}
+      title={title}
       searchValue={filterString}
       searchReset={() => setFilterString()}
       onSearchChange={e => setFilterString(e.target.value)}

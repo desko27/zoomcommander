@@ -1,198 +1,200 @@
 <h1 align="center">Zoom Commander <img height="34" width="34" src="https://user-images.githubusercontent.com/4168389/80243995-80921700-8668-11ea-90ec-e19eb6c02c75.png"> <img height="30" width="30" src="https://user-images.githubusercontent.com/4168389/80243999-81c34400-8668-11ea-94b5-ad61ef3945b7.png"></h1>
 
 <p align="center">
-<img height="128" width="128" src="https://user-images.githubusercontent.com/4168389/90338769-53d58700-dfec-11ea-8e89-cda93da1f911.png">
+  【🇬🇧 🇪🇸 🇧🇷 🇫🇷】<a href="https://github.com/desko27/zoomcommander/blob/master/readme/es.md">🇪🇸 Leer</a> <a href="https://github.com/desko27/zoomcommander/blob/master/readme/pt-br.md">🇧🇷 Leia</a>
 </p>
 
 <p align="center">
-🖥🎤 <strong>Ayuda práctica para gestionar el audio y compartir pantalla</strong><br><a href="https://github.com/desko27/zoomcommander/releases/latest">⏬ Descargar ahora</a>
+  <img height="128" width="128" src="https://user-images.githubusercontent.com/4168389/90338769-53d58700-dfec-11ea-8e89-cda93da1f911.png">
 </p>
 
 <p align="center">
-🛎 Un solo click para todo — ¡en serio!
-<br>💡 Visión clara de la situación
-<br>🤚 Arrastra participantes
-<br>🔍 Búsqueda flexible
-<br>✏️ Añade tus notas
-<br>... y más
+  🖥🎤 <strong>Practical help for managing audio and screen sharing</strong>
+  <br><a href="https://github.com/desko27/zoomcommander/releases/latest">⏬ Download now</a>
+</p>
+
+<p align="center">
+🛎 One click for everything - seriously!
+<br>💡 Clear vision of the situation
+<br>🤚 Drag participants
+<br>🔍 Flexible search
+<br>✏️ Add your notes
+<br>... and more
 </p>
 
 ![Zoom Commander](https://user-images.githubusercontent.com/4168389/90339412-e415cb00-dff0-11ea-9729-ddace3ede88f.png)
 
-# Qué es Zoom Commander
+# What is Zoom Commander
 
-Con Zoom Commander podrás unirte a una reunión de Zoom y disponer de dos ventanas diferentes funcionando al mismo tiempo:
+By using Zoom Commander you can join a Zoom meeting and have two different windows running at the same time:
 
-- El programa original de Zoom.
-- Un panel de control adicional (imagen anterior).
+- The original Zoom application.
+- An additional control panel (previous image).
 
-En dicho panel de control dispondrás de funciones que simplifican la gestión de un modelo de reuniones muy específico —en el cual existe un rol de presidente, una plataforma o tarima donde se van sucediendo diferentes participaciones al estilo conferencia y un auditorio que levanta la mano para ofrecer comentarios— donde toda transición de audio está orquestrada por un encargado (es decir, tú) que silencia y des-silencia según sea necesario, comparte pantalla, etc.
+In this control panel, you will have functions that simplify the management of a very specific meeting model - in which there is a role of president, a platform where different conference-style participations take place and an audience that raises its hand to provide comments— where every audio transition is orchestrated by a manager (namely you) who mutes and un-mutes as needed, shares screen, etc.
 
-Por favor, si el tipo de reuniones que tienes a través de Zoom no se parecen a esto, no uses Zoom Commander, pues no está diseñado para ofrecer otro tipo de solución.
+Please, if the kind of meetings you have in Zoom does not look like this, do not use Zoom Commander, because it is not designed to offer another kind of solution.
 
-Cabe aclarar que el kit de desarrollo en el que se basa (Electron Zoom SDK) impone una serie de limitaciones que no es posible solucionar ahora mismo. Esto no impide que Zoom Commander sea de ayuda, pero al final del documento las podrás encontrar.
+It should be noted that the development kit on which it is based (Electron Zoom SDK) imposes a series of limitations that cannot be solved right now. This does not prevent Zoom Commander from being helpful, but you can find them at the end of the document.
 
-# Cómo funciona cada bloque
+# How each block works
 
-## El bloque *Todos*
+## The *Everyone* block
 
-Ofrece una lista con todos los participantes de la reunión, incluyéndote a ti. Es el bloque más parecido a la lista de participantes estándar de Zoom.
+Provides a list of all meeting participants, including you. It is the block closest to the standard Zoom participant list.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90339508-77e79700-dff1-11ea-9882-9b864e138519.png">
 
-### Filtro de usuarios
+### User filter
 
-Funciona por algoritmo de similitud, así que ningún accento, mayúscula o letra mal escrita impedirá que encuentres al usuario que buscas.
+It works by similarity algorithm, so no capital letters or misspelled ones will prevent you from finding the user you are looking for.
 
-### Click al usuario
+### Click to the user
 
-🖱 **Dar comentario** (ver explicación en bloque *Comentarios*).
+🖱 **Give comment** (see block explanation *Comments*).
 
 <img width="250" src="https://user-images.githubusercontent.com/4168389/90340180-98662000-dff6-11ea-891a-fdc1c850056b.png">
 
-El icono que aparece al pasar por encima con el ratón indica la acción que se va a hacer sobre el usuario si hacemos click.
+The icon that appears when hovering over with the mouse indicates the action that will be done on the user if we click.
 
-Las acciones que podemos hacer dependerán del bloque donde estemos, pero siempre vendrán indicadas por el icono que veremos. Casi todos los bloques permiten acciones alternativas si mantenemos pulsada alguna de estas teclas: <kbd>Ctrl</kbd> &nbsp; <kbd>Shift</kbd> &nbsp; <kbd><</kbd>
+The actions we can do will depend on the block where we are, but they will always be indicated by the icon that we will see. Almost all blocks allow alternative actions if we hold down any of these keys: <kbd>Ctrl</kbd> &nbsp; <kbd>Shift</kbd> &nbsp; <kbd><</kbd>
 
-En el bloque de *Todos* las acciones son:
+In the *Everyone* block the actions are:
 
-🖱 Dar comentario (ver explicación en bloque *Comentarios*)
-<br/><kbd>Ctrl</kbd> + 🖱 Dar/quitar audio (simple)
-<br/><kbd><</kbd> + 🖱 Añadir a *Cola*
+🖱 Give comment (see block explanation *Comments*)
+<br/><kbd>Ctrl</kbd> + 🖱 Give/remove audio (simple)
+<br/><kbd><</kbd> + 🖱 Add to *Queue*
 
-### Arrastrar usuarios
+### Drag users
 
-Los participantes se pueden arrastrar hacia otras listas mencionadas más adelante, para tener mayor visión y control de ciertos grupos.
+Participants can be dragged to other lists mentioned below, to have more vision and control of certain groups.
 
-### Botones
+### Buttons
 
-Algunos bloques tienen botones en su esquina superior derecha.
+Some blocks have buttons in their upper right corner.
 
-En este caso, ambos sirven para "refrescar" la información de los usuarios, a distinto grado. Lo más probable es que nunca te haga falta usarlos, pero están por si ocurren inconsistencias entre la lista de usuarios de la interfaz original de Zoom y la interfaz de Zoom Commander (en casos conocidos y muy concretos debido a las mencionadas limitaciones del Zoom SDK).
+In this case, both serve to "refresh" user information, to different degrees. Most likely, you will never need to use them, but they are there in case inconsistencies occur between the user list of the original Zoom interface and the Zoom Commander interface (in known and very specific cases due to the aforementioned limitations of the Zoom SDK) .
 
-<kbd>Reset</kbd> Vuelve a pedir a Zoom la lista de usuarios y deja la interfaz como si acabaras de entrar en la reunión. Es el "reloading" más agresivo.
+<kbd>Reset</kbd> Asks Zoom again for the list of users and leaves the interface as if you had just entered the meeting. It is the most aggressive "reloading".
 
-<kbd>Sync</kbd> Vuelve a pedir a Zoom la información de los usuarios que ya se están mostrando, pero deja la interfaz con cualquier cambio que hayas hecho hasta ahora.
+<kbd>Sync</kbd> Asks Zoom again for the information of the users that are already being shown, but keeps the interface with any changes you have made so far.
 
-## El bloque *Audio*
+## The *Audio* block
 
-Aquí podrás ver en tiempo real quién tiene el micro abierto. Se acabó revisar uno por uno vigilando que no tenga audio nadie que no deba.
+Here you can see who has the mic open real time. No more checking one by one making sure that no one who should not have audio has no audio.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90340061-bf702200-dff5-11ea-9a08-6dd3c1ab93e9.png">
 
-### Click al usuario
+### Click the user
 
-Se le **retira inmediatamente el audio**, es decir, queda muteado, y por lo tanto desaparece de esta lista.
+The audio is **immediately removed**, that is, it is muted, and therefore disappears from this list.
 
-No hay acciones adicionales.
+There are no additional actions.
 
-### Botones
+### Buttons
 
-<kbd>Activar escudo</kbd> **Aviso: NO LO ACTIVES si no vas a gestionar activamente los bloques *Presidente*, *Plataforma* y *Comentando* durante la reunión, porque con el escudo activado SOLO los participantes que estén en esos bloques podrán recibir audio, nadie más.** Este botón activa un escudo "anti-expontáneos" que silencia automática e inmediatamente a cualquier usuario que reciba audio ilegítimamente (un anfitrión despistado, alguien que acepta el audio más tarde, etc), de modo que no le dará tiempo a interrumpir. Esto funciona gracias a que los usuarios considerados legítimos son los que se encuentran en *Presidente*, *Plataforma* o *Comentando*, el resto son ilegítimos. Durante el tiempo que el escudo permanezca activo, el botón se verá en verde. Haz click de nuevo para desactivarlo. 
+<kbd> Activate shield </kbd> **Warning: DO NOT ACTIVATE IT if you are not going to actively manage the *President*, *Platform* and *Commenting* blocks during the meeting, because with the shield activated ONLY the participants who are in those blocks will be able to receive audio, no one else.** This button activates an "anti-spontaneous" shield that automatically and immediately silences any user who receives audio illegitimately (a clueless host, someone who accepts the audio later, etc), so he/she won't have time to interrupt. This works thanks to the fact that the users considered legitimate are those who are in President*, *Platform* or *Commenting*, the rest are illegitimate. As long as the shield is active, the button will be green. Click again to deactivate it.
 
-<kbd>Mutear todos</kbd> silencia a todos los usuarios, y además habilita las opciones pertinentes para que nadie tenga permiso para quitarse el silencio (ni participantes actuales ni los que se unan después). Tiene sentido usarlo al empezar la reunión, aunque para eso hay otro botón en la barra lateral que hace esto y algunas cosas más.
+<kbd>Mute all</kbd> silences all users, and also enables the relevant options so that no one has permission to unmute (current participants or those who join later). It makes sense to use it at the beginning of the meeting, although for that there is another button in the sidebar that does this and a few other things.
 
-## El bloque *Cola*
+## The *Queue* block
 
-Aquí podrás arrastrar a cualquier participante que tenga una parte de la reunión, de manera que puedas tenerlo preparado para después. También, debes saber que haciendo click derecho sobre alguien puedes añadirle notas como la que puedes ver en la imagen.
+Here you can drag any participant who has a part of the meeting, so that you can have it prepared for later. Also, you should know that by right clicking on someone you can add notes like the one you can see in the image.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90340630-e4669400-dff9-11ea-87aa-e5a39932fdf9.png">
 
-### Click al usuario
+### Click to the user
 
-🖱 **Mover a *Plataforma***, además recibirá audio, retirándoselo al mismo tiempo al resto.
+🖱 **Move to *Platform***, he/she will also receive audio while it is removed for the rest.
 
-<kbd>Ctrl</kbd> + 🖱 Dar/quitar audio (simple)
-<br/><kbd>Shift</kbd> + 🖱 Sacar de la *Cola*
-<br/><kbd><</kbd> + 🖱 Mover a *Plataforma*, pero sin dar ni quitar audio a nadie.
+<kbd>Ctrl</kbd> + 🖱 Give/remove audio (simple)
+<br/><kbd>Shift</kbd> + 🖱 Remove from the *Queue*
+<br/><kbd><</kbd> + 🖱 Move to *Platform*, but without giving or removing audio to anyone.
 
-### Arrastrar usuarios
+### Drag users
 
-Si arrastras un usuario de vuelta a *Todos* lo sacarás de *Cola*. Además, también puedes ordenar los usuarios de *Cola* arrastrándolos entre sí.
+Dragging a user back to *Everyone* will remove it from *Queue*. Furthermore, you can also sort the *Queue* users by dragging them together.
 
-## Los bloques *Plataforma* y *Presidente*
+## The *Platform* and *President*
 
-Lo interesante de estos bloques, unificados por el color amarillo, es que al hacer click sobre un usuario se le dará audio y se silenciarán automáticamente los demás. Esto conviene para, por ejemplo, dar paso al *Presidente* de un solo click, sin tener que preocuparnos por silenciar manualmente a quien tuviera la parte anterior. Es igual de conveniente para alternar el audio entre diferentes participantes de *Plataforma*, sin importar el número.
+The interesting thing about these blocks, unified by the yellow color, is that clicking on a user will give them audio and the others will be automatically silenced. This is convenient to, for example, give way to the *President* with a single click, without having to worry about manually silencing whoever had the previous part. It's just as convenient to switch audio between different *Platform* participants, regardless of the number.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90340876-5d1a2000-dffb-11ea-9bbb-09435266a51f.png">
 
-### Click al usuario
+### Click to the user
 
-🖱 **Dar audio** y retirárselo al resto
+🖱 **Give audio** and remove from the rest
 
-<kbd>Ctrl</kbd> + 🖱 Dar/quitar audio (simple)
-<br/><kbd>Shift</kbd> + 🖱 Sacar del bloque
+<kbd>Ctrl</kbd> + 🖱 Give/remove audio (simple)
+<br/><kbd>Shift</kbd> + 🖱 Remove from the block
 
-### Arrastrar usuarios
+### Drag users
 
-Los podemos mover libremente.
+We can move them freely.
 
-## Los bloques *Comentando* y *Comentarios*
+## The blocks *Commenting* and *Comments*
 
-En el bloque *Comentarios* (el de abajo) aparecerán todos los participantes que levanten la mano. El bloque superior en verde muestra al participante que haya sido seleccionado para comentar, para que esté visible y así poder quitarlo de ahí cuando termine.
+All participants who raise their hands will appear in the *Comments* block (the one below). The upper block in green shows the participant who has been selected to comment, so that it is visible and thus can be removed from there when finished.
 
 <img align="left" width="250" src="https://user-images.githubusercontent.com/4168389/90341062-a7e86780-dffc-11ea-9e9a-8b2bb05911ad.png">
 
-### Click al usuario
+### Click to the user
 
-🖱 **Dar comentario.** Pasarán varias cosas: al usuario se le dará audio y se mostará en la zona verde. Se bajarán las manos automáticamente **solo** cuando su audio se active. Esto significa que si su audio nunca llega a activarse, lo podemos quitar de ahí haciéndole click mientras el resto sigue con la mano levantada y podremos seleccionar a otro participante.
+🖱 **Give comment.** Several things will happen: the user will be given audio and it will be shown in the green area. Hands will be lowered automatically **only** when his/her audio is activated. This means that if his/her audio never gets activated, we can remove it from there by clicking it while the rest continue with their hand raised and we can select another participant.
 
-<kbd>Ctrl</kbd> + 🖱 Dar/quitar audio (simple)
+<kbd>Ctrl</kbd> + 🖱 Give/remove audio (simple)
 
-### Botones
+### Buttons
 
-<kbd>Limpiar</kbd> Baja todas las manos.
+<kbd>Clean up</kbd> Lowers all hands.
 
-<kbd>Historial</kbd> Cambia la vista del bloque al historial de manos levantadas. Esto puede ayudar si hemos bajado las manos por error y necesitamos dar comentario a alguien que la tenía levantada.
+<kbd>History</kbd> Change the view of the block to the history of raised hands. This can help if we have mistakenly lowered hands and need to give comment to someone who was raising it up.
 
-# Cómo funciona la barra lateral
+# How the sidebar works
 
-## Empezar la reunión
+## Start meeting
 
 <img width="40" src="https://user-images.githubusercontent.com/4168389/90341330-031b5980-dfff-11ea-9c1d-893e1ce4e4aa.png">
 
-Al hacer click en este botón, la siguiente cadena de acciones sucederá en apenas 1 o 2 segundos automáticamente:
+By clicking this button, the following chain of actions will happen in just 1 or 2 seconds automatically:
 
-1. Se activa el escudo anti-expontáneos.
-1. Se silencia a todos los participantes.
-2. Se configuran las opciones pertinentes para que nadie tenga permiso para quitarse el silencio (ni participantes actuales ni los que se unan después).
-3. Se deja de compartir pantalla (en el caso de que se esté haciendo).
-4. Se le da audio al *Presidente*.
+1. The anti-spontaneous shield is activated.
+1. All participants are muted.
+2. The relevant options are configured so that no one has permission to unmute (current participants or those who join later).
+3. Screen sharing is stopped (if it is being carried out).
+4. Audio is given to the *President*.
 
-## Compartir ventana inmediata
+## Share window immediately
 
 <img width="40" src="https://user-images.githubusercontent.com/4168389/90341328-0282c300-dfff-11ea-9039-bd44e67e4c50.png">
 
-**Atajo de teclado** &nbsp;
+**Keyboard shortcut** &nbsp;
 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>
 
-**Importante: para poder compartir vídeos CON AUDIO, deberás compartir pantalla desde la interfaz original de Zoom AL MENOS UNA VEZ POR REUNIÓN marcando la casilla "compartir sonido del ordenador".** Puedes hacer esto antes de que empiece la reunión, de esta manera durante la reunión podrás usar este botón (o atajo de teclado) para compartir tanto imágenes como vídeos, y Zoom recordará que debe compartir el sonido todas las veces.
+**Important: to be able to share videos WITH AUDIO, you must share screen from Zoom's original interface AT LEAST ONCE PER MEETING by checking the "share computer sound" box.** You can do this before the meeting starts, this way you will be able to use this button during the meeting (or keyboard shortcut) to share both images and videos, and Zoom will remember to share the sound every time.
 
-Este botón comparte de inmediato una ventana configurada por adelantado. Esto es útil puesto que generalmente siempre se comparte el mismo programa y no tiene sentido pasar por las opciones que por las que te obliga a pasar la interfaz original de Zoom.
+This button immediately shares a window previously configured. This is useful since generally the same program is always shared and it does not make sense to go through the options that the original Zoom interface forces you to go through.
 
-Viene preconfigurado para que comparta [el Portal de Media Portal](https://github.com/desko27/mediaportal/blob/master/README.es.md), pero si no usas Media Portal, puedes cambiar la ventana destino haciendo click derecho sobre el botón. La configuración que apliques se guardará y mantendrá en futuras sesiones de Zoom Commander. Por ejemplo, para usar JW Library puedes introducir `ApplicationFrameHost.exe/JW Library` en la configuración.
+It comes preconfigured to share [the Media Portal Portal](https://github.com/desko27/mediaportal/blob/master/README.md), but if you don't use Media Portal, you can change the target window by right clicking on the button. The settings you apply will be saved and kept in future Zoom Commander sessions. For example, to use JW Library you can enter `ApplicationFrameHost.exe/JW Library` in the configuration.
 
-## Dejar de compartir
+## Stop sharing
 
 <img width="40" src="https://user-images.githubusercontent.com/4168389/90341327-01ea2c80-dfff-11ea-8d57-a725b0fbcc4c.png">
 
-**Atajo de teclado** &nbsp;
+**Keyboard shortcut** &nbsp;
 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd>
 
-Deja de compartir pantalla. No hace nada diferente que el botón original de Zoom, salvo por el hecho de disponer de un nuevo atajo de teclado (que coincide con uno de Media Portal expresamente, para dejar de mostrar la imagen o vídeo en el portal).
+Stops screen sharing. It does nothing different than the original Zoom button, except for the fact that it has a new keyboard shortcut (which expressly matches one of Media Portal, to stop showing the image or video on the portal).
 
-# Limitaciones conocidas
+# Known limitations
 
-Al kit de desarrollo Electron Zoom SDK le faltan una serie de funcionalidades que imponen unas limitaciones en Zoom Commander:
+The Electron Zoom SDK development kit is missing a number of functionalities that impose limitations on Zoom Commander:
 
-## Silenciar a todos
-Si silencias a todos mediante Zoom Commander no hay problema, pero si otro anfitrión hace "silenciar a todos" no lo veremos reflejado en el estado de los participantes dentro de Zoom Commander (muchos seguirán apareciendo como si tuvieran audio aunque no lo tengan). Si eso ocurre, basta con hacer click al botón <kbd>Sync</kbd> del bloque *Todos* para que se refresque el estado de los participantes. En general, esta limitación no será un problema porque nadie más que la persona que esté usando Zoom Commander debería lanzar un "silenciar a todos".
+## Mute everyone
+If you silence everyone using Zoom Commander there is no problem, but if another host launches "silence everyone" you will not see it reflected in the state of the participants within Zoom Commander (many will continue to appear as if they have audio even if they do not). If that happens, just click the <kbd>Sync</kbd> button in the *Everyone* block to refresh the status of the participants. In general, this limitation will not be a problem because no one other than the person using the Zoom Commander should launch a "silence everyone".
 
-## Bajar todas las manos
-De manera similar a lo anterior, si bajas todas las manos mediante Zoom Commander no hay problema (botón <kbd>Limpiar</kbd>), pero si otro anfitrión "baja las manos" no lo veremos reflejado en la columna de *Comentarios* de Zoom Commander. En general, esta limitación tampoco será un problema porque nadie más que la persona que esté usando Zoom Commander debería "bajar todas las manos".
+## Lower all hands
+In a similar way to the above, if you lower all the hands using Zoom Commander there is no problem (<kbd>Clean up</kbd> button), but if another host "lowers all hands" you will not see it reflected in the *Comments* column by Zoom Commander. In general, this limitation will not be a problem either because no one other than the person using the Zoom Commander should "lower all hands".
 
-## Bajar manos sin efecto en reacciones
-La acción de "bajar manos" que ocurre dentro de Zoom Commander solo baja las manos, pero no las reacciones. Por tanto, si queremos retirarle una reacción a alguien, tendremos que ir al botón de limpiar reacciones de la interfaz original de Zoom. Lo ideal es que nadie haga uso de las reacciones, sino que siempre usen la función "levantar la mano".
-
-## Salas adicionales
-Electron Zoom SDK no tiene medios para saber si nos movemos entre salas adicionales de la reunión. Para ver correctamente la lista de participantes una vez nos unamos a una sala adicional, tendremos que usar el botón <kbd>Reset</kbd>.
+## Additional rooms
+Electron Zoom SDK has no means of knowing if we move between additional meeting rooms. To correctly see the list of participants once we join an additional room, we will have to use the <kbd>Reset</kbd> button.

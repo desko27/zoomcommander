@@ -59,6 +59,8 @@
     "electron-log": "4.3.1",
     "electron-settings": "4.0.2",
     "fuse.js": "6.4.0",
+    "i18next": "19.8.7",
+    "i18next-browser-languagedetector": "6.0.1",
     "jsonwebtoken": "8.5.1",
     "markdown-it": "12.0.4",
     "node-fetch": "2.6.1",
@@ -66,6 +68,7 @@
     "react": "16",
     "react-beautiful-dnd": "13.0.0",
     "react-dom": "16",
+    "react-i18next": "11.8.6",
     "react-router-dom": "5.2.0",
     "vex-js": "4.1.0"
   },

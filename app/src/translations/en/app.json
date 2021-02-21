@@ -1,0 +1,43 @@
+{
+  "searchBar": {
+    "placeholder": "Filter users..."
+  },
+  "sidebar": {
+    "share": {
+      "cannotFindApp": "Cannot find '{{appShare}}'...",
+      "configDialog": "What application and window should always be shared? Enter this information in the following format: application.exe/window title"
+    }
+  },
+  "userItem": {
+    "notesDialog": "Notes for {{userName}}"
+  },
+  "block": {
+    "allUsers": {
+      "title": "Everyone"
+    },
+    "audioNow": {
+      "title": "Audio",
+      "shieldActive": "Shield active",
+      "activateShield": "Activate shield",
+      "muteAll": "Mute all"
+    },
+    "chairman": {
+      "title": "Chairman"
+    },
+    "commenting": {
+      "title": "Commenting now"
+    },
+    "comments": {
+      "title": "Comments",
+      "cleanUp": "Clean up",
+      "history": "History",
+      "goBack": "Go back"
+    },
+    "platform": {
+      "title": "Platform now"
+    },
+    "queue": {
+      "title": "Queue"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import getUserObjects from '../../../common/getUserObjects'
 import sendZoomCommand from '../../../common/sendZoomCommand'
@@ -7,7 +8,7 @@ import UserItem from '../../UserItem'
 import LayoutBlock from '../../LayoutBlock'
 
 const LIST_ID = 'commenting'
-const LIST_TITLE = 'Comentando ahora'
+const LIST_TITLE_LITERAL = 'block.commenting.title'
 const LIST_COLOR = 'success'
 
 const BlockCommenting = ({
@@ -16,6 +17,8 @@ const BlockCommenting = ({
   updateUserData,
   setCommentingUserId
 }) => {
+  const { t } = useTranslation('app')
+
   const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
 
@@ -42,7 +45,7 @@ const BlockCommenting = ({
     <LayoutBlock
       dontGrow
       id={LIST_ID}
-      title={LIST_TITLE}
+      title={t(LIST_TITLE_LITERAL)}
       color={LIST_COLOR}
     >
       {users.map(user => {

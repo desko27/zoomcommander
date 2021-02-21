@@ -13,6 +13,9 @@ import 'vex-js/dist/css/vex-theme-top.css'
 import './vars.css'
 import './index.css'
 
+// import translations system
+import './i18n'
+
 // setup vex dialogs
 vex.registerPlugin(vexDialog)
 vex.defaultOptions.className = 'vex-theme-top'

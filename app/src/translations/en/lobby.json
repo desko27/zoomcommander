@@ -1,0 +1,14 @@
+{
+  "form": {
+    "title": "Join meeting",
+    "name": "Name",
+    "meetingId": "Meeting ID",
+    "password": "Password",
+    "join": "Join"
+  },
+  "updates": {
+    "error": "Not checked",
+    "updateNow": "¡New update!",
+    "alreadyUpdated": "You're up to date"
+  }
+}

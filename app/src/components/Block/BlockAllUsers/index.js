@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import getUserObjects from '../../../common/getUserObjects'
 import fuzzySearch from '../../../common/fuzzySearch'
@@ -8,7 +9,7 @@ import LayoutBlock from '../../LayoutBlock'
 
 const LIST_ID = 'all-users'
 const GROUP_ID = LIST_ID
-const LIST_TITLE = 'Todos'
+const LIST_TITLE_LITERAL = 'block.allUsers.title'
 const LIST_COLOR = 'white'
 
 const BlockAllUsers = ({
@@ -21,6 +22,8 @@ const BlockAllUsers = ({
   resetUserData,
   syncUserData
 }) => {
+  const { t } = useTranslation('app')
+
   const userActionsRef = useRef()
   const [filterString, setFilterString] = useState()
   const users = getUserObjects(userIds, userData)
@@ -48,7 +51,7 @@ const BlockAllUsers = ({
       isDroppable
       id={LIST_ID}
       flexBasis={70}
-      title={`${LIST_TITLE} / ${users.length}`}
+      title={`${t(LIST_TITLE_LITERAL)} / ${users.length}`}
       onSearchChange={e => setFilterString(e.target.value)}
       searchValue={filterString}
       searchReset={() => setFilterString()}
