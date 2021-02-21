@@ -1,7 +1,7 @@
 <h1 align="center">Zoom Commander <img height="34" width="34" src="https://user-images.githubusercontent.com/4168389/80243995-80921700-8668-11ea-90ec-e19eb6c02c75.png"> <img height="30" width="30" src="https://user-images.githubusercontent.com/4168389/80243999-81c34400-8668-11ea-94b5-ad61ef3945b7.png"></h1>
 
 <p align="center">
-  【🇬🇧 🇪🇸 🇧🇷 🇫🇷】<a href="https://github.com/desko27/zoomcommander/README.md">🇬🇧 Read</a> <a href="https://github.com/desko27/zoomcommander/readme/README.brazilian-portuguese.md">🇧🇷 Leia</a>
+  【🇬🇧 🇪🇸 🇧🇷 🇫🇷】<a href="https://github.com/desko27/zoomcommander/README.md">🇬🇧 Read</a> <a href="https://github.com/desko27/zoomcommander/readme/pt-br.md">🇧🇷 Leia</a>
 </p>
 
 <p align="center">
