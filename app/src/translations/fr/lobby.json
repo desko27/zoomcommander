@@ -1,0 +1,14 @@
+{
+  "form": {
+    "title": "Rejoindre de réunion" ,
+    "name": "Nom" ,
+    "meetingId": "ID de réunion" ,
+    "password": "Mot de passe" ,
+    "join": "Entrer"
+  },
+  "updates": {
+    "error": "Sans vérifier" ,
+    "updateNow": "¡Nouveautés!" ,
+    "alreadyUpdated": "Vous êtes actualisé"
+  }
+}

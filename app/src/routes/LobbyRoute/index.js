@@ -1,9 +1,11 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import cx from 'classnames'
 
 import { version } from '../../../package.json'
 
+import News from './News'
 import Field from './Field'
 import styles from './index.module.css'
 
@@ -17,6 +19,8 @@ const makeSetter = setter => {
 
 function LobbyRoute () {
   const history = useHistory()
+  const { t } = useTranslation('lobby')
+
   const [isUpdateAvailable, setIsUpdateAvailable] = useState()
   const [errUpdateAvailable, setErrUpdateAvailable] = useState()
   const [fieldName, setFieldName] = useState('')
@@ -75,60 +79,66 @@ function LobbyRoute () {
   }
 
   return (
-    <form className={styles.wrapper} onSubmit={handleStartMeeting}>
-      <h1 className={styles.title}>Unirse a reunión</h1>
-      <div className={styles.fields}>
-        <Field
-          label='Nombre'
-          color='primary'
-          value={fieldName}
-          onChange={makeSetter(setFieldName)}
-        />
-        <Field
-          label='ID de reunión'
-          color='primary'
-          value={fieldMeeting}
-          onChange={makeSetter(setFieldMeeting)}
-        />
-        <Field
-          label='Contraseña'
-          color='primary'
-          value={fieldPassword}
-          onChange={makeSetter(setFieldPassword)}
-        />
-      </div>
-      <div className={styles.bottomSection}>
-        <div className={styles.versionColumn}>
-          <span className={styles.version}>
-            v{version} beta
-          </span>
-          {isUpdateAvailable ? (
-            <button
-              className={styles.updateButton}
-              onClick={performUpdate}
-              type='button'
-            >
-              🎁 ¡Novedades!
-            </button>
-          ) : (
-            !errUpdateAvailable
-              ? <span className={styles.versionIsUpdated}>Estás actualizado</span>
-              : (
-                <span className={cx(styles.versionIsUpdated, styles.error)}>
-                  Sin comprobar
-                </span>
-              )
-          )}
+    <div className={styles.wrapper}>
+      <form className={styles.form} onSubmit={handleStartMeeting}>
+        <h1 className={styles.title}>{t('form.title')}</h1>
+        <div className={styles.fields}>
+          <Field
+            label={t('form.name')}
+            color='primary'
+            value={fieldName}
+            onChange={makeSetter(setFieldName)}
+          />
+          <Field
+            label={t('form.meetingId')}
+            color='primary'
+            value={fieldMeeting}
+            onChange={makeSetter(setFieldMeeting)}
+          />
+          <Field
+            label={t('form.password')}
+            color='primary'
+            value={fieldPassword}
+            onChange={makeSetter(setFieldPassword)}
+          />
         </div>
-        <button
-          className={styles.goButton}
-          disabled={!(fieldName && fieldMeeting)}
-          type='submit'
-        >
-          Entrar →
-        </button>
-      </div>
-    </form>
+        <div className={styles.bottomSection}>
+          <div className={styles.versionColumn}>
+            <span className={styles.version}>
+              v{version} beta
+            </span>
+            {isUpdateAvailable ? (
+              <button
+                className={styles.updateButton}
+                onClick={performUpdate}
+                type='button'
+              >
+                🎁 {t('updates.updateNow')}
+              </button>
+            ) : (
+              !errUpdateAvailable
+                ? (
+                  <span className={styles.versionIsUpdated}>
+                    {t('updates.alreadyUpdated')}
+                  </span>
+                ) : (
+                  <span className={cx(styles.versionIsUpdated, styles.error)}>
+                    {t('updates.error')}
+                  </span>
+                )
+            )}
+          </div>
+          <button
+            className={styles.goButton}
+            disabled={!(fieldName && fieldMeeting)}
+            type='submit'
+          >
+            {t('form.join')} →
+          </button>
+        </div>
+      </form>
+      <News />
+    </div>
   )
 }
 

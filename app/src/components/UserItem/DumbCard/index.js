@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import cx from 'classnames'
 import vex from 'vex-js'
 
@@ -23,6 +24,7 @@ const UserItem = ({
   isDragging,
   updateUserData
 }) => {
+  const { t } = useTranslation('app')
   const nameInitials = userName.split(' ').slice(0, 2).map(word => word[0]).join('')
 
   const getHoverActionAttributes = () => {
@@ -43,7 +45,7 @@ const UserItem = ({
 
   const handleContextMenu = () => {
     vex.dialog.prompt({
-      message: `Notas para ${userName}`,
+      message: t('userItem.notesDialog', { userName }),
       callback: value => {
         if (value === false) return // cancel, original value is kept
         updateUserData(id, { notes: value })

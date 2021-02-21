@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import getUserObjects from '../../../common/getUserObjects'
 import sendZoomCommand from '../../../common/sendZoomCommand'
@@ -8,7 +9,7 @@ import LayoutBlock from '../../LayoutBlock'
 
 const LIST_ID = 'platform'
 const GROUP_ID = 'speakers'
-const LIST_TITLE = 'Plataforma ahora'
+const LIST_TITLE_LITERAL = 'block.platform.title'
 const LIST_COLOR_NORMAL = 'accent'
 const LIST_COLOR_SPOTLIGHT = 'error'
 
@@ -21,6 +22,8 @@ const BlockPlatform = ({
   settingSpotlightPlatform,
   setSettingSpotlightPlatform
 }) => {
+  const { t } = useTranslation('app')
+
   const userActionsRef = useRef()
   const users = getUserObjects(userIds, userData)
   const LIST_COLOR = settingSpotlightPlatform ? LIST_COLOR_SPOTLIGHT : LIST_COLOR_NORMAL
@@ -54,7 +57,7 @@ const BlockPlatform = ({
       isDroppable
       dontGrow
       id={LIST_ID}
-      title={LIST_TITLE}
+      title={t(LIST_TITLE_LITERAL)}
       color={LIST_COLOR}
       actionsNode={(
         <>
