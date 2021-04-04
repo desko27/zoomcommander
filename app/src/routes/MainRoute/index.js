@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import useStateRef from 'react-usestateref'
 import { DragDropContext } from 'react-beautiful-dnd'
 import Bottleneck from 'bottleneck'
 
@@ -27,12 +28,12 @@ const MainRoute = () => {
 
   // extra user id lists
   const [queueUserIds, setQueueUserIds] = useState([])
-  const [platformUserIds, setPlatformUserIds] = useState([])
+  const [platformUserIds, setPlatformUserIds, platformUserIdsRef] = useStateRef([])
   const [commentsHistoryUserIds, setCommentsHistoryUserIds] = useState([])
 
   // extra user id slots
-  const [chairmanUserId, setChairmanUserId] = useState()
-  const [commentingUserId, setCommentingUserId] = useState()
+  const [chairmanUserId, setChairmanUserId, chairmanUserIdRef] = useStateRef()
+  const [commentingUserId, setCommentingUserId, commentingUserIdRef] = useStateRef()
 
   // derived lists
   const currentSpeakersIds = [
@@ -81,24 +82,25 @@ const MainRoute = () => {
         eventUsersArray.forEach(eventUser => {
           const id = eventUser.userid
 
-          // these people are supposed to speak, so it's ok
-          if (
-            myself.id === id ||
-            commentingUserId === id ||
-            chairmanUserId === id ||
-            platformUserIds.includes(id)
-          ) return
+          const CHECK_DELAY = 200
+          setTimeout(() => {
+            // these people are supposed to speak, so it's ok
+            if (
+              myself.id === id ||
+              commentingUserIdRef.current === id ||
+              chairmanUserIdRef.current === id ||
+              platformUserIdsRef.current.includes(id)
+            ) return
 
-          const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
-          if (!isAudioMuted) sendZoomCommand('muteAudio', id)
+            // Mute after
+            const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
+            if (!isAudioMuted) sendZoomCommand('muteAudio', id)
+          }, CHECK_DELAY)
         })
       }
     }
   }, [
     settingMuteSpontaneousPeople,
-    commentingUserId,
-    chairmanUserId,
-    platformUserIds,
     userIds,
     userData
   ])
