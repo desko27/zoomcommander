@@ -101,6 +101,9 @@ const MainRoute = () => {
     }
   }, [
     settingMuteSpontaneousPeople,
+    commentingUserId,
+    chairmanUserId,
+    platformUserIds,
     userIds,
     userData
   ])
