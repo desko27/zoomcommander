@@ -1,3 +1,10 @@
+# 04 / 04 / 2021
+## ✅ Problemas de acceso solucionados
+
+Los ingenieros de Zoom han publicado una nueva versión del kit de desarrollo. Gracias a eso, a partir de [la versión 1.2.0 publicada hoy](https://github.com/desko27/zoomcommander/releases/latest), Zoom Commander vuelve a funcionar en reuniones que establecían un requerimiento mínimo de versión de Zoom.
+
+Si tienes este problema, actualiza Zoom Commander descargándote [la última versión desde este enlace](https://github.com/desko27/zoomcommander/releases/latest).
+
 # 15 / 02 / 2021
 ## 🚩 Más acerca del problema “unirse a reuniones corporativas”
 
