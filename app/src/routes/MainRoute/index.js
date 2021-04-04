@@ -72,7 +72,7 @@ const MainRoute = () => {
       // Automatically lower all hands when commenting user gets audio
       eventUsersArray.forEach(eventUser => {
         const id = eventUser.userid
-        if (commentingUserId !== id) return
+        if (commentingUserIdRef.current !== id) return
         const isAudioMuted = getIsAudioMutedFromAudioStatus(eventUser)
         if (!isAudioMuted) lowerAllHands()
       })
@@ -101,9 +101,6 @@ const MainRoute = () => {
     }
   }, [
     settingMuteSpontaneousPeople,
-    commentingUserId,
-    chairmanUserId,
-    platformUserIds,
     userIds,
     userData
   ])
