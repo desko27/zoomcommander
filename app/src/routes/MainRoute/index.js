@@ -82,7 +82,7 @@ const MainRoute = () => {
         eventUsersArray.forEach(eventUser => {
           const id = eventUser.userid
 
-          const CHECK_DELAY = 200
+          const CHECK_DELAY = 100
           setTimeout(() => {
             // these people are supposed to speak, so it's ok
             if (
