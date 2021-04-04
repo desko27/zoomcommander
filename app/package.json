@@ -2,7 +2,7 @@
   "name": "zoomcommander",
   "description": "Zoom Commander",
   "author": "desko27",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "react-start": "react-app-rewired start",
