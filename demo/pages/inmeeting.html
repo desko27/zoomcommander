@@ -127,6 +127,19 @@
     <button type="button" class="button-small" onclick="allowLocalRecording()">Allow LocalRecording</button>
     <button type="button" class="button-small" onclick="disAllowLocalRecording()">Dis AllowLocalRecording</button>
     <button type="button" class="button-small" onclick="requestCustomizedLocalRecordingSource()">Request CustomizedLocalRecordingSource</button>
+    <div class="section">Setting Share</div>
+    <div>
+      <input type="text" name="settingShare" class="input-show" placeholder="empty is false otherwise is true" id="settingShare"/>
+    </div>
+		<button type="button" class="button-small" onclick="enableAutoFitToWindowWhenViewSharing()">EnableAutoFitToWindowWhenViewSharing</button>
+		<button type="button" class="button-small" onclick="isAutoFitToWindowWhenViewSharingEnabled()">IsAutoFitToWindowWhenViewSharingEnabled</button>
+		<button type="button" class="button-small" onclick="enableAutoFullScreenVideoWhenViewShare()">EnableAutoFullScreenVideoWhenViewShare</button>
+		<button type="button" class="button-small" onclick="isAutoFullScreenVideoWhenViewShareEnabled()">IsAutoFullScreenVideoWhenViewShareEnabled</button>
+		<button type="button" class="button-small" onclick="isCurrentOSSupportAccelerateGPUWhenShare()">IsCurrentOSSupportAccelerateGPUWhenShare</button>
+		<button type="button" class="button-small" onclick="enableAccelerateGPUWhenShare()">EnableAccelerateGPUWhenShare</button>
+		<button type="button" class="button-small" onclick="isAccelerateGPUWhenShareEnabled()">IsAccelerateGPUWhenShareEnabled</button>
+		<button type="button" class="button-small" onclick="enableRemoteControlAllApplications()">EnableRemoteControlAllApplications</button>
+		<button type="button" class="button-small" onclick="isRemoteControlAllApplicationsEnabled()">IsRemoteControlAllApplicationsEnabled</button>
   </div>
 </body>
 </html>
@@ -541,5 +554,45 @@
 
   function requestCustomizedLocalRecordingSource() {
     ipcRenderer.send('asynchronous-message', 'requestCustomizedLocalRecordingSource');
+  }
+
+  function enableAutoFitToWindowWhenViewSharing() {
+    let settingShare = document.getElementById("settingShare").value;
+    ipcRenderer.send('asynchronous-message', 'enableAutoFitToWindowWhenViewSharing', Boolean(settingShare));
+  }
+
+  function isAutoFitToWindowWhenViewSharingEnabled() {
+    ipcRenderer.send('asynchronous-message', 'isAutoFitToWindowWhenViewSharingEnabled');
+  }
+
+  function enableAutoFullScreenVideoWhenViewShare() {
+    let settingShare = document.getElementById("settingShare").value;
+    ipcRenderer.send('asynchronous-message', 'enableAutoFullScreenVideoWhenViewShare', Boolean(settingShare));
+  }
+
+  function isAutoFullScreenVideoWhenViewShareEnabled() {
+    ipcRenderer.send('asynchronous-message', 'isAutoFullScreenVideoWhenViewShareEnabled');
+  }
+
+  function isCurrentOSSupportAccelerateGPUWhenShare() {
+    ipcRenderer.send('asynchronous-message', 'isCurrentOSSupportAccelerateGPUWhenShare');
+  }
+
+  function enableAccelerateGPUWhenShare() {
+    let settingShare = document.getElementById("settingShare").value;
+    ipcRenderer.send('asynchronous-message', 'enableAccelerateGPUWhenShare', Boolean(settingShare));
+  }
+
+  function isAccelerateGPUWhenShareEnabled() {
+    ipcRenderer.send('asynchronous-message', 'isAccelerateGPUWhenShareEnabled');
+  }
+
+  function enableRemoteControlAllApplications() {
+    let settingShare = document.getElementById("settingShare").value;
+    ipcRenderer.send('asynchronous-message', 'enableRemoteControlAllApplications', Boolean(settingShare));
+  }
+
+  function isRemoteControlAllApplicationsEnabled() {
+    ipcRenderer.send('asynchronous-message', 'isRemoteControlAllApplicationsEnabled');
   }
 </script>

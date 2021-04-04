@@ -71,7 +71,7 @@ ZNSDKError nativeErrorTypeHelp::ZoomSDKErrorType(ZoomSDKError &error)
         case ZoomSDKError_initDevice:
             ret = ZNSDKERR_INIT_DEVICE;
             break;
-        case ZoomSDKError_CanNotChanageVirtualDevice:
+        case ZoomSDKError_CanNotChangeVirtualDevice:
             ret = ZNSDKERR_CANNOT_CHANGE_VIRTUAL_DEVICE;
             break;
         case ZoomSDKError_PreprocessRawdataError:
@@ -111,6 +111,15 @@ ZNAuthResult nativeErrorTypeHelp::ZoomSDKAuthErrorTpye(ZoomSDKAuthError &error)
             break;
         case ZoomSDKAuthError_NetworkIssue:
             ret = ZNAUTHRET_NETWORKISSUE;
+            break;
+        case ZoomSDKAuthError_Client_Incompatible:
+            ret = ZNAUTHRET_CLIENT_INCOMPATIBLE;
+            break;
+        case ZoomSDKAuthError_JwtTokenWrong:
+            ret = ZNAUTHRET_JWTTOKENWRONG;
+            break;
+        case ZoomSDKAuthError_KeyOrSecretEmpty:
+            ret = ZNAUTHRET_KEYORSECRETEMPTY;
             break;
         default:
             break;
@@ -323,7 +332,7 @@ ZoomSDKMeetingStatus nativeErrorTypeHelp::ZoomSDKMeetingStatusC(ZNMeetingStatus 
 }
 #pragma mark lanaguage
 static NSString* const kZMFollowSystemIdentify = @"follow system language";
-NSString *nativeErrorTypeHelp::ZNSDKLanaguageChanage(ZNSDK_LANGUAGE_ID &lanaguageid)
+NSString *nativeErrorTypeHelp::ZNSDKLanaguageChange(ZNSDK_LANGUAGE_ID &lanaguageid)
 {
     NSString *ret = kZMFollowSystemIdentify;
     switch (lanaguageid) {
@@ -720,8 +729,15 @@ ZNDirectShareStatus nativeErrorTypeHelp::ZNSDKDirectShareStatus(DirectShareStatu
             ret = ZN_DirectShare_NetWork_Error;
             break;
         case DirectShareStatus_Unknow:
-            ret = ZN_DirectShare_Other_Error;
+            ret = ZN_DirectShare_Unknown;
             break;
+        case DirectShareStatus_NeedInputNewPairingCode:
+            ret = ZN_DirectShare_InputNewParingCode;
+            break;
+        case DirectShareStatus_Prepared:
+            ret = ZN_DirectShare_Prepared;
+            break;
+
         default:
             break;
     }
@@ -1065,7 +1081,7 @@ ZNRequiredInfoType nativeErrorTypeHelp::ZNSDKRequiredInfoType(JoinMeetingReqInfo
 }
 
 
-ZNRecordingStatus nativeErrorTypeHelp::ZNRecordingStatusChanage(ZoomSDKRecordingStatus &status)
+ZNRecordingStatus nativeErrorTypeHelp::ZNRecordingStatusChange(ZoomSDKRecordingStatus &status)
 {
     ZNRecordingStatus ZNStatus = ZNRecording_Stop;
     switch (status) {
@@ -1087,3 +1103,49 @@ ZNRecordingStatus nativeErrorTypeHelp::ZNRecordingStatusChanage(ZoomSDKRecording
     return ZNStatus;
 }
 
+ZNLoginFailReason nativeErrorTypeHelp::ZNLoginFailReasonMap(ZoomSDKLoginFailReason &reason)
+{
+    ZNLoginFailReason failReason = ZNLoginFail_None;
+    switch(reason){
+        case ZoomSDKLoginFailReason_None:
+            failReason = ZNLoginFail_None;
+            break;
+        case ZoomSDKLoginFailReason_EmailLoginDisabled:
+            failReason = ZNLoginFail_EmailLoginDisable;
+            break;
+        case ZoomSDKLoginFailReason_UserNotExist:
+            failReason = ZNLoginFail_UserNotExist;
+            break;
+        case ZoomSDKLoginFailReason_WrongPassword:
+            failReason = ZNLoginFail_WrongPassword;
+            break;
+        case ZoomSDKLoginFailReason_AccountLocked:
+            failReason = ZNLoginFail_AccountLocked;
+            break;
+        case ZoomSDKLoginFailReason_SDKNeedUpdate:
+            failReason = ZNLoginFail_SDKNeedUpdate;
+            break;
+        case ZoomSDKLoginFailReason_TooManyFailedAttempts:
+            failReason = ZNLoginFail_TooManyFailedAttempts;
+            break;
+        case ZoomSDKLoginFailReason_SMSCodeError:
+            failReason = ZNLoginFail_SMSCodeError;
+            break;
+        case ZoomSDKLoginFailReason_SMSCodeExpired:
+            failReason = ZNLoginFail_SMSCodeExpired;
+            break;
+        case ZoomSDKLoginFailReason_PhoneNumberFormatInValid:
+            failReason = ZNLoginFail_PhoneNumberFormatInValid;
+            break;
+        case ZoomSDKLoginFailReason_LoginTokenInvalid:
+            failReason = ZNLoginFail_LoginTokenInvalid;
+            break;
+        case ZoomSDKLoginFailReason_Other_Issue:
+            failReason = ZNLoginFail_OtherIssue;
+            break;
+        default:
+            failReason = ZNLoginFail_OtherIssue;
+            break;
+    }
+    return failReason;
+}

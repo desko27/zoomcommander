@@ -35,6 +35,29 @@ void ZSettingUIStrategyWrap::DisableAccountSettingTabPage(bool bDisable)
 		pSettingUIStrategy->DisableAccountSettingTabPage(bDisable);
 	}
 }
+void ZSettingUIStrategyWrap::HideAutoCopyInviteLinkCheckBox(bool bHide)
+{
+	ZOOM_SDK_NAMESPACE::ISettingUIStrategy* pSettingUIStrategy = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetSettingUIStrategy();
+	if (pSettingUIStrategy)
+	{
+		pSettingUIStrategy->HideAutoCopyInviteLinkCheckBox(bHide);
+	}
+}
+void ZSettingUIStrategyWrap::ConfigToShowUrlLinksInSetting(unsigned long showOption)
+{
+	ZOOM_SDK_NAMESPACE::SettingDlgShowUrlOption sdk_showOption;
+
+	sdk_showOption.bShowGeneralViewMoreSetting = showOption & ZNSettingDlgURL_General_ViewMoreSettings;
+	sdk_showOption.bShowVideoSupportCenter = showOption & ZNSettingDlgURL_Video_SupportCenter;
+	sdk_showOption.bShowAudioLearnMore = showOption & ZNSettingDlgURL_Audio_LearnMore;
+	sdk_showOption.bShowShareAndVBLearnMore = showOption & ZNSettingDlgURL_Share_and_VB_LearnMore;
+	
+	ZOOM_SDK_NAMESPACE::ISettingUIStrategy* pSettingUIStrategy = ZOOM_SDK_NAMESPACE::CSDKWrap::GetInst().GetSettingServiceWrap().GetSettingUIStrategy();
+	if (pSettingUIStrategy)
+	{
+		pSettingUIStrategy->ConfigToShowUrlLinksInSetting(sdk_showOption);
+	}
+}
 void ZSettingUIStrategyWrap::ConfSettingDialogShownTabPage(unsigned long showOption)
 {
 	ZOOM_SDK_NAMESPACE::SettingDlgShowTabPageOption sdk_showOption;

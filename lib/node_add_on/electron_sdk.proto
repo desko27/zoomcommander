@@ -22,6 +22,7 @@ message InitSDKParams {
 	optional bool enableRawdataIntermediateMode = 17;
 	optional int32 renderPostProcessing = 18;
 	optional int32 videoCaptureMethod = 19;
+	optional string teamIdentifier = 20;
 }
 message AuthParams {
     optional string key = 1;  			
@@ -265,7 +266,7 @@ message EnablePlayChimeWhenEnterOrExitParams {
 	optional bool bEnable = 1;
 }
 
-message EnableInviteButtonOnMeeitngUIParams {
+message EnableInviteButtonOnMeetingUIParams {
 	optional bool bEnable = 1;
 }
 
@@ -845,6 +846,14 @@ message DisableAccountSettingTabPageParams {
     optional bool bDisable = 1; 
 }
 
+message HideAutoCopyInviteLinkCheckBoxParams {
+    optional bool bHide = 1; 
+}
+
+message ConfigToShowUrlLinksInSettingParams {
+    optional uint64 showOption = 1; 
+}
+
 message ConfSettingDialogShownTabPageParams {
     optional uint64 showOption = 1; 
 }
@@ -902,9 +911,6 @@ message EnableHideNoVideoUsersOnWallViewParams {
     optional bool bEnable = 1; 
 }
 
-message SetTeamIdentifierParams {
-    optional string identifier = 1; 
-}
 
 
 

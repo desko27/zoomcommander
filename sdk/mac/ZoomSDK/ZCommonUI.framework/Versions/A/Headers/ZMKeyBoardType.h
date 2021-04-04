@@ -78,3 +78,5 @@
 #define KEY_FN_LEFT 115
 #define KEY_FN_RIGHT 119
 
+#define KEY_F10 109 
+

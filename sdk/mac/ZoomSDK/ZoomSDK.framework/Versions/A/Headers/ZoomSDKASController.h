@@ -126,7 +126,7 @@
 
 /**
  * @brief Start to share application. 
- * @param shareAppWindow The App window to be shared.
+ * @param windowID The App window id to be shared.
  * @return If the function succeeds, it will return ZoomSDKError_succuss, otherwise not.
  */
 - (ZoomSDKError)startAppShare:(CGWindowID)windowID;

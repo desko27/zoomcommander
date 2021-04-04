@@ -217,7 +217,7 @@ bool ZDirectShareHelperWrap::IsDirectShareInProgress()
 ZNSDKError ZDirectShareHelperWrap::TryWithMeetingNumber(unsigned long long meetingNumber)
 {
     DirectShareStatus status = [[authServiceDelegate share] getDirectShare];
-    if (status == DirectShareStatus_WrongMeetingIDOrSharingKey || status == DirectShareStatus_NeedMeetingIDOrSharingKey) {
+    if (status == DirectShareStatus_WrongMeetingIDOrSharingKey || status == DirectShareStatus_NeedMeetingIDOrSharingKey || status == DirectShareStatus_NeedInputNewPairingCode) {
 
         ZoomSDKDirectShareHandler *handle = [[authServiceDelegate share] getDirectShareHandler];
         if (meetingNumber && handle != nil) {
@@ -237,7 +237,7 @@ ZNSDKError ZDirectShareHelperWrap::TryWithMeetingNumber(unsigned long long meeti
 ZNSDKError ZDirectShareHelperWrap::TryWithPairingCode(ZoomSTRING pairingCode)
 {
     DirectShareStatus status = [[authServiceDelegate share] getDirectShare];
-    if (status == DirectShareStatus_WrongMeetingIDOrSharingKey || status == DirectShareStatus_NeedMeetingIDOrSharingKey) {
+    if (status == DirectShareStatus_WrongMeetingIDOrSharingKey || status == DirectShareStatus_NeedMeetingIDOrSharingKey || status == DirectShareStatus_NeedInputNewPairingCode) {
         
         ZoomSDKDirectShareHandler *handle = [[authServiceDelegate share] getDirectShareHandler];
         if (pairingCode.length() > 0 && handle != nil) {

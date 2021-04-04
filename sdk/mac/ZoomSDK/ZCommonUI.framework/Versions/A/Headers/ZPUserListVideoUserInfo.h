@@ -19,11 +19,13 @@ enum _userAudioType
     BOOL        _isSending;
     BOOL        _isSource;
     BOOL        _isReceiving;
+    BOOL        _isUnencrypted;
 }
 
 @property (nonatomic, readwrite, assign)BOOL        isSending;
 @property (nonatomic, readwrite, assign)BOOL        isReceiving;
 @property (nonatomic, readwrite, assign)BOOL        isSource;
+@property (nonatomic, readwrite, assign)BOOL        isUnencrypted;
 
 @end
 
@@ -32,13 +34,21 @@ enum _userAudioType
     BOOL            _isMuted;
     BOOL            _isTalking;
     int             _type;
+    BOOL            _isUnencrypted;
 }
 @property (nonatomic, readwrite, assign)BOOL        isMuted;
 @property (nonatomic, readwrite, assign)BOOL        isTalking;
 @property (nonatomic, readwrite, assign)int         type;
+@property (nonatomic, readwrite, assign)BOOL        isUnencrypted;
 
 @end
 
+@interface ZPListShareStatus : NSObject {
+    BOOL            _isUnencrypted;
+}
+@property (nonatomic, readwrite, assign)BOOL        isUnencrypted;
+
+@end
 
 @interface ZPUserListVideoUserInfo : NSObject {
     int                                 _userID;
@@ -60,6 +70,7 @@ enum _userAudioType
     
     ZPListVideoStatus*                  _videoStatus;
     ZPListAudioStatus*                  _audioStatus;
+    ZPListShareStatus*                  _shareStatus;
     NSString*                           _jID;   //for webinar attendee
     BOOL                                _isInBOMeeting;
     int                                 _activeVideoOrder;
@@ -98,6 +109,7 @@ enum _userAudioType
 @property (nonatomic, readwrite, assign)BOOL                                    isRaiseHand;
 @property (nonatomic, readwrite, retain)ZPListVideoStatus*                      videoStatus;
 @property (nonatomic, readwrite, retain)ZPListAudioStatus*                      audioStatus;
+@property (nonatomic, readwrite, retain)ZPListShareStatus*                      shareStatus;
 @property (nonatomic, readwrite, retain)NSString*                               jID;
 @property (nonatomic, readwrite, assign)BOOL                                    isInBOMeeting;
 @property (nonatomic, readwrite, assign)int                                     activeVideoOrder;

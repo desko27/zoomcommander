@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		6SF9OMXAFULDx2SAXFDKTnM5VNA=
+		MbNPseCUvoKn6qN9F9fwJzNg0k4=
 		</data>
 		<key>Resources/afn_mac.mlmodelc/coremldata.bin</key>
 		<data>
@@ -56,6 +56,38 @@
 		<data>
 		4SnyfFEDvFzES83woV4WDURQZv8=
 		</data>
+		<key>Resources/flm.mlmodelc/analytics/coremldata.bin</key>
+		<data>
+		s7H9oRS/bNKpJ6NDuDf4V3A1vUA=
+		</data>
+		<key>Resources/flm.mlmodelc/coremldata.bin</key>
+		<data>
+		kQVxmb+iFFZy2zqAgypf21zVLnk=
+		</data>
+		<key>Resources/flm.mlmodelc/enc.net</key>
+		<data>
+		3aB8w+FrES9E4eBtTBvRri8kHy0=
+		</data>
+		<key>Resources/flm.mlmodelc/enc.shape</key>
+		<data>
+		DaM/bjPQlbgdPR22M+GBGa9/Da4=
+		</data>
+		<key>Resources/flm.mlmodelc/metadata.json</key>
+		<data>
+		G42bENfKubuMoJRVQU6mz7DXiKg=
+		</data>
+		<key>Resources/flm.mlmodelc/model.espresso.weights</key>
+		<data>
+		+kfK59EHRlygxRKaroPpxx6WcDI=
+		</data>
+		<key>Resources/flm.mlmodelc/model/coremldata.bin</key>
+		<data>
+		sAilHvVxCPam2pSz/l8ae9uYGG4=
+		</data>
+		<key>Resources/flm.mlmodelc/neural_network_optionals/coremldata.bin</key>
+		<data>
+		uA3l0Th1hUHF8FJlrRRKufqG0ds=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -63,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6SF9OMXAFULDx2SAXFDKTnM5VNA=
+			MbNPseCUvoKn6qN9F9fwJzNg0k4=
 			</data>
 			<key>hash2</key>
 			<data>
-			GLHV6o38e0xz19fVeSt6NZv+INj39895qkSZzpQSwJs=
+			FTttn30GIKz9EF6brX65czPQCU9QMg3iAW7aWbCBccw=
 			</data>
 		</dict>
 		<key>Resources/afn_mac.mlmodelc/coremldata.bin</key>
@@ -200,6 +232,94 @@
 			<key>hash2</key>
 			<data>
 			N0cI//dxndWXnsh11WzSKG9tPPfsMXo7JWMqqyjsN7s=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/analytics/coremldata.bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			s7H9oRS/bNKpJ6NDuDf4V3A1vUA=
+			</data>
+			<key>hash2</key>
+			<data>
+			5I6KipJSbZdmOGPmNejCOK2IwmqM0N9G4vg9QWhcsl0=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/coremldata.bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kQVxmb+iFFZy2zqAgypf21zVLnk=
+			</data>
+			<key>hash2</key>
+			<data>
+			9Dab8WyOppw9B55kXWD8CQxFyP4jkQ894QIQQweIKbA=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/enc.net</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3aB8w+FrES9E4eBtTBvRri8kHy0=
+			</data>
+			<key>hash2</key>
+			<data>
+			mJuDTJ0SojFtKE1Bx1GLdc9xUgf7tS+BqjfFcNopM2g=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/enc.shape</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DaM/bjPQlbgdPR22M+GBGa9/Da4=
+			</data>
+			<key>hash2</key>
+			<data>
+			DtYBA/TUK6x/DNgp8RuWJmPD03Y8gdQQBwZ2O5V1Rfk=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/metadata.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			G42bENfKubuMoJRVQU6mz7DXiKg=
+			</data>
+			<key>hash2</key>
+			<data>
+			HpOe9D8IwzuydWr4i7yKK5YiGPBCf0a1EluAJQQKi6Y=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/model.espresso.weights</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+kfK59EHRlygxRKaroPpxx6WcDI=
+			</data>
+			<key>hash2</key>
+			<data>
+			JHkZVeBAPgDYpDen0s7G6wOi/+s7bvIOFqNH9eGPTTA=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/model/coremldata.bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sAilHvVxCPam2pSz/l8ae9uYGG4=
+			</data>
+			<key>hash2</key>
+			<data>
+			UVkIvdgrGVUYi/wprJkauBSI5CsljIVSHFvZVZacuTs=
+			</data>
+		</dict>
+		<key>Resources/flm.mlmodelc/neural_network_optionals/coremldata.bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uA3l0Th1hUHF8FJlrRRKufqG0ds=
+			</data>
+			<key>hash2</key>
+			<data>
+			LDTOHfI7g4xavyp/ZDfMo9MGftUJ/yXxHfaxG1grUes=
 			</data>
 		</dict>
 	</dict>

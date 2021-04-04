@@ -1,5 +1,5 @@
-v5.4.54802.0124
+v5.5.12509.0330
 
 Base SDK versions:
-win32 native sdk version:zoom-sdk.5.4.54802.0124_x86
-mac native sdk version:All_mac_sdk_5.4.54802.0124
+win32 native sdk version:zoom-sdk.5.5.12509.0330_x86
+mac native sdk version:All_mac_sdk_5.5.12509.0330_universal

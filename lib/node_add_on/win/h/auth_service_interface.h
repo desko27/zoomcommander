@@ -26,6 +26,7 @@ enum AuthResult
 	AUTHRET_OVERTIME,///<Time out.
 	AUTHRET_NETWORKISSUE,///<Network issues.
 	AUTHRET_CLIENT_INCOMPATIBLE, ///Account does not support this SDK version
+	AUTHRET_JWTTOKENWRONG, ///<The jwt token to authenticate is wrong.
 };
 
 /*! \enum LOGINSTATUS
@@ -51,7 +52,8 @@ enum LoginFailReason
 	LoginFail_TooManyFailedAttempts,	
 	LoginFail_SMSCodeError,		
 	LoginFail_SMSCodeExpired,	
-	LoginFail_PhoneNumberFormatInValid, 
+	LoginFail_PhoneNumberFormatInValid,
+	LoginFail_LoginTokenInvalid,
 	LoginFail_OtherIssue = 100, 
 };
 
@@ -146,7 +148,7 @@ typedef struct tagLoginParam
 	LoginType loginType; ///<Type of login.
 	union
 	{
-		LoginParam4Email emailLogin;///<Login with mailbox.
+		LoginParam4Email emailLogin;/// <Login with mailbox.
 		LoginParam4SSO ssoLogin;///<Login with SSO token.
 	}ut;
 

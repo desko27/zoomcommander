@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19G73</string>
+	<string>19H524</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -41,6 +41,6 @@
 	<key>DTXcodeBuild</key>
 	<string>10B61</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>ZoomCopyRight</string>
+	<string>Copyright ©2012-2021 Zoom Video Communications, Inc. All rights reserved</string>
 </dict>
 </plist>

@@ -74,6 +74,8 @@ DEFINE_FUNC_AND_MEMBER(T_GetMyCameraController, ICameraControllerWrap)
 CallBack_FUNC_2(onUserVideoStatusChange, unsigned int, userId, VideoStatus, status)
 //virtual void onSpotlightVideoChangeNotification(bool bSpotlight, unsigned int userid) = 0;
 CallBack_FUNC_2(onSpotlightVideoChangeNotification, bool, bSpotlight, unsigned int, userid)
+//virtual void onSpotlightedUserListChangeNotification(IList<unsigned int >* lstSpotlightedUserID) = 0;
+CallBack_FUNC_1(onSpotlightedUserListChangeNotification, IList<unsigned int >*, lstSpotlightedUserID)
 //	virtual void onHostRequestStartVideo(IRequestStartVideoHandler* handler_) = 0;
 CallBack_FUNC_1(onHostRequestStartVideo, IRequestStartVideoHandler*, handler_)
 //virtual void onActiveSpeakerVideoUserChanged(unsigned int userid) = 0;

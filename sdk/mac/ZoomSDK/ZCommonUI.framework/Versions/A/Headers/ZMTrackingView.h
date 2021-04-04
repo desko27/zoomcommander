@@ -7,17 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NSView+ZoomKit.h"
 
-@interface ZMTrackingView : NSView
+@interface ZMTrackingView : ZMTagView
 {
     BOOL    _hovered;
     NSTrackingArea* _trackingArea;
-    id  _delegate;
 }
 
 @property(nonatomic, assign) BOOL hovered;
 @property(nonatomic, retain) NSTrackingArea* trackingArea;
-@property(nonatomic, assign) id delegate;
+@property(nonatomic, weak) id delegate;
 
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow NS_REQUIRES_SUPER;
 - (void)viewDidMoveToWindow NS_REQUIRES_SUPER;

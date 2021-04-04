@@ -46,4 +46,7 @@
 + (NSString *)getBundleVersion:(NSString *)bundlePath;
 + (BOOL)needDownloadWithLatestVersion:(NSString*)inLatestVersion currentVersion:(NSString*)inCurrentVersion;
 
++ (BOOL)isBuildForArm64;
++ (BOOL)isRunningOnArm64;
+
 @end

@@ -139,6 +139,12 @@ void ZoomNodeWrap::InitSDK(const v8::FunctionCallbackInfo<v8::Value>& args){
 		zn_initParams.path = s2zs(proto_params.path());
 		zn_initParams.domain = s2zs(proto_params.domain());
 
+		if (proto_params.has_teamidentifier())
+		{
+			zn_initParams.teamidentifier = s2zs(proto_params.teamidentifier());
+		}
+
+
 		if (proto_params.has_customizedlanguagename() && proto_params.has_customizedlanguageinfo() && proto_params.has_customizedlanguagetype())
 		{
 			zn_initParams.obConfigOpts.customizedLang.langName = s2zs(proto_params.customizedlanguagename());
@@ -233,6 +239,7 @@ void ZoomNodeWrap::CleanUPSDK(const v8::FunctionCallbackInfo<v8::Value>& args) {
 //	Uninit_MainThread_RunLoop();
 //#endif
 	v8::Isolate* isolate = args.GetIsolate();
+	ZoomNodeSinkHelper::GetInst().Reset();
 	ZNSDKError err = _g_native_wrap.CleanUPSDK();
 
 	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
@@ -243,31 +250,6 @@ void ZoomNodeWrap::GetZoomSDKVersion(const v8::FunctionCallbackInfo<v8::Value>& 
 	v8::Isolate* isolate = args.GetIsolate();
 	ZoomSTRING zn_zoomSDKVersion = _g_native_wrap.GetVersion();
 	v8::Local<v8::String> bret = v8::String::NewFromUtf8(isolate, zs2s(zn_zoomSDKVersion).c_str(), v8::NewStringType::kInternalized).ToLocalChecked();
-	args.GetReturnValue().Set(bret);
-}
-void ZoomNodeWrap::SetTeamIdentifier(const v8::FunctionCallbackInfo<v8::Value>& args) 
-{
-	v8::Isolate* isolate = args.GetIsolate();
-	ZNSDKError err = ZNSDKERR_SUCCESS;
-	do
-	{
-		com::electron::sdk::proto::SetTeamIdentifierParams proto_params;
-		if (!SetProtoParam<com::electron::sdk::proto::SetTeamIdentifierParams >(args, proto_params))
-		{
-			err = ZNSDKERR_INVALID_PARAMETER;
-			break;
-		}
-		if (!proto_params.has_identifier())
-		{
-			err = ZNSDKERR_INVALID_PARAMETER;
-			break;
-		}
-		ZoomSTRING zn_identifier;
-		zn_identifier = s2zs(proto_params.identifier());
-		 _g_native_wrap.SetTeamIdentifier(zn_identifier);
-	} while (false);
-
-	v8::Local<v8::Integer> bret = v8::Integer::New(isolate, (int32_t)err);
 	args.GetReturnValue().Set(bret);
 }
 

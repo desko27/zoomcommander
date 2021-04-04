@@ -10,6 +10,7 @@
         <ID6 text="Midday Sun"></ID6>
         <ID7 text="Soft Reveille"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Beep"></ID9>
     </English>
     <ChineseSimplified>
         <ID0 text="默认"></ID0>
@@ -21,6 +22,7 @@
         <ID6 text="正午阳光"></ID6>
         <ID7 text="柔和版起床号"></ID7>
         <ID8 text="弗雷德"></ID8>
+        <ID9 text="蜂鸣音"></ID9>
     </ChineseSimplified>
     <ChineseTraditional>
         <ID0 text="預設"></ID0>
@@ -32,6 +34,7 @@
         <ID6 text="日正當中"></ID6>
         <ID7 text="輕柔起床號"></ID7>
         <ID8 text="佛瑞德"></ID8>
+        <ID9 text="嗶聲"></ID9>
     </ChineseTraditional>
     <Italian>
         <ID0 text="Predefinito"></ID0>
@@ -43,6 +46,7 @@
         <ID6 text="Midday Sun"></ID6>
         <ID7 text="Soft Reveille"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Bip"></ID9>
     </Italian>
     <French>
         <ID0 text="Par défaut"></ID0>
@@ -54,6 +58,7 @@
         <ID6 text="Soleil de midi"></ID6>
         <ID7 text="Doux réveil"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Signal sonore"></ID9>
     </French>
     <German>
         <ID0 text="Standard"></ID0>
@@ -65,6 +70,7 @@
         <ID6 text="Mittagssonne"></ID6>
         <ID7 text="Sanfte Wehmut"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Signalton"></ID9>
     </German>
     <Spanish>
         <ID0 text="Predeterminado"></ID0>
@@ -76,6 +82,7 @@
         <ID6 text="Sol de mediodía"></ID6>
         <ID7 text="Toque de diana suave"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Sonido"></ID9>
     </Spanish>
     <Japanese>
         <ID0 text="デフォルト"></ID0>
@@ -87,6 +94,7 @@
         <ID6 text="陽光"></ID6>
         <ID7 text="穏やかな目覚め"></ID7>
         <ID8 text="フレッド"></ID8>
+        <ID9 text="ビープ"></ID9>
     </Japanese>
     <Portuguese>
         <ID0 text="Padrão"></ID0>
@@ -98,6 +106,7 @@
         <ID6 text="Sol do meio-dia"></ID6>
         <ID7 text="Reveille macia"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="Bipe"></ID9>
     </Portuguese>
     <Russian>
         <ID0 text="По умолчанию"></ID0>
@@ -109,6 +118,7 @@
         <ID6 text="Полуденное солнце"></ID6>
         <ID7 text="Нежное пробуждение"></ID7>
         <ID8 text="Фред"></ID8>
+        <ID9 text="Сигнал"></ID9>
     </Russian>
     <Korean>
         <ID0 text="기본"></ID0>
@@ -120,6 +130,7 @@
         <ID6 text="한낮의 태양"></ID6>
         <ID7 text="부드러운 기상나팔"></ID7>
         <ID8 text="Fred"></ID8>
+        <ID9 text="경고음"></ID9>
     </Korean>
     <Vietnamese>
         <ID0 text="Mặc định"></ID0>
@@ -131,5 +142,6 @@
         <ID6 text="Mặt trời giữa trưa"></ID6>
         <ID7 text="Đánh thức nhẹ nhàng"></ID7>
         <ID8 text="Yên ả"></ID8>
+        <ID9 text="Beep"></ID9>
     </Vietnamese>
 </language>

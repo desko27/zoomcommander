@@ -24,6 +24,8 @@ DEFINE_FUNC_0(StopDirectShare, SDKError)
 
 //virtual void OnDirectShareStatusUpdate(DirectShareStatus status, IDirectShareViaMeetingIDOrPairingCodeHandler* handler) = 0;
 CallBack_FUNC_2(OnDirectShareStatusUpdate, DirectShareStatus, status, IDirectShareViaMeetingIDOrPairingCodeHandler*, handler)
+//virtual void OnDirectShareSpecifyContent(IDirectShareSpecifyContentHandler* handler) = 0;  
+CallBack_FUNC_1(OnDirectShareSpecifyContent, IDirectShareSpecifyContentHandler*, handler)
 
 END_CLASS_DEFINE(IDirectShareServiceHelper)
 END_ZOOM_SDK_NAMESPACE

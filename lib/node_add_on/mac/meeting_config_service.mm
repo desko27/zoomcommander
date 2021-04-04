@@ -472,7 +472,7 @@ void ZMeetingConfigWrap::DisableConfidentialWatermark(bool bDisable)
     if (service) {
         ZoomSDKMeetingConfiguration *config = [service getMeetingConfiguration];
         if (config) {
-            [config diableConfidentialWatermark:bDisable];
+            [config disableConfidentialWatermark:bDisable];
         }
     }
 }

@@ -246,6 +246,7 @@ typedef enum{
 /**
  * @brief Get resolution when transferring video or sharing data.
  * @param isSend YES means sending data, NO receiving data.
+ * @note height can get through (Resolution >> 16), width can get through ((Resolution << 16) >> 16).
  */
 - (int)getResolution:(BOOL)isSend;
 /**
@@ -395,7 +396,7 @@ typedef enum{
  * @brief Determine if the meeting supports stereophonic sound. 
  * @return YES means supported, otherwise not.  
  */
-- (BOOL)isSupportStereo;
+- (BOOL)isSupportStereo NS_DEPRECATED_MAC(4.1, 5.5);
 /**
  * @brief Determine if stereophonic sound is enabled. 
  * @return YES means enabled, otherwise not. 
@@ -537,6 +538,13 @@ typedef enum{
  * @return YES means enabled, otherwise not.
  */
 - (BOOL)isHighFideMusicMode:(BOOL*)isDisabled;
+
+/**
+ * @brief Select the same audio device as system.
+ * @param mic YES means microphone device, No speaker device.
+ * @return If the function succeeds, it will return ZoomSDKError_success, otherwise not.
+ */
+- (ZoomSDKError)selectSameAudioDeviceAsSystem:(BOOL)mic;
 @end
 
 @interface ZoomSDKVideoSetting: NSObject
@@ -1014,6 +1022,13 @@ typedef enum{
  * @return The value of the current reaction skintone.
  */
 - (ZoomSDKEmojiReactionSkinTone)getReactionSkinTone;
+
+/**
+ * @brief Hide checkbox of automatically copy invite link when meeting start.
+ * @param hide YES means hide the checkbox,otherwise not.
+ * @return If the function is success will return ZoomSDKError_Success, othereise fail.
+ */
+-(ZoomSDKError)hideAutoCopyInviteLinkCheckBox:(BOOL)hide;
 @end
 
 @interface ZoomSDKStatisticsSetting: NSObject
@@ -1527,6 +1542,13 @@ typedef enum{
  * @return If the function succeeds, it will return an object of ZoomSDKShareScreenSetting.
  */
 -(ZoomSDKShareScreenSetting*)getShareScreenSetting;
+
+/**
+ * @brief Custom the url link show or hide on setting page.
+ @param settingPageUrl It is a enumeration of setting page url.
+ @param hide YES means is hide,otherwise not.
+ */
+-(void)configToShowUrlLinksInSetting:(ZoomSDKSettingPageURL)settingPageUrl isHide:(BOOL)hide;
 @end
 
 

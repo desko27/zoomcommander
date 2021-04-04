@@ -6,19 +6,19 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		5GvLCW6INKMBMQOnmjdHgLbfJb8=
+		ZuZYLVd6/Fop2rIqdIqBhBAStfk=
 		</data>
 		<key>Resources/affine_weights.bin</key>
 		<data>
-		9jt6mvNkhmTj3wCpHQ8XPnhb90A=
+		uXmXwtsfsWnryVJi590+OZdz5Xw=
 		</data>
 		<key>Resources/landmark_weights.bin</key>
 		<data>
-		MC3Dy6jrwCvzLK1iv7ypFh837Ys=
+		SxSIXUzGOwVCaPdKaJcP0qm5OYI=
 		</data>
 		<key>Resources/portrait_weights.bin</key>
 		<data>
-		4rXy5lsKBEWeP1WbzN2kBoRBMaw=
+		xgC9wkwgGeWgohQNSmXEX9cOI/g=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -36,44 +36,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5GvLCW6INKMBMQOnmjdHgLbfJb8=
+			ZuZYLVd6/Fop2rIqdIqBhBAStfk=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Lai7uhFDDVHN2slqrr6RcwFPH59qjNQzKCqpVGPB0E=
+			8JpSCvHtci8aFchyunGcnNqqVdKcG2TZbG6Mpz5HLvg=
 			</data>
 		</dict>
 		<key>Resources/affine_weights.bin</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9jt6mvNkhmTj3wCpHQ8XPnhb90A=
+			uXmXwtsfsWnryVJi590+OZdz5Xw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ap593TurxmPZwM+TJs94sAGvUJMGrzeanK6iBel5Qu4=
+			zQS+HDdvw6bYsRfwLsBd6NeHQiPiIws43jZBS3NmI9U=
 			</data>
 		</dict>
 		<key>Resources/landmark_weights.bin</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MC3Dy6jrwCvzLK1iv7ypFh837Ys=
+			SxSIXUzGOwVCaPdKaJcP0qm5OYI=
 			</data>
 			<key>hash2</key>
 			<data>
-			8QDJI4FTSEoqBggMWM8i8GChaoRu+EOeyK/82L9AMa0=
+			jA6ov8fnPkizMBalXxIgs1QKKFNi4lzdYxrKp1hlIko=
 			</data>
 		</dict>
 		<key>Resources/portrait_weights.bin</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4rXy5lsKBEWeP1WbzN2kBoRBMaw=
+			xgC9wkwgGeWgohQNSmXEX9cOI/g=
 			</data>
 			<key>hash2</key>
 			<data>
-			Oxv8Fpqjb12AU2DNZDjS0vINWndAKW150Ojcn8qL3ms=
+			SoUyWOjWtOfXZq5QSTuLJSqmVsi/1mpXQt8RZfuEQ2w=
 			</data>
 		</dict>
 	</dict>

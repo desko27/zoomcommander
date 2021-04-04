@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)menuWillClose:(ZMHMenu *)menu;
 - (void)menuDidClosed:(ZMHMenu *)menu;
 - (void)menu:(ZMHMenu *)menu willShowSubWindowWithItem:(ZMHMenuItem *)item;//ZOOM-43362
-
+- (void)menu:(ZMHMenu *)menu didShowSubWindowWithItem:(ZMHMenuItem *)item;
+- (BOOL)menuShouldCloseWithEvent:(NSEvent*)event;
 @end
 
 @interface ZMHMenu : NSObject <ZMObjectDispose> //Tree Menu
@@ -31,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
     id _lostFocusObserver;
 }
 
-@property (assign, nullable) id <ZMHMenuDelegate> delegate;
+@property (weak, nullable) id <ZMHMenuDelegate> delegate;
 
 @property (copy, nonatomic, nullable) NSArray <ZMHMenuItem *> *items;
 
@@ -60,6 +61,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable,retain) id representedObject;
 
 @property (copy) NSDictionary *shadowParameters;
+
+@property(nonatomic, assign) BOOL shareable;
+
+@property (assign) BOOL onlyDarkMode;
 
 - (BOOL)isMouseOnMenu;
 

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Base.lproj/MainMenu.nib</key>
 		<data>
-		XBd4LYgbkNv7rhSLnJ11fjd/+FE=
+		bkMGS0Udxbj99+ousjjFFCw3PHs=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,7 +15,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			UMeX23tcPmE+F2BGf8YaZyimg0g=
+			X49QsRNk88owTRHfwVnBcHu8dFc=
 			</data>
 			<key>requirement</key>
 			<string>identifier "zoom.us.libcmlFramework" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
@@ -24,20 +24,38 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			FU3HFK/a2YwEjmn3bXN8bEu3n9E=
+			qwyVY5ZrzMH+7enLaPEFLQ9T4MI=
 			</data>
 			<key>requirement</key>
 			<string>identifier "zoom.us.libmklFramework" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
+		</dict>
+		<key>Frameworks/util.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			U3pCQKQwP9Iexck4AIaoy2KH6rg=
+			</data>
+			<key>requirement</key>
+			<string>identifier "SaaSBee.util" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
+		</dict>
+		<key>Frameworks/zmp.bundle</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			YaU3M/ryxzN719RjmWDwjRpiJXE=
+			</data>
+			<key>requirement</key>
+			<string>identifier "us.zoom.zmp" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
 		</dict>
 		<key>Resources/Base.lproj/MainMenu.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XBd4LYgbkNv7rhSLnJ11fjd/+FE=
+			bkMGS0Udxbj99+ousjjFFCw3PHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			aCzWkO6OO3hyGjtdclLIZP3w0d2ZftYzJGVuP1iWI0c=
+			87neVg/gEVB53XYiLXmEvfoY347+GCh8JnhxF1KKxjo=
 			</data>
 		</dict>
 	</dict>

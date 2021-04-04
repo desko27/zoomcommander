@@ -129,6 +129,12 @@ ZNAuthResult Map2WrapDefine(ZOOM_SDK_NAMESPACE::AuthResult result)
 	case ZOOMSDK::AUTHRET_NETWORKISSUE:
 		zn_auth_result_ = ZNAUTHRET_NETWORKISSUE;
 		break;
+	case ZOOMSDK::AUTHRET_CLIENT_INCOMPATIBLE:
+		zn_auth_result_ = ZNAUTHRET_CLIENT_INCOMPATIBLE;
+		break;
+	case ZOOMSDK::AUTHRET_JWTTOKENWRONG:
+		zn_auth_result_ = ZNAUTHRET_JWTTOKENWRONG;
+		break;
 	default:
 		break;
 	}
@@ -484,6 +490,12 @@ ZNDirectShareStatus Map2WrapDefine(ZOOM_SDK_NAMESPACE::DirectShareStatus status)
 	case ZOOMSDK::DirectShare_WrongMeetingID_Or_SharingKey:
 		zn_direct_share_status = ZN_DirectShare_WrongMeetingID_Or_SharingKey;
 		break; 
+	case ZOOMSDK::DirectShare_InputNewParingCode:
+		zn_direct_share_status = ZN_DirectShare_InputNewParingCode;
+		break;
+	case ZOOMSDK::DirectShare_Prepared:
+		zn_direct_share_status = ZN_DirectShare_Prepared;
+		break;
 	default:
 		break;
 	}
@@ -811,6 +823,9 @@ ZNLoginFailReason Map2WrapDefine(ZOOM_SDK_NAMESPACE::LoginFailReason reason)
 		break;
 	case ZOOMSDK::LoginFail_None:
 		zn_reason = ZNLoginFail_None;
+		break;
+	case ZOOMSDK::LoginFail_LoginTokenInvalid:
+		zn_reason = ZNLoginFail_LoginTokenInvalid;
 		break;
 	default:
 		break;

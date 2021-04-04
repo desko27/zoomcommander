@@ -31,10 +31,6 @@
 #define IsFloatEqualOrLessThanZero(num) ((num) < 0.0000001)
 #endif
 
-#ifndef WEAK_SELF
-#define WEAK_SELF __block __typeof(&*self)weakSelf = self;
-#endif
-
 #ifndef ZM_GET_NSERROR
 #define ZM_GET_NSERROR(domain,errorcode,desc) [NSError errorWithDomain:domain code:errorcode userInfo:@{NSLocalizedDescriptionKey:(desc)?(desc):@""}]
 #endif
@@ -140,4 +136,8 @@ typedef enum
 + (void)drawArrow:(NSRect)rect lineWidth:(float)width color:(NSColor*)color direction:(int)direction type:(int)type;
 + (void)drawTick:(NSRect)rect lineWidth:(float)width color:(NSColor*)color;
 + (void)drawCross:(NSRect)rect lineWidth:(float)width color:(NSColor*)color;
+
+#pragma mark - pasteboard
+
++ (void)cleanPasteboard;
 @end

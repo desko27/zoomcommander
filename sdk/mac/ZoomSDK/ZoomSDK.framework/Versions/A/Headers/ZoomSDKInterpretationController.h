@@ -72,21 +72,21 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)onInterpretationStop;
 
 /**
- @brief Notify the interpreter role is chanaged.
- @param userID The user id of the interpreter role chanage.
+ @brief Notify the interpreter role is changed.
+ @param userID The user id of the interpreter role change.
  @param interpreter YES means is interpreter,otherwise not.
  */
 -(void)onInterpreterRoleChanged:(unsigned int)userID isInterpreter:(BOOL)interpreter;
 
 /**
- @brief Notify the interpreter role is chanaged.
+ @brief Notify the interpreter role is changed.
  @param userID The user id of the interpreter.
  @param languageID The current active language id.
  */
 -(void)onInterpreterActiveLanuageChanged:(unsigned int)userID activeLanguageID:(int)languageID;
 
 /**
- @brief Notify the interpreter language chanaged.
+ @brief Notify the interpreter language changed.
  @param lanID1 The language id of the first language id.
  @param lanID2 The language id of the second language id.
  */

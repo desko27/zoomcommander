@@ -286,6 +286,10 @@ public:
 	{
 		//
 	}
+	virtual void onSpotlightedUserListChangeNotification(ZOOM_SDK_NAMESPACE::IList<unsigned int >* lstSpotlightedUserID)
+	{
+		//
+	}
 	virtual void onHostRequestStartVideo(ZOOM_SDK_NAMESPACE::IRequestStartVideoHandler* handler_)
 	{
 
@@ -842,6 +846,9 @@ public:
 			}
 			owner_->OnDirectShareStatusUpdate(Map2WrapDefine(status));
 		}
+	}
+	virtual void OnDirectShareSpecifyContent(ZOOM_SDK_NAMESPACE::IDirectShareSpecifyContentHandler* handler)
+	{
 	}
 private:
 	ZDirectShareHelperWrap* owner_;

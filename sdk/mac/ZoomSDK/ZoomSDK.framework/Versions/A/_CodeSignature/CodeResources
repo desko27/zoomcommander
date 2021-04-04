@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		BZAq7BVEHspSaAgNzAe1XuDCvLc=
+		YZlmT3nrU1pHin0gtwJFy8klRaA=
 		</data>
 		<key>Resources/ZoomSDK.def</key>
 		<data>
@@ -27,10 +27,6 @@
 		<key>Resources/dingdong1.pcm</key>
 		<data>
 		wiuwLYJRamb4Rz27Qgm/Irtg+hQ=
-		</data>
-		<key>Resources/dtmf_a.wav</key>
-		<data>
-		hFOZ1cq578et5ITj8398st2+aCQ=
 		</data>
 		<key>Resources/leave.pcm</key>
 		<data>
@@ -56,17 +52,13 @@
 		<data>
 		kUe+rk6ROLpgn2fnX5y+p2Ucowc=
 		</data>
-		<key>Resources/ring_pstn.wav</key>
-		<data>
-		gEc6SNpNzg7ass1+snzcq/oQTjY=
-		</data>
 		<key>Resources/wr_ding.pcm</key>
 		<data>
 		9ILT3p6N18BDRPqzfQZ6CCM7ZN0=
 		</data>
 		<key>Resources/zcacert.pem</key>
 		<data>
-		UQw0sGIviq/du1r4YGWuC2i9dLw=
+		iRMV0w1ca6gXC3g+K7bbWKx6Y98=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -86,11 +78,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8oOLQoH2B2EqQVcPBnoE7irIJgo=
+			Lo4ZnbdbHVxik2Vdc4nBsaoGK+Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			LvdImNGGqgerljQiyBWhd0nMts1vj8Cysz2KA7BewJg=
+			sS47wBnYNLZnEwOGcWkeFAUK3lOpA2zO71f6ygN4ivU=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKAuthService.h</key>
@@ -141,11 +133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dDeNhwU4zH5qFzb8xcjPnEn+giM=
+			lvWymUsy8dJamdoQw3P81moemu8=
 			</data>
 			<key>hash2</key>
 			<data>
-			sh8ebSBsVJ5jNSbUqs+1GDj0M+Ug1g6Bs0WQ0w6rlJA=
+			tbvA4Qe1cJNO0dhiXU+GjoKHVpun4Yl/sqqGABRwzxs=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKH323Helper.h</key>
@@ -163,11 +155,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wGelxyu3OjAWoLHVwG6lQymq9hM=
+			juMl8ophxa0z82bpNUeB0G+OQR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			YxAR67w1sChQDxo490V+UtLhQrh/YxhEGolg2Tc2pIM=
+			nYba3vae2Ed00jdRxLc7HhuZ+MP+CD9U/ZYS/UDCJks=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKLiveStreamHelper.h</key>
@@ -185,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b++IyEGT+rBdRpvQ7tg9C2jwMps=
+			6uAcOiz53zEK6Xm29MJum2i06I4=
 			</data>
 			<key>hash2</key>
 			<data>
-			3dXBzpHViM3Swbe7wg/BOKkTL1ayY1fHTS7Z7KRIAQE=
+			b4fwHrkORVxzbnIDq4H5cS1IKARjJgd8Dv0pVLfl4tw=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKMeetingConfiguration.h</key>
@@ -251,11 +243,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BhVMqZTEY0UGosgII1mOWQ5boag=
+			3RoS6jA/KkX4K1EuQQvOC04rm08=
 			</data>
 			<key>hash2</key>
 			<data>
-			v39OD+6Qrjh3VjjoOMIxJxdaBv+MnpawARZ/yYWUaVc=
+			1shDFFf96FRkQrfKZHDDt1/HGAFocNjghmUACBdLQQU=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKPhoneHelper.h</key>
@@ -273,22 +265,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/PBwNjG8HiEBvGDh73K9ZCb/AtQ=
+			lhE5mGxEyF8aKw3GxEJz4ouQmfE=
 			</data>
 			<key>hash2</key>
 			<data>
-			GWfGSnW8TtTV2l1MfdCmR2LQEgnnh6uZclUSHClMO7A=
+			8cs97ixS9ZKJn+kncT4h2g3DBrDy45RuQ70y9gsqxzc=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKQAController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nG3YlPxNLwhZjlQwEYvv8FQ48wM=
+			ocjZ0ON+DdOxxcAZUnV9Zfvka70=
 			</data>
 			<key>hash2</key>
 			<data>
-			E8rKYTx4v6XDHuIORD1y0ERMxMVEzPSb3JYOoZqRAWY=
+			PSufgxF6NDQHYyEYGLZFqOVdlfUaue/vacaP2Wrz7w0=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKRawDataController.h</key>
@@ -361,11 +353,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e0wfGMjQAj86UxDS6CyjO1S+yK8=
+			1Mjw0KzHuQZwoA5Gct1nnFVjqNY=
 			</data>
 			<key>hash2</key>
 			<data>
-			N0r2gMc/XbOcT1cCkqmRW8zhd7Ov2gKzZbUaKJpVt+o=
+			T4qH4feM9q9BRi3/9UvjPTM9oY0VWqbGnza3YU9ZzwY=
 			</data>
 		</dict>
 		<key>Headers/ZoomSDKShareContainer.h</key>
@@ -449,11 +441,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BZAq7BVEHspSaAgNzAe1XuDCvLc=
+			YZlmT3nrU1pHin0gtwJFy8klRaA=
 			</data>
 			<key>hash2</key>
 			<data>
-			PPBa7GdU52bZIGT+PMklKgzf2Z1oLLx3Q9zjjQ2edhY=
+			M+lv72qKMKv0Evc4AoX+AfnWIJfsV8kuXUwK4Bxo6aI=
 			</data>
 		</dict>
 		<key>Resources/ZoomSDK.def</key>
@@ -487,17 +479,6 @@
 			<key>hash2</key>
 			<data>
 			L7u5rmpGOzYOFFm+5Vja+o2GTbJCPw/k0sVtIsPzpaI=
-			</data>
-		</dict>
-		<key>Resources/dtmf_a.wav</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hFOZ1cq578et5ITj8398st2+aCQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q9D9K+q8sFaBDmShe6bm4lzOaXnj69ttx9pMQfRwFe4=
 			</data>
 		</dict>
 		<key>Resources/leave.pcm</key>
@@ -566,17 +547,6 @@
 			KXkqCJPtJFfDhyxEGL3XH15sG45YlMLJIfio+NeX1Nw=
 			</data>
 		</dict>
-		<key>Resources/ring_pstn.wav</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gEc6SNpNzg7ass1+snzcq/oQTjY=
-			</data>
-			<key>hash2</key>
-			<data>
-			/DwknCY3TzaUnS8CbN8sSATrja+Vc2Vm2bagc4vMl5c=
-			</data>
-		</dict>
 		<key>Resources/wr_ding.pcm</key>
 		<dict>
 			<key>hash</key>
@@ -592,11 +562,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UQw0sGIviq/du1r4YGWuC2i9dLw=
+			iRMV0w1ca6gXC3g+K7bbWKx6Y98=
 			</data>
 			<key>hash2</key>
 			<data>
-			aMQ50KccDjtIPpKe0fyN2U4MYufc+4PJbhHP6BQgEA8=
+			O7L9b36g9tO+ig4ZNLlOHlIsAKIyGmgOYcCRZljn6V8=
 			</data>
 		</dict>
 	</dict>

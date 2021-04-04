@@ -11,6 +11,6 @@
 @class ZMHMenuItem;
 @interface ZMHMenuItemView : NSView
 
-@property (assign) ZMHMenuItem *representedItem;
+@property (weak) ZMHMenuItem *representedItem;
 
 @end

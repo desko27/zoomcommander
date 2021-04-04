@@ -17,7 +17,7 @@
     ZMHMenuItem * _representedItem;
 }
 
-@property (assign, nonatomic) ZMHMenuWindow *subMenuWindow;
+@property (weak, nonatomic) ZMHMenuWindow *subMenuWindow;
 @property (retain) ZMHMenuListView *menuListView;
 @property (retain, readonly) ZMHMenuItem * representedItem;
 @property NSRectCorner preferredAnchorConner;

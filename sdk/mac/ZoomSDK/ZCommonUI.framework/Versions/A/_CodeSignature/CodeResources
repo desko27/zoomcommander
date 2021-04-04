@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		0qAdCr6nuN4ErlmXgTh7nlmAb3o=
+		R/JGdRqzJAtrpo+Vmj05XMc9tbo=
 		</data>
 		<key>Resources/ZMDialogue.nib</key>
 		<data>
@@ -58,11 +58,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ti+Sbeonk50Rph72C4PMSEU642c=
+			IcZx9GzzAoxpFzDah6CWV58om1U=
 			</data>
 			<key>hash2</key>
 			<data>
-			LupBiuYe+iB7wTsrSSQerEY0efxsnBgDCUv7xneNIRw=
+			VLSlD1f6ZA03bmq62c+KL5jPDP5Xe490feMrrBJdJps=
 			</data>
 		</dict>
 		<key>Headers/ZMAXHelper.h</key>
@@ -102,55 +102,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e2/xzrfh36DWOfrXwSHL/mARdC4=
+			Pxbc4cWTK29zehq8etLhszwWGao=
 			</data>
 			<key>hash2</key>
 			<data>
-			ao7La3lPLCpAF18Fc5H7N7kO3ONrf5mYWzivSKb38uI=
+			m+Ljwp/KjNugmWA4OQtSnSZpv+15clPogQgp2ruMiOs=
 			</data>
 		</dict>
 		<key>Headers/ZMHMenuItem.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jcGMtx3zAn+L58l+vTQW0Vxq/+M=
+			rILhMhzhh27ykwHJZQZcpl9/Axs=
 			</data>
 			<key>hash2</key>
 			<data>
-			TXp19EmWeOQw0+HxumdFr4Zzb+XhlEBGKVcN+pWhzIs=
+			BcTIOqYRmQERctWZU79UTIcrS5RIkqspeYmG3QiTuOs=
 			</data>
 		</dict>
 		<key>Headers/ZMHMenuItemView.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gNnKEr4VLYTFxbMIeaJ/xLB/sx0=
+			jnXheHkVPPBiJ5XaSarg1E0EK2k=
 			</data>
 			<key>hash2</key>
 			<data>
-			wi6+oH1eHFQE+a2YkouzBzY2t5kyxHP9OFayVH6ukco=
+			r5j88tht+6DBGmgzJDifrKNyfSMvGn/PLnS4O3sqV7U=
 			</data>
 		</dict>
 		<key>Headers/ZMHMenuListView.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jogCNlXbQTIec9i2LZvoO3k7ObE=
+			3JvMxundPX8Gj/xrmsStPz1Kqwo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Jka1mmJcXdnM6IJosTKIGWWfvdsCnbRVG24yZavYGpM=
+			ymCHHnFpx/yvg+K3P8yYjohCDv72gNg07vD2eSPrtcA=
 			</data>
 		</dict>
 		<key>Headers/ZMHMenuWindow.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9JTn6Hss2oKvyLCuZhra7l+u3Ew=
+			+d8KO3ibVTUzgKU5eErYVzs4vFU=
 			</data>
 			<key>hash2</key>
 			<data>
-			amlS41Q5NkGMlnwTG5042RG+BOmPzTsUJixAsNjdk9E=
+			NrRDZ/5Megr2BQcuGq6kNBZIdhlUteMTnnjJtp8zItU=
 			</data>
 		</dict>
 		<key>Headers/ZMHotkeyKit.h</key>
@@ -168,11 +168,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j5VHcDgLBSusD2xJxsgwOZI9cjE=
+			4CN46cREL8asmEDUcRSrW7kP1A0=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Tj+E9RtzNn/kCjVS0X6ptJrhh0dWl4Amlc7RFoVKQ0=
+			+sEvWqwqwFaZ+G8R8IDgCwpZHKH9aVYYbna3gaY5QxA=
 			</data>
 		</dict>
 		<key>Headers/ZMNotificationManager.h</key>
@@ -267,66 +267,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7+rxIaFKsDPvVcfPbpeUhnDhPnQ=
+			0+LA0M7Qs3DUMfi136GGT4OtpVg=
 			</data>
 			<key>hash2</key>
 			<data>
-			30/IuzjVB8+xBi4vNoGaFE2cS6k1gCR8OTXJnhRc4HM=
+			LP64iNKA4UXYNMNt+DvxXaS5AKI4N4/FNENTW7KxFes=
 			</data>
 		</dict>
 		<key>Headers/ZMUIInterfaceBridge.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TPVYYya6+5sfbVY31bhNG77IluQ=
+			NvVObuUnvzLqdLdGNx1ThsIsOaE=
 			</data>
 			<key>hash2</key>
 			<data>
-			k5k8gkQ0xTPT+hecz38ZKR/w6QUzO3lDOpsD2b81liU=
+			0grlPy9w+EU90lV+u7ljAz03lfkh2wGex+gPWI1xsC8=
 			</data>
 		</dict>
 		<key>Headers/ZMUtil.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rt9TxCyxLK64DtVWDRdhR/91Viw=
+			mBG60hprWutGDaezW4gCxu31yoY=
 			</data>
 			<key>hash2</key>
 			<data>
-			XBhwolrrzcUxIk2Ij5lFK4kUpTJOgy9wi+P68PMQ1Fo=
+			nZgv11US34RUpNb3Ha6o2a0xCmHcNSERy6tWVPun82c=
 			</data>
 		</dict>
 		<key>Headers/ZPAlert.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Bo/wNbKG+rsJIdN/2ifikNRkIOU=
+			IMlVDq36AlBYot/tzm+sDO9Rm8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			tVK0a1Ew3iFsnoSgA7xNNIK3fEdgASf7md6/JrNrhds=
+			29fZ5WqRkGThpfwS1b7nigAfj0eYqNviOKmXSrLJ1N0=
 			</data>
 		</dict>
 		<key>Headers/ZPBundleHelper.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nRQYJRbt8iOqm9F6aPG6jW3lZDs=
+			WjZmCOrtEqlVpirifae3wE40dyA=
 			</data>
 			<key>hash2</key>
 			<data>
-			qyWDQYzQRtCf6xjhhiKjSVOA26sw6DmHhbXXSBz3GTM=
+			uQQz9eIbrdm89AJGX2ZBRT2QfCYQRSbwwKhQUaa2v9E=
 			</data>
 		</dict>
 		<key>Headers/ZPUserListVideoUserInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NkdmZpsgUDDc1/sSFTvHOUItjug=
+			XGR9FOBzPELyhq37bGXIZMtkl8k=
 			</data>
 			<key>hash2</key>
 			<data>
-			n8CpFqX1RGxuTbiJk53rt7QNyQ9nA0Oyq+dYmOdZ2Qg=
+			HcBGgF9LZlKRjAfBOeOxKOURqDKPoYuodQn43qLeq1A=
 			</data>
 		</dict>
 		<key>Headers/ZRCommonTimerSinkProtocol.h</key>
@@ -421,11 +421,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0qAdCr6nuN4ErlmXgTh7nlmAb3o=
+			R/JGdRqzJAtrpo+Vmj05XMc9tbo=
 			</data>
 			<key>hash2</key>
 			<data>
-			4NHqttxgQoM/RDaM8B5lLS1sq3940p3TJCYI2EpYdOI=
+			LISm6taaDrI1kCg/SdSxpoS0yTd9hxRHxIbHEFOwFao=
 			</data>
 		</dict>
 		<key>Resources/ZMDialogue.nib</key>

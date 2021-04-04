@@ -16,8 +16,8 @@ void ZoomNodeMeetingConfigCtrlWrap::EnableInviteButtonOnMeetingUI(const v8::Func
 	ZNSDKError err = ZNSDKERR_SUCCESS;
 	do
 	{
-		com::electron::sdk::proto::EnableInviteButtonOnMeeitngUIParams proto_params;
-		if (!SetProtoParam<com::electron::sdk::proto::EnableInviteButtonOnMeeitngUIParams >(args, proto_params))
+		com::electron::sdk::proto::EnableInviteButtonOnMeetingUIParams proto_params;
+		if (!SetProtoParam<com::electron::sdk::proto::EnableInviteButtonOnMeetingUIParams >(args, proto_params))
 		{
 			err = ZNSDKERR_INVALID_PARAMETER;
 			break;

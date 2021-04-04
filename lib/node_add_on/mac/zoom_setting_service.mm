@@ -45,6 +45,10 @@ ZSettingAccessibilityWrap& ZSettingServiceWrap::GetSettingAccessibilityCtrl()
 {
     return m_setting_accessibility_ctrl;
 }
+ZSettingShareWrap& ZSettingServiceWrap::GetSettingShareCtrl()
+{
+    return m_setting_share_ctrl;
+}
 void ZSettingServiceWrap::Init()
 {
     
@@ -85,7 +89,6 @@ ZNSDKError ZSettingServiceWrap::HideSettingDlg()
     }
     return  ZNSDKERR_SERVICE_FAILED;
 }
-
 
 //////////////////  ZSettingUIStrategyWrap  //////////////////
 ZSettingUIStrategyWrap::ZSettingUIStrategyWrap()
@@ -146,4 +149,27 @@ void ZSettingUIStrategyWrap::ConfSettingDialogShownTabPage(unsigned long showOpt
             [general hideSettingComponent:SettingComponent_AccessibilityFeatureTab hide:!(showOption & SETTING_DLG_SHOW_ACCESSIBILITY_TABPAGE)];
         }
     }
+}
+
+void ZSettingUIStrategyWrap::HideAutoCopyInviteLinkCheckBox(bool bHide)
+{
+    ZoomSDKSettingService *setting = [[ZoomSDK sharedSDK] getSettingService];
+    if(!setting)
+        return;
+    ZoomSDKGeneralSetting *general = [setting getGeneralSetting];
+    if(!general)
+        return;
+    [general hideAutoCopyInviteLinkCheckBox:bHide];
+}
+
+void ZSettingUIStrategyWrap::ConfigToShowUrlLinksInSetting(unsigned long showOption)
+{
+    ZoomSDKSettingService *setting = [[ZoomSDK sharedSDK] getSettingService];
+    if(!setting)
+        return;
+    [setting configToShowUrlLinksInSetting:ZoomSDKSettingPageURL_General_ViewMoreSetting
+                                    isHide:showOption&ZNSettingDlgURL_General_ViewMoreSettings];
+    [setting configToShowUrlLinksInSetting:ZoomSDKSettingPageURL_VB_LearnMore isHide:showOption&ZNSettingDlgURL_Share_and_VB_LearnMore];
+    [setting configToShowUrlLinksInSetting:ZoomSDKSettingPageURL_ShareScreen_LearnMore isHide:showOption&ZNSettingDlgURL_Share_and_VB_LearnMore];
+    [setting configToShowUrlLinksInSetting:ZoomSDKSettingPageURL_Audio_LearnMore isHide:showOption&ZNSettingDlgURL_Audio_LearnMore];
 }

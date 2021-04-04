@@ -42,20 +42,6 @@ typedef struct tagViewableShareSource
 	}
 }ViewableShareSource;
 
-/*! \enum ShareType 
-    Type of current sharing received by the user.
-    Here are more detailed structural descriptions..
-*/
-enum ShareType
-{
-	SHARE_TYPE_UNKNOWN,///<Type unknown.
-	SHARE_TYPE_AS,///<Type of sharing the application.
-	SHARE_TYPE_DS,///<Type of sharing the desktop.
-	SHARE_TYPE_WB,///<Type of sharing the white-board.
-	SHARE_TYPE_AIRHOST,///<Type of sharing data from the device connected WIFI. 
-	SHARE_TYPE_CAMERA,///<Type of sharing the camera.
-	SHARE_TYPE_DATA,///<Type of sharing the data.
-};
 /*! \enum AdvanceShareOption 
     Additional type of current sharing sent to others.
     Here are more detailed structural descriptions.

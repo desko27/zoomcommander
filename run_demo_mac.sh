@@ -5,12 +5,18 @@ cd `dirname $0`
 #else
 #echo "bin folder exist"
 #fi
+deviceArch=$(arch)
 cd  ./demo
 if [ -e "./node_modules/electron/dist/Electron.app/Contents/Frameworks/ZoomSDK.framework" ];then
-echo "file exist"
+	echo "file exist"
 else
-cd ./demo
-npm install
+	cd ./demo
+	echo deviceArch
+	if [ "$deviceArch" = "arm64" ];then
+		npm install -arch=arm64 
+	else 
+		npm install
+	fi
 npm run-script postinstall-mac
 fi
 npm start

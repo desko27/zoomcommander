@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/SDK_Transcode-Info.plist</key>
+		<data>
+		qvwCe+kC2Kkexa9HgS7Nm/oOuc8=
+		</data>
 		<key>Resources/TranscodeFolderController.nib</key>
 		<data>
 		GGH9Egiri18kHvZyQ3ngyuqKwA4=
@@ -145,6 +149,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/SDK_Transcode-Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qvwCe+kC2Kkexa9HgS7Nm/oOuc8=
+			</data>
+			<key>hash2</key>
+			<data>
+			S05ap6u7g4UMlSesH/3cGDNXS8KTfnJmmHKLRDXz1DU=
+			</data>
+		</dict>
 		<key>Resources/TranscodeFolderController.nib</key>
 		<dict>
 			<key>hash</key>

@@ -94,6 +94,7 @@
     <ClCompile Include="meeting_service_components_wrap\meeting_chat_wrap.cpp" />
     <ClCompile Include="meeting_service_components_wrap\meeting_closedcaption_ctrl_wrap.cpp" />
     <ClCompile Include="meeting_service_components_wrap\meeting_configuration_wrap.cpp" />
+    <ClCompile Include="meeting_service_components_wrap\meeting_emoji_reaction_wrap.cpp" />
     <ClCompile Include="meeting_service_components_wrap\meeting_h323_helper_wrap.cpp" />
     <ClCompile Include="meeting_service_components_wrap\meeting_interpretation_ctrl_wrap.cpp" />
     <ClCompile Include="meeting_service_components_wrap\meeting_live_stream_wrap.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="meeting_service_components_wrap\meeting_chat_wrap.h" />
     <ClInclude Include="meeting_service_components_wrap\meeting_closedcaption_ctrl_wrap.h" />
     <ClInclude Include="meeting_service_components_wrap\meeting_configuration_wrap.h" />
+    <ClInclude Include="meeting_service_components_wrap\meeting_emoji_reaction_wrap.h" />
     <ClInclude Include="meeting_service_components_wrap\meeting_h323_helper_wrap.h" />
     <ClInclude Include="meeting_service_components_wrap\meeting_interpretation_ctrl_wrap.h" />
     <ClInclude Include="meeting_service_components_wrap\meeting_live_stream_wrap.h" />

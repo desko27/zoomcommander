@@ -175,6 +175,86 @@ public:
 		static ZoomNodeSinkHelper inst;
 		return inst;
 	}
+
+	void Reset()
+	{
+		onAuthenticationReturn.Reset();
+		onLoginRet.Reset();
+		onLogout.Reset();
+		onZoomIdentityExpired.Reset();
+		onZoomAuthIdentityExpired.Reset();
+		onMeetingStatusChanged.Reset();
+
+		onScheduleOrEditMeeting.Reset();
+		onListMeeting.Reset();
+		onDeleteMeeting.Reset();
+		onInviteBtnClicked.Reset();
+		onStartShareBtnClicked.Reset();
+		onEndMeetingBtnClicked.Reset();
+		onParticipantListBtnClicked.Reset();
+		onCustomLiveStreamMenuClicked.Reset();
+		onZoomInviteDialogFailed.Reset();
+		onCCBTNClicked.Reset();
+		onAudioBtnClicked.Reset();
+		onAudioMenuBtnClicked.Reset();
+
+		onUserAudioStatusChange.Reset();
+		onUserActiveAudioChange.Reset();
+
+		onUserVideoStatusChange.Reset();
+		onActiveSpeakerVideoUserChanged.Reset();
+		onActiveVideoUserChanged.Reset();
+
+		onRecording2MP4Done.Reset();
+		onRecording2MP4Processing.Reset();
+		onRecordingStatus.Reset();
+		onCloudRecordingStatus.Reset();
+		onRecordPriviligeChanged.Reset();
+		onCustomizedLocalRecordingSourceNotification.Reset();
+
+		onSharingStatus.Reset();
+
+		onUserJoin.Reset();
+		onUserLeft.Reset();
+		onHostChangeNotification.Reset();
+
+		onH323CalloutStatusNotify.Reset();
+
+		onFreeMeetingNeedToUpgrade.Reset();
+		onFreeMeetingUpgradeToGiftFreeTrialStart.Reset();
+		onFreeMeetingUpgradeToGiftFreeTrialStop.Reset();
+		onFreeMeetingUpgradeToProMeeting.Reset();
+
+		onInputMeetingPasswordAndScreenNameNotification.Reset();
+		onAirPlayInstructionWndNotification.Reset();
+		onWebinarNeedRegisterNotification.Reset();
+		onEndOtherMeetingToJoinMeetingNotification.Reset();
+		onFreeMeetingRemainTime.Reset();
+		onFreeMeetingRemainTimeStopCountDown.Reset();
+		onFreeMeetingEndingReminderNotification.Reset();
+
+
+		OnDirectShareStatusUpdate.Reset();
+
+		onNeedRealNameAuthMeetingNotification.Reset();
+		onRetrieveSMSVerificationCodeResultNotification.Reset();
+		onVerifySMSVerificationCodeResultNotification.Reset();
+
+		onComputerMicDeviceChanged.Reset();
+		onComputerSpeakerDeviceChanged.Reset();
+		onDefaultMicDeviceChanged.Reset();
+		onDefaultSpeakerDeviceChanged.Reset();
+
+		onComputerCamDeviceChanged.Reset();
+		onDefaultCamDeviceChanged.Reset();
+
+		onCloudRecordingStorageInfo.Reset();
+		onRawDataStatusChanged.Reset();
+
+		onLoginReturnWithReason.Reset();
+		onGetInviteEmailContent.Reset();
+	}
+
 	~ZoomNodeSinkHelper() {}
 private:
 	ZoomNodeSinkHelper() {}

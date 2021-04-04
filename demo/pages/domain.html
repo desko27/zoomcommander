@@ -9,12 +9,6 @@
 		<img class="logo" src="./images/fte_Logo.png" />
   </div> 
   <br/><br />
-  <div id="identifierContent">
-    <div class="center"><input type="text" name="identifier" placeholder="input identifier" id="identifier" /></div>
-    <br/>
-    <div class="center"><button type="button" onclick="setTeamIdentifier()">Set Team Identifier</button></div>
-    <br/><br/>
-  </div>
 	<div class="center"><input type="text" name="domain" placeholder="input domain" size="50" id="domain" value="https://www.zoom.us"/></div>
 	<div class="tip" id="tip">
 		your input domain is incorrect
@@ -31,18 +25,6 @@
 </body>
 <script>
   const {ipcRenderer} = require('electron');
-  const {platform} = require('os');
-  const identifierContent = document.querySelector("#identifierContent")
-  if (platform() == "darwin") {
-    identifierContent.style = "display: block"
-  } else {
-    identifierContent.style = "display: none"
-  }
-  
-  function setTeamIdentifier() {
-    let identifier = document.getElementById("identifier").value.replace(/^\s+|\s+$/g, ''); 
-    ipcRenderer.send('asynchronous-message', 'setTeamIdentifier', identifier);
-  }
 
   function senddomainmsg(domain, enable_log){
     ipcRenderer.send('asynchronous-message', 'setDomain', domain, enable_log);

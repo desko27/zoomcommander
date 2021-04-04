@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19G73</string>
+	<string>19H524</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.4.54802.0124</string>
+	<string>ZoomBundleDisplayVersion</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>5.4.54802.0124</string>
+	<string>ZoomBundleVersionNumber</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
@@ -59,6 +59,6 @@
 	<key>DTXcodeBuild</key>
 	<string>10B61</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2011 __MyCompanyName__. All rights reserved.</string>
+	<string>ZoomCopyRight</string>
 </dict>
 </plist>

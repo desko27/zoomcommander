@@ -102,7 +102,7 @@
                     "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++14", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
                     "OTHER_LDFLAGS": [ "-stdlib=libc++"],
                     "DEPLOYMENT_POSTPROCESSING": "YES",
-           
+                    "VALID_ARCHS": "x86_64 arm64 arm64e",
 
 	        }
 			   
@@ -277,6 +277,7 @@
                     "OTHER_CPLUSPLUSFLAGS" : [ '-ObjC++', "-std=c++14", "-stdlib=libc++",  '-fvisibility=hidden','-frtti'],
                     "OTHER_LDFLAGS": [ "-stdlib=libc++"],
                     "DEPLOYMENT_POSTPROCESSING": "YES",
+                    "VALID_ARCHS": "x86_64 arm64 arm64e",
 	        }
 			   
 		  },

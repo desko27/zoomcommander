@@ -389,8 +389,11 @@ ZNSDKError ZMeetingUICtrlWrap::IsDisplayingShareViewOrVideo(bool& bIsShare)
     if (!controller){
         return ZNSDKERR_SERVICE_FAILED;
     }
-    bIsShare = [controller isDisplayingShareViewOrVideo];
-    return ZNSDKERR_SUCCESS;
+    BOOL isShareView = NO;
+    ZoomSDKError ret = [controller isDisplayingShareViewOrVideo:&isShareView];
+    bIsShare = (isShareView == YES ? true : false);
+    nativeErrorTypeHelp  Help_type;
+    return Help_type.ZoomSDKErrorType(ret);
 }
 
 ZNSDKError ZMeetingUICtrlWrap::CanSwapToShowShareViewOrVideo(bool& bCan)
@@ -403,7 +406,7 @@ ZNSDKError ZMeetingUICtrlWrap::CanSwapToShowShareViewOrVideo(bool& bCan)
     if (!controller){
         return ZNSDKERR_SERVICE_FAILED;
     }
-    bCan = [controller canSwapToShowShareViewOrVideo];
+    bCan = [controller canSwapBetweenShareViewOrVideo];
     return ZNSDKERR_SUCCESS;
     
 }

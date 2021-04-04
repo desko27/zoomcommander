@@ -142,7 +142,6 @@ public:
 	
 	static void GetRawdataAPIWrap(const v8::FunctionCallbackInfo<v8::Value>& args);
 
-	static void SetTeamIdentifier(const v8::FunctionCallbackInfo<v8::Value>& args);
 
 	static v8::Persistent<v8::Function> constructor;
 };
@@ -167,7 +166,6 @@ static void InitClassAttribute<ZoomNodeWrap >(const v8::Local<v8::FunctionTempla
 
 	NODE_SET_PROTOTYPE_METHOD(tpl, "GetRawdataAPIWrap", ZoomNodeWrap::GetRawdataAPIWrap);
 
-	NODE_SET_PROTOTYPE_METHOD(tpl, "SetTeamIdentifier", ZoomNodeWrap::SetTeamIdentifier);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeWrap >() {

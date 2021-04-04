@@ -80,3 +80,4 @@
 #import "ZMTokenTextAttachmentCell.h"
 #import "ZMNotificationManager.h"
 #import "ZMAccessibilityElement.h"
+#import "ZMLinkTextField.h"

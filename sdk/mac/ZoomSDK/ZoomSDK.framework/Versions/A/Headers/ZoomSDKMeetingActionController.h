@@ -295,7 +295,8 @@
  * @param userID The ID of user whose video is currently spotlighted.
  *
  */
-- (void)onSpotlightVideoUserChange:(BOOL)spotlight User:(unsigned int)userID;
+- (void)onSpotlightVideoUserChange:(BOOL)spotlight User:(unsigned int)userID NS_DEPRECATED_MAC(4.1, 5.4);
+- (void)onSpotlightVideoUserChange:(NSArray*)spotlightedUserList NS_AVAILABLE_MAC(5.5);
 
 /**
  * @brief Notify that user's video status changes.
@@ -321,7 +322,7 @@
 /**
  * @brief Notification of in-meeting active speaker changes.
  * @param userID The ID of new active speaker.
- * @note This api is deprecated, you can use ‘- (void)onUserActiveAudioChanage:(NSArray *)useridArray’ instead.
+ * @note This api is deprecated, you can use ‘- (void)onUserActiveAudioChange:(NSArray *)useridArray’ instead.
  */
 - (void)onActiveSpeakerChanged:(unsigned int)userID NS_DEPRECATED_MAC(4.1, 4.6);
 
@@ -352,8 +353,8 @@
  *@brief Notification of in-meeting active speakers.
  *@param useridArray The array contain userid of the active speakers.
  */
-- (void)onUserActiveAudioChanage:(NSArray *)useridArray;
-
+- (void)onUserActiveAudioChanage:(NSArray *)useridArray NS_DEPRECATED_MAC(4.1, 5.5);
+- (void)onUserActiveAudioChange:(NSArray *)useridArray NS_AVAILABLE_MAC(5.5);
 /**
  *@brief Notification of user name chanaged.
  *@param userid The user's user ID.

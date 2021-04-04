@@ -158,12 +158,12 @@ extern ZNativeSDKWrap _g_native_wrap;
         return;
     }
     ZNList<ZNUserAudioStatus> userAudioStatusList;
-    nativeErrorTypeHelp help_typeChanage;
+    nativeErrorTypeHelp help_typeChange;
     ZNUserAudioStatus userAudioInfo;
     for (ZoomSDKUserAudioStatus *key in userAudioStatusArray) {
         unsigned int USERID = [key getUserID];
         ZoomSDKAudioStatus status = [key getStatus];
-        ZNAudioStatus  znStatus = help_typeChanage.ZNSDKUserAudioStatus(status);
+        ZNAudioStatus  znStatus = help_typeChange.ZNSDKUserAudioStatus(status);
         userAudioInfo.audioStauts = znStatus;
         userAudioInfo.userId = USERID;
         userAudioStatusList.push_back(userAudioInfo);
@@ -172,7 +172,7 @@ extern ZNativeSDKWrap _g_native_wrap;
     
 }
 
--(void)onUserActiveAudioChanage:(NSArray *)useridArray
+-(void)onUserActiveAudioChange:(NSArray *)useridArray
 {
     ZNList<unsigned int> list;
     for (NSNumber *num in useridArray) {
@@ -181,14 +181,7 @@ extern ZNativeSDKWrap _g_native_wrap;
     }
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingAudioCtrl().onUserActiveAudioChange(list);
 }
-/*
--(void)onActiveSpeakerChanged:(unsigned int)userID
-{
-    ZNList<unsigned int> list;
-    list.push_back(userID);
-    _g_native_wrap.GetMeetingServiceWrap().GetMeetingAudioCtrl().onUserActiveAudioChange(list);
-}
-*/
+
 -(void)onUserLeft:(NSArray *)array
 {
     if (!array || array.count == 0) {
@@ -224,8 +217,8 @@ extern ZNativeSDKWrap _g_native_wrap;
 //h323
 -(void)onCalloutStatusReceived:(H323CalloutStatus)calloutStatus
 {
-    nativeErrorTypeHelp help_typeChanage;
-    ZNH323CalloutStatus status = help_typeChanage.ZoomSDKH323Status(calloutStatus);
+    nativeErrorTypeHelp help_typeChange;
+    ZNH323CalloutStatus status = help_typeChange.ZoomSDKH323Status(calloutStatus);
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingH323Ctrl().onH323CalloutStatusNotify(status);
 }
 
@@ -367,7 +360,7 @@ extern ZNativeSDKWrap _g_native_wrap;
 - (void)onRecordStatus:(ZoomSDKRecordingStatus)status
 {
     nativeErrorTypeHelp help;
-    ZNRecordingStatus znStatus = help.ZNRecordingStatusChanage(status);
+    ZNRecordingStatus znStatus = help.ZNRecordingStatusChange(status);
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingRecordingCtrl().onRecordingStatus(znStatus);
 }
 
@@ -379,7 +372,7 @@ extern ZNativeSDKWrap _g_native_wrap;
 -(void)onCloudRecordingStatus:(ZoomSDKRecordingStatus)status
 {
     nativeErrorTypeHelp help;
-    ZNRecordingStatus znStatus = help.ZNRecordingStatusChanage(status);
+    ZNRecordingStatus znStatus = help.ZNRecordingStatusChange(status);
     _g_native_wrap.GetMeetingServiceWrap().GetMeetingRecordingCtrl().onCloudRecordingStatus(znStatus);
 }
 

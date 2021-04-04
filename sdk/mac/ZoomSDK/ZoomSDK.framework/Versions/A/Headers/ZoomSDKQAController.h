@@ -220,14 +220,14 @@
 /**
  @brief If vote queation will receive the callback.
  @param questionID The vote questionID.
- @param isChanged If YES means the question order will chanage,otherwise not.
+ @param isChanged If YES means the question order will change,otherwise not.
  */
 -(void)onVoteupQuestion:(NSString*)questionID orderChanged:(BOOL)isChanged;
 
 /**
  @brief If revoke vote queation will receive the callback.
  @param questionID The revoke vote question ID.
- @param isChanged If YES means the question order will chanage,otherwise not.
+ @param isChanged If YES means the question order will change,otherwise not.
  */
 -(void)onRevokeVoteupQuestion:(NSString*)questionID orderChanged:(BOOL)isChanged;
 

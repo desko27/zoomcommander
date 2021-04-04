@@ -6,7 +6,6 @@
 #ifndef _DIRECT_SHARE_SERVICE_HELPER_INTERFACE_H_
 #define _DIRECT_SHARE_SERVICE_HELPER_INTERFACE_H_
 #include "zoom_sdk_def.h"
-
 BEGIN_ZOOM_SDK_NAMESPACE
 
 /*! \enum DirectShareStatusStatus_Enum
@@ -23,7 +22,23 @@ typedef enum DirectShareStatusStatus_Enum
 	DirectShare_NetWork_Error,///<Network error. Please try again later.
 	DirectShare_Other_Error,///<Other errors. Mainly occur in SIP call mode.
 	DirectShare_WrongMeetingID_Or_SharingKey,///<Wrong meeting id or sharing key.
+	DirectShare_InputNewParingCode,///<Please input new paring code.
+	DirectShare_Prepared, ///Prepare to share data
 }DirectShareStatus;
+
+class IDirectShareSpecifyContentHandler
+{
+public:
+	virtual ~IDirectShareSpecifyContentHandler(){};
+
+	virtual IList<ShareType>* GetSupportedDirectShareType() = 0;
+
+	virtual SDKError TryShareApplication(HWND hWnd, bool bShareSound = true, bool bOptimizeVideoClip = true) = 0;
+
+	virtual SDKError TryShareDesktop(const wchar_t* monitorId, bool bShareSound = true, bool bOptimizeVideoClip = true) = 0;
+
+	virtual SDKError Cancel() = 0;
+};
 
 /// \brief Direct sharing by meeting ID or pairing code helper interface.
 ///
@@ -61,6 +76,8 @@ public:
 	///The SDK user must set the value of the _paring_code or _meeting_number via the functions of IDirectShareViaMeetingIDOrPairingCodeHandler to start direct sharing. For more details, see \link IDirectShareViaMeetingIDOrPairingCodeHandler \endlink.
 	virtual void OnDirectShareStatusUpdate(DirectShareStatus status, IDirectShareViaMeetingIDOrPairingCodeHandler* handler) = 0;
 
+	//only used for customui mode
+	virtual void OnDirectShareSpecifyContent(IDirectShareSpecifyContentHandler* handler) = 0;
 };
 
 /// \brief Direct sharing helper Interface.

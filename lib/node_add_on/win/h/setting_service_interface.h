@@ -193,6 +193,26 @@ typedef struct tagSettingDlgShowTabPageOption
 
 }SettingDlgShowTabPageOption;
 
+/*! \struct tagSettingDlgShowUrlOption
+	\brief Define the strategy to show the url in the setting dialog.
+	Here are more detailed structural descriptions.
+*/
+typedef struct tagSettingDlgShowUrlOption
+{
+	bool bShowGeneralViewMoreSetting;///<True indicates to the view more setting url in general page
+	bool bShowVideoSupportCenter; ///<True indicates to show the support center url in video page
+	bool bShowAudioLearnMore;///<True indicates to show the learn more url of suppress background noise in audio page
+	bool bShowShareAndVBLearnMore; ///<True indicates to show the learn more url of screen capture mode in share screen and vb page
+	tagSettingDlgShowUrlOption()
+	{
+		bShowGeneralViewMoreSetting = true;
+		bShowVideoSupportCenter = true;
+		bShowAudioLearnMore = true;
+		bShowShareAndVBLearnMore = true;
+	}
+
+}SettingDlgShowUrlOption;
+
 /*! \enum SDK_TESTMIC_STATUS
     \brief Notify the status of the mic when testing.
     Here are more detailed structural descriptions.
@@ -1167,9 +1187,13 @@ public:
 	/// \param showOption True indicates to show the corresponding tab page for each item.
 	virtual void ConfSettingDialogShownTabPage(SettingDlgShowTabPageOption showOption) = 0;
 
-	/// \brief Hide the setting option of auto copy invite url on the General Setting page or not.
-	/// \param bDisable TRUE indicates to hide the setting option.
+	/// \brief Set the visibility of the AUTOMATICALLY COPY INVITE URL check-box on the General Setting page.
+	/// \param bHide TRUE indicates to hide the check box.
 	virtual void HideAutoCopyInviteLinkCheckBox(bool bHide) = 0;
+
+	/// \brief Custom the url link show or hide
+/// \param showOption True indicates to show the corresponding url link for each item.
+	virtual void ConfigToShowUrlLinksInSetting(SettingDlgShowUrlOption showOption) = 0;
 };
 /// \brief Virtual background image information interface.
 ///

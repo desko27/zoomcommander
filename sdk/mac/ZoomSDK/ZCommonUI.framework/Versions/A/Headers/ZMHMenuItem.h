@@ -36,12 +36,12 @@ typedef BOOL(^ZMHMenuItemBackgroundDrawer)(NSRect bounds, NSRect dirtyRect, BOOL
 
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, retain, nullable) id representedValue;
-@property (nullable, assign) id target;
+@property (nullable, weak) id target;
 @property (nullable) SEL action;
 
 @property (copy, nonatomic, nullable) NSArray <ZMHMenuItem *> *subItems;
 @property (copy, nonatomic, nullable) NSString *subItemsTitle;
-@property (assign, nonatomic) ZMHMenu *hmenu;//do not call the setter
+@property (weak, nonatomic) ZMHMenu *hmenu;//do not call the setter
 
 @property (class, readonly) ZMHMenuItem *rootItem;
 @property (class, readonly) ZMHMenuItem *separatedItem;

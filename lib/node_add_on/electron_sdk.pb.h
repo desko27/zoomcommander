@@ -72,6 +72,9 @@ extern ConfSettingDialogShownTabPageParamsDefaultTypeInternal _ConfSettingDialog
 class ConfigDSCPParams;
 class ConfigDSCPParamsDefaultTypeInternal;
 extern ConfigDSCPParamsDefaultTypeInternal _ConfigDSCPParams_default_instance_;
+class ConfigToShowUrlLinksInSettingParams;
+class ConfigToShowUrlLinksInSettingParamsDefaultTypeInternal;
+extern ConfigToShowUrlLinksInSettingParamsDefaultTypeInternal _ConfigToShowUrlLinksInSettingParams_default_instance_;
 class CreateRendererParams;
 class CreateRendererParamsDefaultTypeInternal;
 extern CreateRendererParamsDefaultTypeInternal _CreateRendererParams_default_instance_;
@@ -234,9 +237,9 @@ extern EnableInputMeetingPasswordDlgParamsDefaultTypeInternal _EnableInputMeetin
 class EnableInputMeetingScreenNameDlgParams;
 class EnableInputMeetingScreenNameDlgParamsDefaultTypeInternal;
 extern EnableInputMeetingScreenNameDlgParamsDefaultTypeInternal _EnableInputMeetingScreenNameDlgParams_default_instance_;
-class EnableInviteButtonOnMeeitngUIParams;
-class EnableInviteButtonOnMeeitngUIParamsDefaultTypeInternal;
-extern EnableInviteButtonOnMeeitngUIParamsDefaultTypeInternal _EnableInviteButtonOnMeeitngUIParams_default_instance_;
+class EnableInviteButtonOnMeetingUIParams;
+class EnableInviteButtonOnMeetingUIParamsDefaultTypeInternal;
+extern EnableInviteButtonOnMeetingUIParamsDefaultTypeInternal _EnableInviteButtonOnMeetingUIParams_default_instance_;
 class EnableLButtonDBClick4SwitchFullScreenModeParams;
 class EnableLButtonDBClick4SwitchFullScreenModeParamsDefaultTypeInternal;
 extern EnableLButtonDBClick4SwitchFullScreenModeParamsDefaultTypeInternal _EnableLButtonDBClick4SwitchFullScreenModeParams_default_instance_;
@@ -336,6 +339,9 @@ extern GetUserInfoByUserIDParamsDefaultTypeInternal _GetUserInfoByUserIDParams_d
 class HandleZoomWebUriProtocolActionParams;
 class HandleZoomWebUriProtocolActionParamsDefaultTypeInternal;
 extern HandleZoomWebUriProtocolActionParamsDefaultTypeInternal _HandleZoomWebUriProtocolActionParams_default_instance_;
+class HideAutoCopyInviteLinkCheckBoxParams;
+class HideAutoCopyInviteLinkCheckBoxParamsDefaultTypeInternal;
+extern HideAutoCopyInviteLinkCheckBoxParamsDefaultTypeInternal _HideAutoCopyInviteLinkCheckBoxParams_default_instance_;
 class HideChatItemOnMeetingUIParams;
 class HideChatItemOnMeetingUIParamsDefaultTypeInternal;
 extern HideChatItemOnMeetingUIParamsDefaultTypeInternal _HideChatItemOnMeetingUIParams_default_instance_;
@@ -537,9 +543,6 @@ extern SetShowVideoOptimizeChkboxParamsDefaultTypeInternal _SetShowVideoOptimize
 class SetSpeakerVolParams;
 class SetSpeakerVolParamsDefaultTypeInternal;
 extern SetSpeakerVolParamsDefaultTypeInternal _SetSpeakerVolParams_default_instance_;
-class SetTeamIdentifierParams;
-class SetTeamIdentifierParamsDefaultTypeInternal;
-extern SetTeamIdentifierParamsDefaultTypeInternal _SetTeamIdentifierParams_default_instance_;
 class SetToolParams;
 class SetToolParamsDefaultTypeInternal;
 extern SetToolParamsDefaultTypeInternal _SetToolParams_default_instance_;
@@ -812,6 +815,21 @@ class InitSDKParams : public ::google::protobuf::MessageLite /* @@protoc_inserti
   ::std::string* release_strsupporturl();
   void set_allocated_strsupporturl(::std::string* strsupporturl);
 
+  // optional string teamIdentifier = 20;
+  bool has_teamidentifier() const;
+  void clear_teamidentifier();
+  static const int kTeamIdentifierFieldNumber = 20;
+  const ::std::string& teamidentifier() const;
+  void set_teamidentifier(const ::std::string& value);
+  #if LANG_CXX11
+  void set_teamidentifier(::std::string&& value);
+  #endif
+  void set_teamidentifier(const char* value);
+  void set_teamidentifier(const char* value, size_t size);
+  ::std::string* mutable_teamidentifier();
+  ::std::string* release_teamidentifier();
+  void set_allocated_teamidentifier(::std::string* teamidentifier);
+
   // optional int32 customizedLanguageType = 5;
   bool has_customizedlanguagetype() const;
   void clear_customizedlanguagetype();
@@ -950,6 +968,8 @@ class InitSDKParams : public ::google::protobuf::MessageLite /* @@protoc_inserti
   void clear_has_renderpostprocessing();
   void set_has_videocapturemethod();
   void clear_has_videocapturemethod();
+  void set_has_teamidentifier();
+  void clear_has_teamidentifier();
 
   ::google::protobuf::internal::InternalMetadataWithArenaLite _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -959,6 +979,7 @@ class InitSDKParams : public ::google::protobuf::MessageLite /* @@protoc_inserti
   ::google::protobuf::internal::ArenaStringPtr customizedlanguagename_;
   ::google::protobuf::internal::ArenaStringPtr customizedlanguageinfo_;
   ::google::protobuf::internal::ArenaStringPtr strsupporturl_;
+  ::google::protobuf::internal::ArenaStringPtr teamidentifier_;
   ::google::protobuf::int32 customizedlanguagetype_;
   ::google::protobuf::int32 langid_;
   ::google::protobuf::int32 applocale_;
@@ -6749,24 +6770,24 @@ class EnablePlayChimeWhenEnterOrExitParams : public ::google::protobuf::MessageL
 };
 // -------------------------------------------------------------------
 
-class EnableInviteButtonOnMeeitngUIParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams) */ {
+class EnableInviteButtonOnMeetingUIParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams) */ {
  public:
-  EnableInviteButtonOnMeeitngUIParams();
-  virtual ~EnableInviteButtonOnMeeitngUIParams();
+  EnableInviteButtonOnMeetingUIParams();
+  virtual ~EnableInviteButtonOnMeetingUIParams();
 
-  EnableInviteButtonOnMeeitngUIParams(const EnableInviteButtonOnMeeitngUIParams& from);
+  EnableInviteButtonOnMeetingUIParams(const EnableInviteButtonOnMeetingUIParams& from);
 
-  inline EnableInviteButtonOnMeeitngUIParams& operator=(const EnableInviteButtonOnMeeitngUIParams& from) {
+  inline EnableInviteButtonOnMeetingUIParams& operator=(const EnableInviteButtonOnMeetingUIParams& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  EnableInviteButtonOnMeeitngUIParams(EnableInviteButtonOnMeeitngUIParams&& from) noexcept
-    : EnableInviteButtonOnMeeitngUIParams() {
+  EnableInviteButtonOnMeetingUIParams(EnableInviteButtonOnMeetingUIParams&& from) noexcept
+    : EnableInviteButtonOnMeetingUIParams() {
     *this = ::std::move(from);
   }
 
-  inline EnableInviteButtonOnMeeitngUIParams& operator=(EnableInviteButtonOnMeeitngUIParams&& from) noexcept {
+  inline EnableInviteButtonOnMeetingUIParams& operator=(EnableInviteButtonOnMeetingUIParams&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -6782,29 +6803,29 @@ class EnableInviteButtonOnMeeitngUIParams : public ::google::protobuf::MessageLi
     return _internal_metadata_.mutable_unknown_fields();
   }
 
-  static const EnableInviteButtonOnMeeitngUIParams& default_instance();
+  static const EnableInviteButtonOnMeetingUIParams& default_instance();
 
-  static inline const EnableInviteButtonOnMeeitngUIParams* internal_default_instance() {
-    return reinterpret_cast<const EnableInviteButtonOnMeeitngUIParams*>(
-               &_EnableInviteButtonOnMeeitngUIParams_default_instance_);
+  static inline const EnableInviteButtonOnMeetingUIParams* internal_default_instance() {
+    return reinterpret_cast<const EnableInviteButtonOnMeetingUIParams*>(
+               &_EnableInviteButtonOnMeetingUIParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     45;
 
-  void Swap(EnableInviteButtonOnMeeitngUIParams* other);
-  friend void swap(EnableInviteButtonOnMeeitngUIParams& a, EnableInviteButtonOnMeeitngUIParams& b) {
+  void Swap(EnableInviteButtonOnMeetingUIParams* other);
+  friend void swap(EnableInviteButtonOnMeetingUIParams& a, EnableInviteButtonOnMeetingUIParams& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline EnableInviteButtonOnMeeitngUIParams* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline EnableInviteButtonOnMeetingUIParams* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  EnableInviteButtonOnMeeitngUIParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  EnableInviteButtonOnMeetingUIParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from)
     PROTOBUF_FINAL;
-  void CopyFrom(const EnableInviteButtonOnMeeitngUIParams& from);
-  void MergeFrom(const EnableInviteButtonOnMeeitngUIParams& from);
+  void CopyFrom(const EnableInviteButtonOnMeetingUIParams& from);
+  void MergeFrom(const EnableInviteButtonOnMeetingUIParams& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -6819,7 +6840,7 @@ class EnableInviteButtonOnMeeitngUIParams : public ::google::protobuf::MessageLi
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(EnableInviteButtonOnMeeitngUIParams* other);
+  void InternalSwap(EnableInviteButtonOnMeetingUIParams* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -6842,7 +6863,7 @@ class EnableInviteButtonOnMeeitngUIParams : public ::google::protobuf::MessageLi
   bool benable() const;
   void set_benable(bool value);
 
-  // @@protoc_insertion_point(class_scope:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(class_scope:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
  private:
   void set_has_benable();
   void clear_has_benable();
@@ -21869,6 +21890,218 @@ class DisableAccountSettingTabPageParams : public ::google::protobuf::MessageLit
 };
 // -------------------------------------------------------------------
 
+class HideAutoCopyInviteLinkCheckBoxParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams) */ {
+ public:
+  HideAutoCopyInviteLinkCheckBoxParams();
+  virtual ~HideAutoCopyInviteLinkCheckBoxParams();
+
+  HideAutoCopyInviteLinkCheckBoxParams(const HideAutoCopyInviteLinkCheckBoxParams& from);
+
+  inline HideAutoCopyInviteLinkCheckBoxParams& operator=(const HideAutoCopyInviteLinkCheckBoxParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HideAutoCopyInviteLinkCheckBoxParams(HideAutoCopyInviteLinkCheckBoxParams&& from) noexcept
+    : HideAutoCopyInviteLinkCheckBoxParams() {
+    *this = ::std::move(from);
+  }
+
+  inline HideAutoCopyInviteLinkCheckBoxParams& operator=(HideAutoCopyInviteLinkCheckBoxParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::std::string& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::std::string* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const HideAutoCopyInviteLinkCheckBoxParams& default_instance();
+
+  static inline const HideAutoCopyInviteLinkCheckBoxParams* internal_default_instance() {
+    return reinterpret_cast<const HideAutoCopyInviteLinkCheckBoxParams*>(
+               &_HideAutoCopyInviteLinkCheckBoxParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    182;
+
+  void Swap(HideAutoCopyInviteLinkCheckBoxParams* other);
+  friend void swap(HideAutoCopyInviteLinkCheckBoxParams& a, HideAutoCopyInviteLinkCheckBoxParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HideAutoCopyInviteLinkCheckBoxParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  HideAutoCopyInviteLinkCheckBoxParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from)
+    PROTOBUF_FINAL;
+  void CopyFrom(const HideAutoCopyInviteLinkCheckBoxParams& from);
+  void MergeFrom(const HideAutoCopyInviteLinkCheckBoxParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  void DiscardUnknownFields();
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(HideAutoCopyInviteLinkCheckBoxParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::std::string GetTypeName() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool bHide = 1;
+  bool has_bhide() const;
+  void clear_bhide();
+  static const int kBHideFieldNumber = 1;
+  bool bhide() const;
+  void set_bhide(bool value);
+
+  // @@protoc_insertion_point(class_scope:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+ private:
+  void set_has_bhide();
+  void clear_has_bhide();
+
+  ::google::protobuf::internal::InternalMetadataWithArenaLite _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  bool bhide_;
+  friend struct protobuf_electron_5fsdk_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class ConfigToShowUrlLinksInSettingParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams) */ {
+ public:
+  ConfigToShowUrlLinksInSettingParams();
+  virtual ~ConfigToShowUrlLinksInSettingParams();
+
+  ConfigToShowUrlLinksInSettingParams(const ConfigToShowUrlLinksInSettingParams& from);
+
+  inline ConfigToShowUrlLinksInSettingParams& operator=(const ConfigToShowUrlLinksInSettingParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ConfigToShowUrlLinksInSettingParams(ConfigToShowUrlLinksInSettingParams&& from) noexcept
+    : ConfigToShowUrlLinksInSettingParams() {
+    *this = ::std::move(from);
+  }
+
+  inline ConfigToShowUrlLinksInSettingParams& operator=(ConfigToShowUrlLinksInSettingParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::std::string& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::std::string* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ConfigToShowUrlLinksInSettingParams& default_instance();
+
+  static inline const ConfigToShowUrlLinksInSettingParams* internal_default_instance() {
+    return reinterpret_cast<const ConfigToShowUrlLinksInSettingParams*>(
+               &_ConfigToShowUrlLinksInSettingParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    183;
+
+  void Swap(ConfigToShowUrlLinksInSettingParams* other);
+  friend void swap(ConfigToShowUrlLinksInSettingParams& a, ConfigToShowUrlLinksInSettingParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ConfigToShowUrlLinksInSettingParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ConfigToShowUrlLinksInSettingParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from)
+    PROTOBUF_FINAL;
+  void CopyFrom(const ConfigToShowUrlLinksInSettingParams& from);
+  void MergeFrom(const ConfigToShowUrlLinksInSettingParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  void DiscardUnknownFields();
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ConfigToShowUrlLinksInSettingParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::std::string GetTypeName() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 showOption = 1;
+  bool has_showoption() const;
+  void clear_showoption();
+  static const int kShowOptionFieldNumber = 1;
+  ::google::protobuf::uint64 showoption() const;
+  void set_showoption(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+ private:
+  void set_has_showoption();
+  void clear_has_showoption();
+
+  ::google::protobuf::internal::InternalMetadataWithArenaLite _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 showoption_;
+  friend struct protobuf_electron_5fsdk_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class ConfSettingDialogShownTabPageParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.ConfSettingDialogShownTabPageParams) */ {
  public:
   ConfSettingDialogShownTabPageParams();
@@ -21909,7 +22142,7 @@ class ConfSettingDialogShownTabPageParams : public ::google::protobuf::MessageLi
                &_ConfSettingDialogShownTabPageParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    182;
+    184;
 
   void Swap(ConfSettingDialogShownTabPageParams* other);
   friend void swap(ConfSettingDialogShownTabPageParams& a, ConfSettingDialogShownTabPageParams& b) {
@@ -22015,7 +22248,7 @@ class SelectVideoCameraParams : public ::google::protobuf::MessageLite /* @@prot
                &_SelectVideoCameraParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    183;
+    185;
 
   void Swap(SelectVideoCameraParams* other);
   friend void swap(SelectVideoCameraParams& a, SelectVideoCameraParams& b) {
@@ -22129,7 +22362,7 @@ class EnableVideoMirrorEffectParams : public ::google::protobuf::MessageLite /* 
                &_EnableVideoMirrorEffectParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    184;
+    186;
 
   void Swap(EnableVideoMirrorEffectParams* other);
   friend void swap(EnableVideoMirrorEffectParams& a, EnableVideoMirrorEffectParams& b) {
@@ -22235,7 +22468,7 @@ class EnableFaceBeautyEffectParams : public ::google::protobuf::MessageLite /* @
                &_EnableFaceBeautyEffectParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    185;
+    187;
 
   void Swap(EnableFaceBeautyEffectParams* other);
   friend void swap(EnableFaceBeautyEffectParams& a, EnableFaceBeautyEffectParams& b) {
@@ -22341,7 +22574,7 @@ class EnableHDVideoParams : public ::google::protobuf::MessageLite /* @@protoc_i
                &_EnableHDVideoParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    186;
+    188;
 
   void Swap(EnableHDVideoParams* other);
   friend void swap(EnableHDVideoParams& a, EnableHDVideoParams& b) {
@@ -22447,7 +22680,7 @@ class EnableAlwaysShowNameOnVideoParams : public ::google::protobuf::MessageLite
                &_EnableAlwaysShowNameOnVideoParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    187;
+    189;
 
   void Swap(EnableAlwaysShowNameOnVideoParams* other);
   friend void swap(EnableAlwaysShowNameOnVideoParams& a, EnableAlwaysShowNameOnVideoParams& b) {
@@ -22553,7 +22786,7 @@ class EnableVideoPreviewDialogParams : public ::google::protobuf::MessageLite /*
                &_EnableVideoPreviewDialogParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    188;
+    190;
 
   void Swap(EnableVideoPreviewDialogParams* other);
   friend void swap(EnableVideoPreviewDialogParams& a, EnableVideoPreviewDialogParams& b) {
@@ -22659,7 +22892,7 @@ class EnableAutoTurnOffVideoWhenJoinMeetingParams : public ::google::protobuf::M
                &_EnableAutoTurnOffVideoWhenJoinMeetingParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    189;
+    191;
 
   void Swap(EnableAutoTurnOffVideoWhenJoinMeetingParams* other);
   friend void swap(EnableAutoTurnOffVideoWhenJoinMeetingParams& a, EnableAutoTurnOffVideoWhenJoinMeetingParams& b) {
@@ -22765,7 +22998,7 @@ class EnableAlwaysUse16v9Params : public ::google::protobuf::MessageLite /* @@pr
                &_EnableAlwaysUse16v9Params_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    190;
+    192;
 
   void Swap(EnableAlwaysUse16v9Params* other);
   friend void swap(EnableAlwaysUse16v9Params& a, EnableAlwaysUse16v9Params& b) {
@@ -22871,7 +23104,7 @@ class EnableSpotlightSelfParams : public ::google::protobuf::MessageLite /* @@pr
                &_EnableSpotlightSelfParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    191;
+    193;
 
   void Swap(EnableSpotlightSelfParams* other);
   friend void swap(EnableSpotlightSelfParams& a, EnableSpotlightSelfParams& b) {
@@ -22977,7 +23210,7 @@ class EnableHardwareEncodeParams : public ::google::protobuf::MessageLite /* @@p
                &_EnableHardwareEncodeParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    192;
+    194;
 
   void Swap(EnableHardwareEncodeParams* other);
   friend void swap(EnableHardwareEncodeParams& a, EnableHardwareEncodeParams& b) {
@@ -23093,7 +23326,7 @@ class IsHardwareEncodeEnabledParams : public ::google::protobuf::MessageLite /* 
                &_IsHardwareEncodeEnabledParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    193;
+    195;
 
   void Swap(IsHardwareEncodeEnabledParams* other);
   friend void swap(IsHardwareEncodeEnabledParams& a, IsHardwareEncodeEnabledParams& b) {
@@ -23199,7 +23432,7 @@ class Enable49VideoesInGallaryViewParams : public ::google::protobuf::MessageLit
                &_Enable49VideoesInGallaryViewParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    194;
+    196;
 
   void Swap(Enable49VideoesInGallaryViewParams* other);
   friend void swap(Enable49VideoesInGallaryViewParams& a, Enable49VideoesInGallaryViewParams& b) {
@@ -23305,7 +23538,7 @@ class EnableHideNoVideoUsersOnWallViewParams : public ::google::protobuf::Messag
                &_EnableHideNoVideoUsersOnWallViewParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    195;
+    197;
 
   void Swap(EnableHideNoVideoUsersOnWallViewParams* other);
   friend void swap(EnableHideNoVideoUsersOnWallViewParams& a, EnableHideNoVideoUsersOnWallViewParams& b) {
@@ -23367,120 +23600,6 @@ class EnableHideNoVideoUsersOnWallViewParams : public ::google::protobuf::Messag
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   bool benable_;
-  friend struct protobuf_electron_5fsdk_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class SetTeamIdentifierParams : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:com.electron.sdk.proto.SetTeamIdentifierParams) */ {
- public:
-  SetTeamIdentifierParams();
-  virtual ~SetTeamIdentifierParams();
-
-  SetTeamIdentifierParams(const SetTeamIdentifierParams& from);
-
-  inline SetTeamIdentifierParams& operator=(const SetTeamIdentifierParams& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  SetTeamIdentifierParams(SetTeamIdentifierParams&& from) noexcept
-    : SetTeamIdentifierParams() {
-    *this = ::std::move(from);
-  }
-
-  inline SetTeamIdentifierParams& operator=(SetTeamIdentifierParams&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  inline const ::std::string& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-  inline ::std::string* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const SetTeamIdentifierParams& default_instance();
-
-  static inline const SetTeamIdentifierParams* internal_default_instance() {
-    return reinterpret_cast<const SetTeamIdentifierParams*>(
-               &_SetTeamIdentifierParams_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    196;
-
-  void Swap(SetTeamIdentifierParams* other);
-  friend void swap(SetTeamIdentifierParams& a, SetTeamIdentifierParams& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline SetTeamIdentifierParams* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  SetTeamIdentifierParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from)
-    PROTOBUF_FINAL;
-  void CopyFrom(const SetTeamIdentifierParams& from);
-  void MergeFrom(const SetTeamIdentifierParams& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  void DiscardUnknownFields();
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetTeamIdentifierParams* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::std::string GetTypeName() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string identifier = 1;
-  bool has_identifier() const;
-  void clear_identifier();
-  static const int kIdentifierFieldNumber = 1;
-  const ::std::string& identifier() const;
-  void set_identifier(const ::std::string& value);
-  #if LANG_CXX11
-  void set_identifier(::std::string&& value);
-  #endif
-  void set_identifier(const char* value);
-  void set_identifier(const char* value, size_t size);
-  ::std::string* mutable_identifier();
-  ::std::string* release_identifier();
-  void set_allocated_identifier(::std::string* identifier);
-
-  // @@protoc_insertion_point(class_scope:com.electron.sdk.proto.SetTeamIdentifierParams)
- private:
-  void set_has_identifier();
-  void clear_has_identifier();
-
-  ::google::protobuf::internal::InternalMetadataWithArenaLite _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr identifier_;
   friend struct protobuf_electron_5fsdk_2eproto::TableStruct;
 };
 // ===================================================================
@@ -23749,13 +23868,13 @@ inline void InitSDKParams::set_allocated_customizedlanguageinfo(::std::string* c
 
 // optional int32 customizedLanguageType = 5;
 inline bool InitSDKParams::has_customizedlanguagetype() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void InitSDKParams::set_has_customizedlanguagetype() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void InitSDKParams::clear_has_customizedlanguagetype() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void InitSDKParams::clear_customizedlanguagetype() {
   customizedlanguagetype_ = 0;
@@ -23836,13 +23955,13 @@ inline void InitSDKParams::set_allocated_strsupporturl(::std::string* strsupport
 
 // optional int32 langID = 7;
 inline bool InitSDKParams::has_langid() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void InitSDKParams::set_has_langid() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void InitSDKParams::clear_has_langid() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void InitSDKParams::clear_langid() {
   langid_ = 0;
@@ -23860,13 +23979,13 @@ inline void InitSDKParams::set_langid(::google::protobuf::int32 value) {
 
 // optional bool enableLog = 8;
 inline bool InitSDKParams::has_enablelog() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void InitSDKParams::set_has_enablelog() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void InitSDKParams::clear_has_enablelog() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void InitSDKParams::clear_enablelog() {
   enablelog_ = false;
@@ -23884,13 +24003,13 @@ inline void InitSDKParams::set_enablelog(bool value) {
 
 // optional int32 appLocale = 9;
 inline bool InitSDKParams::has_applocale() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void InitSDKParams::set_has_applocale() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void InitSDKParams::clear_has_applocale() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void InitSDKParams::clear_applocale() {
   applocale_ = 0;
@@ -23908,13 +24027,13 @@ inline void InitSDKParams::set_applocale(::google::protobuf::int32 value) {
 
 // optional int32 logFileSize = 10;
 inline bool InitSDKParams::has_logfilesize() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void InitSDKParams::set_has_logfilesize() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void InitSDKParams::clear_has_logfilesize() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void InitSDKParams::clear_logfilesize() {
   logfilesize_ = 0;
@@ -23932,13 +24051,13 @@ inline void InitSDKParams::set_logfilesize(::google::protobuf::int32 value) {
 
 // optional bool enableGeneralDump = 11;
 inline bool InitSDKParams::has_enablegeneraldump() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void InitSDKParams::set_has_enablegeneraldump() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void InitSDKParams::clear_has_enablegeneraldump() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void InitSDKParams::clear_enablegeneraldump() {
   enablegeneraldump_ = false;
@@ -23956,13 +24075,13 @@ inline void InitSDKParams::set_enablegeneraldump(bool value) {
 
 // optional bool permonitorAwarenessMode = 12;
 inline bool InitSDKParams::has_permonitorawarenessmode() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void InitSDKParams::set_has_permonitorawarenessmode() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void InitSDKParams::clear_has_permonitorawarenessmode() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void InitSDKParams::clear_permonitorawarenessmode() {
   permonitorawarenessmode_ = false;
@@ -23980,13 +24099,13 @@ inline void InitSDKParams::set_permonitorawarenessmode(bool value) {
 
 // optional int32 videoRenderMode = 13;
 inline bool InitSDKParams::has_videorendermode() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void InitSDKParams::set_has_videorendermode() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void InitSDKParams::clear_has_videorendermode() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void InitSDKParams::clear_videorendermode() {
   videorendermode_ = 0;
@@ -24004,13 +24123,13 @@ inline void InitSDKParams::set_videorendermode(::google::protobuf::int32 value) 
 
 // optional int32 videoRawdataMemoryMode = 14;
 inline bool InitSDKParams::has_videorawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void InitSDKParams::set_has_videorawdatamemorymode() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void InitSDKParams::clear_has_videorawdatamemorymode() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void InitSDKParams::clear_videorawdatamemorymode() {
   videorawdatamemorymode_ = 0;
@@ -24028,13 +24147,13 @@ inline void InitSDKParams::set_videorawdatamemorymode(::google::protobuf::int32 
 
 // optional int32 shareRawdataMemoryMode = 15;
 inline bool InitSDKParams::has_sharerawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void InitSDKParams::set_has_sharerawdatamemorymode() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void InitSDKParams::clear_has_sharerawdatamemorymode() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void InitSDKParams::clear_sharerawdatamemorymode() {
   sharerawdatamemorymode_ = 0;
@@ -24052,13 +24171,13 @@ inline void InitSDKParams::set_sharerawdatamemorymode(::google::protobuf::int32 
 
 // optional int32 audioRawdataMemoryMode = 16;
 inline bool InitSDKParams::has_audiorawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void InitSDKParams::set_has_audiorawdatamemorymode() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void InitSDKParams::clear_has_audiorawdatamemorymode() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void InitSDKParams::clear_audiorawdatamemorymode() {
   audiorawdatamemorymode_ = 0;
@@ -24076,13 +24195,13 @@ inline void InitSDKParams::set_audiorawdatamemorymode(::google::protobuf::int32 
 
 // optional bool enableRawdataIntermediateMode = 17;
 inline bool InitSDKParams::has_enablerawdataintermediatemode() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void InitSDKParams::set_has_enablerawdataintermediatemode() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void InitSDKParams::clear_has_enablerawdataintermediatemode() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void InitSDKParams::clear_enablerawdataintermediatemode() {
   enablerawdataintermediatemode_ = false;
@@ -24100,13 +24219,13 @@ inline void InitSDKParams::set_enablerawdataintermediatemode(bool value) {
 
 // optional int32 renderPostProcessing = 18;
 inline bool InitSDKParams::has_renderpostprocessing() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void InitSDKParams::set_has_renderpostprocessing() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void InitSDKParams::clear_has_renderpostprocessing() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void InitSDKParams::clear_renderpostprocessing() {
   renderpostprocessing_ = 0;
@@ -24124,13 +24243,13 @@ inline void InitSDKParams::set_renderpostprocessing(::google::protobuf::int32 va
 
 // optional int32 videoCaptureMethod = 19;
 inline bool InitSDKParams::has_videocapturemethod() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void InitSDKParams::set_has_videocapturemethod() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void InitSDKParams::clear_has_videocapturemethod() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void InitSDKParams::clear_videocapturemethod() {
   videocapturemethod_ = 0;
@@ -24144,6 +24263,69 @@ inline void InitSDKParams::set_videocapturemethod(::google::protobuf::int32 valu
   set_has_videocapturemethod();
   videocapturemethod_ = value;
   // @@protoc_insertion_point(field_set:com.electron.sdk.proto.InitSDKParams.videoCaptureMethod)
+}
+
+// optional string teamIdentifier = 20;
+inline bool InitSDKParams::has_teamidentifier() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void InitSDKParams::set_has_teamidentifier() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void InitSDKParams::clear_has_teamidentifier() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void InitSDKParams::clear_teamidentifier() {
+  teamidentifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_teamidentifier();
+}
+inline const ::std::string& InitSDKParams::teamidentifier() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  return teamidentifier_.GetNoArena();
+}
+inline void InitSDKParams::set_teamidentifier(const ::std::string& value) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+#if LANG_CXX11
+inline void InitSDKParams::set_teamidentifier(::std::string&& value) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+#endif
+inline void InitSDKParams::set_teamidentifier(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+inline void InitSDKParams::set_teamidentifier(const char* value, size_t size) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+inline ::std::string* InitSDKParams::mutable_teamidentifier() {
+  set_has_teamidentifier();
+  // @@protoc_insertion_point(field_mutable:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  return teamidentifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InitSDKParams::release_teamidentifier() {
+  // @@protoc_insertion_point(field_release:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  clear_has_teamidentifier();
+  return teamidentifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InitSDKParams::set_allocated_teamidentifier(::std::string* teamidentifier) {
+  if (teamidentifier != NULL) {
+    set_has_teamidentifier();
+  } else {
+    clear_has_teamidentifier();
+  }
+  teamidentifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), teamidentifier);
+  // @@protoc_insertion_point(field_set_allocated:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
 }
 
 // -------------------------------------------------------------------
@@ -29148,30 +29330,30 @@ inline void EnablePlayChimeWhenEnterOrExitParams::set_benable(bool value) {
 
 // -------------------------------------------------------------------
 
-// EnableInviteButtonOnMeeitngUIParams
+// EnableInviteButtonOnMeetingUIParams
 
 // optional bool bEnable = 1;
-inline bool EnableInviteButtonOnMeeitngUIParams::has_benable() const {
+inline bool EnableInviteButtonOnMeetingUIParams::has_benable() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void EnableInviteButtonOnMeeitngUIParams::set_has_benable() {
+inline void EnableInviteButtonOnMeetingUIParams::set_has_benable() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void EnableInviteButtonOnMeeitngUIParams::clear_has_benable() {
+inline void EnableInviteButtonOnMeetingUIParams::clear_has_benable() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void EnableInviteButtonOnMeeitngUIParams::clear_benable() {
+inline void EnableInviteButtonOnMeetingUIParams::clear_benable() {
   benable_ = false;
   clear_has_benable();
 }
-inline bool EnableInviteButtonOnMeeitngUIParams::benable() const {
-  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams.bEnable)
+inline bool EnableInviteButtonOnMeetingUIParams::benable() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams.bEnable)
   return benable_;
 }
-inline void EnableInviteButtonOnMeeitngUIParams::set_benable(bool value) {
+inline void EnableInviteButtonOnMeetingUIParams::set_benable(bool value) {
   set_has_benable();
   benable_ = value;
-  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams.bEnable)
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams.bEnable)
 }
 
 // -------------------------------------------------------------------
@@ -35132,6 +35314,62 @@ inline void DisableAccountSettingTabPageParams::set_bdisable(bool value) {
 
 // -------------------------------------------------------------------
 
+// HideAutoCopyInviteLinkCheckBoxParams
+
+// optional bool bHide = 1;
+inline bool HideAutoCopyInviteLinkCheckBoxParams::has_bhide() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void HideAutoCopyInviteLinkCheckBoxParams::set_has_bhide() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void HideAutoCopyInviteLinkCheckBoxParams::clear_has_bhide() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void HideAutoCopyInviteLinkCheckBoxParams::clear_bhide() {
+  bhide_ = false;
+  clear_has_bhide();
+}
+inline bool HideAutoCopyInviteLinkCheckBoxParams::bhide() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams.bHide)
+  return bhide_;
+}
+inline void HideAutoCopyInviteLinkCheckBoxParams::set_bhide(bool value) {
+  set_has_bhide();
+  bhide_ = value;
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams.bHide)
+}
+
+// -------------------------------------------------------------------
+
+// ConfigToShowUrlLinksInSettingParams
+
+// optional uint64 showOption = 1;
+inline bool ConfigToShowUrlLinksInSettingParams::has_showoption() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ConfigToShowUrlLinksInSettingParams::set_has_showoption() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ConfigToShowUrlLinksInSettingParams::clear_has_showoption() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ConfigToShowUrlLinksInSettingParams::clear_showoption() {
+  showoption_ = GOOGLE_ULONGLONG(0);
+  clear_has_showoption();
+}
+inline ::google::protobuf::uint64 ConfigToShowUrlLinksInSettingParams::showoption() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams.showOption)
+  return showoption_;
+}
+inline void ConfigToShowUrlLinksInSettingParams::set_showoption(::google::protobuf::uint64 value) {
+  set_has_showoption();
+  showoption_ = value;
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams.showOption)
+}
+
+// -------------------------------------------------------------------
+
 // ConfSettingDialogShownTabPageParams
 
 // optional uint64 showOption = 1;
@@ -35585,77 +35823,12 @@ inline void EnableHideNoVideoUsersOnWallViewParams::set_benable(bool value) {
   // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableHideNoVideoUsersOnWallViewParams.bEnable)
 }
 
-// -------------------------------------------------------------------
-
-// SetTeamIdentifierParams
-
-// optional string identifier = 1;
-inline bool SetTeamIdentifierParams::has_identifier() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void SetTeamIdentifierParams::set_has_identifier() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void SetTeamIdentifierParams::clear_has_identifier() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void SetTeamIdentifierParams::clear_identifier() {
-  identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_identifier();
-}
-inline const ::std::string& SetTeamIdentifierParams::identifier() const {
-  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  return identifier_.GetNoArena();
-}
-inline void SetTeamIdentifierParams::set_identifier(const ::std::string& value) {
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-#if LANG_CXX11
-inline void SetTeamIdentifierParams::set_identifier(::std::string&& value) {
-  set_has_identifier();
-  identifier_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-#endif
-inline void SetTeamIdentifierParams::set_identifier(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-inline void SetTeamIdentifierParams::set_identifier(const char* value, size_t size) {
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-inline ::std::string* SetTeamIdentifierParams::mutable_identifier() {
-  set_has_identifier();
-  // @@protoc_insertion_point(field_mutable:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  return identifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetTeamIdentifierParams::release_identifier() {
-  // @@protoc_insertion_point(field_release:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  clear_has_identifier();
-  return identifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetTeamIdentifierParams::set_allocated_identifier(::std::string* identifier) {
-  if (identifier != NULL) {
-    set_has_identifier();
-  } else {
-    clear_has_identifier();
-  }
-  identifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), identifier);
-  // @@protoc_insertion_point(field_set_allocated:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

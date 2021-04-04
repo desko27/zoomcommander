@@ -68,9 +68,9 @@
       </div>
       <button type="button" class="button-small" onclick="canStartDirectShare()">Can Start DirectShare</button>
       <button type="button" class="button-small" onclick="isDirectShareInProgress()">Is Direct ShareInProgress</button>
-      <!-- <button type="button" class="button-small" onclick="setDirectShareStatusUpdateCB()">Set DirectShareStatusUpdateCB</button> -->
-      <button type="button" class="button-small" onclick="startDirectShare()">Start DirectShare</button>
-      <button type="button" class="button-small" onclick="stopDirectShare()">Stop DirectShare</button>
+      <button type="button" class="button-small" onclick="setDirectShareStatusUpdateCB()">Set DirectShareStatusUpdateCB</button>
+      <button type="button" class="button-small" onclick="startDirectShare()" id="startDirectShareBtn">Start DirectShare</button>
+      <button type="button" class="button-small" onclick="stopDirectShare()" id="stopDirectShareBtn">Stop DirectShare</button>
       <button type="button" class="button-small button-disabled" onclick="tryWithMeetingNumber()" disabled id="tryWithMeetingNumberBtn">TryWith MeetingNumber</button>
       <button type="button" class="button-small button-disabled" onclick="tryWithPairingCode()" disabled id="tryWithPairingCodeBtn">TryWith PairingCode</button>
       <button type="button" class="button-small button-disabled" onclick="cancel()" disabled id="cancelBtn">Cancel</button>
@@ -134,6 +134,12 @@
     let tryWithMeetingNumberBtn = document.querySelector('#tryWithMeetingNumberBtn');
     let tryWithPairingCodeBtn = document.querySelector('#tryWithPairingCodeBtn');
     let cancelBtn = document.querySelector('#cancelBtn');
+    let startDirectShareBtn = document.querySelector('#startDirectShareBtn');
+    startDirectShareBtn.classList.add("button-disabled");
+    startDirectShareBtn.disabled = true;
+    let stopDirectShareBtn = document.querySelector('#stopDirectShareBtn');
+    stopDirectShareBtn.classList.add("button-disabled");
+    stopDirectShareBtn.disabled = true;
     function sendstart(meetingnumber, withRawdata){
       ipcRenderer.send('asynchronous-message', 'start', Number(meetingnumber), withRawdata);
     }
@@ -279,6 +285,12 @@
     }
     function canStartDirectShare () {
       ipcRenderer.send('asynchronous-message', 'canStartDirectShare');
+      ipcRenderer.on('canStartDirectShareSuccess', (event, data) => {  
+        startDirectShareBtn.classList.remove("button-disabled");
+        startDirectShareBtn.disabled = false;
+        stopDirectShareBtn.classList.remove("button-disabled");
+        stopDirectShareBtn.disabled = false;
+      })
     }
     function isDirectShareInProgress () {
       ipcRenderer.send('asynchronous-message', 'isDirectShareInProgress');

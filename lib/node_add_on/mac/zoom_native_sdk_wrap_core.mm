@@ -10,7 +10,7 @@ ZNSDKError ZNativeSDKWrap::InitSDK(ZNInitParam &initParam)
     nativeErrorTypeHelp help;
     
     ZoomSDKInitParams *params = [[[ZoomSDKInitParams alloc] init] autorelease];
-    NSString *lanStr = help.ZNSDKLanaguageChanage(initParam.langid);
+    NSString *lanStr = help.ZNSDKLanaguageChange(initParam.langid);
     NSArray *language = [params getLanguageArray];
     if (language == nil)
     {
@@ -33,6 +33,11 @@ ZNSDKError ZNativeSDKWrap::InitSDK(ZNInitParam &initParam)
     ZoomSDKLocale local = help.ZNSDKAPPLocalType(initParam.locale);
     params.appLocale = local;
     params.needCustomizedUI = NO;
+    
+    NSString *teamIdentifier = [NSString stringWithCString:initParam.teamidentifier.c_str() encoding:NSUTF8StringEncoding];
+    if (teamIdentifier && teamIdentifier.length > 0) {
+        params.teamIdentifier = teamIdentifier;
+    }
     [[ZoomSDK sharedSDK] initSDKWithParams:params];
     NSString *domain = [NSString stringWithCString:initParam.domain.c_str() encoding:NSUTF8StringEncoding];
     if (!domain)
@@ -51,13 +56,9 @@ ZNSDKError ZNativeSDKWrap::InitSDK(ZNInitParam &initParam)
     return ZNSDKERR_SUCCESS;
 }
 
-void ZNativeSDKWrap::SetTeamIdentifier(ZoomSTRING identifier)
-{
-    [[ZoomSDK sharedSDK] setTeamIdentifier:[NSString stringWithUTF8String:identifier.c_str()]];
-}
-
 ZNSDKError ZNativeSDKWrap::CleanUPSDK()
 {
+    [[ZoomSDK sharedSDK] unInitSDK];
     return ZNSDKERR_SUCCESS;
 }
 

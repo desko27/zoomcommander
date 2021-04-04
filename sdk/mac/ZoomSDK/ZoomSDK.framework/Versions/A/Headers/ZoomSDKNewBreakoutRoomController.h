@@ -208,13 +208,13 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
- *@brief If breakout meeting info chanaged,will receive the callback.
+ *@brief If breakout meeting info changed,will receive the callback.
  *@param boID Breakout meeting ID.
  */
 -(void)onBOMeetingInfoUpdata:(NSString *)boID;
 
 /**
- *@brief If the unassigned user chanaged,will receive the callback.
+ *@brief If the unassigned user changed,will receive the callback.
  */
 -(void)onUnAssignedUserUpdated;
 @end

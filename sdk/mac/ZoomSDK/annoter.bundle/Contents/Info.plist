@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19G73</string>
+	<string>19H524</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.4.54802.0124</string>
+	<string>5.5.12509.0330</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -45,6 +45,6 @@
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>NSHumanReadableCopyright</key>
-	<string>ZoomCopyRight</string>
+	<string>Copyright ©2012-2021 Zoom Video Communications, Inc. All rights reserved</string>
 </dict>
 </plist>

@@ -77,6 +77,7 @@ function sdkauthCB(status) {
     zoomuicontroller = zoommeeting.GetMeetingUICtrl();
     zoomannotation = zoommeeting.GetAnnotationCtrl();
     zoomshare = zoommeeting.GetMeetingShare();
+    app.zoomshare = zoomshare
     zoomh323 = zoommeeting.GetMeetingH323();
     zoomconfiguration = zoommeeting.GetMeetingConfiguration();
     zoomupdateaccount = zoommeeting.GetUpdateAccount();
@@ -177,14 +178,25 @@ function meetingstatuscb(status, result) {
   }
 }
 
+class AppWindow extends BrowserWindow {
+  constructor(config) {
+    const basicConfig = {
+      width: 700,
+      height: 400,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: true
+      }
+    }
+    const finalConfig = { ...basicConfig, ...config }
+    super(finalConfig)
+  }
+}
+
 function showWaitingWindow() {
   if (!waitingWindow) {
-    waitingWindow = new BrowserWindow({
-      width: 700, height: 400,
-      webPreferences: {
-        nodeIntegration: true
-      }
-    });
+    waitingWindow = new AppWindow();
     waitingWindow.loadURL('file://' + __dirname + '/pages/waiting.html');
   }
   if (mainWindow) {
@@ -220,11 +232,8 @@ function showWaitingWindow() {
 
 function showInMeetingWindow() {
   if (!inmeetingWindow) {
-    inmeetingWindow = new BrowserWindow({
-      width: 700, height: 400, x: YUVWindow ? 10 : null, y: YUVWindow ? 10 : null,
-      webPreferences: {
-        nodeIntegration: true
-      }
+    inmeetingWindow = new AppWindow({
+      x: YUVWindow ? 10 : null, y: YUVWindow ? 10 : null
     });
     inmeetingWindow.on('close', () => {
       inmeetingWindow = null;
@@ -261,17 +270,14 @@ function clearSetCallBack() {
   zoomparticipantsctrl.SetMeetingUserJoinCB(null);
   zoomparticipantsctrl.SetMeetingUserLeftCB(null);
   zoomparticipantsctrl.SetMeetingHostChangeCB(null);
-  zoomvideo.SetMeetingVideoStatusCB(null);
-  zoommeeting.GetMeetingShare().SetOnSharingStatusCB(null);
+  zoomvideo.MeetingVideo_SetMeetingVideoStatusCB(null);
+  zoomshare.MeetingShare_SetOnSharingStatusCB(null);
 }
 
 function showYUVWindow() {
   if (!YUVWindow) {
-    YUVWindow = new BrowserWindow({
-      width: 1920, height: 1080,
-      webPreferences: {
-        nodeIntegration: true
-      }
+    YUVWindow = new AppWindow({
+      width: 1920, height: 1080
     });
     YUVWindow.on('close', (flag) => {
       YUVWindow.webContents.send('main-process-meetingstatus', 'ended');
@@ -320,13 +326,7 @@ function showYUVWindow() {
 
 function showDomainwindow() {
   if (!domainWindow) {
-    domainWindow = new BrowserWindow({
-      width: 700,
-      height: 400,
-      webPreferences: {
-        nodeIntegration: true
-      }
-    });
+    domainWindow = new AppWindow();
     domainWindow.loadURL('file://' + __dirname + '/pages/domain.html');
   }
   if (mainWindow) {
@@ -362,13 +362,7 @@ function showDomainwindow() {
 
 function showAuthwindow() {
   if (!mainWindow) {
-    mainWindow = new BrowserWindow({
-      width: 700,
-      height: 400,
-      webPreferences: {
-        nodeIntegration: true
-      }
-    });
+    mainWindow = new AppWindow();
     mainWindow.loadURL('file://' + __dirname + '/pages/index.html');
   }
   if (loginWindow) {
@@ -404,11 +398,8 @@ function showAuthwindow() {
 
 function showLoginWindow() {
   if (!loginWindow) {
-    loginWindow = new BrowserWindow({
-      width: 700, height: 500,
-      webPreferences: {
-        nodeIntegration: true
-      }
+    loginWindow = new AppWindow({
+      height: 500,
     });
     loginWindow.loadURL('file://' + __dirname + '/pages/login.html');
   }
@@ -445,12 +436,7 @@ function showLoginWindow() {
 
 function showStartJoinWindow() {
   if (!startjoinWindow) {
-    startjoinWindow = new BrowserWindow({
-      width: 700, height: 400,
-      webPreferences: {
-        nodeIntegration: true
-      }
-    });
+    startjoinWindow = new AppWindow();
     startjoinWindow.loadURL('file://' + __dirname + '/pages/start_join.html');
   }
   if (mainWindow) {
@@ -535,12 +521,7 @@ function customizedresource() {
 let functionObj = {
   showSatrtJoinUnLoginWindow: function () {
     if (!startjoinUnLoginWindow) {
-      startjoinUnLoginWindow = new BrowserWindow({
-        width: 700, height: 400,
-        webPreferences: {
-          nodeIntegration: true
-        }
-      });
+      startjoinUnLoginWindow = new AppWindow();
       startjoinUnLoginWindow.loadURL('file://' + __dirname + '/pages/start_join_without_login.html');
     }
     if (startjoinWindow) {
@@ -567,12 +548,6 @@ let functionObj = {
       domainWindow.close();
       domainWindow = null;
     }
-  },
-  setTeamIdentifier: function (identifier) {
-    const opts = {
-      identifier: identifier
-    }
-    var ret = zoomsdk.SetTeamIdentifier(opts);
   },
   setDomain: function (domain, enable_log) {
     const opts = {
@@ -1648,15 +1623,18 @@ let functionObj = {
   },
   canStartDirectShare: function () {
     let ret = zoomdirectshare.CanStartDirectShare();
+    if (ZoomSDKError.SDKERR_SUCCESS == ret) {
+      startjoinWindow.webContents.send('canStartDirectShareSuccess', ret)
+    }
   },
   isDirectShareInProgress: function () {
     let ret = zoomdirectshare.IsDirectShareInProgress();
   },
   startDirectShare: function () {
-    let ret = zoomdirectshare.StartDirectShare(OnDirectShareStatusUpdate);
+    let ret = zoomdirectshare.StartDirectShare();
   },
   stopDirectShare: function () {
-    let ret = zoomdirectshare.StopDirectShare(OnDirectShareStatusUpdate);
+    let ret = zoomdirectshare.StopDirectShare();
   },
   setDirectShareStatusUpdateCB: function () {
     let ret = zoomdirectshare.SetDirectShareStatusUpdateCB(OnDirectShareStatusUpdate);
@@ -2252,11 +2230,9 @@ ipcMain.on('asynchronous-message', (event, arg1, arg2, arg3, arg4, arg5) => {
   functionObj[arg1](arg2, arg3, arg4, arg5);
 })
 
-app.on('window-all-closed', function () {
-  if (process.platform != 'darwin') {
-    zoomsdk.CleanUPSDK();
-    app.quit();
-  }
+app.on('will-quit', function () {
+  zoomsdk.CleanUPSDK()
+  app.quit();
 });
 
 function createWindow() {

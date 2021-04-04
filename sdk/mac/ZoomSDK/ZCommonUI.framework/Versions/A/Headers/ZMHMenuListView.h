@@ -19,10 +19,11 @@
 
 @property (retain, readonly) NSTableView *tableView;
 
-@property (assign) id <ZMHMenuListViewDelegate> mouseEventDelegate;
+@property (weak) id <ZMHMenuListViewDelegate> mouseEventDelegate;
 @property (retain, nonatomic) NSArray <ZMHMenuItem *> *menuItemList;
 @property (readonly) BOOL mouseInside;
 @property (nonatomic) NSEdgeInsets paddings;
+@property (copy) NSColor *backgroundColor;
 
 @property (readonly) ZMHMenuItem *selectedItem;
 

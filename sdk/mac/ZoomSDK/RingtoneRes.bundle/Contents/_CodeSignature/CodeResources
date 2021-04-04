@@ -6,39 +6,43 @@
 	<dict>
 		<key>Resources/G Arpeggio.pcm</key>
 		<data>
-		b9kxOPdR8Re6qWKZtlCltFK8nDA=
+		D0uj9AF1dXN2aa3M6tpHzdsfksE=
 		</data>
 		<key>Resources/G Step.pcm</key>
 		<data>
-		8CDR7YEuX50cxTiQhBCCjnj/bL0=
+		xZAH78uhw3m/NMyHWgdHdkjAAt4=
 		</data>
 		<key>Resources/Gamelan.pcm</key>
 		<data>
-		eO2J1UI3gR2sIBDI5UWB72CB2pM=
+		/xnROSDKzmi1WZAZEUcqLt5t4tE=
 		</data>
 		<key>Resources/Pizzicato Strings.pcm</key>
 		<data>
-		gTb7OvfIO+qjjGae6IUugKJJ3fk=
+		iApCvy+SatGn4jtBYQ9dASFAlkM=
 		</data>
 		<key>Resources/Reed Organ.pcm</key>
 		<data>
-		CMLNK2GeCX60aNF3FJ25MOZCSss=
+		jVVa0xELosIlfMGFYr+lpFOsA9Q=
 		</data>
 		<key>Resources/Ukulele G.pcm</key>
 		<data>
-		Qu9KrnYrGxoAdmp5IcKei45WLKc=
+		x0wdViJebXVmCN5XNw1BtLDBQmM=
 		</data>
 		<key>Resources/Ukulele.pcm</key>
 		<data>
-		p2oaUZKgnBI+0bQsPCpYX9EHvKw=
+		+6B/cEWt1tHwjl5Ahu8oONJiPzs=
 		</data>
 		<key>Resources/Vibraphone.pcm</key>
 		<data>
-		KiXoPOsdvipWryaEqtsJdMjOqow=
+		NMHH/kTZfsqtDjyiIlA50wJZgM4=
+		</data>
+		<key>Resources/double_beep.pcm</key>
+		<data>
+		KyAIwfH5sYA35MOnkxzFMV53mQQ=
 		</data>
 		<key>Resources/localization.xml</key>
 		<data>
-		lBVhYGOqo4nHLqddREn28XSCusE=
+		nV/YoXLMI4HurhKnp9PpiyEh+Ds=
 		</data>
 		<key>Resources/ring.pcm</key>
 		<data>
@@ -46,7 +50,7 @@
 		</data>
 		<key>Resources/ringtone.xml</key>
 		<data>
-		n6ixeF1E/4mS1zk0Vde/X1CpyBE=
+		3pOIhVxfKTSzvoTwfEl01rYbitE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,99 +59,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b9kxOPdR8Re6qWKZtlCltFK8nDA=
+			D0uj9AF1dXN2aa3M6tpHzdsfksE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vRon4CrYm+ePlAuB7JYs/TXT4cLVxiC3lA8KLvlf9iM=
+			fiS9PtjwO1oMCabmNkkVvd1L9IvOZLn6n/Mingfz6KE=
 			</data>
 		</dict>
 		<key>Resources/G Step.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8CDR7YEuX50cxTiQhBCCjnj/bL0=
+			xZAH78uhw3m/NMyHWgdHdkjAAt4=
 			</data>
 			<key>hash2</key>
 			<data>
-			kXFkIfTHksvzuFzrIdYmJdrE2wAwJQbbT0LuhAPs6Ec=
+			JiEPusWjFGCc/QS3f5GpESdpW8HqoCB0xXB5zYrMKOE=
 			</data>
 		</dict>
 		<key>Resources/Gamelan.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eO2J1UI3gR2sIBDI5UWB72CB2pM=
+			/xnROSDKzmi1WZAZEUcqLt5t4tE=
 			</data>
 			<key>hash2</key>
 			<data>
-			TLnPAZj715o3EgFbTQO91dPAYFm2g3RVenWXejnvy4k=
+			QZ21c1OH54drGukl8K6LxHDxzj7LLP9WeI0K7tB6spI=
 			</data>
 		</dict>
 		<key>Resources/Pizzicato Strings.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gTb7OvfIO+qjjGae6IUugKJJ3fk=
+			iApCvy+SatGn4jtBYQ9dASFAlkM=
 			</data>
 			<key>hash2</key>
 			<data>
-			pBoEjYHQaSbfyMdNTPEFb+xdEMQ74xsXyjPzJxJxcgI=
+			xyS0rJPwJHT2sLGEm4ddRXaEbnlp1WxFGbDI53uOFPA=
 			</data>
 		</dict>
 		<key>Resources/Reed Organ.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CMLNK2GeCX60aNF3FJ25MOZCSss=
+			jVVa0xELosIlfMGFYr+lpFOsA9Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			MUuGjHo6etQSK2WyNCycs00VyBYp+qQOFjB9r4RutrY=
+			wyeb+9v1PzKHbKNKITsQLGS24DgM5Yl0ALym4XgmfDM=
 			</data>
 		</dict>
 		<key>Resources/Ukulele G.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Qu9KrnYrGxoAdmp5IcKei45WLKc=
+			x0wdViJebXVmCN5XNw1BtLDBQmM=
 			</data>
 			<key>hash2</key>
 			<data>
-			MVC4IePcNucj2Iz3sTCWHwVopYlfaKGdaAblrB93yAw=
+			dA9FfulbY3yViNjwmmGFqKCs3GnzIU/aGtejl7t58mw=
 			</data>
 		</dict>
 		<key>Resources/Ukulele.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			p2oaUZKgnBI+0bQsPCpYX9EHvKw=
+			+6B/cEWt1tHwjl5Ahu8oONJiPzs=
 			</data>
 			<key>hash2</key>
 			<data>
-			mEZ155DI95owrQZrB8KoqrTpPT14VYkMkwtWeqGSjaI=
+			QeXiCSlNptFG1THlaUNeXCllZ2pwrPfFoKJdkC1MZMA=
 			</data>
 		</dict>
 		<key>Resources/Vibraphone.pcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KiXoPOsdvipWryaEqtsJdMjOqow=
+			NMHH/kTZfsqtDjyiIlA50wJZgM4=
 			</data>
 			<key>hash2</key>
 			<data>
-			V1xNv4AhOr67CjucchdmWkkhFWNkumSodpBZP3DtIU0=
+			7z/bxuK2R/nQYUaGcr3eCKz/WlnfCPkefdMVXta7DtE=
+			</data>
+		</dict>
+		<key>Resources/double_beep.pcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KyAIwfH5sYA35MOnkxzFMV53mQQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			OJlWbZote/EqISL8WaQnnZAYpAqhjJRq6FyiEyooth4=
 			</data>
 		</dict>
 		<key>Resources/localization.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lBVhYGOqo4nHLqddREn28XSCusE=
+			nV/YoXLMI4HurhKnp9PpiyEh+Ds=
 			</data>
 			<key>hash2</key>
 			<data>
-			HPI9ixUVC6/ZN3DrCzxB2qbe8a3b6RZ6D72tBoXzLgI=
+			OOJ4vZXy0/ps2rcMSpUXHQCDfgK1P34PGq2fm/uzncA=
 			</data>
 		</dict>
 		<key>Resources/ring.pcm</key>
@@ -165,11 +180,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n6ixeF1E/4mS1zk0Vde/X1CpyBE=
+			3pOIhVxfKTSzvoTwfEl01rYbitE=
 			</data>
 			<key>hash2</key>
 			<data>
-			M9q1IY9WSQmnNOMGC+uLO+aHIziUDagBBaXxzxjJyYs=
+			1bosl8jzicaFCGUVqszBqHkaDTMknpOyUh57L9n8Bo0=
 			</data>
 		</dict>
 	</dict>

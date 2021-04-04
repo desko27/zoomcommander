@@ -50,7 +50,12 @@ public:
 	/// \brief Callback event of the user video spotlight status changes. 
 	/// \param bSpotlight TRUE indicates that the video is currently spotlighted.
 	/// \param userid The ID of user whose spotlight status changes.
+	/// \deprecated This callback will be deprecated, please stop using it.
 	virtual void onSpotlightVideoChangeNotification(bool bSpotlight, unsigned int userid) = 0;
+
+	/// \brief Callback event of the spotlighted users list changes. 
+	/// \param lstSpotlightedUserID The spotlighted users list. 
+	virtual void onSpotlightedUserListChangeNotification(IList<unsigned int >* lstSpotlightedUserID) = 0;
 
 	/// \brief Callback event of the requirement to turn on the video from the host.
 	/// \param handler_ A pointer to the IRequestStartVideoHandler. For more details, see \link IRequestStartVideoHandler \endlink.

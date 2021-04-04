@@ -4,17 +4,45 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/CMakeLists.txt</key>
+		<data>
+		pOh/K+EbtlLvUvB4QYlFc37kz2Y=
+		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		PLm1d/AfNmExgJln7YVej6w6KUc=
+		5lXF69o+Kx+qBCfjKktywkvCLYk=
+		</data>
+		<key>Resources/checksrc.pl</key>
+		<data>
+		k5ZAfwtj4Zkiauu/veor4JO3Tkg=
 		</data>
 		<key>Resources/curl64-Info.plist</key>
 		<data>
 		KdynSpo2WMiZj+SnilO7ddCg22I=
 		</data>
+		<key>Resources/curl_config.h.cmake</key>
+		<data>
+		eMW1xtde3ZTAAKazVlRjYWyY048=
+		</data>
+		<key>Resources/curl_config.h.in</key>
+		<data>
+		KhHVRSpOhwR8RVdy/THHPJkDAB8=
+		</data>
 		<key>Resources/curl_openssl_framework.plist</key>
 		<data>
-		LozO0xzoW3lISZdRgD9wCNIzEhI=
+		mWgD+TLQ238UwO1mNcCZwtfkjY8=
+		</data>
+		<key>Resources/firefox-db2pem.sh</key>
+		<data>
+		bZBTTJBgnN6sCt0Ngg6ZYmb7N64=
+		</data>
+		<key>Resources/libcurl.plist</key>
+		<data>
+		8z2/3dITCY63H7FuitctMOgo/j8=
+		</data>
+		<key>Resources/libcurl.vers.in</key>
+		<data>
+		3p5REJmdd/Rt6nHyhvHqwREDmzo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -30,15 +58,37 @@
 			VDaMJZDi2O9tRAkBg/9OXnDT1AiajWwtFV9IQngJRlg=
 			</data>
 		</dict>
+		<key>Resources/CMakeLists.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pOh/K+EbtlLvUvB4QYlFc37kz2Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			ldFs4xtmNS4F+J0MoKlqply9wn3WOKWiC3FFttHHkEo=
+			</data>
+		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PLm1d/AfNmExgJln7YVej6w6KUc=
+			5lXF69o+Kx+qBCfjKktywkvCLYk=
 			</data>
 			<key>hash2</key>
 			<data>
-			hGYxR+RUa6yeNseHlXPfdiieRvXqKKydNJJgLniom5s=
+			jFZa8Nr4338CW1G7TFwOoXAYlxhYoLkSYaA/x5vkd+E=
+			</data>
+		</dict>
+		<key>Resources/checksrc.pl</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			k5ZAfwtj4Zkiauu/veor4JO3Tkg=
+			</data>
+			<key>hash2</key>
+			<data>
+			UPh0LUB0/SD+oTKeYw85sPTDi2Mzm2KAIAZ8dIsBwz8=
 			</data>
 		</dict>
 		<key>Resources/curl64-Info.plist</key>
@@ -52,15 +102,70 @@
 			hfDmTvViXsqfzZVPctwR+w/hjH6RghbYPry16vfVIaI=
 			</data>
 		</dict>
+		<key>Resources/curl_config.h.cmake</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eMW1xtde3ZTAAKazVlRjYWyY048=
+			</data>
+			<key>hash2</key>
+			<data>
+			GjMdH1Rr7BHUgfbVuyQg+veAHKoBgmlFRS5LL/oS9PU=
+			</data>
+		</dict>
+		<key>Resources/curl_config.h.in</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KhHVRSpOhwR8RVdy/THHPJkDAB8=
+			</data>
+			<key>hash2</key>
+			<data>
+			iCTrLBbByIK+DIouqAfkhxkMQKSiBzHpgOnEJA672Jw=
+			</data>
+		</dict>
 		<key>Resources/curl_openssl_framework.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LozO0xzoW3lISZdRgD9wCNIzEhI=
+			mWgD+TLQ238UwO1mNcCZwtfkjY8=
 			</data>
 			<key>hash2</key>
 			<data>
-			HzDoK6KBHI8WwMkCKlsvCCsZp7p6dTJRkglXwg+CX0M=
+			FlCv5K6S84nyQ1nNdZtpv9R2UORW7mmecIsKj18ShiM=
+			</data>
+		</dict>
+		<key>Resources/firefox-db2pem.sh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bZBTTJBgnN6sCt0Ngg6ZYmb7N64=
+			</data>
+			<key>hash2</key>
+			<data>
+			hNbcRMIL+Wqv+JZNrVVmpMyyhYkU6aY3MYuHqLBgG1E=
+			</data>
+		</dict>
+		<key>Resources/libcurl.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8z2/3dITCY63H7FuitctMOgo/j8=
+			</data>
+			<key>hash2</key>
+			<data>
+			OO1qWl+A1dVNje7g8hvhlCJf3dA67ImZKEmvy8Ouz/U=
+			</data>
+		</dict>
+		<key>Resources/libcurl.vers.in</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3p5REJmdd/Rt6nHyhvHqwREDmzo=
+			</data>
+			<key>hash2</key>
+			<data>
+			wMEeJV6fxrGkM6HmUBLCB853zMaM1un6CBLbDPLKjU0=
 			</data>
 		</dict>
 	</dict>

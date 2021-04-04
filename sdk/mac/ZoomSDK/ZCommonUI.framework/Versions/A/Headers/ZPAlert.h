@@ -20,10 +20,9 @@
 {
     NSImageView*    _logoImageView;
     NSTextField*    _contentTextField;
-    id              _actionDelegate;
     int             _type;
 }
-@property(nonatomic, assign) id actionDelegate;
+@property(nonatomic, weak) id actionDelegate;
 @property(nonatomic, assign) int type;
 
 - (void)invisibleInSharing;

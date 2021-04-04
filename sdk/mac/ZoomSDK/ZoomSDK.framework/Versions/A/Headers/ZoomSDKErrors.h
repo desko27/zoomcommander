@@ -7,17 +7,6 @@
 //
 #pragma once
 
-//Client Key or Secret is empty
-#define kSDKAuthKeyOrSecretEmpty        300
-//Client Key or Secret is wrong
-#define kSDKAuthKeyOrSecretWrong        3023
-//Account does not support SDK feature
-#define kSDKAuthAccountNotSupport       3024
-//Account did not enable SDK feature
-#define kSDKAuthAccountNotEnableSDK     3025
-//Account does not support this SDK version
-#define kSDKAuthAccountDonotSupportTheSDKVersion    3112
-
 /** 
  @brief An enumeration of user types. 
  */
@@ -271,8 +260,8 @@ typedef enum{
     ZoomSDKError_NotInMeeting,
     //Init device.
     ZoomSDKError_initDevice,
-    //Can't chanage virtual device.
-    ZoomSDKError_CanNotChanageVirtualDevice,
+    //Can't change virtual device.
+    ZoomSDKError_CanNotChangeVirtualDevice,
     //Preprocess rawdata error.
     ZoomSDKError_PreprocessRawdataError,
     //No license.
@@ -301,8 +290,12 @@ typedef enum {
     ZoomSDKAuthError_NetworkIssue,
     //Client incompatible
     ZoomSDKAuthError_Client_Incompatible,
+    //The jwt token to authenticate is wrong.
+    ZoomSDKAuthError_JwtTokenWrong,
+    //The key or secret to authenticate is empty.
+    ZoomSDKAuthError_KeyOrSecretEmpty,
     //Unknown error
-    ZoomSDKAuthError_Unknown,
+    ZoomSDKAuthError_Unknown = 100,
 }ZoomSDKAuthError;
 
 /**
@@ -316,7 +309,7 @@ typedef enum {
     //Timeout.
     ZoomSDKPremeetingError_TimeOut,
     //Unknown errors.
-    ZoomSDKPremeetingError_Unknown,
+    ZoomSDKPremeetingError_Unknown = 100,
     
 }ZoomSDKPremeetingError;
 
@@ -1061,19 +1054,24 @@ typedef enum{
 	//For initialization.
     DirectShareStatus_None = 0,
 	//Waiting for enabling the direct sharing.
-    DirectShareStatus_Connecting = 1,  
+    DirectShareStatus_Connecting = 1,
 	//In direct sharing mode.
-    DirectShareStatus_InProgress = 2,  
+    DirectShareStatus_InProgress = 2,
 	//End the direct sharing.
-    DirectShareStatus_Ended = 3,  
+    DirectShareStatus_Ended = 3,
 	//Input the meeting ID/pairing code.
-    DirectShareStatus_NeedMeetingIDOrSharingKey = 4,  
+    DirectShareStatus_NeedMeetingIDOrSharingKey = 4,
 	//The meeting ID or pairing code is wrong.
     DirectShareStatus_WrongMeetingIDOrSharingKey = 5,
 	//Network issue. Reconnect later. 
-    DirectShareStatus_NetworkError = 6,  
+    DirectShareStatus_NetworkError = 6,
+    //Need input new paring code.
+    DirectShareStatus_NeedInputNewPairingCode,
+    //Prepared.
+    DirectShareStatus_Prepared,
 	//Unknown share status.
-    DirectShareStatus_Unknow = 7,
+    DirectShareStatus_Unknow = 100,
+
 }DirectShareStatus;
 
 /**
@@ -1524,6 +1522,20 @@ typedef enum
     ZoomSDKLoginFailReason_SMSCodeExpired,
     //Phone number format invalid.
     ZoomSDKLoginFailReason_PhoneNumberFormatInValid,
+    //Login token invalid.
+    ZoomSDKLoginFailReason_LoginTokenInvalid,
     //Login fail other reason.
     ZoomSDKLoginFailReason_Other_Issue = 100,
 }ZoomSDKLoginFailReason;
+
+
+typedef enum{
+    //General page view more setting button.
+    ZoomSDKSettingPageURL_General_ViewMoreSetting,
+    //Audio page learn more url.
+    ZoomSDKSettingPageURL_Audio_LearnMore,
+    //VB page learn more url.
+    ZoomSDKSettingPageURL_VB_LearnMore,
+    //Share screen page learn more url.
+    ZoomSDKSettingPageURL_ShareScreen_LearnMore,
+} ZoomSDKSettingPageURL;

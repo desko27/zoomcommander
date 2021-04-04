@@ -243,11 +243,11 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<EnablePlayChimeWhenEnterOrExitParams>
      _instance;
 } _EnablePlayChimeWhenEnterOrExitParams_default_instance_;
-class EnableInviteButtonOnMeeitngUIParamsDefaultTypeInternal {
+class EnableInviteButtonOnMeetingUIParamsDefaultTypeInternal {
 public:
- ::google::protobuf::internal::ExplicitlyConstructed<EnableInviteButtonOnMeeitngUIParams>
+ ::google::protobuf::internal::ExplicitlyConstructed<EnableInviteButtonOnMeetingUIParams>
      _instance;
-} _EnableInviteButtonOnMeeitngUIParams_default_instance_;
+} _EnableInviteButtonOnMeetingUIParams_default_instance_;
 class SetFloatVideoPosParamsDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<SetFloatVideoPosParams>
@@ -928,6 +928,16 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<DisableAccountSettingTabPageParams>
      _instance;
 } _DisableAccountSettingTabPageParams_default_instance_;
+class HideAutoCopyInviteLinkCheckBoxParamsDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<HideAutoCopyInviteLinkCheckBoxParams>
+     _instance;
+} _HideAutoCopyInviteLinkCheckBoxParams_default_instance_;
+class ConfigToShowUrlLinksInSettingParamsDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ConfigToShowUrlLinksInSettingParams>
+     _instance;
+} _ConfigToShowUrlLinksInSettingParams_default_instance_;
 class ConfSettingDialogShownTabPageParamsDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<ConfSettingDialogShownTabPageParams>
@@ -998,11 +1008,6 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<EnableHideNoVideoUsersOnWallViewParams>
      _instance;
 } _EnableHideNoVideoUsersOnWallViewParams_default_instance_;
-class SetTeamIdentifierParamsDefaultTypeInternal {
-public:
- ::google::protobuf::internal::ExplicitlyConstructed<SetTeamIdentifierParams>
-     _instance;
-} _SetTeamIdentifierParams_default_instance_;
 
 namespace protobuf_electron_5fsdk_2eproto {
 
@@ -1017,6 +1022,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
@@ -1310,9 +1316,9 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_UnmuteAudioParams_default_instance_);_EnablePlayChimeWhenEnterOrExitParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_EnablePlayChimeWhenEnterOrExitParams_default_instance_);_EnableInviteButtonOnMeeitngUIParams_default_instance_._instance.DefaultConstruct();
+      &_EnablePlayChimeWhenEnterOrExitParams_default_instance_);_EnableInviteButtonOnMeetingUIParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_EnableInviteButtonOnMeeitngUIParams_default_instance_);_SetFloatVideoPosParams_default_instance_._instance.DefaultConstruct();
+      &_EnableInviteButtonOnMeetingUIParams_default_instance_);_SetFloatVideoPosParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_SetFloatVideoPosParams_default_instance_);_SetBottomFloatToolBarWndVisibilityParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -1584,7 +1590,11 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_DisableAdvancedFeatures4GeneralSettingParams_default_instance_);_DisableAccountSettingTabPageParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_DisableAccountSettingTabPageParams_default_instance_);_ConfSettingDialogShownTabPageParams_default_instance_._instance.DefaultConstruct();
+      &_DisableAccountSettingTabPageParams_default_instance_);_HideAutoCopyInviteLinkCheckBoxParams_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_HideAutoCopyInviteLinkCheckBoxParams_default_instance_);_ConfigToShowUrlLinksInSettingParams_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ConfigToShowUrlLinksInSettingParams_default_instance_);_ConfSettingDialogShownTabPageParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_ConfSettingDialogShownTabPageParams_default_instance_);_SelectVideoCameraParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -1612,9 +1622,7 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_Enable49VideoesInGallaryViewParams_default_instance_);_EnableHideNoVideoUsersOnWallViewParams_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_EnableHideNoVideoUsersOnWallViewParams_default_instance_);_SetTeamIdentifierParams_default_instance_._instance.DefaultConstruct();
-  ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_SetTeamIdentifierParams_default_instance_);}
+      &_EnableHideNoVideoUsersOnWallViewParams_default_instance_);}
 
 void InitDefaults() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
@@ -1656,6 +1664,7 @@ const int InitSDKParams::kAudioRawdataMemoryModeFieldNumber;
 const int InitSDKParams::kEnableRawdataIntermediateModeFieldNumber;
 const int InitSDKParams::kRenderPostProcessingFieldNumber;
 const int InitSDKParams::kVideoCaptureMethodFieldNumber;
+const int InitSDKParams::kTeamIdentifierFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 InitSDKParams::InitSDKParams()
@@ -1692,6 +1701,10 @@ InitSDKParams::InitSDKParams(const InitSDKParams& from)
   if (from.has_strsupporturl()) {
     strsupporturl_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.strsupporturl_);
   }
+  teamidentifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_teamidentifier()) {
+    teamidentifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.teamidentifier_);
+  }
   ::memcpy(&customizedlanguagetype_, &from.customizedlanguagetype_,
     static_cast<size_t>(reinterpret_cast<char*>(&videocapturemethod_) -
     reinterpret_cast<char*>(&customizedlanguagetype_)) + sizeof(videocapturemethod_));
@@ -1705,6 +1718,7 @@ void InitSDKParams::SharedCtor() {
   customizedlanguagename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   customizedlanguageinfo_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   strsupporturl_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  teamidentifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&customizedlanguagetype_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&videocapturemethod_) -
       reinterpret_cast<char*>(&customizedlanguagetype_)) + sizeof(videocapturemethod_));
@@ -1721,6 +1735,7 @@ void InitSDKParams::SharedDtor() {
   customizedlanguagename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   customizedlanguageinfo_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   strsupporturl_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  teamidentifier_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void InitSDKParams::SetCachedSize(int size) const {
@@ -1748,7 +1763,7 @@ void InitSDKParams::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 63u) {
     if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(!path_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*path_.UnsafeRawStringPointer())->clear();
@@ -1769,21 +1784,25 @@ void InitSDKParams::Clear() {
       GOOGLE_DCHECK(!strsupporturl_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*strsupporturl_.UnsafeRawStringPointer())->clear();
     }
+    if (cached_has_bits & 0x00000020u) {
+      GOOGLE_DCHECK(!teamidentifier_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*teamidentifier_.UnsafeRawStringPointer())->clear();
+    }
   }
-  if (cached_has_bits & 224u) {
+  if (cached_has_bits & 192u) {
     ::memset(&customizedlanguagetype_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&applocale_) -
-        reinterpret_cast<char*>(&customizedlanguagetype_)) + sizeof(applocale_));
+        reinterpret_cast<char*>(&langid_) -
+        reinterpret_cast<char*>(&customizedlanguagetype_)) + sizeof(langid_));
   }
   if (cached_has_bits & 65280u) {
-    ::memset(&logfilesize_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&sharerawdatamemorymode_) -
-        reinterpret_cast<char*>(&logfilesize_)) + sizeof(sharerawdatamemorymode_));
+    ::memset(&applocale_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&videorawdatamemorymode_) -
+        reinterpret_cast<char*>(&applocale_)) + sizeof(videorawdatamemorymode_));
   }
-  if (cached_has_bits & 458752u) {
-    ::memset(&audiorawdatamemorymode_, 0, static_cast<size_t>(
+  if (cached_has_bits & 983040u) {
+    ::memset(&sharerawdatamemorymode_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&videocapturemethod_) -
-        reinterpret_cast<char*>(&audiorawdatamemorymode_)) + sizeof(videocapturemethod_));
+        reinterpret_cast<char*>(&sharerawdatamemorymode_)) + sizeof(videocapturemethod_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -2061,6 +2080,18 @@ bool InitSDKParams::MergePartialFromCodedStream(
         break;
       }
 
+      // optional string teamIdentifier = 20;
+      case 20: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(162u /* 162 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_teamidentifier()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2113,7 +2144,7 @@ void InitSDKParams::SerializeWithCachedSizes(
   }
 
   // optional int32 customizedLanguageType = 5;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->customizedlanguagetype(), output);
   }
 
@@ -2124,68 +2155,74 @@ void InitSDKParams::SerializeWithCachedSizes(
   }
 
   // optional int32 langID = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->langid(), output);
   }
 
   // optional bool enableLog = 8;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->enablelog(), output);
   }
 
   // optional int32 appLocale = 9;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->applocale(), output);
   }
 
   // optional int32 logFileSize = 10;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->logfilesize(), output);
   }
 
   // optional bool enableGeneralDump = 11;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->enablegeneraldump(), output);
   }
 
   // optional bool permonitorAwarenessMode = 12;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(12, this->permonitorawarenessmode(), output);
   }
 
   // optional int32 videoRenderMode = 13;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->videorendermode(), output);
   }
 
   // optional int32 videoRawdataMemoryMode = 14;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->videorawdatamemorymode(), output);
   }
 
   // optional int32 shareRawdataMemoryMode = 15;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->sharerawdatamemorymode(), output);
   }
 
   // optional int32 audioRawdataMemoryMode = 16;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->audiorawdatamemorymode(), output);
   }
 
   // optional bool enableRawdataIntermediateMode = 17;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(17, this->enablerawdataintermediatemode(), output);
   }
 
   // optional int32 renderPostProcessing = 18;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00040000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->renderpostprocessing(), output);
   }
 
   // optional int32 videoCaptureMethod = 19;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00080000u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->videocapturemethod(), output);
+  }
+
+  // optional string teamIdentifier = 20;
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      20, this->teamidentifier(), output);
   }
 
   output->WriteRaw(_internal_metadata_.unknown_fields().data(),
@@ -2235,6 +2272,13 @@ size_t InitSDKParams::ByteSizeLong() const {
           this->strsupporturl());
     }
 
+    // optional string teamIdentifier = 20;
+    if (has_teamidentifier()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->teamidentifier());
+    }
+
     // optional int32 customizedLanguageType = 5;
     if (has_customizedlanguagetype()) {
       total_size += 1 +
@@ -2249,6 +2293,8 @@ size_t InitSDKParams::ByteSizeLong() const {
           this->langid());
     }
 
+  }
+  if (_has_bits_[8 / 32] & 65280u) {
     // optional int32 appLocale = 9;
     if (has_applocale()) {
       total_size += 1 +
@@ -2256,8 +2302,6 @@ size_t InitSDKParams::ByteSizeLong() const {
           this->applocale());
     }
 
-  }
-  if (_has_bits_[8 / 32] & 65280u) {
     // optional int32 logFileSize = 10;
     if (has_logfilesize()) {
       total_size += 1 +
@@ -2299,6 +2343,8 @@ size_t InitSDKParams::ByteSizeLong() const {
           this->videorawdatamemorymode());
     }
 
+  }
+  if (_has_bits_[16 / 32] & 983040u) {
     // optional int32 shareRawdataMemoryMode = 15;
     if (has_sharerawdatamemorymode()) {
       total_size += 1 +
@@ -2306,8 +2352,6 @@ size_t InitSDKParams::ByteSizeLong() const {
           this->sharerawdatamemorymode());
     }
 
-  }
-  if (_has_bits_[16 / 32] & 458752u) {
     // optional int32 audioRawdataMemoryMode = 16;
     if (has_audiorawdatamemorymode()) {
       total_size += 2 +
@@ -2372,51 +2416,55 @@ void InitSDKParams::MergeFrom(const InitSDKParams& from) {
       strsupporturl_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.strsupporturl_);
     }
     if (cached_has_bits & 0x00000020u) {
-      customizedlanguagetype_ = from.customizedlanguagetype_;
+      set_has_teamidentifier();
+      teamidentifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.teamidentifier_);
     }
     if (cached_has_bits & 0x00000040u) {
-      langid_ = from.langid_;
+      customizedlanguagetype_ = from.customizedlanguagetype_;
     }
     if (cached_has_bits & 0x00000080u) {
-      applocale_ = from.applocale_;
+      langid_ = from.langid_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 65280u) {
     if (cached_has_bits & 0x00000100u) {
-      logfilesize_ = from.logfilesize_;
+      applocale_ = from.applocale_;
     }
     if (cached_has_bits & 0x00000200u) {
-      enablelog_ = from.enablelog_;
+      logfilesize_ = from.logfilesize_;
     }
     if (cached_has_bits & 0x00000400u) {
-      enablegeneraldump_ = from.enablegeneraldump_;
+      enablelog_ = from.enablelog_;
     }
     if (cached_has_bits & 0x00000800u) {
-      permonitorawarenessmode_ = from.permonitorawarenessmode_;
+      enablegeneraldump_ = from.enablegeneraldump_;
     }
     if (cached_has_bits & 0x00001000u) {
-      enablerawdataintermediatemode_ = from.enablerawdataintermediatemode_;
+      permonitorawarenessmode_ = from.permonitorawarenessmode_;
     }
     if (cached_has_bits & 0x00002000u) {
-      videorendermode_ = from.videorendermode_;
+      enablerawdataintermediatemode_ = from.enablerawdataintermediatemode_;
     }
     if (cached_has_bits & 0x00004000u) {
-      videorawdatamemorymode_ = from.videorawdatamemorymode_;
+      videorendermode_ = from.videorendermode_;
     }
     if (cached_has_bits & 0x00008000u) {
-      sharerawdatamemorymode_ = from.sharerawdatamemorymode_;
+      videorawdatamemorymode_ = from.videorawdatamemorymode_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 458752u) {
+  if (cached_has_bits & 983040u) {
     if (cached_has_bits & 0x00010000u) {
-      audiorawdatamemorymode_ = from.audiorawdatamemorymode_;
+      sharerawdatamemorymode_ = from.sharerawdatamemorymode_;
     }
     if (cached_has_bits & 0x00020000u) {
-      renderpostprocessing_ = from.renderpostprocessing_;
+      audiorawdatamemorymode_ = from.audiorawdatamemorymode_;
     }
     if (cached_has_bits & 0x00040000u) {
+      renderpostprocessing_ = from.renderpostprocessing_;
+    }
+    if (cached_has_bits & 0x00080000u) {
       videocapturemethod_ = from.videocapturemethod_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -2445,6 +2493,7 @@ void InitSDKParams::InternalSwap(InitSDKParams* other) {
   customizedlanguagename_.Swap(&other->customizedlanguagename_);
   customizedlanguageinfo_.Swap(&other->customizedlanguageinfo_);
   strsupporturl_.Swap(&other->strsupporturl_);
+  teamidentifier_.Swap(&other->teamidentifier_);
   swap(customizedlanguagetype_, other->customizedlanguagetype_);
   swap(langid_, other->langid_);
   swap(applocale_, other->applocale_);
@@ -2725,13 +2774,13 @@ void InitSDKParams::set_allocated_customizedlanguageinfo(::std::string* customiz
 
 // optional int32 customizedLanguageType = 5;
 bool InitSDKParams::has_customizedlanguagetype() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void InitSDKParams::set_has_customizedlanguagetype() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void InitSDKParams::clear_has_customizedlanguagetype() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void InitSDKParams::clear_customizedlanguagetype() {
   customizedlanguagetype_ = 0;
@@ -2812,13 +2861,13 @@ void InitSDKParams::set_allocated_strsupporturl(::std::string* strsupporturl) {
 
 // optional int32 langID = 7;
 bool InitSDKParams::has_langid() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void InitSDKParams::set_has_langid() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void InitSDKParams::clear_has_langid() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void InitSDKParams::clear_langid() {
   langid_ = 0;
@@ -2836,13 +2885,13 @@ void InitSDKParams::set_langid(::google::protobuf::int32 value) {
 
 // optional bool enableLog = 8;
 bool InitSDKParams::has_enablelog() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 void InitSDKParams::set_has_enablelog() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 void InitSDKParams::clear_has_enablelog() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 void InitSDKParams::clear_enablelog() {
   enablelog_ = false;
@@ -2860,13 +2909,13 @@ void InitSDKParams::set_enablelog(bool value) {
 
 // optional int32 appLocale = 9;
 bool InitSDKParams::has_applocale() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void InitSDKParams::set_has_applocale() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void InitSDKParams::clear_has_applocale() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void InitSDKParams::clear_applocale() {
   applocale_ = 0;
@@ -2884,13 +2933,13 @@ void InitSDKParams::set_applocale(::google::protobuf::int32 value) {
 
 // optional int32 logFileSize = 10;
 bool InitSDKParams::has_logfilesize() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 void InitSDKParams::set_has_logfilesize() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 void InitSDKParams::clear_has_logfilesize() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 void InitSDKParams::clear_logfilesize() {
   logfilesize_ = 0;
@@ -2908,13 +2957,13 @@ void InitSDKParams::set_logfilesize(::google::protobuf::int32 value) {
 
 // optional bool enableGeneralDump = 11;
 bool InitSDKParams::has_enablegeneraldump() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 void InitSDKParams::set_has_enablegeneraldump() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 void InitSDKParams::clear_has_enablegeneraldump() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 void InitSDKParams::clear_enablegeneraldump() {
   enablegeneraldump_ = false;
@@ -2932,13 +2981,13 @@ void InitSDKParams::set_enablegeneraldump(bool value) {
 
 // optional bool permonitorAwarenessMode = 12;
 bool InitSDKParams::has_permonitorawarenessmode() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 void InitSDKParams::set_has_permonitorawarenessmode() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 void InitSDKParams::clear_has_permonitorawarenessmode() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 void InitSDKParams::clear_permonitorawarenessmode() {
   permonitorawarenessmode_ = false;
@@ -2956,13 +3005,13 @@ void InitSDKParams::set_permonitorawarenessmode(bool value) {
 
 // optional int32 videoRenderMode = 13;
 bool InitSDKParams::has_videorendermode() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 void InitSDKParams::set_has_videorendermode() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 void InitSDKParams::clear_has_videorendermode() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 void InitSDKParams::clear_videorendermode() {
   videorendermode_ = 0;
@@ -2980,13 +3029,13 @@ void InitSDKParams::set_videorendermode(::google::protobuf::int32 value) {
 
 // optional int32 videoRawdataMemoryMode = 14;
 bool InitSDKParams::has_videorawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 void InitSDKParams::set_has_videorawdatamemorymode() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 void InitSDKParams::clear_has_videorawdatamemorymode() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 void InitSDKParams::clear_videorawdatamemorymode() {
   videorawdatamemorymode_ = 0;
@@ -3004,13 +3053,13 @@ void InitSDKParams::set_videorawdatamemorymode(::google::protobuf::int32 value) 
 
 // optional int32 shareRawdataMemoryMode = 15;
 bool InitSDKParams::has_sharerawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 void InitSDKParams::set_has_sharerawdatamemorymode() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 void InitSDKParams::clear_has_sharerawdatamemorymode() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 void InitSDKParams::clear_sharerawdatamemorymode() {
   sharerawdatamemorymode_ = 0;
@@ -3028,13 +3077,13 @@ void InitSDKParams::set_sharerawdatamemorymode(::google::protobuf::int32 value) 
 
 // optional int32 audioRawdataMemoryMode = 16;
 bool InitSDKParams::has_audiorawdatamemorymode() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 void InitSDKParams::set_has_audiorawdatamemorymode() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 void InitSDKParams::clear_has_audiorawdatamemorymode() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 void InitSDKParams::clear_audiorawdatamemorymode() {
   audiorawdatamemorymode_ = 0;
@@ -3052,13 +3101,13 @@ void InitSDKParams::set_audiorawdatamemorymode(::google::protobuf::int32 value) 
 
 // optional bool enableRawdataIntermediateMode = 17;
 bool InitSDKParams::has_enablerawdataintermediatemode() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 void InitSDKParams::set_has_enablerawdataintermediatemode() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 void InitSDKParams::clear_has_enablerawdataintermediatemode() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 void InitSDKParams::clear_enablerawdataintermediatemode() {
   enablerawdataintermediatemode_ = false;
@@ -3076,13 +3125,13 @@ void InitSDKParams::set_enablerawdataintermediatemode(bool value) {
 
 // optional int32 renderPostProcessing = 18;
 bool InitSDKParams::has_renderpostprocessing() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 void InitSDKParams::set_has_renderpostprocessing() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 void InitSDKParams::clear_has_renderpostprocessing() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 void InitSDKParams::clear_renderpostprocessing() {
   renderpostprocessing_ = 0;
@@ -3100,13 +3149,13 @@ void InitSDKParams::set_renderpostprocessing(::google::protobuf::int32 value) {
 
 // optional int32 videoCaptureMethod = 19;
 bool InitSDKParams::has_videocapturemethod() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 void InitSDKParams::set_has_videocapturemethod() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 void InitSDKParams::clear_has_videocapturemethod() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 void InitSDKParams::clear_videocapturemethod() {
   videocapturemethod_ = 0;
@@ -3120,6 +3169,69 @@ void InitSDKParams::set_videocapturemethod(::google::protobuf::int32 value) {
   set_has_videocapturemethod();
   videocapturemethod_ = value;
   // @@protoc_insertion_point(field_set:com.electron.sdk.proto.InitSDKParams.videoCaptureMethod)
+}
+
+// optional string teamIdentifier = 20;
+bool InitSDKParams::has_teamidentifier() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void InitSDKParams::set_has_teamidentifier() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void InitSDKParams::clear_has_teamidentifier() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void InitSDKParams::clear_teamidentifier() {
+  teamidentifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_teamidentifier();
+}
+const ::std::string& InitSDKParams::teamidentifier() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  return teamidentifier_.GetNoArena();
+}
+void InitSDKParams::set_teamidentifier(const ::std::string& value) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+#if LANG_CXX11
+void InitSDKParams::set_teamidentifier(::std::string&& value) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+#endif
+void InitSDKParams::set_teamidentifier(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+void InitSDKParams::set_teamidentifier(const char* value, size_t size) {
+  set_has_teamidentifier();
+  teamidentifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+}
+::std::string* InitSDKParams::mutable_teamidentifier() {
+  set_has_teamidentifier();
+  // @@protoc_insertion_point(field_mutable:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  return teamidentifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* InitSDKParams::release_teamidentifier() {
+  // @@protoc_insertion_point(field_release:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
+  clear_has_teamidentifier();
+  return teamidentifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void InitSDKParams::set_allocated_teamidentifier(::std::string* teamidentifier) {
+  if (teamidentifier != NULL) {
+    set_has_teamidentifier();
+  } else {
+    clear_has_teamidentifier();
+  }
+  teamidentifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), teamidentifier);
+  // @@protoc_insertion_point(field_set_allocated:com.electron.sdk.proto.InitSDKParams.teamIdentifier)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -19638,60 +19750,60 @@ void EnablePlayChimeWhenEnterOrExitParams::set_benable(bool value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int EnableInviteButtonOnMeeitngUIParams::kBEnableFieldNumber;
+const int EnableInviteButtonOnMeetingUIParams::kBEnableFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-EnableInviteButtonOnMeeitngUIParams::EnableInviteButtonOnMeeitngUIParams()
+EnableInviteButtonOnMeetingUIParams::EnableInviteButtonOnMeetingUIParams()
   : ::google::protobuf::MessageLite(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_electron_5fsdk_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(constructor:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
 }
-EnableInviteButtonOnMeeitngUIParams::EnableInviteButtonOnMeeitngUIParams(const EnableInviteButtonOnMeeitngUIParams& from)
+EnableInviteButtonOnMeetingUIParams::EnableInviteButtonOnMeetingUIParams(const EnableInviteButtonOnMeetingUIParams& from)
   : ::google::protobuf::MessageLite(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   benable_ = from.benable_;
-  // @@protoc_insertion_point(copy_constructor:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(copy_constructor:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
 }
 
-void EnableInviteButtonOnMeeitngUIParams::SharedCtor() {
+void EnableInviteButtonOnMeetingUIParams::SharedCtor() {
   _cached_size_ = 0;
   benable_ = false;
 }
 
-EnableInviteButtonOnMeeitngUIParams::~EnableInviteButtonOnMeeitngUIParams() {
-  // @@protoc_insertion_point(destructor:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+EnableInviteButtonOnMeetingUIParams::~EnableInviteButtonOnMeetingUIParams() {
+  // @@protoc_insertion_point(destructor:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   SharedDtor();
 }
 
-void EnableInviteButtonOnMeeitngUIParams::SharedDtor() {
+void EnableInviteButtonOnMeetingUIParams::SharedDtor() {
 }
 
-void EnableInviteButtonOnMeeitngUIParams::SetCachedSize(int size) const {
+void EnableInviteButtonOnMeetingUIParams::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const EnableInviteButtonOnMeeitngUIParams& EnableInviteButtonOnMeeitngUIParams::default_instance() {
+const EnableInviteButtonOnMeetingUIParams& EnableInviteButtonOnMeetingUIParams::default_instance() {
   protobuf_electron_5fsdk_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-EnableInviteButtonOnMeeitngUIParams* EnableInviteButtonOnMeeitngUIParams::New(::google::protobuf::Arena* arena) const {
-  EnableInviteButtonOnMeeitngUIParams* n = new EnableInviteButtonOnMeeitngUIParams;
+EnableInviteButtonOnMeetingUIParams* EnableInviteButtonOnMeetingUIParams::New(::google::protobuf::Arena* arena) const {
+  EnableInviteButtonOnMeetingUIParams* n = new EnableInviteButtonOnMeetingUIParams;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void EnableInviteButtonOnMeeitngUIParams::Clear() {
-// @@protoc_insertion_point(message_clear_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+void EnableInviteButtonOnMeetingUIParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -19701,7 +19813,7 @@ void EnableInviteButtonOnMeeitngUIParams::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool EnableInviteButtonOnMeeitngUIParams::MergePartialFromCodedStream(
+bool EnableInviteButtonOnMeetingUIParams::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -19711,7 +19823,7 @@ bool EnableInviteButtonOnMeeitngUIParams::MergePartialFromCodedStream(
               mutable_unknown_fields));
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string, false);
-  // @@protoc_insertion_point(parse_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(parse_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -19743,17 +19855,17 @@ bool EnableInviteButtonOnMeeitngUIParams::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(parse_success:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(parse_failure:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   return false;
 #undef DO_
 }
 
-void EnableInviteButtonOnMeeitngUIParams::SerializeWithCachedSizes(
+void EnableInviteButtonOnMeetingUIParams::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(serialize_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -19765,11 +19877,11 @@ void EnableInviteButtonOnMeeitngUIParams::SerializeWithCachedSizes(
 
   output->WriteRaw(_internal_metadata_.unknown_fields().data(),
                    static_cast<int>(_internal_metadata_.unknown_fields().size()));
-  // @@protoc_insertion_point(serialize_end:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+  // @@protoc_insertion_point(serialize_end:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
 }
 
-size_t EnableInviteButtonOnMeeitngUIParams::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+size_t EnableInviteButtonOnMeetingUIParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   size_t total_size = 0;
 
   total_size += _internal_metadata_.unknown_fields().size();
@@ -19786,13 +19898,13 @@ size_t EnableInviteButtonOnMeeitngUIParams::ByteSizeLong() const {
   return total_size;
 }
 
-void EnableInviteButtonOnMeeitngUIParams::CheckTypeAndMergeFrom(
+void EnableInviteButtonOnMeetingUIParams::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const EnableInviteButtonOnMeeitngUIParams*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const EnableInviteButtonOnMeetingUIParams*>(&from));
 }
 
-void EnableInviteButtonOnMeeitngUIParams::MergeFrom(const EnableInviteButtonOnMeeitngUIParams& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+void EnableInviteButtonOnMeetingUIParams::MergeFrom(const EnableInviteButtonOnMeetingUIParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -19803,22 +19915,22 @@ void EnableInviteButtonOnMeeitngUIParams::MergeFrom(const EnableInviteButtonOnMe
   }
 }
 
-void EnableInviteButtonOnMeeitngUIParams::CopyFrom(const EnableInviteButtonOnMeeitngUIParams& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams)
+void EnableInviteButtonOnMeetingUIParams::CopyFrom(const EnableInviteButtonOnMeetingUIParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool EnableInviteButtonOnMeeitngUIParams::IsInitialized() const {
+bool EnableInviteButtonOnMeetingUIParams::IsInitialized() const {
   return true;
 }
 
-void EnableInviteButtonOnMeeitngUIParams::Swap(EnableInviteButtonOnMeeitngUIParams* other) {
+void EnableInviteButtonOnMeetingUIParams::Swap(EnableInviteButtonOnMeetingUIParams* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void EnableInviteButtonOnMeeitngUIParams::InternalSwap(EnableInviteButtonOnMeeitngUIParams* other) {
+void EnableInviteButtonOnMeetingUIParams::InternalSwap(EnableInviteButtonOnMeetingUIParams* other) {
   using std::swap;
   swap(benable_, other->benable_);
   swap(_has_bits_[0], other->_has_bits_[0]);
@@ -19826,35 +19938,35 @@ void EnableInviteButtonOnMeeitngUIParams::InternalSwap(EnableInviteButtonOnMeeit
   swap(_cached_size_, other->_cached_size_);
 }
 
-::std::string EnableInviteButtonOnMeeitngUIParams::GetTypeName() const {
-  return "com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams";
+::std::string EnableInviteButtonOnMeetingUIParams::GetTypeName() const {
+  return "com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// EnableInviteButtonOnMeeitngUIParams
+// EnableInviteButtonOnMeetingUIParams
 
 // optional bool bEnable = 1;
-bool EnableInviteButtonOnMeeitngUIParams::has_benable() const {
+bool EnableInviteButtonOnMeetingUIParams::has_benable() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void EnableInviteButtonOnMeeitngUIParams::set_has_benable() {
+void EnableInviteButtonOnMeetingUIParams::set_has_benable() {
   _has_bits_[0] |= 0x00000001u;
 }
-void EnableInviteButtonOnMeeitngUIParams::clear_has_benable() {
+void EnableInviteButtonOnMeetingUIParams::clear_has_benable() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void EnableInviteButtonOnMeeitngUIParams::clear_benable() {
+void EnableInviteButtonOnMeetingUIParams::clear_benable() {
   benable_ = false;
   clear_has_benable();
 }
-bool EnableInviteButtonOnMeeitngUIParams::benable() const {
-  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams.bEnable)
+bool EnableInviteButtonOnMeetingUIParams::benable() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams.bEnable)
   return benable_;
 }
-void EnableInviteButtonOnMeeitngUIParams::set_benable(bool value) {
+void EnableInviteButtonOnMeetingUIParams::set_benable(bool value) {
   set_has_benable();
   benable_ = value;
-  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableInviteButtonOnMeeitngUIParams.bEnable)
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableInviteButtonOnMeetingUIParams.bEnable)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -54040,6 +54152,456 @@ void DisableAccountSettingTabPageParams::set_bdisable(bool value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HideAutoCopyInviteLinkCheckBoxParams::kBHideFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+HideAutoCopyInviteLinkCheckBoxParams::HideAutoCopyInviteLinkCheckBoxParams()
+  : ::google::protobuf::MessageLite(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_electron_5fsdk_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+}
+HideAutoCopyInviteLinkCheckBoxParams::HideAutoCopyInviteLinkCheckBoxParams(const HideAutoCopyInviteLinkCheckBoxParams& from)
+  : ::google::protobuf::MessageLite(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  bhide_ = from.bhide_;
+  // @@protoc_insertion_point(copy_constructor:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::SharedCtor() {
+  _cached_size_ = 0;
+  bhide_ = false;
+}
+
+HideAutoCopyInviteLinkCheckBoxParams::~HideAutoCopyInviteLinkCheckBoxParams() {
+  // @@protoc_insertion_point(destructor:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  SharedDtor();
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::SharedDtor() {
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const HideAutoCopyInviteLinkCheckBoxParams& HideAutoCopyInviteLinkCheckBoxParams::default_instance() {
+  protobuf_electron_5fsdk_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+HideAutoCopyInviteLinkCheckBoxParams* HideAutoCopyInviteLinkCheckBoxParams::New(::google::protobuf::Arena* arena) const {
+  HideAutoCopyInviteLinkCheckBoxParams* n = new HideAutoCopyInviteLinkCheckBoxParams;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bhide_ = false;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool HideAutoCopyInviteLinkCheckBoxParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::LazyStringOutputStream unknown_fields_string(
+      ::google::protobuf::NewPermanentCallback(&_internal_metadata_,
+          &::google::protobuf::internal::InternalMetadataWithArenaLite::
+              mutable_unknown_fields));
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string, false);
+  // @@protoc_insertion_point(parse_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool bHide = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_bhide();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &bhide_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  return false;
+#undef DO_
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional bool bHide = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->bhide(), output);
+  }
+
+  output->WriteRaw(_internal_metadata_.unknown_fields().data(),
+                   static_cast<int>(_internal_metadata_.unknown_fields().size()));
+  // @@protoc_insertion_point(serialize_end:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+}
+
+size_t HideAutoCopyInviteLinkCheckBoxParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  size_t total_size = 0;
+
+  total_size += _internal_metadata_.unknown_fields().size();
+
+  // optional bool bHide = 1;
+  if (has_bhide()) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const HideAutoCopyInviteLinkCheckBoxParams*>(&from));
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::MergeFrom(const HideAutoCopyInviteLinkCheckBoxParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_bhide()) {
+    set_bhide(from.bhide());
+  }
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::CopyFrom(const HideAutoCopyInviteLinkCheckBoxParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HideAutoCopyInviteLinkCheckBoxParams::IsInitialized() const {
+  return true;
+}
+
+void HideAutoCopyInviteLinkCheckBoxParams::Swap(HideAutoCopyInviteLinkCheckBoxParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void HideAutoCopyInviteLinkCheckBoxParams::InternalSwap(HideAutoCopyInviteLinkCheckBoxParams* other) {
+  using std::swap;
+  swap(bhide_, other->bhide_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::std::string HideAutoCopyInviteLinkCheckBoxParams::GetTypeName() const {
+  return "com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams";
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// HideAutoCopyInviteLinkCheckBoxParams
+
+// optional bool bHide = 1;
+bool HideAutoCopyInviteLinkCheckBoxParams::has_bhide() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void HideAutoCopyInviteLinkCheckBoxParams::set_has_bhide() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void HideAutoCopyInviteLinkCheckBoxParams::clear_has_bhide() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void HideAutoCopyInviteLinkCheckBoxParams::clear_bhide() {
+  bhide_ = false;
+  clear_has_bhide();
+}
+bool HideAutoCopyInviteLinkCheckBoxParams::bhide() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams.bHide)
+  return bhide_;
+}
+void HideAutoCopyInviteLinkCheckBoxParams::set_bhide(bool value) {
+  set_has_bhide();
+  bhide_ = value;
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.HideAutoCopyInviteLinkCheckBoxParams.bHide)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ConfigToShowUrlLinksInSettingParams::kShowOptionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ConfigToShowUrlLinksInSettingParams::ConfigToShowUrlLinksInSettingParams()
+  : ::google::protobuf::MessageLite(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_electron_5fsdk_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+}
+ConfigToShowUrlLinksInSettingParams::ConfigToShowUrlLinksInSettingParams(const ConfigToShowUrlLinksInSettingParams& from)
+  : ::google::protobuf::MessageLite(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  showoption_ = from.showoption_;
+  // @@protoc_insertion_point(copy_constructor:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+}
+
+void ConfigToShowUrlLinksInSettingParams::SharedCtor() {
+  _cached_size_ = 0;
+  showoption_ = GOOGLE_ULONGLONG(0);
+}
+
+ConfigToShowUrlLinksInSettingParams::~ConfigToShowUrlLinksInSettingParams() {
+  // @@protoc_insertion_point(destructor:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  SharedDtor();
+}
+
+void ConfigToShowUrlLinksInSettingParams::SharedDtor() {
+}
+
+void ConfigToShowUrlLinksInSettingParams::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ConfigToShowUrlLinksInSettingParams& ConfigToShowUrlLinksInSettingParams::default_instance() {
+  protobuf_electron_5fsdk_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+ConfigToShowUrlLinksInSettingParams* ConfigToShowUrlLinksInSettingParams::New(::google::protobuf::Arena* arena) const {
+  ConfigToShowUrlLinksInSettingParams* n = new ConfigToShowUrlLinksInSettingParams;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ConfigToShowUrlLinksInSettingParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  showoption_ = GOOGLE_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool ConfigToShowUrlLinksInSettingParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::LazyStringOutputStream unknown_fields_string(
+      ::google::protobuf::NewPermanentCallback(&_internal_metadata_,
+          &::google::protobuf::internal::InternalMetadataWithArenaLite::
+              mutable_unknown_fields));
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string, false);
+  // @@protoc_insertion_point(parse_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 showOption = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_showoption();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &showoption_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  return false;
+#undef DO_
+}
+
+void ConfigToShowUrlLinksInSettingParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 showOption = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->showoption(), output);
+  }
+
+  output->WriteRaw(_internal_metadata_.unknown_fields().data(),
+                   static_cast<int>(_internal_metadata_.unknown_fields().size()));
+  // @@protoc_insertion_point(serialize_end:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+}
+
+size_t ConfigToShowUrlLinksInSettingParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  size_t total_size = 0;
+
+  total_size += _internal_metadata_.unknown_fields().size();
+
+  // optional uint64 showOption = 1;
+  if (has_showoption()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->showoption());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ConfigToShowUrlLinksInSettingParams::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const ConfigToShowUrlLinksInSettingParams*>(&from));
+}
+
+void ConfigToShowUrlLinksInSettingParams::MergeFrom(const ConfigToShowUrlLinksInSettingParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_showoption()) {
+    set_showoption(from.showoption());
+  }
+}
+
+void ConfigToShowUrlLinksInSettingParams::CopyFrom(const ConfigToShowUrlLinksInSettingParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ConfigToShowUrlLinksInSettingParams::IsInitialized() const {
+  return true;
+}
+
+void ConfigToShowUrlLinksInSettingParams::Swap(ConfigToShowUrlLinksInSettingParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ConfigToShowUrlLinksInSettingParams::InternalSwap(ConfigToShowUrlLinksInSettingParams* other) {
+  using std::swap;
+  swap(showoption_, other->showoption_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::std::string ConfigToShowUrlLinksInSettingParams::GetTypeName() const {
+  return "com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams";
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// ConfigToShowUrlLinksInSettingParams
+
+// optional uint64 showOption = 1;
+bool ConfigToShowUrlLinksInSettingParams::has_showoption() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void ConfigToShowUrlLinksInSettingParams::set_has_showoption() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void ConfigToShowUrlLinksInSettingParams::clear_has_showoption() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void ConfigToShowUrlLinksInSettingParams::clear_showoption() {
+  showoption_ = GOOGLE_ULONGLONG(0);
+  clear_has_showoption();
+}
+::google::protobuf::uint64 ConfigToShowUrlLinksInSettingParams::showoption() const {
+  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams.showOption)
+  return showoption_;
+}
+void ConfigToShowUrlLinksInSettingParams::set_showoption(::google::protobuf::uint64 value) {
+  set_has_showoption();
+  showoption_ = value;
+  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.ConfigToShowUrlLinksInSettingParams.showOption)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ConfSettingDialogShownTabPageParams::kShowOptionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -57291,278 +57853,6 @@ void EnableHideNoVideoUsersOnWallViewParams::set_benable(bool value) {
   set_has_benable();
   benable_ = value;
   // @@protoc_insertion_point(field_set:com.electron.sdk.proto.EnableHideNoVideoUsersOnWallViewParams.bEnable)
-}
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SetTeamIdentifierParams::kIdentifierFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-SetTeamIdentifierParams::SetTeamIdentifierParams()
-  : ::google::protobuf::MessageLite(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    protobuf_electron_5fsdk_2eproto::InitDefaults();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:com.electron.sdk.proto.SetTeamIdentifierParams)
-}
-SetTeamIdentifierParams::SetTeamIdentifierParams(const SetTeamIdentifierParams& from)
-  : ::google::protobuf::MessageLite(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  identifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_identifier()) {
-    identifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.identifier_);
-  }
-  // @@protoc_insertion_point(copy_constructor:com.electron.sdk.proto.SetTeamIdentifierParams)
-}
-
-void SetTeamIdentifierParams::SharedCtor() {
-  _cached_size_ = 0;
-  identifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-SetTeamIdentifierParams::~SetTeamIdentifierParams() {
-  // @@protoc_insertion_point(destructor:com.electron.sdk.proto.SetTeamIdentifierParams)
-  SharedDtor();
-}
-
-void SetTeamIdentifierParams::SharedDtor() {
-  identifier_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void SetTeamIdentifierParams::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const SetTeamIdentifierParams& SetTeamIdentifierParams::default_instance() {
-  protobuf_electron_5fsdk_2eproto::InitDefaults();
-  return *internal_default_instance();
-}
-
-SetTeamIdentifierParams* SetTeamIdentifierParams::New(::google::protobuf::Arena* arena) const {
-  SetTeamIdentifierParams* n = new SetTeamIdentifierParams;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void SetTeamIdentifierParams::Clear() {
-// @@protoc_insertion_point(message_clear_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (has_identifier()) {
-    GOOGLE_DCHECK(!identifier_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*identifier_.UnsafeRawStringPointer())->clear();
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear();
-}
-
-bool SetTeamIdentifierParams::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::io::LazyStringOutputStream unknown_fields_string(
-      ::google::protobuf::NewPermanentCallback(&_internal_metadata_,
-          &::google::protobuf::internal::InternalMetadataWithArenaLite::
-              mutable_unknown_fields));
-  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
-      &unknown_fields_string, false);
-  // @@protoc_insertion_point(parse_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string identifier = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_identifier()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
-            input, tag, &unknown_fields_stream));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:com.electron.sdk.proto.SetTeamIdentifierParams)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:com.electron.sdk.proto.SetTeamIdentifierParams)
-  return false;
-#undef DO_
-}
-
-void SetTeamIdentifierParams::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional string identifier = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->identifier(), output);
-  }
-
-  output->WriteRaw(_internal_metadata_.unknown_fields().data(),
-                   static_cast<int>(_internal_metadata_.unknown_fields().size()));
-  // @@protoc_insertion_point(serialize_end:com.electron.sdk.proto.SetTeamIdentifierParams)
-}
-
-size_t SetTeamIdentifierParams::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  size_t total_size = 0;
-
-  total_size += _internal_metadata_.unknown_fields().size();
-
-  // optional string identifier = 1;
-  if (has_identifier()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->identifier());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void SetTeamIdentifierParams::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const SetTeamIdentifierParams*>(&from));
-}
-
-void SetTeamIdentifierParams::MergeFrom(const SetTeamIdentifierParams& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_identifier()) {
-    set_has_identifier();
-    identifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.identifier_);
-  }
-}
-
-void SetTeamIdentifierParams::CopyFrom(const SetTeamIdentifierParams& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:com.electron.sdk.proto.SetTeamIdentifierParams)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SetTeamIdentifierParams::IsInitialized() const {
-  return true;
-}
-
-void SetTeamIdentifierParams::Swap(SetTeamIdentifierParams* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void SetTeamIdentifierParams::InternalSwap(SetTeamIdentifierParams* other) {
-  using std::swap;
-  identifier_.Swap(&other->identifier_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::std::string SetTeamIdentifierParams::GetTypeName() const {
-  return "com.electron.sdk.proto.SetTeamIdentifierParams";
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// SetTeamIdentifierParams
-
-// optional string identifier = 1;
-bool SetTeamIdentifierParams::has_identifier() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void SetTeamIdentifierParams::set_has_identifier() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void SetTeamIdentifierParams::clear_has_identifier() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-void SetTeamIdentifierParams::clear_identifier() {
-  identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_identifier();
-}
-const ::std::string& SetTeamIdentifierParams::identifier() const {
-  // @@protoc_insertion_point(field_get:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  return identifier_.GetNoArena();
-}
-void SetTeamIdentifierParams::set_identifier(const ::std::string& value) {
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-#if LANG_CXX11
-void SetTeamIdentifierParams::set_identifier(::std::string&& value) {
-  set_has_identifier();
-  identifier_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-#endif
-void SetTeamIdentifierParams::set_identifier(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-void SetTeamIdentifierParams::set_identifier(const char* value, size_t size) {
-  set_has_identifier();
-  identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-}
-::std::string* SetTeamIdentifierParams::mutable_identifier() {
-  set_has_identifier();
-  // @@protoc_insertion_point(field_mutable:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  return identifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* SetTeamIdentifierParams::release_identifier() {
-  // @@protoc_insertion_point(field_release:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
-  clear_has_identifier();
-  return identifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void SetTeamIdentifierParams::set_allocated_identifier(::std::string* identifier) {
-  if (identifier != NULL) {
-    set_has_identifier();
-  } else {
-    clear_has_identifier();
-  }
-  identifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), identifier);
-  // @@protoc_insertion_point(field_set_allocated:com.electron.sdk.proto.SetTeamIdentifierParams.identifier)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -92,7 +92,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Y3CfaAHlTGUrreSd1xobQUIpk78=
+			9AMbnoQvO3lw/cwdTSPpGAnIpUw=
 			</data>
 			<key>requirement</key>
 			<string>identifier "libavcodec.58" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
@@ -101,7 +101,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			F28ZP+j93m5NMi+RFtxAUzMPLmA=
+			f/koQLi7aj2abb0s/jggvbkyfBo=
 			</data>
 			<key>requirement</key>
 			<string>identifier "libavformat.58" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
@@ -110,16 +110,25 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			DmceSafUU9vbeZRwX6bE1W79Kis=
+			+3XRFq1JXXs2z6AZ65lFtEmI6u0=
 			</data>
 			<key>requirement</key>
 			<string>identifier "libavutil.56" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
+		</dict>
+		<key>Frameworks/libswresample.3.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			BdPLwRiVQla5vOqcIfF4EkksErs=
+			</data>
+			<key>requirement</key>
+			<string>identifier "libswresample.3" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>
 		</dict>
 		<key>Frameworks/libswscale.5.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			y/5VveC9K58vzj/JsQACW4WZsKo=
+			DZuDhl9DMF485eubS7v0lxjotU0=
 			</data>
 			<key>requirement</key>
 			<string>identifier "libswscale.5" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BJ4HAAB9B3</string>

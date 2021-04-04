@@ -83,6 +83,8 @@ enum ZNAuthResult
 	ZNAUTHRET_NONE,///<Initial status.
 	ZNAUTHRET_OVERTIME,///<Time out.
 	ZNAUTHRET_NETWORKISSUE,///<Network issues.
+	ZNAUTHRET_CLIENT_INCOMPATIBLE,///Account does not support this SDK version
+	ZNAUTHRET_JWTTOKENWRONG,///<The jwt token to authenticate is wrong.
 };
 enum ZNCustomizedLanguageType
 {
@@ -192,6 +194,7 @@ typedef struct _ZNInitParam
 	bool permonitor_awareness_mode;
 	ZNZoomSDKRenderOptions renderOpts;
 	ZNRawDataOptions rawdataOpts;
+	ZoomSTRING teamidentifier;
 	_ZNInitParam(){
 		enable_log = true;
 		langid = ZNLANGUAGE_Unknow;
@@ -244,6 +247,7 @@ enum ZNLoginFailReason
 	ZNLoginFail_SMSCodeError,
 	ZNLoginFail_SMSCodeExpired,
 	ZNLoginFail_PhoneNumberFormatInValid,
+	ZNLoginFail_LoginTokenInvalid,
 	ZNLoginFail_OtherIssue = 100,
 };
 
@@ -641,6 +645,8 @@ enum ZNDirectShareStatus
 	ZN_DirectShare_NetWork_Error,///<Network error. Please try again later.
 	ZN_DirectShare_Other_Error,///<Other errors. Mainly occur in SIP call mode.
 	ZN_DirectShare_WrongMeetingID_Or_SharingKey,
+	ZN_DirectShare_InputNewParingCode,///<Please input new paring code.
+	ZN_DirectShare_Prepared, ///Prepare to share data
 };
 enum ZNAudioType
 {
@@ -781,6 +787,12 @@ typedef struct _ZNZoomRedirectWarningMsgOption
 #define SETTING_DLG_SHOW_AUDIO_TABPAGE (1UL << 6)
 #define SETTING_DLG_SHOW_ADVANCED_FEATURE_TABPAGE (1UL << 7)
 #define SETTING_DLG_SHOW_ACCESSIBILITY_TABPAGE (1UL << 8)
+
+//SettingDlgShowURLOptionDef
+#define ZNSettingDlgURL_General_ViewMoreSettings 1UL
+#define ZNSettingDlgURL_Video_SupportCenter (1UL << 1)
+#define ZNSettingDlgURL_Audio_LearnMore (1UL << 2)
+#define ZNSettingDlgURL_Share_and_VB_LearnMore (1UL << 3)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*! \enum ZNSettingsNetWorkType

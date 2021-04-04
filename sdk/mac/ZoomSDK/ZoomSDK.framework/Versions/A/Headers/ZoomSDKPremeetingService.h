@@ -32,13 +32,60 @@ typedef enum{
 -(ZoomSDKError)cancel;
 @end
 
+@interface ZoomSDKDirectShareSpecifyContentHandler: NSObject
+
+/**
+ * @brief Designated to get the supported direct share types.
+ * @return If the function succeeds, it will return an array contains NSNumber with ZoomSDKShareContentType.
+ */
+- (NSArray<NSNumber *>*)getSupportedDirectShareType;
+
+/**
+ * @brief Designated to direct share application.
+ * @param windowID The Application's window id to be shared.
+ * @param shareSound Enable or disable share computer sound.
+ * @param optimizeVideoClip Enable or disable optimizing for full screen video clip.
+ * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
+ */
+- (ZoomSDKError)tryShareApplication:(CGWindowID)windowID shareSound:(BOOL)shareSound optimizeVideoClip:(BOOL)optimizeVideoClip;
+
+/**
+ * @brief Designated to direct share desktop.
+ * @param monitorID The ID of the monitor that to be shared.
+ * @param shareSound Enable or disable share computer sound.
+ * @param optimizeVideoClip Enable or disable optimizing for full screen video clip.
+ * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
+ */
+- (ZoomSDKError)tryShareDesktop:(CGDirectDisplayID)monitorID shareSound:(BOOL)shareSound optimizeVideoClip:(BOOL)optimizeVideoClip;
+
+/**
+ * @brief Designated to direct share frame.
+ * @param shareSound Enable or disable share computer sound.
+ * @param optimizeVideoClip Enable or disable optimizing for full screen video clip.
+ * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
+ */
+- (ZoomSDKError)tryShareFrame:(BOOL)shareSound optimizeVideoClip:(BOOL)optimizeVideoClip;
+
+/**
+ * @brief Designated to cancel the action.
+ * @return If the function succeeds, it will return ZoomSDKError_Success. Otherwise failed.
+ */
+- (ZoomSDKError)cancel;
+@end
+
 @protocol ZoomSDKDirectShareHelperDelegate<NSObject>
 /**
  * @brief Notification if the status of direct sharing changes. 
  * @param status The status of direct sharing.
- * @param handler The handler works only when the value of status is DirectShareStatus_NeedMeetingIDOrSharingKey or DirectShareStatus_WrongMeetingIDOrSharingKey
+ * @param handler The handler works only when the value of status is DirectShareStatus_NeedMeetingIDOrSharingKey, DirectShareStatus_WrongMeetingIDOrSharingKey or DirectShareStatus_NeedInputNewPairingCode
  */
 -(void)onDirectShareStatusReceived:(DirectShareStatus)status DirectShareReceived:(ZoomSDKDirectShareHandler*)handler;
+
+/**
+ * @brief Notification share specify share content.
+ * @param handler The handler works only when the value of status is DirectShareStatus_Prepared
+ */
+-(void)onDirectShareSpecifyContent:(ZoomSDKDirectShareSpecifyContentHandler*)handler;
 @end
 
 @interface ZoomSDKDirectShareHelper: NSObject

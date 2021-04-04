@@ -18,7 +18,7 @@ public:
     SDKUserType  SDKUserTypeChange(ZNZoomUserType &type);
     LeaveMeetingCmd  ZoomSDKLeaveMeetingCmd(ZNLeaveMeetingCmd &cmd);
     
-    NSString *ZNSDKLanaguageChanage(ZNSDK_LANGUAGE_ID &lanaguageid);
+    NSString *ZNSDKLanaguageChange(ZNSDK_LANGUAGE_ID &lanaguageid);
     ZNMeetingStatus  ZNSDKMeetingStatus(ZoomSDKMeetingStatus &status);
     ZoomSDKMeetingStatus ZoomSDKMeetingStatusC(ZNMeetingStatus  &status);
     
@@ -48,6 +48,7 @@ public:
     ZNAudioCallbackActionInfo ZNSDKAudioCallbackAction(ZoomSDKAudioActionInfo &info);
     ZNWebinarNeedRegisterType ZNSDKWebinarNeedRegisterType(WebinarRegisterType &type);
     ZNRequiredInfoType ZNSDKRequiredInfoType(JoinMeetingReqInfoType &type);
-    ZNRecordingStatus ZNRecordingStatusChanage(ZoomSDKRecordingStatus &status);
+    ZNRecordingStatus ZNRecordingStatusChange(ZoomSDKRecordingStatus &status);
+    ZNLoginFailReason ZNLoginFailReasonMap(ZoomSDKLoginFailReason &reason);
 };
 

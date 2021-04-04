@@ -32,6 +32,20 @@ public:
 	/// bit 8: indicates to whether to show advance feature page. "1" show, "0" not show.
 	/// bit 9: indicates to whether to show accessibility page. "1" show, "0" not show.
 	static void ConfSettingDialogShownTabPage(const v8::FunctionCallbackInfo<v8::Value>& args);
+
+	/// \brief Hide the setting option of auto copy invite url on the General Setting page or not.
+	/// \param bHide TRUE indicates to hide the setting option.
+	static void HideAutoCopyInviteLinkCheckBox(const v8::FunctionCallbackInfo<v8::Value>& args);
+
+	/// \brief Custom the url link show or hide
+	/// \param 1. ConfigToShowUrlLinksInSettingParams(number) Every bit indicates whether to show a certain url link.
+	/// Form right to left, every bit indicates as:
+	/// bit 1: indicates whether to show the view more setting url in general page. "1" show, "0" not show.
+	/// bit 2: indicates to whether to show the support center url in video page. "1" show, "0" not show.
+	/// bit 3: indicates to whether to show the learn more url of suppress background noise in audio page. "1" show, "0" not show.
+	/// bit 4: indicates to whether to show the learn more url of screen capture mode in share screen and vb page. "1" show, "0" not show.
+	static void ConfigToShowUrlLinksInSetting(const v8::FunctionCallbackInfo<v8::Value>& args);
+
 	static v8::Persistent<v8::Function> constructor;
 };
 template<>
@@ -45,6 +59,8 @@ static void InitClassAttribute<ZoomNodeSettingUIStrategyCtrlWrap >(const v8::Loc
 	NODE_SET_PROTOTYPE_METHOD(tpl, "DisableAdvancedFeatures4GeneralSetting", ZoomNodeSettingUIStrategyCtrlWrap::DisableAdvancedFeatures4GeneralSetting);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "DisableAccountSettingTabPage", ZoomNodeSettingUIStrategyCtrlWrap::DisableAccountSettingTabPage);
 	NODE_SET_PROTOTYPE_METHOD(tpl, "ConfSettingDialogShownTabPage", ZoomNodeSettingUIStrategyCtrlWrap::ConfSettingDialogShownTabPage);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "HideAutoCopyInviteLinkCheckBox", ZoomNodeSettingUIStrategyCtrlWrap::HideAutoCopyInviteLinkCheckBox);
+	NODE_SET_PROTOTYPE_METHOD(tpl, "ConfigToShowUrlLinksInSetting", ZoomNodeSettingUIStrategyCtrlWrap::ConfigToShowUrlLinksInSetting);
 }
 template<>
 static v8::Persistent<v8::Function>* GetConstructor<ZoomNodeSettingUIStrategyCtrlWrap >() {

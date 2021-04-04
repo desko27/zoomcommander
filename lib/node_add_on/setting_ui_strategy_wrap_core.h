@@ -12,4 +12,7 @@ public:
 	void DisableAdvancedFeatures4GeneralSetting(bool bDisable);
 	void DisableAccountSettingTabPage(bool bDisable);
 	void ConfSettingDialogShownTabPage(unsigned long showOption);
+	void HideAutoCopyInviteLinkCheckBox(bool bHide);
+	void ConfigToShowUrlLinksInSetting(unsigned long showOption);
+
 };
