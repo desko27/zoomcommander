@@ -1,14 +1,14 @@
  zoomsdk_render
 
- Timestamp is 60185302 (Mon Feb  1 20:14:10 2021)
+ Timestamp is 606a00f4 (Sun Apr  4 20:09:56 2021)
 
  Preferred load address is 10000000
 
  Start         Length     Name                   Class
  0001:00000000 000001e0H .text$di                CODE
- 0001:000001e0 00004870H .text$mn                CODE
- 0001:00004a50 00000060H .text$x                 CODE
- 0001:00004ab0 00000267H .text$yd                CODE
+ 0001:000001e0 00004880H .text$mn                CODE
+ 0001:00004a60 00000060H .text$x                 CODE
+ 0001:00004ac0 00000267H .text$yd                CODE
  0002:00000000 00000100H .idata$5                DATA
  0002:00000100 00000004H .00cfg                  DATA
  0002:00000104 00000004H .CRT$XCA                DATA
@@ -41,17 +41,17 @@
  0002:00001bf8 00000020H .didat$2                DATA
  0002:00001c18 00000020H .didat$3                DATA
  0002:00001c38 000000d8H .didat$4                DATA
- 0002:00001d10 00000ad4H .didat$6                DATA
- 0002:000027e4 000000dcH .didat$7                DATA
- 0002:000028c0 00000084H .edata                  DATA
- 0002:00002944 0000008cH .idata$2                DATA
- 0002:000029d0 00000014H .idata$3                DATA
- 0002:000029e4 00000100H .idata$4                DATA
- 0002:00002ae4 0000056aH .idata$6                DATA
+ 0002:00001d10 00000ae4H .didat$6                DATA
+ 0002:000027f4 000000dcH .didat$7                DATA
+ 0002:000028d0 00000084H .edata                  DATA
+ 0002:00002954 0000008cH .idata$2                DATA
+ 0002:000029e0 00000014H .idata$3                DATA
+ 0002:000029f4 00000100H .idata$4                DATA
+ 0002:00002af4 0000056aH .idata$6                DATA
  0003:00000000 000000e0H .data                   DATA
  0003:000000e0 00000078H .data$r                 DATA
  0003:00000158 000000d8H .didat$5                DATA
- 0003:00000230 00001eccH .bss                    DATA
+ 0003:00000230 00001eecH .bss                    DATA
  0004:00000000 00000390H .rsrc$01                DATA
  0004:00000390 00038f60H .rsrc$02                DATA
 
@@ -85,15 +85,15 @@
  0000:00000000       ___ImageBase               10000000     <linker-defined>
  0001:00000210       ?what@exception@stdext@@UBEPBDXZ 10001210 f i electron_sdk.pb.obj
  0001:00000220       ?_Raise@exception@stdext@@QBEXXZ 10001220 f i electron_sdk.pb.obj
- 0001:00000250       ?onConnect@UVIPCClientSink@@UAEXXZ 10001250 f i zoom_node_render_addon.obj
  0001:00000250       ?onDisconnect@UVIPCClientSink@@UAEXXZ 10001250 f i zoom_node_render_addon.obj
- 0001:00000250       ?onIdle@UVIPCClientSink@@UAEXXZ 10001250 f i zoom_node_render_addon.obj
  0001:00000250       @_guard_check_icall_nop@4  10001250 f i MSVCRT:guard_support.obj
+ 0001:00000250       ?onConnect@UVIPCClientSink@@UAEXXZ 10001250 f i zoom_node_render_addon.obj
+ 0001:00000250       ?onIdle@UVIPCClientSink@@UAEXXZ 10001250 f i zoom_node_render_addon.obj
  0001:00000250       ?_Doraise@exception@stdext@@MBEXXZ 10001250 f i electron_sdk.pb.obj
- 0001:00000260       ??_Ebad_array_new_length@stdext@@UAEPAXI@Z 10001260 f i * CIL library *:* CIL module *
- 0001:00000260       ??_Gexception@stdext@@UAEPAXI@Z 10001260 f i electron_sdk.pb.obj
  0001:00000260       ??_Eexception@stdext@@UAEPAXI@Z 10001260 f i * CIL library *:* CIL module *
  0001:00000260       ??_Gbad_array_new_length@stdext@@UAEPAXI@Z 10001260 f i electron_sdk.pb.obj
+ 0001:00000260       ??_Ebad_array_new_length@stdext@@UAEPAXI@Z 10001260 f i * CIL library *:* CIL module *
+ 0001:00000260       ??_Gexception@stdext@@UAEPAXI@Z 10001260 f i electron_sdk.pb.obj
  0001:00000290       ?_Doraise@bad_alloc@stdext@@MBEXXZ 10001290 f i electron_sdk.pb.obj
  0001:000002b0       ??0bad_array_new_length@stdext@@QAE@XZ 100012b0 f i electron_sdk.pb.obj
  0001:000002c0       ?_Throw_bad_array_new_length@std@@YAXXZ 100012c0 f i electron_sdk.pb.obj
@@ -107,245 +107,245 @@
  0001:00000610       ?Ref@ObjectWrap@node@@MAEXXZ 10001610 f i zoom_node_render_addon.obj
  0001:00000650       ?Unref@ObjectWrap@node@@MAEXXZ 10001650 f i zoom_node_render_addon.obj
  0001:000006d0       ?WeakCallback@ObjectWrap@node@@CAXABV?$WeakCallbackInfo@VObjectWrap@node@@@v8@@@Z 100016d0 f i zoom_node_render_addon.obj
- 0001:00000720       ??_EZoomNodeRenderWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
- 0001:00000720       ??_GZoomNodeVideoRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
  0001:00000720       ??_EZoomNodeShareRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
- 0001:00000720       ??_GZoomNodeAudioRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
+ 0001:00000720       ??_EZoomNodeVideoRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
+ 0001:00000720       ??_EZoomNodeAudioRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
+ 0001:00000720       ??_EObjectWrap@node@@UAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
  0001:00000720       ??_GObjectWrap@node@@UAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
  0001:00000720       ??_GZoomNodeRenderWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
- 0001:00000720       ??_EZoomNodeVideoRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
- 0001:00000720       ??_EObjectWrap@node@@UAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
+ 0001:00000720       ??_EZoomNodeRenderWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
+ 0001:00000720       ??_GZoomNodeVideoRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
+ 0001:00000720       ??_GZoomNodeAudioRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
  0001:00000720       ??_GZoomNodeShareRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i zoom_node_render_addon.obj
- 0001:00000720       ??_EZoomNodeAudioRawDataLibuvClientWrap@@EAEPAXI@Z 10001720 f i * CIL library *:* CIL module *
  0001:00000770       ?DeleteInstance@RenderAddonData@@SAXPAX@Z 10001770 f i zoom_node_render_addon.obj
- 0001:00000830       _node_register_module_v76  10001830 f   zoom_node_render_addon.obj
- 0001:00000d50       ?GetVideoLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001d50 f   zoom_node_render_addon.obj
- 0001:00000de0       ?GetShareLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001de0 f   zoom_node_render_addon.obj
- 0001:00000e70       ?GetAudioLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001e70 f   zoom_node_render_addon.obj
- 0001:00000f00       ?RunVideoFormatDataCB@@YAXPADH@Z 10001f00 f   zoom_node_render_addon.obj
- 0001:00001200       ?RunAudioFormatDataCB@@YAXPAD@Z 10002200 f   zoom_node_render_addon.obj
- 0001:000013e0       ??0UVIPCClientSink@@QAE@XZ 100023e0 f i zoom_node_render_addon.obj
- 0001:000014a0       ?onMessageRecvNotification@UVIPCClientSink@@UAEXPAVUVIPCMessage@@@Z 100024a0 f i zoom_node_render_addon.obj
- 0001:000014d0       ?SetRenderVideoRawDataCB@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100024d0 f   zoom_node_render_addon.obj
- 0001:000015c0       ?StartVideoClient@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100025c0 f   zoom_node_render_addon.obj
- 0001:00001630       ?StopVideoClient@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002630 f   zoom_node_render_addon.obj
- 0001:00001670       ?SetRenderShareRawDataCB@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002670 f   zoom_node_render_addon.obj
- 0001:00001760       ?StartShareClient@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002760 f   zoom_node_render_addon.obj
- 0001:000017d0       ?StopShareClient@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100027d0 f   zoom_node_render_addon.obj
- 0001:00001810       ?SetRenderAudioRawDataCB@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002810 f   zoom_node_render_addon.obj
- 0001:000019d0       ?StartAudioClient@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100029d0 f   zoom_node_render_addon.obj
- 0001:00001a40       ?StopAudioClient@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002a40 f   zoom_node_render_addon.obj
- 0001:00001a80       ?New@?$ZoomWrapObject@VZoomNodeAudioRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002a80 f i zoom_node_render_addon.obj
- 0001:00001b80       ?New@?$ZoomWrapObject@VZoomNodeShareRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002b80 f i zoom_node_render_addon.obj
- 0001:00001c80       ?New@?$ZoomWrapObject@VZoomNodeVideoRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002c80 f i zoom_node_render_addon.obj
- 0001:00001d80       ?New@?$ZoomWrapObject@VZoomNodeRenderWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002d80 f i zoom_node_render_addon.obj
- 0001:00001e80       ??_GUVIPCLocker@@UAEPAXI@Z 10002e80 f i uv_ipc_common.obj
- 0001:00001e80       ??_EUVIPCLocker@@UAEPAXI@Z 10002e80 f i * CIL library *:* CIL module *
- 0001:00001eb0       ?AddRef@UVIPCMessage@@UAE_NXZ 10002eb0 f i uv_ipc_common.obj
- 0001:00001ed0       ?Release@UVIPCMessage@@UAEHXZ 10002ed0 f i uv_ipc_common.obj
- 0001:00001f00       ?_Throw_tree_length_error@std@@YAXXZ 10002f00 f i uv_ipc_common.obj
- 0001:00001f10       ??_GUVIPCMessage@@MAEPAXI@Z 10002f10 f i uv_ipc_common.obj
- 0001:00001f10       ??_EUVIPCMessage@@MAEPAXI@Z 10002f10 f i * CIL library *:* CIL module *
- 0001:00001f50       ??_GUVIPC@@UAEPAXI@Z       10002f50 f i uv_ipc_common.obj
- 0001:00001f50       ??_EUVIPC@@UAEPAXI@Z       10002f50 f i * CIL library *:* CIL module *
- 0001:00001f80       ??1_UVIPCData@UVIPC@@QAE@XZ 10002f80 f i uv_ipc_common.obj
- 0001:00001fe0       ??1UVIPC@@UAE@XZ           10002fe0 f   uv_ipc_common.obj
- 0001:00002050       ?IsRunning@UVIPC@@QAE_N_N@Z 10003050 f   uv_ipc_common.obj
- 0001:00002080       ?uv_ipc_timer_cb@@YAXPAUuv_timer_s@@@Z 10003080 f   uv_ipc_common.obj
- 0001:000020a0       ?Start@UVIPC@@QAE_NPAD_NPAUuv_loop_s@@PAVUVIPCSink@@@Z 100030a0 f   uv_ipc_common.obj
- 0001:000021b0       ?Stop@UVIPC@@QAE_NXZ       100031b0 f   uv_ipc_common.obj
- 0001:000022c0       ?on_server_connected_cb@@YAXPAUuv_connect_s@@H@Z 100032c0 f   uv_ipc_common.obj
- 0001:00002370       ?alloc_buffer_for_uv_pipe@@YAXPAUuv_handle_s@@IPAUuv_buf_t@@@Z 10003370 f   uv_ipc_common.obj
- 0001:00002390       ?on_pipe_data_read_cb@@YAXPAUuv_stream_s@@HPBUuv_buf_t@@@Z 10003390 f   uv_ipc_common.obj
- 0001:00002420       ?uv_cb_pipe_data_read@UVIPC@@AAEXPAUuv_stream_s@@HPBUuv_buf_t@@@Z 10003420 f   uv_ipc_common.obj
- 0001:000025f0       ?on_write_data_cb@@YAXPAUuv_write_s@@H@Z 100035f0 f   uv_ipc_common.obj
- 0001:00002620       ?SendMessageA@UVIPC@@QAE_NPAVUVIPCMessage@@@Z 10003620 f   uv_ipc_common.obj
- 0001:000026a0       ?uv_cb_ipc_timer@UVIPC@@AAEXPAUuv_timer_s@@@Z 100036a0 f   uv_ipc_common.obj
- 0001:00002820       ??1?$_Tree@V?$_Tmap_traits@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@$0A@@std@@@std@@QAE@XZ 10003820 f i uv_ipc_common.obj
- 0001:00002860       ??$insert@U?$pair@PAXPAVUVIPC@@@std@@$0A@@?$map@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@@std@@QAE?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@@std@@_N@1@$$QAU?$pair@PAXPAVUVIPC@@@1@@Z 10003860 f i uv_ipc_common.obj
- 0001:00002910       ??$_Find_lower_bound@PAX@?$_Tree@V?$_Tmap_traits@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@$0A@@std@@@std@@IBE?AU?$_Tree_find_result@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@1@ABQAX@Z 10003910 f i uv_ipc_common.obj
- 0001:00002960       ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@QAEXAAV?$allocator@U?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@1@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@1@@Z 10003960 f i uv_ipc_common.obj
- 0001:000029a0       ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@QAEPAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@2@U?$_Tree_id@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@2@QAU32@@Z 100039a0 f i uv_ipc_common.obj
- 0001:00002ba5       __imp_load_?GetIsolate@Context@v8@@QAEPAVIsolate@2@XZ 10003ba5 f   node:node.exe
- 0001:00002baf       __tailMerge_node_exe       10003baf     node:node.exe
- 0001:00002bc0       __imp_load_?Global@Context@v8@@QAE?AV?$Local@VObject@v8@@@2@XZ 10003bc0 f   node:node.exe
- 0001:00002bca       __imp_load_?New@Uint8Array@v8@@SA?AV?$Local@VUint8Array@v8@@@2@V?$Local@VArrayBuffer@v8@@@2@II@Z 10003bca f   node:node.exe
- 0001:00002bd4       __imp_load_?Value@External@v8@@QBEPAXXZ 10003bd4 f   node:node.exe
- 0001:00002bde       __imp_load_?New@External@v8@@SA?AV?$Local@VExternal@v8@@@2@PAVIsolate@2@PAX@Z 10003bde f   node:node.exe
- 0001:00002be8       __imp_load_?New@Integer@v8@@SA?AV?$Local@VInteger@v8@@@2@PAVIsolate@2@H@Z 10003be8 f   node:node.exe
- 0001:00002bf2       __imp_load_?New@Signature@v8@@SA?AV?$Local@VSignature@v8@@@2@PAVIsolate@2@V?$Local@VFunctionTemplate@v8@@@2@@Z 10003bf2 f   node:node.exe
- 0001:00002bfc       __imp_load_?GetCurrentContext@Isolate@v8@@QAE?AV?$Local@VContext@v8@@@2@XZ 10003bfc f   node:node.exe
- 0001:00002c06       __imp_load_?GetCurrent@Isolate@v8@@SAPAV12@XZ 10003c06 f   node:node.exe
- 0001:00002c10       __imp_load_?CreateHandle@HandleScope@v8@@KAPAIPAVIsolate@internal@2@I@Z 10003c10 f   node:node.exe
- 0001:00002c1a       __imp_load_??1HandleScope@v8@@QAE@XZ 10003c1a f   node:node.exe
- 0001:00002c24       __imp_load_??0HandleScope@v8@@QAE@PAVIsolate@1@@Z 10003c24 f   node:node.exe
- 0001:00002c2e       __imp_load_?Set@Template@v8@@QAEXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z 10003c2e f   node:node.exe
- 0001:00002c38       __imp_load_?SetClassName@FunctionTemplate@v8@@QAEXV?$Local@VString@v8@@@2@@Z 10003c38 f   node:node.exe
- 0001:00002c42       __imp_load_?PrototypeTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 10003c42 f   node:node.exe
- 0001:00002c4c       __imp_load_?InstanceTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 10003c4c f   node:node.exe
- 0001:00002c56       __imp_load_?GetFunction@FunctionTemplate@v8@@QAE?AV?$MaybeLocal@VFunction@v8@@@2@V?$Local@VContext@v8@@@2@@Z 10003c56 f   node:node.exe
- 0001:00002c60       __imp_load_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PAVIsolate@2@P6AXABV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@HW4ConstructorBehavior@2@W4SideEffectType@2@@Z 10003c60 f   node:node.exe
- 0001:00002c6a       __imp_load_?New@ArrayBuffer@v8@@SA?AV?$Local@VArrayBuffer@v8@@@2@PAVIsolate@2@PAXIW4ArrayBufferCreationMode@2@@Z 10003c6a f   node:node.exe
- 0001:00002c74       __imp_load_?ToLocalEmpty@V8@v8@@CAXXZ 10003c74 f   node:node.exe
- 0001:00002c7e       __imp_load_?FromJustIsNothing@V8@v8@@CAXXZ 10003c7e f   node:node.exe
- 0001:00002c88       __imp_load_?ClearWeak@V8@v8@@CAPAXPAI@Z 10003c88 f   node:node.exe
- 0001:00002c92       __imp_load_?MakeWeak@V8@v8@@CAXPAIPAXP6AXABV?$WeakCallbackInfo@X@2@@ZW4WeakCallbackType@2@@Z 10003c92 f   node:node.exe
- 0001:00002c9c       __imp_load_?DisposeGlobal@V8@v8@@CAXPAI@Z 10003c9c f   node:node.exe
- 0001:00002ca6       __imp_load_?CopyGlobalReference@V8@v8@@CAPAIPAI@Z 10003ca6 f   node:node.exe
- 0001:00002cb0       __imp_load_?GlobalizeReference@V8@v8@@CAPAIPAVIsolate@internal@2@PAI@Z 10003cb0 f   node:node.exe
- 0001:00002cba       __imp_load_?IsFunction@Value@v8@@QBE_NXZ 10003cba f   node:node.exe
- 0001:00002cc4       __imp_load_?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PAVIsolate@2@PBDW4NewStringType@2@H@Z 10003cc4 f   node:node.exe
- 0001:00002cce       __imp_load_?GetIsolate@Object@v8@@QAEPAVIsolate@2@XZ 10003cce f   node:node.exe
- 0001:00002cd8       __imp_load_?SetAlignedPointerInInternalField@Object@v8@@QAEXHPAX@Z 10003cd8 f   node:node.exe
- 0001:00002ce2       __imp_load_?InternalFieldCount@Object@v8@@QAEHXZ 10003ce2 f   node:node.exe
- 0001:00002cec       __imp_load_?Set@Object@v8@@QAE?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@1@Z 10003cec f   node:node.exe
- 0001:00002cf6       __imp_load_?Call@Function@v8@@QAE?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@HQAV52@@Z 10003cf6 f   node:node.exe
- 0001:00002d00       __imp_load_?NewInstance@Function@v8@@QBE?AV?$MaybeLocal@VObject@v8@@@2@V?$Local@VContext@v8@@@2@HQAV?$Local@VValue@v8@@@2@@Z 10003d00 f   node:node.exe
- 0001:00002d0a       __imp_load_?SetInternalFieldCount@ObjectTemplate@v8@@QAEXH@Z 10003d0a f   node:node.exe
- 0001:00002d14       __imp_load__uv_run         10003d14 f   node:node.exe
- 0001:00002d1e       __imp_load_?AddEnvironmentCleanupHook@node@@YAXPAVIsolate@v8@@P6AXPAX@Z1@Z 10003d1e f   node:node.exe
- 0001:00002d28       __imp_load__node_module_register 10003d28 f   node:node.exe
- 0001:00002d32       __imp_load__uv_default_loop 10003d32 f   node:node.exe
- 0001:00002d3c       __imp_load__uv_close       10003d3c f   node:node.exe
- 0001:00002d46       __imp_load__uv_read_stop   10003d46 f   node:node.exe
- 0001:00002d50       __imp_load__uv_timer_init  10003d50 f   node:node.exe
- 0001:00002d5a       __imp_load__uv_rwlock_wrlock 10003d5a f   node:node.exe
- 0001:00002d64       __imp_load__uv_rwlock_rdlock 10003d64 f   node:node.exe
- 0001:00002d6e       __imp_load__uv_rwlock_init 10003d6e f   node:node.exe
- 0001:00002d78       __imp_load__uv_rwlock_wrunlock 10003d78 f   node:node.exe
- 0001:00002d82       __imp_load__uv_timer_start 10003d82 f   node:node.exe
- 0001:00002d8c       __imp_load__uv_pipe_connect 10003d8c f   node:node.exe
- 0001:00002d96       __imp_load__uv_read_start  10003d96 f   node:node.exe
- 0001:00002da0       __imp_load__uv_rwlock_rdunlock 10003da0 f   node:node.exe
- 0001:00002daa       __imp_load__uv_rwlock_destroy 10003daa f   node:node.exe
- 0001:00002db4       __imp_load__uv_pipe_init   10003db4 f   node:node.exe
- 0001:00002dbe       __imp_load__uv_write       10003dbe f   node:node.exe
- 0001:00002dd0       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z 10003dd0 f i libprotobuf-lite:coded_stream.obj
- 0001:00002f80       ?_Deallocate@std@@YAXPAXII@Z 10003f80 f i libprotobuf-lite:coded_stream.obj
- 0001:00002ff0       ?allocate@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEPADI@Z 10003ff0 f i libprotobuf-lite:coded_stream.obj
- 0001:00003050       ??0exception@std@@QAE@ABV01@@Z 10004050 f i libprotobuf-lite:common.obj
- 0001:00003080       ??_Eexception@std@@UAEPAXI@Z 10004080 f i libprotobuf-lite:common.obj
- 0001:00003080       ??_Gexception@std@@UAEPAXI@Z 10004080 f i libprotobuf-lite:common.obj
- 0001:000030c0       ?DefaultLogHandler@internal@protobuf@google@@YAXW4LogLevel@23@PBDHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z 100040c0 f   libprotobuf-lite:common.obj
- 0001:00003110       ?ToString@StringPiece@protobuf@google@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ 10004110 f i libprotobuf-lite:common.obj
- 0001:00003170       ?_Assign_rv@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@@Z 10004170 f i libprotobuf-lite:common.obj
- 0001:000031e0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 100041e0 f i libprotobuf-lite:common.obj
- 0001:00003300       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 10004300 f i libprotobuf-lite:common.obj
- 0001:00003400       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@II@Z 10004400 f i libprotobuf-lite:common.obj
- 0001:000034a0       ?what@exception@std@@UBEPBDXZ 100044a0 f i libprotobuf-lite:common.obj
- 0001:000034b0       _fprintf                   100044b0 f i libprotobuf-lite:common.obj
- 0001:000034e0       ??$destroy@PAD@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEXPAPAD@Z 100044e0 f i libprotobuf-lite:status.obj
- 0001:000034f0       ??0?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAE@XZ 100044f0 f i libprotobuf-lite:status.obj
- 0001:00003500       ??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z 10004500 f   libprotobuf-lite:status.obj
- 0001:000035f0       ??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 100045f0 f i libprotobuf-lite:status.obj
- 0001:000035f1       @__security_check_cookie@4 100045f1 f   MSVCRT:secchk.obj
- 0001:00003602       ??2@YAPAXI@Z               10004602 f   MSVCRT:new_scalar.obj
- 0001:00003632       ??3@YAXPAXI@Z              10004632 f   MSVCRT:delete_scalar_size.obj
- 0001:00003640       ??_Gtype_info@@UAEPAXI@Z   10004640 f i MSVCRT:std_type_info_static.obj
- 0001:00003640       ??_Etype_info@@UAEPAXI@Z   10004640 f i MSVCRT:std_type_info_static.obj
- 0001:000036a7       ___scrt_acquire_startup_lock 100046a7 f   MSVCRT:utility.obj
- 0001:000036d9       ___scrt_dllmain_after_initialize_c 100046d9 f   MSVCRT:utility.obj
- 0001:00003704       ___scrt_dllmain_before_initialize_c 10004704 f   MSVCRT:utility.obj
- 0001:00003712       ___scrt_dllmain_crt_thread_attach 10004712 f   MSVCRT:utility.obj
- 0001:00003731       ___scrt_dllmain_crt_thread_detach 10004731 f   MSVCRT:utility.obj
- 0001:0000373e       ___scrt_dllmain_exception_filter 1000473e f   MSVCRT:utility.obj
- 0001:00003772       ___scrt_dllmain_uninitialize_c 10004772 f   MSVCRT:utility.obj
- 0001:00003795       ___scrt_dllmain_uninitialize_critical 10004795 f   MSVCRT:utility.obj
- 0001:000037a2       ___scrt_initialize_crt     100047a2 f   MSVCRT:utility.obj
- 0001:000037db       ___scrt_initialize_onexit_tables 100047db f   MSVCRT:utility.obj
- 0001:00003862       ___scrt_is_nonwritable_in_current_image 10004862 f   MSVCRT:utility.obj
- 0001:000038f6       ___scrt_release_startup_lock 100048f6 f   MSVCRT:utility.obj
- 0001:00003913       ___scrt_uninitialize_crt   10004913 f   MSVCRT:utility.obj
- 0001:0000393b       __onexit                   1000493b f   MSVCRT:utility.obj
- 0001:00003968       _atexit                    10004968 f   MSVCRT:utility.obj
- 0001:00003cbd       __DllMainCRTStartup@12     10004cbd f   MSVCRT:dll_dllmain.obj
- 0001:00003ce0       ??3@YAXPAX@Z               10004ce0 f   MSVCRT:delete_scalar.obj
- 0001:00003cf0       __allshl                   10004cf0 f   MSVCRT:llshl.obj
- 0001:00003d10       __alloca_probe             10004d10 f   MSVCRT:chkstk.obj
- 0001:00003d10       __chkstk                   10004d10 f   MSVCRT:chkstk.obj
- 0001:00003d40       __aullshr                  10004d40 f   MSVCRT:ullshr.obj
- 0001:00003d5f       ___raise_securityfailure   10004d5f f   MSVCRT:gs_report.obj
- 0001:00003d87       ___report_gsfailure        10004d87 f   MSVCRT:gs_report.obj
- 0001:00003e80       ??0bad_alloc@std@@QAE@ABV01@@Z 10004e80 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003e9b       ??0bad_alloc@std@@QAE@XZ   10004e9b f i MSVCRT:throw_bad_alloc.obj
- 0001:00003eb3       ??0bad_array_new_length@std@@QAE@ABV01@@Z 10004eb3 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ece       ??0bad_array_new_length@std@@QAE@XZ 10004ece f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ee6       ??1bad_alloc@std@@UAE@XZ   10004ee6 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ee6       ??1bad_array_new_length@std@@UAE@XZ 10004ee6 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ef7       ??_Ebad_array_new_length@std@@UAEPAXI@Z 10004ef7 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ef7       ??_Gbad_alloc@std@@UAEPAXI@Z 10004ef7 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ef7       ??_Gbad_array_new_length@std@@UAEPAXI@Z 10004ef7 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003ef7       ??_Ebad_alloc@std@@UAEPAXI@Z 10004ef7 f i MSVCRT:throw_bad_alloc.obj
- 0001:00003f24       ?__scrt_throw_std_bad_alloc@@YAXXZ 10004f24 f   MSVCRT:throw_bad_alloc.obj
- 0001:00003f41       ?__scrt_throw_std_bad_array_new_length@@YAXXZ 10004f41 f   MSVCRT:throw_bad_alloc.obj
- 0001:00003f5e       ___isa_available_init      10004f5e f   MSVCRT:cpu_disp.obj
- 0001:0000412e       __get_startup_argv_mode    1000512e f   MSVCRT:argv_mode.obj
- 0001:00004132       ___scrt_is_ucrt_dll_in_use 10005132 f   MSVCRT:ucrt_detection.obj
- 0001:0000413e       ___scrt_fastfail           1000513e f   MSVCRT:utility_desktop.obj
- 0001:00004258       __crt_debugger_hook        10005258 f   MSVCRT:utility_desktop.obj
- 0001:00004260       __SEH_prolog4              10005260 f   MSVCRT:sehprolg4.obj
- 0001:000042a4       __SEH_epilog4              100052a4 f   MSVCRT:sehprolg4.obj
- 0001:000042b8       __except_handler4          100052b8 f   MSVCRT:chandler4gs.obj
- 0001:00004334       ___security_init_cookie    10005334 f   MSVCRT:gs_support.obj
- 0001:0000437f       _DllMain@12                1000537f f   MSVCRT:dll_dllmain_stub.obj
- 0001:000043a1       ?__scrt_initialize_type_info@@YAXXZ 100053a1 f   MSVCRT:tncleanup.obj
- 0001:000043ad       ?__scrt_uninitialize_type_info@@YAXXZ 100053ad f   MSVCRT:tncleanup.obj
- 0001:000043b9       ___local_stdio_scanf_options 100053b9 f i MSVCRT:default_local_stdio_options.obj
- 0001:000043bf       ___scrt_initialize_default_local_stdio_options 100053bf f   MSVCRT:default_local_stdio_options.obj
- 0001:000043dc       ___scrt_get_dyn_tls_init_callback 100053dc f   MSVCRT:dyn_tls_init.obj
- 0001:000043e2       __RTC_Initialize           100053e2 f   MSVCRT:initsect.obj
- 0001:0000440e       __RTC_Terminate            1000540e f   MSVCRT:initsect.obj
- 0001:0000443a       ___CxxFrameHandler3        1000543a f   vcruntime:VCRUNTIME140.dll
- 0001:00004440       __CxxThrowException@8      10005440 f   vcruntime:VCRUNTIME140.dll
- 0001:00004446       _memcpy                    10005446 f   vcruntime:VCRUNTIME140.dll
- 0001:0000444c       _memset                    1000544c f   vcruntime:VCRUNTIME140.dll
- 0001:00004452       ___std_terminate           10005452 f   vcruntime:VCRUNTIME140.dll
- 0001:00004458       _memmove                   10005458 f   vcruntime:VCRUNTIME140.dll
- 0001:0000445e       ___std_exception_destroy   1000545e f   vcruntime:VCRUNTIME140.dll
- 0001:00004464       __except_handler4_common   10005464 f   vcruntime:VCRUNTIME140.dll
- 0001:0000446a       ___std_type_info_destroy_list 1000546a f   vcruntime:VCRUNTIME140.dll
- 0001:00004470       _free                      10005470 f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
- 0001:00004476       _malloc                    10005476 f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
- 0001:0000447c       __callnewh                 1000547c f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
- 0001:00004482       __seh_filter_dll           10005482 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:00004488       __configure_narrow_argv    10005488 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:0000448e       __initialize_narrow_environment 1000548e f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:00004494       __initialize_onexit_table  10005494 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:0000449a       __register_onexit_function 1000549a f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044a0       __execute_onexit_table     100054a0 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044a6       __crt_atexit               100054a6 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044ac       __cexit                    100054ac f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044b2       __initterm                 100054b2 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044b8       __initterm_e               100054b8 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000044be       _IsProcessorFeaturePresent@4 100054be f   kernel32:KERNEL32.dll
- 0001:000044c4       ?DloadAcquireSectionWriteAccess@@YGXXZ 100054c4 f i DelayImp:delayhlp.obj
- 0001:000044f7       ?DloadGetSRWLockFunctionPointers@@YGEXZ 100054f7 f i DelayImp:delayhlp.obj
- 0001:0000456a       ?DloadLock@@YGXXZ          1000556a f i DelayImp:delayhlp.obj
- 0001:000045a9       ?DloadMakePermanentImageCommit@@YGXPAXK@Z 100055a9 f i DelayImp:delayhlp.obj
- 0001:00004618       ?DloadObtainSection@@YGPAXPAK0@Z 10005618 f i DelayImp:delayhlp.obj
- 0001:00004693       ?DloadProtectSection@@YGXKPAK@Z 10005693 f i DelayImp:delayhlp.obj
- 0001:00004701       ?DloadReleaseSectionWriteAccess@@YGXXZ 10005701 f i DelayImp:delayhlp.obj
- 0001:00004737       ?DloadUnlock@@YGXXZ        10005737 f i DelayImp:delayhlp.obj
- 0001:00004763       ___delayLoadHelper2@8      10005763 f   DelayImp:delayhlp.obj
- 0001:000049d2       ___scrt_stub_for_acrt_uninitialize 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___acrt_uninitialize       100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___scrt_stub_for_acrt_thread_detach 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___vcrt_uninitialize_critical 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___vcrt_thread_attach      100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___scrt_stub_for_acrt_uninitialize_critical 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___scrt_stub_for_acrt_initialize 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___vcrt_thread_detach      100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___acrt_uninitialize_critical 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___vcrt_uninitialize       100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___acrt_initialize         100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___acrt_thread_attach      100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___scrt_stub_for_acrt_thread_attach 100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___vcrt_initialize         100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d2       ___acrt_thread_detach      100059d2 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d5       ___scrt_stub_for_is_c_termination_complete 100059d5 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d5       __is_c_termination_complete 100059d5 f   MSVCRT:ucrt_stubs.obj
- 0001:000049d8       __filter_x86_sse2_floating_point_exception 100059d8 f   MSVCRT:x86_exception_filter.obj
- 0001:000049d8       __filter_x86_sse2_floating_point_exception_default 100059d8 f   MSVCRT:x86_exception_filter.obj
+ 0001:00000830       _node_register_module_v85  10001830 f   zoom_node_render_addon.obj
+ 0001:00000d60       ?GetVideoLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001d60 f   zoom_node_render_addon.obj
+ 0001:00000df0       ?GetShareLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001df0 f   zoom_node_render_addon.obj
+ 0001:00000e80       ?GetAudioLibuvClientObj@ZoomNodeRenderWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001e80 f   zoom_node_render_addon.obj
+ 0001:00000f10       ?RunVideoFormatDataCB@@YAXPADH@Z 10001f10 f   zoom_node_render_addon.obj
+ 0001:00001210       ?RunAudioFormatDataCB@@YAXPAD@Z 10002210 f   zoom_node_render_addon.obj
+ 0001:000013f0       ??0UVIPCClientSink@@QAE@XZ 100023f0 f i zoom_node_render_addon.obj
+ 0001:000014b0       ?onMessageRecvNotification@UVIPCClientSink@@UAEXPAVUVIPCMessage@@@Z 100024b0 f i zoom_node_render_addon.obj
+ 0001:000014e0       ?SetRenderVideoRawDataCB@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100024e0 f   zoom_node_render_addon.obj
+ 0001:000015d0       ?StartVideoClient@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100025d0 f   zoom_node_render_addon.obj
+ 0001:00001640       ?StopVideoClient@ZoomNodeVideoRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002640 f   zoom_node_render_addon.obj
+ 0001:00001680       ?SetRenderShareRawDataCB@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002680 f   zoom_node_render_addon.obj
+ 0001:00001770       ?StartShareClient@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002770 f   zoom_node_render_addon.obj
+ 0001:000017e0       ?StopShareClient@ZoomNodeShareRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100027e0 f   zoom_node_render_addon.obj
+ 0001:00001820       ?SetRenderAudioRawDataCB@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002820 f   zoom_node_render_addon.obj
+ 0001:000019e0       ?StartAudioClient@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 100029e0 f   zoom_node_render_addon.obj
+ 0001:00001a50       ?StopAudioClient@ZoomNodeAudioRawDataLibuvClientWrap@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002a50 f   zoom_node_render_addon.obj
+ 0001:00001a90       ?New@?$ZoomWrapObject@VZoomNodeAudioRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002a90 f i zoom_node_render_addon.obj
+ 0001:00001b90       ?New@?$ZoomWrapObject@VZoomNodeShareRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002b90 f i zoom_node_render_addon.obj
+ 0001:00001c90       ?New@?$ZoomWrapObject@VZoomNodeVideoRawDataLibuvClientWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002c90 f i zoom_node_render_addon.obj
+ 0001:00001d90       ?New@?$ZoomWrapObject@VZoomNodeRenderWrap@@@@SAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10002d90 f i zoom_node_render_addon.obj
+ 0001:00001e90       ??_EUVIPCLocker@@UAEPAXI@Z 10002e90 f i * CIL library *:* CIL module *
+ 0001:00001e90       ??_GUVIPCLocker@@UAEPAXI@Z 10002e90 f i uv_ipc_common.obj
+ 0001:00001ec0       ?AddRef@UVIPCMessage@@UAE_NXZ 10002ec0 f i uv_ipc_common.obj
+ 0001:00001ee0       ?Release@UVIPCMessage@@UAEHXZ 10002ee0 f i uv_ipc_common.obj
+ 0001:00001f10       ?_Throw_tree_length_error@std@@YAXXZ 10002f10 f i uv_ipc_common.obj
+ 0001:00001f20       ??_GUVIPCMessage@@MAEPAXI@Z 10002f20 f i uv_ipc_common.obj
+ 0001:00001f20       ??_EUVIPCMessage@@MAEPAXI@Z 10002f20 f i * CIL library *:* CIL module *
+ 0001:00001f60       ??_EUVIPC@@UAEPAXI@Z       10002f60 f i * CIL library *:* CIL module *
+ 0001:00001f60       ??_GUVIPC@@UAEPAXI@Z       10002f60 f i uv_ipc_common.obj
+ 0001:00001f90       ??1_UVIPCData@UVIPC@@QAE@XZ 10002f90 f i uv_ipc_common.obj
+ 0001:00001ff0       ??1UVIPC@@UAE@XZ           10002ff0 f   uv_ipc_common.obj
+ 0001:00002060       ?IsRunning@UVIPC@@QAE_N_N@Z 10003060 f   uv_ipc_common.obj
+ 0001:00002090       ?uv_ipc_timer_cb@@YAXPAUuv_timer_s@@@Z 10003090 f   uv_ipc_common.obj
+ 0001:000020b0       ?Start@UVIPC@@QAE_NPAD_NPAUuv_loop_s@@PAVUVIPCSink@@@Z 100030b0 f   uv_ipc_common.obj
+ 0001:000021c0       ?Stop@UVIPC@@QAE_NXZ       100031c0 f   uv_ipc_common.obj
+ 0001:000022d0       ?on_server_connected_cb@@YAXPAUuv_connect_s@@H@Z 100032d0 f   uv_ipc_common.obj
+ 0001:00002380       ?alloc_buffer_for_uv_pipe@@YAXPAUuv_handle_s@@IPAUuv_buf_t@@@Z 10003380 f   uv_ipc_common.obj
+ 0001:000023a0       ?on_pipe_data_read_cb@@YAXPAUuv_stream_s@@HPBUuv_buf_t@@@Z 100033a0 f   uv_ipc_common.obj
+ 0001:00002430       ?uv_cb_pipe_data_read@UVIPC@@AAEXPAUuv_stream_s@@HPBUuv_buf_t@@@Z 10003430 f   uv_ipc_common.obj
+ 0001:00002600       ?on_write_data_cb@@YAXPAUuv_write_s@@H@Z 10003600 f   uv_ipc_common.obj
+ 0001:00002630       ?SendMessageA@UVIPC@@QAE_NPAVUVIPCMessage@@@Z 10003630 f   uv_ipc_common.obj
+ 0001:000026b0       ?uv_cb_ipc_timer@UVIPC@@AAEXPAUuv_timer_s@@@Z 100036b0 f   uv_ipc_common.obj
+ 0001:00002830       ??1?$_Tree@V?$_Tmap_traits@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@$0A@@std@@@std@@QAE@XZ 10003830 f i uv_ipc_common.obj
+ 0001:00002870       ??$insert@U?$pair@PAXPAVUVIPC@@@std@@$0A@@?$map@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@@std@@QAE?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@@std@@_N@1@$$QAU?$pair@PAXPAVUVIPC@@@1@@Z 10003870 f i uv_ipc_common.obj
+ 0001:00002920       ??$_Find_lower_bound@PAX@?$_Tree@V?$_Tmap_traits@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@$0A@@std@@@std@@IBE?AU?$_Tree_find_result@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@1@ABQAX@Z 10003920 f i uv_ipc_common.obj
+ 0001:00002970       ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@QAEXAAV?$allocator@U?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@1@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@1@@Z 10003970 f i uv_ipc_common.obj
+ 0001:000029b0       ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QAXPAVUVIPC@@@std@@@std@@@std@@QAEPAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@2@U?$_Tree_id@PAU?$_Tree_node@U?$pair@QAXPAVUVIPC@@@std@@PAX@std@@@2@QAU32@@Z 100039b0 f i uv_ipc_common.obj
+ 0001:00002bb5       __imp_load_?GetIsolate@Context@v8@@QAEPAVIsolate@2@XZ 10003bb5 f   node:node.exe
+ 0001:00002bbf       __tailMerge_node_exe       10003bbf     node:node.exe
+ 0001:00002bd0       __imp_load_?Global@Context@v8@@QAE?AV?$Local@VObject@v8@@@2@XZ 10003bd0 f   node:node.exe
+ 0001:00002bda       __imp_load_?New@Uint8Array@v8@@SA?AV?$Local@VUint8Array@v8@@@2@V?$Local@VArrayBuffer@v8@@@2@II@Z 10003bda f   node:node.exe
+ 0001:00002be4       __imp_load_?Value@External@v8@@QBEPAXXZ 10003be4 f   node:node.exe
+ 0001:00002bee       __imp_load_?New@External@v8@@SA?AV?$Local@VExternal@v8@@@2@PAVIsolate@2@PAX@Z 10003bee f   node:node.exe
+ 0001:00002bf8       __imp_load_?New@Integer@v8@@SA?AV?$Local@VInteger@v8@@@2@PAVIsolate@2@H@Z 10003bf8 f   node:node.exe
+ 0001:00002c02       __imp_load_?New@Signature@v8@@SA?AV?$Local@VSignature@v8@@@2@PAVIsolate@2@V?$Local@VFunctionTemplate@v8@@@2@@Z 10003c02 f   node:node.exe
+ 0001:00002c0c       __imp_load_?GetCurrentContext@Isolate@v8@@QAE?AV?$Local@VContext@v8@@@2@XZ 10003c0c f   node:node.exe
+ 0001:00002c16       __imp_load_?GetCurrent@Isolate@v8@@SAPAV12@XZ 10003c16 f   node:node.exe
+ 0001:00002c20       __imp_load_?CreateHandle@HandleScope@v8@@KAPAIPAVIsolate@internal@2@I@Z 10003c20 f   node:node.exe
+ 0001:00002c2a       __imp_load_??1HandleScope@v8@@QAE@XZ 10003c2a f   node:node.exe
+ 0001:00002c34       __imp_load_??0HandleScope@v8@@QAE@PAVIsolate@1@@Z 10003c34 f   node:node.exe
+ 0001:00002c3e       __imp_load_?Set@Template@v8@@QAEXV?$Local@VName@v8@@@2@V?$Local@VData@v8@@@2@W4PropertyAttribute@2@@Z 10003c3e f   node:node.exe
+ 0001:00002c48       __imp_load_?SetClassName@FunctionTemplate@v8@@QAEXV?$Local@VString@v8@@@2@@Z 10003c48 f   node:node.exe
+ 0001:00002c52       __imp_load_?PrototypeTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 10003c52 f   node:node.exe
+ 0001:00002c5c       __imp_load_?InstanceTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 10003c5c f   node:node.exe
+ 0001:00002c66       __imp_load_?GetFunction@FunctionTemplate@v8@@QAE?AV?$MaybeLocal@VFunction@v8@@@2@V?$Local@VContext@v8@@@2@@Z 10003c66 f   node:node.exe
+ 0001:00002c70       __imp_load_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PAVIsolate@2@P6AXABV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@HW4ConstructorBehavior@2@W4SideEffectType@2@PBVCFunction@2@@Z 10003c70 f   node:node.exe
+ 0001:00002c7a       __imp_load_?New@ArrayBuffer@v8@@SA?AV?$Local@VArrayBuffer@v8@@@2@PAVIsolate@2@PAXIW4ArrayBufferCreationMode@2@@Z 10003c7a f   node:node.exe
+ 0001:00002c84       __imp_load_?ToLocalEmpty@V8@v8@@CAXXZ 10003c84 f   node:node.exe
+ 0001:00002c8e       __imp_load_?FromJustIsNothing@V8@v8@@CAXXZ 10003c8e f   node:node.exe
+ 0001:00002c98       __imp_load_?ClearWeak@V8@v8@@CAPAXPAI@Z 10003c98 f   node:node.exe
+ 0001:00002ca2       __imp_load_?MakeWeak@V8@v8@@CAXPAIPAXP6AXABV?$WeakCallbackInfo@X@2@@ZW4WeakCallbackType@2@@Z 10003ca2 f   node:node.exe
+ 0001:00002cac       __imp_load_?DisposeGlobal@V8@v8@@CAXPAI@Z 10003cac f   node:node.exe
+ 0001:00002cb6       __imp_load_?CopyGlobalReference@V8@v8@@CAPAIPAI@Z 10003cb6 f   node:node.exe
+ 0001:00002cc0       __imp_load_?GlobalizeReference@V8@v8@@CAPAIPAVIsolate@internal@2@PAI@Z 10003cc0 f   node:node.exe
+ 0001:00002cca       __imp_load_?IsFunction@Value@v8@@QBE_NXZ 10003cca f   node:node.exe
+ 0001:00002cd4       __imp_load_?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PAVIsolate@2@PBDW4NewStringType@2@H@Z 10003cd4 f   node:node.exe
+ 0001:00002cde       __imp_load_?GetIsolate@Object@v8@@QAEPAVIsolate@2@XZ 10003cde f   node:node.exe
+ 0001:00002ce8       __imp_load_?SetAlignedPointerInInternalField@Object@v8@@QAEXHPAX@Z 10003ce8 f   node:node.exe
+ 0001:00002cf2       __imp_load_?InternalFieldCount@Object@v8@@QAEHXZ 10003cf2 f   node:node.exe
+ 0001:00002cfc       __imp_load_?Set@Object@v8@@QAE?AV?$Maybe@_N@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@1@Z 10003cfc f   node:node.exe
+ 0001:00002d06       __imp_load_?Call@Function@v8@@QAE?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@HQAV52@@Z 10003d06 f   node:node.exe
+ 0001:00002d10       __imp_load_?NewInstance@Function@v8@@QBE?AV?$MaybeLocal@VObject@v8@@@2@V?$Local@VContext@v8@@@2@HQAV?$Local@VValue@v8@@@2@@Z 10003d10 f   node:node.exe
+ 0001:00002d1a       __imp_load_?SetInternalFieldCount@ObjectTemplate@v8@@QAEXH@Z 10003d1a f   node:node.exe
+ 0001:00002d24       __imp_load__uv_run         10003d24 f   node:node.exe
+ 0001:00002d2e       __imp_load_?AddEnvironmentCleanupHook@node@@YAXPAVIsolate@v8@@P6AXPAX@Z1@Z 10003d2e f   node:node.exe
+ 0001:00002d38       __imp_load__node_module_register 10003d38 f   node:node.exe
+ 0001:00002d42       __imp_load__uv_default_loop 10003d42 f   node:node.exe
+ 0001:00002d4c       __imp_load__uv_close       10003d4c f   node:node.exe
+ 0001:00002d56       __imp_load__uv_read_stop   10003d56 f   node:node.exe
+ 0001:00002d60       __imp_load__uv_timer_init  10003d60 f   node:node.exe
+ 0001:00002d6a       __imp_load__uv_rwlock_wrlock 10003d6a f   node:node.exe
+ 0001:00002d74       __imp_load__uv_rwlock_rdlock 10003d74 f   node:node.exe
+ 0001:00002d7e       __imp_load__uv_rwlock_init 10003d7e f   node:node.exe
+ 0001:00002d88       __imp_load__uv_rwlock_wrunlock 10003d88 f   node:node.exe
+ 0001:00002d92       __imp_load__uv_timer_start 10003d92 f   node:node.exe
+ 0001:00002d9c       __imp_load__uv_pipe_connect 10003d9c f   node:node.exe
+ 0001:00002da6       __imp_load__uv_read_start  10003da6 f   node:node.exe
+ 0001:00002db0       __imp_load__uv_rwlock_rdunlock 10003db0 f   node:node.exe
+ 0001:00002dba       __imp_load__uv_rwlock_destroy 10003dba f   node:node.exe
+ 0001:00002dc4       __imp_load__uv_pipe_init   10003dc4 f   node:node.exe
+ 0001:00002dce       __imp_load__uv_write       10003dce f   node:node.exe
+ 0001:00002de0       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z 10003de0 f i libprotobuf-lite:coded_stream.obj
+ 0001:00002f90       ?_Deallocate@std@@YAXPAXII@Z 10003f90 f i libprotobuf-lite:coded_stream.obj
+ 0001:00003000       ?allocate@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEPADI@Z 10004000 f i libprotobuf-lite:coded_stream.obj
+ 0001:00003060       ??0exception@std@@QAE@ABV01@@Z 10004060 f i libprotobuf-lite:common.obj
+ 0001:00003090       ??_Gexception@std@@UAEPAXI@Z 10004090 f i libprotobuf-lite:common.obj
+ 0001:00003090       ??_Eexception@std@@UAEPAXI@Z 10004090 f i libprotobuf-lite:common.obj
+ 0001:000030d0       ?DefaultLogHandler@internal@protobuf@google@@YAXW4LogLevel@23@PBDHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z 100040d0 f   libprotobuf-lite:common.obj
+ 0001:00003120       ?ToString@StringPiece@protobuf@google@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ 10004120 f i libprotobuf-lite:common.obj
+ 0001:00003180       ?_Assign_rv@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEX$$QAV12@@Z 10004180 f i libprotobuf-lite:common.obj
+ 0001:000031f0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 100041f0 f i libprotobuf-lite:common.obj
+ 0001:00003310       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 10004310 f i libprotobuf-lite:common.obj
+ 0001:00003410       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@II@Z 10004410 f i libprotobuf-lite:common.obj
+ 0001:000034b0       ?what@exception@std@@UBEPBDXZ 100044b0 f i libprotobuf-lite:common.obj
+ 0001:000034c0       _fprintf                   100044c0 f i libprotobuf-lite:common.obj
+ 0001:000034f0       ??$destroy@PAD@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEXPAPAD@Z 100044f0 f i libprotobuf-lite:status.obj
+ 0001:00003500       ??0?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAE@XZ 10004500 f i libprotobuf-lite:status.obj
+ 0001:00003510       ??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z 10004510 f   libprotobuf-lite:status.obj
+ 0001:00003600       ??1?$_String_alloc@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAE@XZ 10004600 f i libprotobuf-lite:status.obj
+ 0001:00003601       @__security_check_cookie@4 10004601 f   MSVCRT:secchk.obj
+ 0001:00003612       ??2@YAPAXI@Z               10004612 f   MSVCRT:new_scalar.obj
+ 0001:00003642       ??3@YAXPAXI@Z              10004642 f   MSVCRT:delete_scalar_size.obj
+ 0001:00003650       ??_Gtype_info@@UAEPAXI@Z   10004650 f i MSVCRT:std_type_info_static.obj
+ 0001:00003650       ??_Etype_info@@UAEPAXI@Z   10004650 f i MSVCRT:std_type_info_static.obj
+ 0001:000036b7       ___scrt_acquire_startup_lock 100046b7 f   MSVCRT:utility.obj
+ 0001:000036e9       ___scrt_dllmain_after_initialize_c 100046e9 f   MSVCRT:utility.obj
+ 0001:00003714       ___scrt_dllmain_before_initialize_c 10004714 f   MSVCRT:utility.obj
+ 0001:00003722       ___scrt_dllmain_crt_thread_attach 10004722 f   MSVCRT:utility.obj
+ 0001:00003741       ___scrt_dllmain_crt_thread_detach 10004741 f   MSVCRT:utility.obj
+ 0001:0000374e       ___scrt_dllmain_exception_filter 1000474e f   MSVCRT:utility.obj
+ 0001:00003782       ___scrt_dllmain_uninitialize_c 10004782 f   MSVCRT:utility.obj
+ 0001:000037a5       ___scrt_dllmain_uninitialize_critical 100047a5 f   MSVCRT:utility.obj
+ 0001:000037b2       ___scrt_initialize_crt     100047b2 f   MSVCRT:utility.obj
+ 0001:000037eb       ___scrt_initialize_onexit_tables 100047eb f   MSVCRT:utility.obj
+ 0001:00003872       ___scrt_is_nonwritable_in_current_image 10004872 f   MSVCRT:utility.obj
+ 0001:00003906       ___scrt_release_startup_lock 10004906 f   MSVCRT:utility.obj
+ 0001:00003923       ___scrt_uninitialize_crt   10004923 f   MSVCRT:utility.obj
+ 0001:0000394b       __onexit                   1000494b f   MSVCRT:utility.obj
+ 0001:00003978       _atexit                    10004978 f   MSVCRT:utility.obj
+ 0001:00003ccd       __DllMainCRTStartup@12     10004ccd f   MSVCRT:dll_dllmain.obj
+ 0001:00003cf0       ??3@YAXPAX@Z               10004cf0 f   MSVCRT:delete_scalar.obj
+ 0001:00003d00       __allshl                   10004d00 f   MSVCRT:llshl.obj
+ 0001:00003d20       __chkstk                   10004d20 f   MSVCRT:chkstk.obj
+ 0001:00003d20       __alloca_probe             10004d20 f   MSVCRT:chkstk.obj
+ 0001:00003d50       __aullshr                  10004d50 f   MSVCRT:ullshr.obj
+ 0001:00003d6f       ___raise_securityfailure   10004d6f f   MSVCRT:gs_report.obj
+ 0001:00003d97       ___report_gsfailure        10004d97 f   MSVCRT:gs_report.obj
+ 0001:00003e90       ??0bad_alloc@std@@QAE@ABV01@@Z 10004e90 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003eab       ??0bad_alloc@std@@QAE@XZ   10004eab f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003ec3       ??0bad_array_new_length@std@@QAE@ABV01@@Z 10004ec3 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003ede       ??0bad_array_new_length@std@@QAE@XZ 10004ede f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003ef6       ??1bad_alloc@std@@UAE@XZ   10004ef6 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003ef6       ??1bad_array_new_length@std@@UAE@XZ 10004ef6 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003f07       ??_Ebad_array_new_length@std@@UAEPAXI@Z 10004f07 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003f07       ??_Gbad_alloc@std@@UAEPAXI@Z 10004f07 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003f07       ??_Gbad_array_new_length@std@@UAEPAXI@Z 10004f07 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003f07       ??_Ebad_alloc@std@@UAEPAXI@Z 10004f07 f i MSVCRT:throw_bad_alloc.obj
+ 0001:00003f34       ?__scrt_throw_std_bad_alloc@@YAXXZ 10004f34 f   MSVCRT:throw_bad_alloc.obj
+ 0001:00003f51       ?__scrt_throw_std_bad_array_new_length@@YAXXZ 10004f51 f   MSVCRT:throw_bad_alloc.obj
+ 0001:00003f6e       ___isa_available_init      10004f6e f   MSVCRT:cpu_disp.obj
+ 0001:0000413e       __get_startup_argv_mode    1000513e f   MSVCRT:argv_mode.obj
+ 0001:00004142       ___scrt_is_ucrt_dll_in_use 10005142 f   MSVCRT:ucrt_detection.obj
+ 0001:0000414e       ___scrt_fastfail           1000514e f   MSVCRT:utility_desktop.obj
+ 0001:00004268       __crt_debugger_hook        10005268 f   MSVCRT:utility_desktop.obj
+ 0001:00004270       __SEH_prolog4              10005270 f   MSVCRT:sehprolg4.obj
+ 0001:000042b4       __SEH_epilog4              100052b4 f   MSVCRT:sehprolg4.obj
+ 0001:000042c8       __except_handler4          100052c8 f   MSVCRT:chandler4gs.obj
+ 0001:00004344       ___security_init_cookie    10005344 f   MSVCRT:gs_support.obj
+ 0001:0000438f       _DllMain@12                1000538f f   MSVCRT:dll_dllmain_stub.obj
+ 0001:000043b1       ?__scrt_initialize_type_info@@YAXXZ 100053b1 f   MSVCRT:tncleanup.obj
+ 0001:000043bd       ?__scrt_uninitialize_type_info@@YAXXZ 100053bd f   MSVCRT:tncleanup.obj
+ 0001:000043c9       ___local_stdio_scanf_options 100053c9 f i MSVCRT:default_local_stdio_options.obj
+ 0001:000043cf       ___scrt_initialize_default_local_stdio_options 100053cf f   MSVCRT:default_local_stdio_options.obj
+ 0001:000043ec       ___scrt_get_dyn_tls_init_callback 100053ec f   MSVCRT:dyn_tls_init.obj
+ 0001:000043f2       __RTC_Initialize           100053f2 f   MSVCRT:initsect.obj
+ 0001:0000441e       __RTC_Terminate            1000541e f   MSVCRT:initsect.obj
+ 0001:0000444a       ___CxxFrameHandler3        1000544a f   vcruntime:VCRUNTIME140.dll
+ 0001:00004450       __CxxThrowException@8      10005450 f   vcruntime:VCRUNTIME140.dll
+ 0001:00004456       _memcpy                    10005456 f   vcruntime:VCRUNTIME140.dll
+ 0001:0000445c       _memset                    1000545c f   vcruntime:VCRUNTIME140.dll
+ 0001:00004462       ___std_terminate           10005462 f   vcruntime:VCRUNTIME140.dll
+ 0001:00004468       _memmove                   10005468 f   vcruntime:VCRUNTIME140.dll
+ 0001:0000446e       ___std_exception_destroy   1000546e f   vcruntime:VCRUNTIME140.dll
+ 0001:00004474       __except_handler4_common   10005474 f   vcruntime:VCRUNTIME140.dll
+ 0001:0000447a       ___std_type_info_destroy_list 1000547a f   vcruntime:VCRUNTIME140.dll
+ 0001:00004480       _free                      10005480 f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
+ 0001:00004486       _malloc                    10005486 f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
+ 0001:0000448c       __callnewh                 1000548c f   ucrt:api-ms-win-crt-heap-l1-1-0.dll
+ 0001:00004492       __seh_filter_dll           10005492 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00004498       __configure_narrow_argv    10005498 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:0000449e       __initialize_narrow_environment 1000549e f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044a4       __initialize_onexit_table  100054a4 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044aa       __register_onexit_function 100054aa f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044b0       __execute_onexit_table     100054b0 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044b6       __crt_atexit               100054b6 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044bc       __cexit                    100054bc f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044c2       __initterm                 100054c2 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044c8       __initterm_e               100054c8 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:000044ce       _IsProcessorFeaturePresent@4 100054ce f   kernel32:KERNEL32.dll
+ 0001:000044d4       ?DloadAcquireSectionWriteAccess@@YGXXZ 100054d4 f i DelayImp:delayhlp.obj
+ 0001:00004507       ?DloadGetSRWLockFunctionPointers@@YGEXZ 10005507 f i DelayImp:delayhlp.obj
+ 0001:0000457a       ?DloadLock@@YGXXZ          1000557a f i DelayImp:delayhlp.obj
+ 0001:000045b9       ?DloadMakePermanentImageCommit@@YGXPAXK@Z 100055b9 f i DelayImp:delayhlp.obj
+ 0001:00004628       ?DloadObtainSection@@YGPAXPAK0@Z 10005628 f i DelayImp:delayhlp.obj
+ 0001:000046a3       ?DloadProtectSection@@YGXKPAK@Z 100056a3 f i DelayImp:delayhlp.obj
+ 0001:00004711       ?DloadReleaseSectionWriteAccess@@YGXXZ 10005711 f i DelayImp:delayhlp.obj
+ 0001:00004747       ?DloadUnlock@@YGXXZ        10005747 f i DelayImp:delayhlp.obj
+ 0001:00004773       ___delayLoadHelper2@8      10005773 f   DelayImp:delayhlp.obj
+ 0001:000049e2       ___vcrt_thread_attach      100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___acrt_thread_detach      100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___acrt_initialize         100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___vcrt_uninitialize_critical 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___vcrt_thread_detach      100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___acrt_uninitialize       100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___scrt_stub_for_acrt_uninitialize_critical 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___scrt_stub_for_acrt_thread_detach 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___vcrt_uninitialize       100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___scrt_stub_for_acrt_initialize 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___scrt_stub_for_acrt_thread_attach 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___acrt_uninitialize_critical 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___scrt_stub_for_acrt_uninitialize 100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___acrt_thread_attach      100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e2       ___vcrt_initialize         100059e2 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e5       __is_c_termination_complete 100059e5 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e5       ___scrt_stub_for_is_c_termination_complete 100059e5 f   MSVCRT:ucrt_stubs.obj
+ 0001:000049e8       __filter_x86_sse2_floating_point_exception 100059e8 f   MSVCRT:x86_exception_filter.obj
+ 0001:000049e8       __filter_x86_sse2_floating_point_exception_default 100059e8 f   MSVCRT:x86_exception_filter.obj
  0002:00000000       __imp__GetModuleHandleA@4  10006000     kernel32:KERNEL32.dll
  0002:00000004       __imp__UnhandledExceptionFilter@4 10006004     kernel32:KERNEL32.dll
  0002:00000008       __imp__SetUnhandledExceptionFilter@4 10006008     kernel32:KERNEL32.dll
@@ -439,8 +439,8 @@
  0002:000002c0       ?kuint128max@protobuf@google@@3Uuint128_pod@12@B 100062c0     libprotobuf-lite:int128.obj
  0002:00000ce0       ?kStringPrintfVectorMaxArgs@protobuf@google@@3HB 10006ce0     libprotobuf-lite:stringprintf.obj
  0002:00000df0       ??_7type_info@@6B@         10006df0     MSVCRT:std_type_info_static.obj
- 0002:00000df4       __pRawDllMain              10006df4     MSVCRT:dll_dllmain.obj
  0002:00000df4       __pDefaultRawDllMain       10006df4     MSVCRT:dll_dllmain.obj
+ 0002:00000df4       __pRawDllMain              10006df4     MSVCRT:dll_dllmain.obj
  0002:00000e04       ??_7bad_alloc@std@@6B@     10006e04     MSVCRT:throw_bad_alloc.obj
  0002:00000e0c       ??_C@_0P@GHFPNOJB@bad?5allocation@ 10006e0c     MSVCRT:throw_bad_alloc.obj
  0002:00000e20       ??_7bad_array_new_length@std@@6B@ 10006e20     MSVCRT:throw_bad_alloc.obj
@@ -456,7 +456,7 @@
  0002:00000f7c       ??_C@_0BA@JFNIOLAK@string?5too?5long@ 10006f7c     electron_sdk.pb.obj
  0002:00000f8c       ??_7exception@stdext@@6B@  10006f8c     electron_sdk.pb.obj
  0002:00000f98       ??_7bad_array_new_length@stdext@@6B@ 10006f98     electron_sdk.pb.obj
- 0002:00000fa8       ??_C@_1LC@OELBLGOM@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAi?$AAs?$AAm?$AAa?$AAe?$AAl@ 10006fa8     zoom_node_render_addon.obj
+ 0002:00000fa8       ??_C@_1LE@HCLKIJPP@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAi?$AAs?$AAm?$AAa?$AAe?$AAl@ 10006fa8     zoom_node_render_addon.obj
  0002:0000105c       ??_C@_1CO@EGNPJLKI@?$AAp?$AAe?$AAr?$AAs?$AAi?$AAs?$AAt?$AAe?$AAn?$AAt?$AA?$CI?$AA?$CJ?$AA?4?$AAI?$AAs@ 1000705c     zoom_node_render_addon.obj
  0002:00001090       ??_C@_1EC@NOLNIHNJ@?$AAh?$AAa?$AAn?$AAd?$AAl?$AAe?$AA?9?$AA?$DO?$AAI?$AAn?$AAt?$AAe?$AAr?$AAn?$AAa@ 10007090     zoom_node_render_addon.obj
  0002:000010d4       ??_C@_1DA@FBGAEOIO@?$AA?$CB?$AAp?$AAe?$AAr?$AAs?$AAi?$AAs?$AAt?$AAe?$AAn?$AAt?$AA?$CI?$AA?$CJ?$AA?4?$AAI@ 100070d4     zoom_node_render_addon.obj
@@ -479,7 +479,7 @@
  0002:000012ac       ??_C@_0BI@FMMKAIFI@SetRenderAudioRawDataCB@ 100072ac     zoom_node_render_addon.obj
  0002:000012c4       ??_C@_0BB@DAOCGFPM@StartAudioClient@ 100072c4     zoom_node_render_addon.obj
  0002:000012d8       ??_C@_0BA@IAOJPMHE@StopAudioClient@ 100072d8     zoom_node_render_addon.obj
- 0002:000012e8       ??_C@_0EB@BMCNKNE@C?3?2code?2zoomcommander?2lib?2node_@ 100072e8     zoom_node_render_addon.obj
+ 0002:000012e8       ??_C@_0EB@KOHBJBAL@C?3?2Code?2zoomcommander?2lib?2node_@ 100072e8     zoom_node_render_addon.obj
  0002:0000132c       ??_C@_0P@DCJIIDH@zoomsdk_render@ 1000732c     zoom_node_render_addon.obj
  0002:0000133c       ??_C@_07FLMNHPPG@exports@  1000733c     zoom_node_render_addon.obj
  0002:00001344       ??_C@_07FJCLMGLK@yuvi420@  10007344     zoom_node_render_addon.obj
@@ -490,11 +490,11 @@
  0002:00001394       ??_C@_0BD@CHFMFIB@?2?2?4?2pipe?2videoPipe@ 10007394     zoom_node_render_addon.obj
  0002:000013a8       ??_C@_0BD@LICFJFME@?2?2?4?2pipe?2sharePipe@ 100073a8     zoom_node_render_addon.obj
  0002:000013bc       ??_C@_0BD@EKFDIEAB@?2?2?4?2pipe?2audioPipe@ 100073bc     zoom_node_render_addon.obj
- 0002:000013d0       ??_7ZoomNodeShareRawDataLibuvClientWrap@@6B@ 100073d0     zoom_node_render_addon.obj
- 0002:000013d0       ??_7ZoomNodeRenderWrap@@6B@ 100073d0     zoom_node_render_addon.obj
  0002:000013d0       ??_7ZoomNodeVideoRawDataLibuvClientWrap@@6B@ 100073d0     zoom_node_render_addon.obj
  0002:000013d0       ??_7ZoomNodeAudioRawDataLibuvClientWrap@@6B@ 100073d0     zoom_node_render_addon.obj
+ 0002:000013d0       ??_7ZoomNodeShareRawDataLibuvClientWrap@@6B@ 100073d0     zoom_node_render_addon.obj
  0002:000013d0       ??_7ObjectWrap@node@@6B@   100073d0     zoom_node_render_addon.obj
+ 0002:000013d0       ??_7ZoomNodeRenderWrap@@6B@ 100073d0     zoom_node_render_addon.obj
  0002:000013dc       ??_7UVIPCClientSink@@6B@   100073dc     zoom_node_render_addon.obj
  0002:000013ec       ??_C@_0BB@GCADKGJO@map?1set?5too?5long@ 100073ec     uv_ipc_common.obj
  0002:00001400       ??_C@_0O@NKNMEGII@list?5too?5long@ 10007400     uv_ipc_common.obj
@@ -536,15 +536,15 @@
  0002:00001bf8       __DELAY_IMPORT_DESCRIPTOR_node_exe 10007bf8     node:node.exe
  0002:00001c18       __NULL_DELAY_IMPORT_DESCRIPTOR 10007c18     node:node.exe
  0002:00001d0c       \177node_NULL_THUNK_DATA_DLN 10007d0c     node:node.exe
- 0002:000027e8       \177node_NULL_THUNK_DATA_DLB 100087e8     node:node.exe
- 0002:00002944       __IMPORT_DESCRIPTOR_KERNEL32 10008944     kernel32:KERNEL32.dll
- 0002:00002958       __IMPORT_DESCRIPTOR_MSVCP140 10008958     msvcprt:MSVCP140.dll
- 0002:0000296c       __IMPORT_DESCRIPTOR_VCRUNTIME140 1000896c     vcruntime:VCRUNTIME140.dll
- 0002:00002980       __IMPORT_DESCRIPTOR_api-ms-win-crt-string-l1-1-0 10008980     ucrt:api-ms-win-crt-string-l1-1-0.dll
- 0002:00002994       __IMPORT_DESCRIPTOR_api-ms-win-crt-runtime-l1-1-0 10008994     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:000029a8       __IMPORT_DESCRIPTOR_api-ms-win-crt-stdio-l1-1-0 100089a8     ucrt:api-ms-win-crt-stdio-l1-1-0.dll
- 0002:000029bc       __IMPORT_DESCRIPTOR_api-ms-win-crt-heap-l1-1-0 100089bc     ucrt:api-ms-win-crt-heap-l1-1-0.dll
- 0002:000029d0       __NULL_IMPORT_DESCRIPTOR   100089d0     kernel32:KERNEL32.dll
+ 0002:000027f8       \177node_NULL_THUNK_DATA_DLB 100087f8     node:node.exe
+ 0002:00002954       __IMPORT_DESCRIPTOR_KERNEL32 10008954     kernel32:KERNEL32.dll
+ 0002:00002968       __IMPORT_DESCRIPTOR_MSVCP140 10008968     msvcprt:MSVCP140.dll
+ 0002:0000297c       __IMPORT_DESCRIPTOR_VCRUNTIME140 1000897c     vcruntime:VCRUNTIME140.dll
+ 0002:00002990       __IMPORT_DESCRIPTOR_api-ms-win-crt-string-l1-1-0 10008990     ucrt:api-ms-win-crt-string-l1-1-0.dll
+ 0002:000029a4       __IMPORT_DESCRIPTOR_api-ms-win-crt-runtime-l1-1-0 100089a4     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:000029b8       __IMPORT_DESCRIPTOR_api-ms-win-crt-stdio-l1-1-0 100089b8     ucrt:api-ms-win-crt-stdio-l1-1-0.dll
+ 0002:000029cc       __IMPORT_DESCRIPTOR_api-ms-win-crt-heap-l1-1-0 100089cc     ucrt:api-ms-win-crt-heap-l1-1-0.dll
+ 0002:000029e0       __NULL_IMPORT_DESCRIPTOR   100089e0     kernel32:KERNEL32.dll
  0003:00000000       ?default_recursion_limit_@CodedInputStream@io@protobuf@google@@0HA 1000a000     libprotobuf-lite:coded_stream.obj
  0003:00000048       ___scrt_native_dllmain_reason 1000a048     MSVCRT:utility.obj
  0003:0000004c       ___security_cookie_complement 1000a04c     MSVCRT:gs_cookie.obj
@@ -575,7 +575,7 @@
  0003:00000194       __imp_?PrototypeTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 1000a194     node:node.exe
  0003:00000198       __imp_?InstanceTemplate@FunctionTemplate@v8@@QAE?AV?$Local@VObjectTemplate@v8@@@2@XZ 1000a198     node:node.exe
  0003:0000019c       __imp_?GetFunction@FunctionTemplate@v8@@QAE?AV?$MaybeLocal@VFunction@v8@@@2@V?$Local@VContext@v8@@@2@@Z 1000a19c     node:node.exe
- 0003:000001a0       __imp_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PAVIsolate@2@P6AXABV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@HW4ConstructorBehavior@2@W4SideEffectType@2@@Z 1000a1a0     node:node.exe
+ 0003:000001a0       __imp_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PAVIsolate@2@P6AXABV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@HW4ConstructorBehavior@2@W4SideEffectType@2@PBVCFunction@2@@Z 1000a1a0     node:node.exe
  0003:000001a4       __imp_?New@ArrayBuffer@v8@@SA?AV?$Local@VArrayBuffer@v8@@@2@PAVIsolate@2@PAXIW4ArrayBufferCreationMode@2@@Z 1000a1a4     node:node.exe
  0003:000001a8       __imp_?ToLocalEmpty@V8@v8@@CAXXZ 1000a1a8     node:node.exe
  0003:000001ac       __imp_?FromJustIsNothing@V8@v8@@CAXXZ 1000a1ac     node:node.exe
@@ -668,32 +668,32 @@
  0003:000007a8       ?_RedirectClickCCBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickCCBTNEventParamsDefaultTypeInternal@1234@A 1000a7a8     electron_sdk.pb.obj
  0003:000007c0       ?_AllowLocalRecordingParams_default_instance_@proto@sdk@electron@com@@3VAllowLocalRecordingParamsDefaultTypeInternal@1234@A 1000a7c0     electron_sdk.pb.obj
  0003:000007d8       ?_UndoParams_default_instance_@proto@sdk@electron@com@@3VUndoParamsDefaultTypeInternal@1234@A 1000a7d8     electron_sdk.pb.obj
- 0003:000007f0       ?_EnableApproveRemoteControlDlgParams_default_instance_@proto@sdk@electron@com@@3VEnableApproveRemoteControlDlgParamsDefaultTypeInternal@1234@A 1000a7f0     electron_sdk.pb.obj
- 0003:00000808       ?_SwitchSplitScreenModeParams_default_instance_@proto@sdk@electron@com@@3VSwitchSplitScreenModeParamsDefaultTypeInternal@1234@A 1000a808     electron_sdk.pb.obj
- 0003:00000820       ?_RedirectClickEndMeetingBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickEndMeetingBTNEventParamsDefaultTypeInternal@1234@A 1000a820     electron_sdk.pb.obj
- 0003:00000838       ?_DestroyRendererParams_default_instance_@proto@sdk@electron@com@@3VDestroyRendererParamsDefaultTypeInternal@1234@A 1000a838     electron_sdk.pb.obj
- 0003:00000850       ?_EnableClaimHostFeatureParams_default_instance_@proto@sdk@electron@com@@3VEnableClaimHostFeatureParamsDefaultTypeInternal@1234@A 1000a850     electron_sdk.pb.obj
- 0003:00000868       ?_RedirectClickShareBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickShareBTNEventParamsDefaultTypeInternal@1234@A 1000a868     electron_sdk.pb.obj
- 0003:00000880       ?_RedirectEndOtherMeetingParams_default_instance_@proto@sdk@electron@com@@3VRedirectEndOtherMeetingParamsDefaultTypeInternal@1234@A 1000a880     electron_sdk.pb.obj
- 0003:00000898       ?_SwapToShowShareViewOrVideoParams_default_instance_@proto@sdk@electron@com@@3VSwapToShowShareViewOrVideoParamsDefaultTypeInternal@1234@A 1000a898     electron_sdk.pb.obj
- 0003:000008b0       ?_HideQAOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHideQAOnMeetingUIParamsDefaultTypeInternal@1234@A 1000a8b0     electron_sdk.pb.obj
- 0003:000008c8       ?_LoginWithSSOTokenParams_default_instance_@proto@sdk@electron@com@@3VLoginWithSSOTokenParamsDefaultTypeInternal@1234@A 1000a8c8     electron_sdk.pb.obj
- 0003:000008e0       ?_ScheduleMeetingWithWndParams_default_instance_@proto@sdk@electron@com@@3VScheduleMeetingWithWndParamsDefaultTypeInternal@1234@A 1000a8e0     electron_sdk.pb.obj
- 0003:00000900       ?_ShowSettingDlgParams_default_instance_@proto@sdk@electron@com@@3VShowSettingDlgParamsDefaultTypeInternal@1234@A 1000a900     electron_sdk.pb.obj
- 0003:00000928       ?_AlwaysShowIconOnTaskBarParams_default_instance_@proto@sdk@electron@com@@3VAlwaysShowIconOnTaskBarParamsDefaultTypeInternal@1234@A 1000a928     electron_sdk.pb.obj
- 0003:00000940       ?_SetSpeakerVolParams_default_instance_@proto@sdk@electron@com@@3VSetSpeakerVolParamsDefaultTypeInternal@1234@A 1000a940     electron_sdk.pb.obj
- 0003:00000958       ?_InputWebinarRegisterEmailAndScreenNameParams_default_instance_@proto@sdk@electron@com@@3VInputWebinarRegisterEmailAndScreenNameParamsDefaultTypeInternal@1234@A 1000a958     electron_sdk.pb.obj
- 0003:00000970       ?_EnableAlwaysShowMeetingControlsParams_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysShowMeetingControlsParamsDefaultTypeInternal@1234@A 1000a970     electron_sdk.pb.obj
- 0003:00000988       ?_EnablePlayChimeWhenEnterOrExitParams_default_instance_@proto@sdk@electron@com@@3VEnablePlayChimeWhenEnterOrExitParamsDefaultTypeInternal@1234@A 1000a988     electron_sdk.pb.obj
- 0003:000009a0       ?_UnMuteVideoParams_default_instance_@proto@sdk@electron@com@@3VUnMuteVideoParamsDefaultTypeInternal@1234@A 1000a9a0     electron_sdk.pb.obj
- 0003:000009b8       ?_EnableAlwaysShowNameOnVideoParams_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysShowNameOnVideoParamsDefaultTypeInternal@1234@A 1000a9b8     electron_sdk.pb.obj
- 0003:000009d0       ?_RedirectWebinarNeedRegisterParams_default_instance_@proto@sdk@electron@com@@3VRedirectWebinarNeedRegisterParamsDefaultTypeInternal@1234@A 1000a9d0     electron_sdk.pb.obj
- 0003:000009e8       ?_EnableLengthLimitationOfMeetingNumberParams_default_instance_@proto@sdk@electron@com@@3VEnableLengthLimitationOfMeetingNumberParamsDefaultTypeInternal@1234@A 1000a9e8     electron_sdk.pb.obj
- 0003:00000a00       ?_HideCopyInvitationOnInviteWindowParams_default_instance_@proto@sdk@electron@com@@3VHideCopyInvitationOnInviteWindowParamsDefaultTypeInternal@1234@A 1000aa00     electron_sdk.pb.obj
- 0003:00000a18       ?_DeleteMeetingParams_default_instance_@proto@sdk@electron@com@@3VDeleteMeetingParamsDefaultTypeInternal@1234@A 1000aa18     electron_sdk.pb.obj
- 0003:00000a30       ?_StartRecordingParams_default_instance_@proto@sdk@electron@com@@3VStartRecordingParamsDefaultTypeInternal@1234@A 1000aa30     electron_sdk.pb.obj
- 0003:00000a48       ?_AuthWithJwtTokenParams_default_instance_@proto@sdk@electron@com@@3VAuthWithJwtTokenParamsDefaultTypeInternal@1234@A 1000aa48     electron_sdk.pb.obj
- 0003:00000a60       ?_EnableInviteButtonOnMeeitngUIParams_default_instance_@proto@sdk@electron@com@@3VEnableInviteButtonOnMeeitngUIParamsDefaultTypeInternal@1234@A 1000aa60     electron_sdk.pb.obj
+ 0003:000007f0       ?_ConfigToShowUrlLinksInSettingParams_default_instance_@proto@sdk@electron@com@@3VConfigToShowUrlLinksInSettingParamsDefaultTypeInternal@1234@A 1000a7f0     electron_sdk.pb.obj
+ 0003:00000808       ?_EnableApproveRemoteControlDlgParams_default_instance_@proto@sdk@electron@com@@3VEnableApproveRemoteControlDlgParamsDefaultTypeInternal@1234@A 1000a808     electron_sdk.pb.obj
+ 0003:00000820       ?_SwitchSplitScreenModeParams_default_instance_@proto@sdk@electron@com@@3VSwitchSplitScreenModeParamsDefaultTypeInternal@1234@A 1000a820     electron_sdk.pb.obj
+ 0003:00000838       ?_RedirectClickEndMeetingBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickEndMeetingBTNEventParamsDefaultTypeInternal@1234@A 1000a838     electron_sdk.pb.obj
+ 0003:00000850       ?_DestroyRendererParams_default_instance_@proto@sdk@electron@com@@3VDestroyRendererParamsDefaultTypeInternal@1234@A 1000a850     electron_sdk.pb.obj
+ 0003:00000868       ?_EnableClaimHostFeatureParams_default_instance_@proto@sdk@electron@com@@3VEnableClaimHostFeatureParamsDefaultTypeInternal@1234@A 1000a868     electron_sdk.pb.obj
+ 0003:00000880       ?_RedirectClickShareBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickShareBTNEventParamsDefaultTypeInternal@1234@A 1000a880     electron_sdk.pb.obj
+ 0003:00000898       ?_RedirectEndOtherMeetingParams_default_instance_@proto@sdk@electron@com@@3VRedirectEndOtherMeetingParamsDefaultTypeInternal@1234@A 1000a898     electron_sdk.pb.obj
+ 0003:000008b0       ?_SwapToShowShareViewOrVideoParams_default_instance_@proto@sdk@electron@com@@3VSwapToShowShareViewOrVideoParamsDefaultTypeInternal@1234@A 1000a8b0     electron_sdk.pb.obj
+ 0003:000008c8       ?_HideQAOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHideQAOnMeetingUIParamsDefaultTypeInternal@1234@A 1000a8c8     electron_sdk.pb.obj
+ 0003:000008e0       ?_LoginWithSSOTokenParams_default_instance_@proto@sdk@electron@com@@3VLoginWithSSOTokenParamsDefaultTypeInternal@1234@A 1000a8e0     electron_sdk.pb.obj
+ 0003:000008f8       ?_ScheduleMeetingWithWndParams_default_instance_@proto@sdk@electron@com@@3VScheduleMeetingWithWndParamsDefaultTypeInternal@1234@A 1000a8f8     electron_sdk.pb.obj
+ 0003:00000918       ?_ShowSettingDlgParams_default_instance_@proto@sdk@electron@com@@3VShowSettingDlgParamsDefaultTypeInternal@1234@A 1000a918     electron_sdk.pb.obj
+ 0003:00000940       ?_AlwaysShowIconOnTaskBarParams_default_instance_@proto@sdk@electron@com@@3VAlwaysShowIconOnTaskBarParamsDefaultTypeInternal@1234@A 1000a940     electron_sdk.pb.obj
+ 0003:00000958       ?_SetSpeakerVolParams_default_instance_@proto@sdk@electron@com@@3VSetSpeakerVolParamsDefaultTypeInternal@1234@A 1000a958     electron_sdk.pb.obj
+ 0003:00000970       ?_InputWebinarRegisterEmailAndScreenNameParams_default_instance_@proto@sdk@electron@com@@3VInputWebinarRegisterEmailAndScreenNameParamsDefaultTypeInternal@1234@A 1000a970     electron_sdk.pb.obj
+ 0003:00000988       ?_EnableAlwaysShowMeetingControlsParams_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysShowMeetingControlsParamsDefaultTypeInternal@1234@A 1000a988     electron_sdk.pb.obj
+ 0003:000009a0       ?_EnablePlayChimeWhenEnterOrExitParams_default_instance_@proto@sdk@electron@com@@3VEnablePlayChimeWhenEnterOrExitParamsDefaultTypeInternal@1234@A 1000a9a0     electron_sdk.pb.obj
+ 0003:000009b8       ?_UnMuteVideoParams_default_instance_@proto@sdk@electron@com@@3VUnMuteVideoParamsDefaultTypeInternal@1234@A 1000a9b8     electron_sdk.pb.obj
+ 0003:000009d0       ?_EnableAlwaysShowNameOnVideoParams_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysShowNameOnVideoParamsDefaultTypeInternal@1234@A 1000a9d0     electron_sdk.pb.obj
+ 0003:000009e8       ?_RedirectWebinarNeedRegisterParams_default_instance_@proto@sdk@electron@com@@3VRedirectWebinarNeedRegisterParamsDefaultTypeInternal@1234@A 1000a9e8     electron_sdk.pb.obj
+ 0003:00000a00       ?_EnableLengthLimitationOfMeetingNumberParams_default_instance_@proto@sdk@electron@com@@3VEnableLengthLimitationOfMeetingNumberParamsDefaultTypeInternal@1234@A 1000aa00     electron_sdk.pb.obj
+ 0003:00000a18       ?_HideCopyInvitationOnInviteWindowParams_default_instance_@proto@sdk@electron@com@@3VHideCopyInvitationOnInviteWindowParamsDefaultTypeInternal@1234@A 1000aa18     electron_sdk.pb.obj
+ 0003:00000a30       ?_DeleteMeetingParams_default_instance_@proto@sdk@electron@com@@3VDeleteMeetingParamsDefaultTypeInternal@1234@A 1000aa30     electron_sdk.pb.obj
+ 0003:00000a48       ?_StartRecordingParams_default_instance_@proto@sdk@electron@com@@3VStartRecordingParamsDefaultTypeInternal@1234@A 1000aa48     electron_sdk.pb.obj
+ 0003:00000a60       ?_AuthWithJwtTokenParams_default_instance_@proto@sdk@electron@com@@3VAuthWithJwtTokenParamsDefaultTypeInternal@1234@A 1000aa60     electron_sdk.pb.obj
  0003:00000a78       ?_SelectVideoCameraParams_default_instance_@proto@sdk@electron@com@@3VSelectVideoCameraParamsDefaultTypeInternal@1234@A 1000aa78     electron_sdk.pb.obj
  0003:00000a90       ?_RedoParams_default_instance_@proto@sdk@electron@com@@3VRedoParamsDefaultTypeInternal@1234@A 1000aa90     electron_sdk.pb.obj
  0003:00000aa8       ?_SwitchMinimizeUIMode4FirstScreenMeetingUIWndParams_default_instance_@proto@sdk@electron@com@@3VSwitchMinimizeUIMode4FirstScreenMeetingUIWndParamsDefaultTypeInternal@1234@A 1000aaa8     electron_sdk.pb.obj
@@ -756,25 +756,25 @@
  0003:00001028       ?_HidePollOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHidePollOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b028     electron_sdk.pb.obj
  0003:00001040       ?_InputMeetingIDAndScreenNameParams_default_instance_@proto@sdk@electron@com@@3VInputMeetingIDAndScreenNameParamsDefaultTypeInternal@1234@A 1000b040     electron_sdk.pb.obj
  0003:00001058       ?_SetBottomFloatToolBarWndVisibilityParams_default_instance_@proto@sdk@electron@com@@3VSetBottomFloatToolBarWndVisibilityParamsDefaultTypeInternal@1234@A 1000b058     electron_sdk.pb.obj
- 0003:00001070       ?_SetTeamIdentifierParams_default_instance_@proto@sdk@electron@com@@3VSetTeamIdentifierParamsDefaultTypeInternal@1234@A 1000b070     electron_sdk.pb.obj
- 0003:00001088       ?_StartWithoutLoginParams_default_instance_@proto@sdk@electron@com@@3VStartWithoutLoginParamsDefaultTypeInternal@1234@A 1000b088     electron_sdk.pb.obj
- 0003:000010c0       ?_EnableShareWhiteBoardParams_default_instance_@proto@sdk@electron@com@@3VEnableShareWhiteBoardParamsDefaultTypeInternal@1234@A 1000b0c0     electron_sdk.pb.obj
- 0003:000010d8       ?_EnableVideoMirrorEffectParams_default_instance_@proto@sdk@electron@com@@3VEnableVideoMirrorEffectParamsDefaultTypeInternal@1234@A 1000b0d8     electron_sdk.pb.obj
- 0003:000010f0       ?_Enable49VideoesInGallaryViewParams_default_instance_@proto@sdk@electron@com@@3VEnable49VideoesInGallaryViewParamsDefaultTypeInternal@1234@A 1000b0f0     electron_sdk.pb.obj
- 0003:00001108       ?_EnableRemoteControlAllApplicationsParams_default_instance_@proto@sdk@electron@com@@3VEnableRemoteControlAllApplicationsParamsDefaultTypeInternal@1234@A 1000b108     electron_sdk.pb.obj
- 0003:00001120       ?_EnableSplitScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableSplitScreenModeParamsDefaultTypeInternal@1234@A 1000b120     electron_sdk.pb.obj
- 0003:00001138       ?_PinVideoParams_default_instance_@proto@sdk@electron@com@@3VPinVideoParamsDefaultTypeInternal@1234@A 1000b138     electron_sdk.pb.obj
- 0003:00001150       ?_TryWithPairingCodeParams_default_instance_@proto@sdk@electron@com@@3VTryWithPairingCodeParamsDefaultTypeInternal@1234@A 1000b150     electron_sdk.pb.obj
- 0003:00001168       ?_EnableShareIOSDeviceParams_default_instance_@proto@sdk@electron@com@@3VEnableShareIOSDeviceParamsDefaultTypeInternal@1234@A 1000b168     electron_sdk.pb.obj
- 0003:00001180       ?_IsSupportLocalRecordingParams_default_instance_@proto@sdk@electron@com@@3VIsSupportLocalRecordingParamsDefaultTypeInternal@1234@A 1000b180     electron_sdk.pb.obj
- 0003:00001198       ?_EnableFaceBeautyEffectParams_default_instance_@proto@sdk@electron@com@@3VEnableFaceBeautyEffectParamsDefaultTypeInternal@1234@A 1000b198     electron_sdk.pb.obj
- 0003:000011b0       ?_SetShowAudioUseComputerSoundChkboxParams_default_instance_@proto@sdk@electron@com@@3VSetShowAudioUseComputerSoundChkboxParamsDefaultTypeInternal@1234@A 1000b1b0     electron_sdk.pb.obj
- 0003:000011c8       ?_DisAllowLocalRecordingParams_default_instance_@proto@sdk@electron@com@@3VDisAllowLocalRecordingParamsDefaultTypeInternal@1234@A 1000b1c8     electron_sdk.pb.obj
- 0003:000011e0       ?_EditMeetingWithWndParams_default_instance_@proto@sdk@electron@com@@3VEditMeetingWithWndParamsDefaultTypeInternal@1234@A 1000b1e0     electron_sdk.pb.obj
- 0003:00001208       ?_VerifyParams_default_instance_@proto@sdk@electron@com@@3VVerifyParamsDefaultTypeInternal@1234@A 1000b208     electron_sdk.pb.obj
- 0003:00001228       ?_EnableGrabShareWithoutReminderParams_default_instance_@proto@sdk@electron@com@@3VEnableGrabShareWithoutReminderParamsDefaultTypeInternal@1234@A 1000b228     electron_sdk.pb.obj
- 0003:00001240       ?_EnableHardwareEncodeParams_default_instance_@proto@sdk@electron@com@@3VEnableHardwareEncodeParamsDefaultTypeInternal@1234@A 1000b240     electron_sdk.pb.obj
- 0003:00001258       ?_EnableInputMeetingPasswordDlgParams_default_instance_@proto@sdk@electron@com@@3VEnableInputMeetingPasswordDlgParamsDefaultTypeInternal@1234@A 1000b258     electron_sdk.pb.obj
+ 0003:00001070       ?_StartWithoutLoginParams_default_instance_@proto@sdk@electron@com@@3VStartWithoutLoginParamsDefaultTypeInternal@1234@A 1000b070     electron_sdk.pb.obj
+ 0003:000010a8       ?_EnableShareWhiteBoardParams_default_instance_@proto@sdk@electron@com@@3VEnableShareWhiteBoardParamsDefaultTypeInternal@1234@A 1000b0a8     electron_sdk.pb.obj
+ 0003:000010c0       ?_EnableVideoMirrorEffectParams_default_instance_@proto@sdk@electron@com@@3VEnableVideoMirrorEffectParamsDefaultTypeInternal@1234@A 1000b0c0     electron_sdk.pb.obj
+ 0003:000010d8       ?_Enable49VideoesInGallaryViewParams_default_instance_@proto@sdk@electron@com@@3VEnable49VideoesInGallaryViewParamsDefaultTypeInternal@1234@A 1000b0d8     electron_sdk.pb.obj
+ 0003:000010f0       ?_EnableRemoteControlAllApplicationsParams_default_instance_@proto@sdk@electron@com@@3VEnableRemoteControlAllApplicationsParamsDefaultTypeInternal@1234@A 1000b0f0     electron_sdk.pb.obj
+ 0003:00001108       ?_EnableSplitScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableSplitScreenModeParamsDefaultTypeInternal@1234@A 1000b108     electron_sdk.pb.obj
+ 0003:00001120       ?_PinVideoParams_default_instance_@proto@sdk@electron@com@@3VPinVideoParamsDefaultTypeInternal@1234@A 1000b120     electron_sdk.pb.obj
+ 0003:00001138       ?_TryWithPairingCodeParams_default_instance_@proto@sdk@electron@com@@3VTryWithPairingCodeParamsDefaultTypeInternal@1234@A 1000b138     electron_sdk.pb.obj
+ 0003:00001150       ?_EnableShareIOSDeviceParams_default_instance_@proto@sdk@electron@com@@3VEnableShareIOSDeviceParamsDefaultTypeInternal@1234@A 1000b150     electron_sdk.pb.obj
+ 0003:00001168       ?_IsSupportLocalRecordingParams_default_instance_@proto@sdk@electron@com@@3VIsSupportLocalRecordingParamsDefaultTypeInternal@1234@A 1000b168     electron_sdk.pb.obj
+ 0003:00001180       ?_EnableFaceBeautyEffectParams_default_instance_@proto@sdk@electron@com@@3VEnableFaceBeautyEffectParamsDefaultTypeInternal@1234@A 1000b180     electron_sdk.pb.obj
+ 0003:00001198       ?_SetShowAudioUseComputerSoundChkboxParams_default_instance_@proto@sdk@electron@com@@3VSetShowAudioUseComputerSoundChkboxParamsDefaultTypeInternal@1234@A 1000b198     electron_sdk.pb.obj
+ 0003:000011b0       ?_DisAllowLocalRecordingParams_default_instance_@proto@sdk@electron@com@@3VDisAllowLocalRecordingParamsDefaultTypeInternal@1234@A 1000b1b0     electron_sdk.pb.obj
+ 0003:000011c8       ?_EditMeetingWithWndParams_default_instance_@proto@sdk@electron@com@@3VEditMeetingWithWndParamsDefaultTypeInternal@1234@A 1000b1c8     electron_sdk.pb.obj
+ 0003:000011f0       ?_VerifyParams_default_instance_@proto@sdk@electron@com@@3VVerifyParamsDefaultTypeInternal@1234@A 1000b1f0     electron_sdk.pb.obj
+ 0003:00001210       ?_EnableGrabShareWithoutReminderParams_default_instance_@proto@sdk@electron@com@@3VEnableGrabShareWithoutReminderParamsDefaultTypeInternal@1234@A 1000b210     electron_sdk.pb.obj
+ 0003:00001228       ?_EnableHardwareEncodeParams_default_instance_@proto@sdk@electron@com@@3VEnableHardwareEncodeParamsDefaultTypeInternal@1234@A 1000b228     electron_sdk.pb.obj
+ 0003:00001240       ?_EnableInputMeetingPasswordDlgParams_default_instance_@proto@sdk@electron@com@@3VEnableInputMeetingPasswordDlgParamsDefaultTypeInternal@1234@A 1000b240     electron_sdk.pb.obj
+ 0003:00001258       ?_HideAutoCopyInviteLinkCheckBoxParams_default_instance_@proto@sdk@electron@com@@3VHideAutoCopyInviteLinkCheckBoxParamsDefaultTypeInternal@1234@A 1000b258     electron_sdk.pb.obj
  0003:00001270       ?_EnableToolTipsShowParams_default_instance_@proto@sdk@electron@com@@3VEnableToolTipsShowParamsDefaultTypeInternal@1234@A 1000b270     electron_sdk.pb.obj
  0003:00001288       ?_HideRemoteControlOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHideRemoteControlOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b288     electron_sdk.pb.obj
  0003:000012a0       ?_SetSharingToolBarVisibilityParams_default_instance_@proto@sdk@electron@com@@3VSetSharingToolBarVisibilityParamsDefaultTypeInternal@1234@A 1000b2a0     electron_sdk.pb.obj
@@ -795,79 +795,80 @@
  0003:00001408       ?_ConfigDSCPParams_default_instance_@proto@sdk@electron@com@@3VConfigDSCPParamsDefaultTypeInternal@1234@A 1000b408     electron_sdk.pb.obj
  0003:00001428       ?_StartMonitorShareParams_default_instance_@proto@sdk@electron@com@@3VStartMonitorShareParamsDefaultTypeInternal@1234@A 1000b428     electron_sdk.pb.obj
  0003:00001440       ?_DisablePopupMeetingWrongPSWDlgParams_default_instance_@proto@sdk@electron@com@@3VDisablePopupMeetingWrongPSWDlgParamsDefaultTypeInternal@1234@A 1000b440     electron_sdk.pb.obj
- 0003:00001458       ?_EnableLeaveMeetingOptionForHostParams_default_instance_@proto@sdk@electron@com@@3VEnableLeaveMeetingOptionForHostParamsDefaultTypeInternal@1234@A 1000b458     electron_sdk.pb.obj
- 0003:00001470       ?_EnableVideoButtonOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VEnableVideoButtonOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b470     electron_sdk.pb.obj
- 0003:00001488       ?_EnableLButtonDBClick4SwitchFullScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableLButtonDBClick4SwitchFullScreenModeParamsDefaultTypeInternal@1234@A 1000b488     electron_sdk.pb.obj
- 0003:000014a0       ?_MuteVideoParams_default_instance_@proto@sdk@electron@com@@3VMuteVideoParamsDefaultTypeInternal@1234@A 1000b4a0     electron_sdk.pb.obj
- 0003:000014b8       ?_SubscribeParams_default_instance_@proto@sdk@electron@com@@3VSubscribeParamsDefaultTypeInternal@1234@A 1000b4b8     electron_sdk.pb.obj
- 0003:000014d8       ?_HideRecordItemOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHideRecordItemOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b4d8     electron_sdk.pb.obj
- 0003:000014f0       ?_EnableHDVideoParams_default_instance_@proto@sdk@electron@com@@3VEnableHDVideoParamsDefaultTypeInternal@1234@A 1000b4f0     electron_sdk.pb.obj
- 0003:00001508       ?_InitSDKParams_default_instance_@proto@sdk@electron@com@@3VInitSDKParamsDefaultTypeInternal@1234@A 1000b508     electron_sdk.pb.obj
- 0003:00001558       ?_SpotlightVideoParams_default_instance_@proto@sdk@electron@com@@3VSpotlightVideoParamsDefaultTypeInternal@1234@A 1000b558     electron_sdk.pb.obj
- 0003:00001570       ?_ClearAnnotationParams_default_instance_@proto@sdk@electron@com@@3VClearAnnotationParamsDefaultTypeInternal@1234@A 1000b570     electron_sdk.pb.obj
- 0003:00001588       ?_ShowSharingFrameWindowsParams_default_instance_@proto@sdk@electron@com@@3VShowSharingFrameWindowsParamsDefaultTypeInternal@1234@A 1000b588     electron_sdk.pb.obj
- 0003:000015a0       ?_GetRawDataTypeParams_default_instance_@proto@sdk@electron@com@@3VGetRawDataTypeParamsDefaultTypeInternal@1234@A 1000b5a0     electron_sdk.pb.obj
- 0003:000015b8       ?_SetDirectShareMonitorIDParams_default_instance_@proto@sdk@electron@com@@3VSetDirectShareMonitorIDParamsDefaultTypeInternal@1234@A 1000b5b8     electron_sdk.pb.obj
- 0003:000015d0       ?_EnableForceAutoStartMyVideoWhenJoinMeetingParams_default_instance_@proto@sdk@electron@com@@3VEnableForceAutoStartMyVideoWhenJoinMeetingParamsDefaultTypeInternal@1234@A 1000b5d0     electron_sdk.pb.obj
- 0003:000015e8       ?_DisableRemoteCtrlCopyPasteFeatureParams_default_instance_@proto@sdk@electron@com@@3VDisableRemoteCtrlCopyPasteFeatureParamsDefaultTypeInternal@1234@A 1000b5e8     electron_sdk.pb.obj
- 0003:00001600       ?_RedirectClickParticipantListBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickParticipantListBTNEventParamsDefaultTypeInternal@1234@A 1000b600     electron_sdk.pb.obj
- 0003:00001618       ?_EnableHideNoVideoUsersOnWallViewParams_default_instance_@proto@sdk@electron@com@@3VEnableHideNoVideoUsersOnWallViewParamsDefaultTypeInternal@1234@A 1000b618     electron_sdk.pb.obj
- 0003:00001630       ?_JoinMeetingParams_default_instance_@proto@sdk@electron@com@@3VJoinMeetingParamsDefaultTypeInternal@1234@A 1000b630     electron_sdk.pb.obj
- 0003:00001668       ?_SetColorParams_default_instance_@proto@sdk@electron@com@@3VSetColorParamsDefaultTypeInternal@1234@A 1000b668     electron_sdk.pb.obj
- 0003:00001680       ?_LeaveMeetingParams_default_instance_@proto@sdk@electron@com@@3VLeaveMeetingParamsDefaultTypeInternal@1234@A 1000b680     electron_sdk.pb.obj
- 0003:00001698       ?_RedirectClickCustomLiveStreamMenuEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickCustomLiveStreamMenuEventParamsDefaultTypeInternal@1234@A 1000b698     electron_sdk.pb.obj
- 0003:000016b0       ?_CreateRendererParams_default_instance_@proto@sdk@electron@com@@3VCreateRendererParamsDefaultTypeInternal@1234@A 1000b6b0     electron_sdk.pb.obj
- 0003:000016c8       ?_EnableShowMyMeetingElapseTimeParams_default_instance_@proto@sdk@electron@com@@3VEnableShowMyMeetingElapseTimeParamsDefaultTypeInternal@1234@A 1000b6c8     electron_sdk.pb.obj
- 0003:000016e0       ?_SetEchoCancellationLevelParams_default_instance_@proto@sdk@electron@com@@3VSetEchoCancellationLevelParamsDefaultTypeInternal@1234@A 1000b6e0     electron_sdk.pb.obj
- 0003:000016f8       ?_EnableAlwaysUse16v9Params_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysUse16v9ParamsDefaultTypeInternal@1234@A 1000b6f8     electron_sdk.pb.obj
- 0003:00001710       ?_StartAnnotationParams_default_instance_@proto@sdk@electron@com@@3VStartAnnotationParamsDefaultTypeInternal@1234@A 1000b710     electron_sdk.pb.obj
- 0003:00001730       ?_InputMeetingPasswordAndScreenNameParams_default_instance_@proto@sdk@electron@com@@3VInputMeetingPasswordAndScreenNameParamsDefaultTypeInternal@1234@A 1000b730     electron_sdk.pb.obj
- 0003:00001748       ?_LoginParams_default_instance_@proto@sdk@electron@com@@3VLoginParamsDefaultTypeInternal@1234@A 1000b748     electron_sdk.pb.obj
- 0003:00001768       ?_EnableAutoAdjustMicParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoAdjustMicParamsDefaultTypeInternal@1234@A 1000b768     electron_sdk.pb.obj
- 0003:00001780       ?_RedirectMeetingWarningMsgParams_default_instance_@proto@sdk@electron@com@@3VRedirectMeetingWarningMsgParamsDefaultTypeInternal@1234@A 1000b780     electron_sdk.pb.obj
- 0003:00001798       ?_EnableAutoHideJoinAudioDialogParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoHideJoinAudioDialogParamsDefaultTypeInternal@1234@A 1000b798     electron_sdk.pb.obj
- 0003:000017b0       ?_HideKeypadButtonOnMeetingWindowParams_default_instance_@proto@sdk@electron@com@@3VHideKeypadButtonOnMeetingWindowParamsDefaultTypeInternal@1234@A 1000b7b0     electron_sdk.pb.obj
- 0003:000017c8       ?_DisableConfidentialWatermarkParams_default_instance_@proto@sdk@electron@com@@3VDisableConfidentialWatermarkParamsDefaultTypeInternal@1234@A 1000b7c8     electron_sdk.pb.obj
- 0003:000017e0       ?_ShowParticipantsListWndParams_default_instance_@proto@sdk@electron@com@@3VShowParticipantsListWndParamsDefaultTypeInternal@1234@A 1000b7e0     electron_sdk.pb.obj
- 0003:000017f8       ?_SetShowCallMeTabParams_default_instance_@proto@sdk@electron@com@@3VSetShowCallMeTabParamsDefaultTypeInternal@1234@A 1000b7f8     electron_sdk.pb.obj
- 0003:00001810       ?_EnableDualScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableDualScreenModeParamsDefaultTypeInternal@1234@A 1000b810     electron_sdk.pb.obj
- 0003:00001828       ?_EnableDisplayReminderWindowWhenExitParams_default_instance_@proto@sdk@electron@com@@3VEnableDisplayReminderWindowWhenExitParamsDefaultTypeInternal@1234@A 1000b828     electron_sdk.pb.obj
- 0003:00001840       ?_HideCopyUrlOnInviteWindowParams_default_instance_@proto@sdk@electron@com@@3VHideCopyUrlOnInviteWindowParamsDefaultTypeInternal@1234@A 1000b840     electron_sdk.pb.obj
- 0003:00001858       ?_GetResolutionParams_default_instance_@proto@sdk@electron@com@@3VGetResolutionParamsDefaultTypeInternal@1234@A 1000b858     electron_sdk.pb.obj
- 0003:00001870       ?_SetShowVideoOptimizeChkboxParams_default_instance_@proto@sdk@electron@com@@3VSetShowVideoOptimizeChkboxParamsDefaultTypeInternal@1234@A 1000b870     electron_sdk.pb.obj
- 0003:00001888       ?_EnableSpotlightSelfParams_default_instance_@proto@sdk@electron@com@@3VEnableSpotlightSelfParamsDefaultTypeInternal@1234@A 1000b888     electron_sdk.pb.obj
- 0003:000018a0       ?_SetDefaultCellPhoneInfoParams_default_instance_@proto@sdk@electron@com@@3VSetDefaultCellPhoneInfoParamsDefaultTypeInternal@1234@A 1000b8a0     electron_sdk.pb.obj
- 0003:000018b8       ?_AddCustomizedPictureResourceParams_default_instance_@proto@sdk@electron@com@@3VAddCustomizedPictureResourceParamsDefaultTypeInternal@1234@A 1000b8b8     electron_sdk.pb.obj
- 0003:000018d0       ?_HideSwitchCameraButtonParams_default_instance_@proto@sdk@electron@com@@3VHideSwitchCameraButtonParamsDefaultTypeInternal@1234@A 1000b8d0     electron_sdk.pb.obj
- 0003:000018e8       ?_IsHardwareEncodeEnabledParams_default_instance_@proto@sdk@electron@com@@3VIsHardwareEncodeEnabledParamsDefaultTypeInternal@1234@A 1000b8e8     electron_sdk.pb.obj
- 0003:00001900       ?_SelectMicParams_default_instance_@proto@sdk@electron@com@@3VSelectMicParamsDefaultTypeInternal@1234@A 1000b900     electron_sdk.pb.obj
- 0003:00001918       ?_TurnOffAeroModeInSharingParams_default_instance_@proto@sdk@electron@com@@3VTurnOffAeroModeInSharingParamsDefaultTypeInternal@1234@A 1000b918     electron_sdk.pb.obj
- 0003:00001930       ?_SetFloatVideoWndVisibilityParams_default_instance_@proto@sdk@electron@com@@3VSetFloatVideoWndVisibilityParamsDefaultTypeInternal@1234@A 1000b930     electron_sdk.pb.obj
- 0003:00001948       ?_ShowChatDlgParams_default_instance_@proto@sdk@electron@com@@3VShowChatDlgParamsDefaultTypeInternal@1234@A 1000b948     electron_sdk.pb.obj
- 0003:00001970       ?_SetToolParams_default_instance_@proto@sdk@electron@com@@3VSetToolParamsDefaultTypeInternal@1234@A 1000b970     electron_sdk.pb.obj
- 0003:00001988       ?_SetShowCallInTabParams_default_instance_@proto@sdk@electron@com@@3VSetShowCallInTabParamsDefaultTypeInternal@1234@A 1000b988     electron_sdk.pb.obj
- 0003:000019a0       ?_AuthParams_default_instance_@proto@sdk@electron@com@@3VAuthParamsDefaultTypeInternal@1234@A 1000b9a0     electron_sdk.pb.obj
- 0003:000019b8       ?_EnableAutoJoinAudioParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoJoinAudioParamsDefaultTypeInternal@1234@A 1000b9b8     electron_sdk.pb.obj
- 0003:000019d0       ?_ShowPreOrNextPageVideoParams_default_instance_@proto@sdk@electron@com@@3VShowPreOrNextPageVideoParamsDefaultTypeInternal@1234@A 1000b9d0     electron_sdk.pb.obj
- 0003:000019e8       ?_EnableAutoAdjustMicVolumeWhenJoinAudioParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoAdjustMicVolumeWhenJoinAudioParamsDefaultTypeInternal@1234@A 1000b9e8     electron_sdk.pb.obj
- 0003:00001a00       ?_CallOutH323Params_default_instance_@proto@sdk@electron@com@@3VCallOutH323ParamsDefaultTypeInternal@1234@A 1000ba00     electron_sdk.pb.obj
- 0003:00001a20       ?_GetUserInfoByUserIDParams_default_instance_@proto@sdk@electron@com@@3VGetUserInfoByUserIDParamsDefaultTypeInternal@1234@A 1000ba20     electron_sdk.pb.obj
- 0003:00001a38       ?g_cb_onRenderVideoRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000ba38     zoom_node_render_addon.obj
- 0003:00001a3c       ?g_cb_onOneWayAudioRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000ba3c     zoom_node_render_addon.obj
- 0003:00001a40       ?g_ipcSinkClientVideo@@3VUVIPCClientSink@@A 1000ba40     zoom_node_render_addon.obj
- 0003:00001c70       ?constructor@ZoomNodeRenderWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bc70     zoom_node_render_addon.obj
- 0003:00001c74       ?constructor@ZoomNodeVideoRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bc74     zoom_node_render_addon.obj
- 0003:00001c78       ?g_ipcSinkClientShare@@3VUVIPCClientSink@@A 1000bc78     zoom_node_render_addon.obj
- 0003:00001ea8       ?g_cb_onRenderShareRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bea8     zoom_node_render_addon.obj
- 0003:00001eac       ?g_cb_onMixedAudioRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000beac     zoom_node_render_addon.obj
- 0003:00001eb0       ?constructor@ZoomNodeAudioRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000beb0     zoom_node_render_addon.obj
- 0003:00001eb4       ?constructor@ZoomNodeShareRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000beb4     zoom_node_render_addon.obj
- 0003:00001eb8       ?g_ipcSinkClientAudio@@3VUVIPCClientSink@@A 1000beb8     zoom_node_render_addon.obj
- 0003:000020e8       ?g_owner_list@@3V?$map@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@@std@@A 1000c0e8     uv_ipc_common.obj
- 0003:000020f0       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 1000c0f0     zoom_node_render_addon.obj
- 0003:000020f8       ___dyn_tls_init_callback   1000c0f8     <common>
+ 0003:00001458       ?_EnableInviteButtonOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VEnableInviteButtonOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b458     electron_sdk.pb.obj
+ 0003:00001470       ?_EnableLeaveMeetingOptionForHostParams_default_instance_@proto@sdk@electron@com@@3VEnableLeaveMeetingOptionForHostParamsDefaultTypeInternal@1234@A 1000b470     electron_sdk.pb.obj
+ 0003:00001488       ?_EnableVideoButtonOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VEnableVideoButtonOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b488     electron_sdk.pb.obj
+ 0003:000014a0       ?_EnableLButtonDBClick4SwitchFullScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableLButtonDBClick4SwitchFullScreenModeParamsDefaultTypeInternal@1234@A 1000b4a0     electron_sdk.pb.obj
+ 0003:000014b8       ?_MuteVideoParams_default_instance_@proto@sdk@electron@com@@3VMuteVideoParamsDefaultTypeInternal@1234@A 1000b4b8     electron_sdk.pb.obj
+ 0003:000014d0       ?_SubscribeParams_default_instance_@proto@sdk@electron@com@@3VSubscribeParamsDefaultTypeInternal@1234@A 1000b4d0     electron_sdk.pb.obj
+ 0003:000014f0       ?_HideRecordItemOnMeetingUIParams_default_instance_@proto@sdk@electron@com@@3VHideRecordItemOnMeetingUIParamsDefaultTypeInternal@1234@A 1000b4f0     electron_sdk.pb.obj
+ 0003:00001508       ?_EnableHDVideoParams_default_instance_@proto@sdk@electron@com@@3VEnableHDVideoParamsDefaultTypeInternal@1234@A 1000b508     electron_sdk.pb.obj
+ 0003:00001520       ?_InitSDKParams_default_instance_@proto@sdk@electron@com@@3VInitSDKParamsDefaultTypeInternal@1234@A 1000b520     electron_sdk.pb.obj
+ 0003:00001578       ?_SpotlightVideoParams_default_instance_@proto@sdk@electron@com@@3VSpotlightVideoParamsDefaultTypeInternal@1234@A 1000b578     electron_sdk.pb.obj
+ 0003:00001590       ?_ClearAnnotationParams_default_instance_@proto@sdk@electron@com@@3VClearAnnotationParamsDefaultTypeInternal@1234@A 1000b590     electron_sdk.pb.obj
+ 0003:000015a8       ?_ShowSharingFrameWindowsParams_default_instance_@proto@sdk@electron@com@@3VShowSharingFrameWindowsParamsDefaultTypeInternal@1234@A 1000b5a8     electron_sdk.pb.obj
+ 0003:000015c0       ?_GetRawDataTypeParams_default_instance_@proto@sdk@electron@com@@3VGetRawDataTypeParamsDefaultTypeInternal@1234@A 1000b5c0     electron_sdk.pb.obj
+ 0003:000015d8       ?_SetDirectShareMonitorIDParams_default_instance_@proto@sdk@electron@com@@3VSetDirectShareMonitorIDParamsDefaultTypeInternal@1234@A 1000b5d8     electron_sdk.pb.obj
+ 0003:000015f0       ?_EnableForceAutoStartMyVideoWhenJoinMeetingParams_default_instance_@proto@sdk@electron@com@@3VEnableForceAutoStartMyVideoWhenJoinMeetingParamsDefaultTypeInternal@1234@A 1000b5f0     electron_sdk.pb.obj
+ 0003:00001608       ?_DisableRemoteCtrlCopyPasteFeatureParams_default_instance_@proto@sdk@electron@com@@3VDisableRemoteCtrlCopyPasteFeatureParamsDefaultTypeInternal@1234@A 1000b608     electron_sdk.pb.obj
+ 0003:00001620       ?_RedirectClickParticipantListBTNEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickParticipantListBTNEventParamsDefaultTypeInternal@1234@A 1000b620     electron_sdk.pb.obj
+ 0003:00001638       ?_EnableHideNoVideoUsersOnWallViewParams_default_instance_@proto@sdk@electron@com@@3VEnableHideNoVideoUsersOnWallViewParamsDefaultTypeInternal@1234@A 1000b638     electron_sdk.pb.obj
+ 0003:00001650       ?_JoinMeetingParams_default_instance_@proto@sdk@electron@com@@3VJoinMeetingParamsDefaultTypeInternal@1234@A 1000b650     electron_sdk.pb.obj
+ 0003:00001688       ?_SetColorParams_default_instance_@proto@sdk@electron@com@@3VSetColorParamsDefaultTypeInternal@1234@A 1000b688     electron_sdk.pb.obj
+ 0003:000016a0       ?_LeaveMeetingParams_default_instance_@proto@sdk@electron@com@@3VLeaveMeetingParamsDefaultTypeInternal@1234@A 1000b6a0     electron_sdk.pb.obj
+ 0003:000016b8       ?_RedirectClickCustomLiveStreamMenuEventParams_default_instance_@proto@sdk@electron@com@@3VRedirectClickCustomLiveStreamMenuEventParamsDefaultTypeInternal@1234@A 1000b6b8     electron_sdk.pb.obj
+ 0003:000016d0       ?_CreateRendererParams_default_instance_@proto@sdk@electron@com@@3VCreateRendererParamsDefaultTypeInternal@1234@A 1000b6d0     electron_sdk.pb.obj
+ 0003:000016e8       ?_EnableShowMyMeetingElapseTimeParams_default_instance_@proto@sdk@electron@com@@3VEnableShowMyMeetingElapseTimeParamsDefaultTypeInternal@1234@A 1000b6e8     electron_sdk.pb.obj
+ 0003:00001700       ?_SetEchoCancellationLevelParams_default_instance_@proto@sdk@electron@com@@3VSetEchoCancellationLevelParamsDefaultTypeInternal@1234@A 1000b700     electron_sdk.pb.obj
+ 0003:00001718       ?_EnableAlwaysUse16v9Params_default_instance_@proto@sdk@electron@com@@3VEnableAlwaysUse16v9ParamsDefaultTypeInternal@1234@A 1000b718     electron_sdk.pb.obj
+ 0003:00001730       ?_StartAnnotationParams_default_instance_@proto@sdk@electron@com@@3VStartAnnotationParamsDefaultTypeInternal@1234@A 1000b730     electron_sdk.pb.obj
+ 0003:00001750       ?_InputMeetingPasswordAndScreenNameParams_default_instance_@proto@sdk@electron@com@@3VInputMeetingPasswordAndScreenNameParamsDefaultTypeInternal@1234@A 1000b750     electron_sdk.pb.obj
+ 0003:00001768       ?_LoginParams_default_instance_@proto@sdk@electron@com@@3VLoginParamsDefaultTypeInternal@1234@A 1000b768     electron_sdk.pb.obj
+ 0003:00001788       ?_EnableAutoAdjustMicParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoAdjustMicParamsDefaultTypeInternal@1234@A 1000b788     electron_sdk.pb.obj
+ 0003:000017a0       ?_RedirectMeetingWarningMsgParams_default_instance_@proto@sdk@electron@com@@3VRedirectMeetingWarningMsgParamsDefaultTypeInternal@1234@A 1000b7a0     electron_sdk.pb.obj
+ 0003:000017b8       ?_EnableAutoHideJoinAudioDialogParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoHideJoinAudioDialogParamsDefaultTypeInternal@1234@A 1000b7b8     electron_sdk.pb.obj
+ 0003:000017d0       ?_HideKeypadButtonOnMeetingWindowParams_default_instance_@proto@sdk@electron@com@@3VHideKeypadButtonOnMeetingWindowParamsDefaultTypeInternal@1234@A 1000b7d0     electron_sdk.pb.obj
+ 0003:000017e8       ?_DisableConfidentialWatermarkParams_default_instance_@proto@sdk@electron@com@@3VDisableConfidentialWatermarkParamsDefaultTypeInternal@1234@A 1000b7e8     electron_sdk.pb.obj
+ 0003:00001800       ?_ShowParticipantsListWndParams_default_instance_@proto@sdk@electron@com@@3VShowParticipantsListWndParamsDefaultTypeInternal@1234@A 1000b800     electron_sdk.pb.obj
+ 0003:00001818       ?_SetShowCallMeTabParams_default_instance_@proto@sdk@electron@com@@3VSetShowCallMeTabParamsDefaultTypeInternal@1234@A 1000b818     electron_sdk.pb.obj
+ 0003:00001830       ?_EnableDualScreenModeParams_default_instance_@proto@sdk@electron@com@@3VEnableDualScreenModeParamsDefaultTypeInternal@1234@A 1000b830     electron_sdk.pb.obj
+ 0003:00001848       ?_EnableDisplayReminderWindowWhenExitParams_default_instance_@proto@sdk@electron@com@@3VEnableDisplayReminderWindowWhenExitParamsDefaultTypeInternal@1234@A 1000b848     electron_sdk.pb.obj
+ 0003:00001860       ?_HideCopyUrlOnInviteWindowParams_default_instance_@proto@sdk@electron@com@@3VHideCopyUrlOnInviteWindowParamsDefaultTypeInternal@1234@A 1000b860     electron_sdk.pb.obj
+ 0003:00001878       ?_GetResolutionParams_default_instance_@proto@sdk@electron@com@@3VGetResolutionParamsDefaultTypeInternal@1234@A 1000b878     electron_sdk.pb.obj
+ 0003:00001890       ?_SetShowVideoOptimizeChkboxParams_default_instance_@proto@sdk@electron@com@@3VSetShowVideoOptimizeChkboxParamsDefaultTypeInternal@1234@A 1000b890     electron_sdk.pb.obj
+ 0003:000018a8       ?_EnableSpotlightSelfParams_default_instance_@proto@sdk@electron@com@@3VEnableSpotlightSelfParamsDefaultTypeInternal@1234@A 1000b8a8     electron_sdk.pb.obj
+ 0003:000018c0       ?_SetDefaultCellPhoneInfoParams_default_instance_@proto@sdk@electron@com@@3VSetDefaultCellPhoneInfoParamsDefaultTypeInternal@1234@A 1000b8c0     electron_sdk.pb.obj
+ 0003:000018d8       ?_AddCustomizedPictureResourceParams_default_instance_@proto@sdk@electron@com@@3VAddCustomizedPictureResourceParamsDefaultTypeInternal@1234@A 1000b8d8     electron_sdk.pb.obj
+ 0003:000018f0       ?_HideSwitchCameraButtonParams_default_instance_@proto@sdk@electron@com@@3VHideSwitchCameraButtonParamsDefaultTypeInternal@1234@A 1000b8f0     electron_sdk.pb.obj
+ 0003:00001908       ?_IsHardwareEncodeEnabledParams_default_instance_@proto@sdk@electron@com@@3VIsHardwareEncodeEnabledParamsDefaultTypeInternal@1234@A 1000b908     electron_sdk.pb.obj
+ 0003:00001920       ?_SelectMicParams_default_instance_@proto@sdk@electron@com@@3VSelectMicParamsDefaultTypeInternal@1234@A 1000b920     electron_sdk.pb.obj
+ 0003:00001938       ?_TurnOffAeroModeInSharingParams_default_instance_@proto@sdk@electron@com@@3VTurnOffAeroModeInSharingParamsDefaultTypeInternal@1234@A 1000b938     electron_sdk.pb.obj
+ 0003:00001950       ?_SetFloatVideoWndVisibilityParams_default_instance_@proto@sdk@electron@com@@3VSetFloatVideoWndVisibilityParamsDefaultTypeInternal@1234@A 1000b950     electron_sdk.pb.obj
+ 0003:00001968       ?_ShowChatDlgParams_default_instance_@proto@sdk@electron@com@@3VShowChatDlgParamsDefaultTypeInternal@1234@A 1000b968     electron_sdk.pb.obj
+ 0003:00001990       ?_SetToolParams_default_instance_@proto@sdk@electron@com@@3VSetToolParamsDefaultTypeInternal@1234@A 1000b990     electron_sdk.pb.obj
+ 0003:000019a8       ?_SetShowCallInTabParams_default_instance_@proto@sdk@electron@com@@3VSetShowCallInTabParamsDefaultTypeInternal@1234@A 1000b9a8     electron_sdk.pb.obj
+ 0003:000019c0       ?_AuthParams_default_instance_@proto@sdk@electron@com@@3VAuthParamsDefaultTypeInternal@1234@A 1000b9c0     electron_sdk.pb.obj
+ 0003:000019d8       ?_EnableAutoJoinAudioParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoJoinAudioParamsDefaultTypeInternal@1234@A 1000b9d8     electron_sdk.pb.obj
+ 0003:000019f0       ?_ShowPreOrNextPageVideoParams_default_instance_@proto@sdk@electron@com@@3VShowPreOrNextPageVideoParamsDefaultTypeInternal@1234@A 1000b9f0     electron_sdk.pb.obj
+ 0003:00001a08       ?_EnableAutoAdjustMicVolumeWhenJoinAudioParams_default_instance_@proto@sdk@electron@com@@3VEnableAutoAdjustMicVolumeWhenJoinAudioParamsDefaultTypeInternal@1234@A 1000ba08     electron_sdk.pb.obj
+ 0003:00001a20       ?_CallOutH323Params_default_instance_@proto@sdk@electron@com@@3VCallOutH323ParamsDefaultTypeInternal@1234@A 1000ba20     electron_sdk.pb.obj
+ 0003:00001a40       ?_GetUserInfoByUserIDParams_default_instance_@proto@sdk@electron@com@@3VGetUserInfoByUserIDParamsDefaultTypeInternal@1234@A 1000ba40     electron_sdk.pb.obj
+ 0003:00001a58       ?g_cb_onRenderVideoRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000ba58     zoom_node_render_addon.obj
+ 0003:00001a5c       ?g_cb_onOneWayAudioRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000ba5c     zoom_node_render_addon.obj
+ 0003:00001a60       ?g_ipcSinkClientVideo@@3VUVIPCClientSink@@A 1000ba60     zoom_node_render_addon.obj
+ 0003:00001c90       ?constructor@ZoomNodeRenderWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bc90     zoom_node_render_addon.obj
+ 0003:00001c94       ?constructor@ZoomNodeVideoRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bc94     zoom_node_render_addon.obj
+ 0003:00001c98       ?g_ipcSinkClientShare@@3VUVIPCClientSink@@A 1000bc98     zoom_node_render_addon.obj
+ 0003:00001ec8       ?g_cb_onRenderShareRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bec8     zoom_node_render_addon.obj
+ 0003:00001ecc       ?g_cb_onMixedAudioRawDataReceived@@3V?$Persistent@VFunction@v8@@U?$CopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000becc     zoom_node_render_addon.obj
+ 0003:00001ed0       ?constructor@ZoomNodeAudioRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bed0     zoom_node_render_addon.obj
+ 0003:00001ed4       ?constructor@ZoomNodeShareRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A 1000bed4     zoom_node_render_addon.obj
+ 0003:00001ed8       ?g_ipcSinkClientAudio@@3VUVIPCClientSink@@A 1000bed8     zoom_node_render_addon.obj
+ 0003:00002108       ?g_owner_list@@3V?$map@PAXPAVUVIPC@@U?$less@PAX@std@@V?$allocator@U?$pair@QAXPAVUVIPC@@@std@@@3@@std@@A 1000c108     uv_ipc_common.obj
+ 0003:00002110       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 1000c110     zoom_node_render_addon.obj
+ 0003:00002118       ___dyn_tls_init_callback   1000c118     <common>
 
- entry point at        0001:00003cbd
+ entry point at        0001:00003ccd
 
  Static symbols
 
@@ -1061,39 +1062,39 @@
  0001:000001e0       ?load_exe_hook@@YGP6GHXZIPAUDelayLoadInfo@@@Z 100011e0 f   win_delay_load_hook.obj
  0001:00000780       ?CreateRenderNodeObject@@YAXABV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 10001780 f   zoom_node_render_addon.obj
  0001:00000820       __register_zoomsdk_render  10001820 f   zoom_node_render_addon.obj
- 0001:00002e91       __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z$0 10003e91 f i libprotobuf-lite:coded_stream.obj
- 0001:00002f3a       __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z$1 10003f3a f i libprotobuf-lite:coded_stream.obj
- 0001:00003663       ?find_pe_section@@YAPAU_IMAGE_SECTION_HEADER@@QAEI@Z 10004663 f   MSVCRT:utility.obj
- 0001:0000397d       ?dllmain_crt_dispatch@@YGHQAUHINSTANCE__@@KQAX@Z 1000497d f   MSVCRT:dll_dllmain.obj
- 0001:000039d0       ?dllmain_crt_process_attach@@YAHQAUHINSTANCE__@@QAX@Z 100049d0 f   MSVCRT:dll_dllmain.obj
- 0001:00003ad7       ?dllmain_crt_process_detach@@YAH_N@Z 10004ad7 f   MSVCRT:dll_dllmain.obj
- 0001:00003b87       ?dllmain_dispatch@@YAHQAUHINSTANCE__@@KQAX@Z 10004b87 f   MSVCRT:dll_dllmain.obj
- 0001:00003c92       ?dllmain_raw@@YGHQAUHINSTANCE__@@KQAX@Z 10004c92 f   MSVCRT:dll_dllmain.obj
- 0001:00003cf0       $$000000                   10004cf0     MSVCRT:llshl.obj
- 0001:00003d10       $$000000                   10004d10     MSVCRT:chkstk.obj
- 0001:00003d40       $$000000                   10004d40     MSVCRT:ullshr.obj
- 0001:00004260       $$000000                   10005260     MSVCRT:sehprolg4.obj
- 0001:000042e7       ___get_entropy             100052e7 f   MSVCRT:gs_support.obj
- 0001:00004a50       __ehhandler$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z 10005a50 f   libprotobuf-lite:coded_stream.obj
- 0001:00004a70       __unwindfunclet$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z$0 10005a70 f   libprotobuf-lite:status.obj
- 0001:00004a7b       __unwindfunclet$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z$29 10005a7b f   libprotobuf-lite:status.obj
- 0001:00004a81       __ehhandler$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z 10005a81 f   libprotobuf-lite:status.obj
- 0001:00004ab0       ??__F?constructor@ZoomNodeRenderWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ab0 f   zoom_node_render_addon.obj
- 0001:00004ac0       ??__F?constructor@ZoomNodeVideoRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ac0 f   zoom_node_render_addon.obj
- 0001:00004ad0       ??__F?constructor@ZoomNodeShareRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ad0 f   zoom_node_render_addon.obj
- 0001:00004ae0       ??__F?constructor@ZoomNodeAudioRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ae0 f   zoom_node_render_addon.obj
- 0001:00004af0       ??__Fg_cb_onRenderVideoRawDataReceived@@YAXXZ 10005af0 f   zoom_node_render_addon.obj
- 0001:00004b10       ??__Fg_cb_onRenderShareRawDataReceived@@YAXXZ 10005b10 f   zoom_node_render_addon.obj
- 0001:00004b30       ??__Fg_cb_onMixedAudioRawDataReceived@@YAXXZ 10005b30 f   zoom_node_render_addon.obj
- 0001:00004b50       ??__Fg_cb_onOneWayAudioRawDataReceived@@YAXXZ 10005b50 f   zoom_node_render_addon.obj
- 0001:00004b70       ??__Fg_ipcSinkClientVideo@@YAXXZ 10005b70 f   zoom_node_render_addon.obj
- 0001:00004b90       ??__Fg_ipcSinkClientShare@@YAXXZ 10005b90 f   zoom_node_render_addon.obj
- 0001:00004bb0       ??__Fg_ipcSinkClientAudio@@YAXXZ 10005bb0 f   zoom_node_render_addon.obj
- 0001:00004bd0       ??__Fg_owner_locker@@YAXXZ 10005bd0 f   uv_ipc_common.obj
- 0001:00004bf0       ??__Fg_owner_list@@YAXXZ   10005bf0 f   uv_ipc_common.obj
- 0001:00004c00       ??__F?CANCELLED@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005c00 f   libprotobuf-lite:status.obj
- 0001:00004c60       ??__F?OK@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005c60 f   libprotobuf-lite:status.obj
- 0001:00004cc0       ??__F?UNKNOWN@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005cc0 f   libprotobuf-lite:status.obj
+ 0001:00002ea1       __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z$0 10003ea1 f i libprotobuf-lite:coded_stream.obj
+ 0001:00002f4a       __catch$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z$1 10003f4a f i libprotobuf-lite:coded_stream.obj
+ 0001:00003673       ?find_pe_section@@YAPAU_IMAGE_SECTION_HEADER@@QAEI@Z 10004673 f   MSVCRT:utility.obj
+ 0001:0000398d       ?dllmain_crt_dispatch@@YGHQAUHINSTANCE__@@KQAX@Z 1000498d f   MSVCRT:dll_dllmain.obj
+ 0001:000039e0       ?dllmain_crt_process_attach@@YAHQAUHINSTANCE__@@QAX@Z 100049e0 f   MSVCRT:dll_dllmain.obj
+ 0001:00003ae7       ?dllmain_crt_process_detach@@YAH_N@Z 10004ae7 f   MSVCRT:dll_dllmain.obj
+ 0001:00003b97       ?dllmain_dispatch@@YAHQAUHINSTANCE__@@KQAX@Z 10004b97 f   MSVCRT:dll_dllmain.obj
+ 0001:00003ca2       ?dllmain_raw@@YGHQAUHINSTANCE__@@KQAX@Z 10004ca2 f   MSVCRT:dll_dllmain.obj
+ 0001:00003d00       $$000000                   10004d00     MSVCRT:llshl.obj
+ 0001:00003d20       $$000000                   10004d20     MSVCRT:chkstk.obj
+ 0001:00003d50       $$000000                   10004d50     MSVCRT:ullshr.obj
+ 0001:00004270       $$000000                   10005270     MSVCRT:sehprolg4.obj
+ 0001:000042f7       ___get_entropy             100052f7 f   MSVCRT:gs_support.obj
+ 0001:00004a60       __ehhandler$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEXII@Z 10005a60 f   libprotobuf-lite:coded_stream.obj
+ 0001:00004a80       __unwindfunclet$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z$0 10005a80 f   libprotobuf-lite:status.obj
+ 0001:00004a8b       __unwindfunclet$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z$29 10005a8b f   libprotobuf-lite:status.obj
+ 0001:00004a91       __ehhandler$??0Status@util@protobuf@google@@QAE@W4Code@error@123@VStringPiece@23@@Z 10005a91 f   libprotobuf-lite:status.obj
+ 0001:00004ac0       ??__F?constructor@ZoomNodeRenderWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ac0 f   zoom_node_render_addon.obj
+ 0001:00004ad0       ??__F?constructor@ZoomNodeVideoRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ad0 f   zoom_node_render_addon.obj
+ 0001:00004ae0       ??__F?constructor@ZoomNodeShareRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005ae0 f   zoom_node_render_addon.obj
+ 0001:00004af0       ??__F?constructor@ZoomNodeAudioRawDataLibuvClientWrap@@2V?$Persistent@VFunction@v8@@V?$NonCopyablePersistentTraits@VFunction@v8@@@2@@v8@@A@@YAXXZ 10005af0 f   zoom_node_render_addon.obj
+ 0001:00004b00       ??__Fg_cb_onRenderVideoRawDataReceived@@YAXXZ 10005b00 f   zoom_node_render_addon.obj
+ 0001:00004b20       ??__Fg_cb_onRenderShareRawDataReceived@@YAXXZ 10005b20 f   zoom_node_render_addon.obj
+ 0001:00004b40       ??__Fg_cb_onMixedAudioRawDataReceived@@YAXXZ 10005b40 f   zoom_node_render_addon.obj
+ 0001:00004b60       ??__Fg_cb_onOneWayAudioRawDataReceived@@YAXXZ 10005b60 f   zoom_node_render_addon.obj
+ 0001:00004b80       ??__Fg_ipcSinkClientVideo@@YAXXZ 10005b80 f   zoom_node_render_addon.obj
+ 0001:00004ba0       ??__Fg_ipcSinkClientShare@@YAXXZ 10005ba0 f   zoom_node_render_addon.obj
+ 0001:00004bc0       ??__Fg_ipcSinkClientAudio@@YAXXZ 10005bc0 f   zoom_node_render_addon.obj
+ 0001:00004be0       ??__Fg_owner_locker@@YAXXZ 10005be0 f   uv_ipc_common.obj
+ 0001:00004c00       ??__Fg_owner_list@@YAXXZ   10005c00 f   uv_ipc_common.obj
+ 0001:00004c10       ??__F?CANCELLED@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005c10 f   libprotobuf-lite:status.obj
+ 0001:00004c70       ??__F?OK@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005c70 f   libprotobuf-lite:status.obj
+ 0001:00004cd0       ??__F?UNKNOWN@Status@util@protobuf@google@@2V1234@B@@YAXXZ 10005cd0 f   libprotobuf-lite:status.obj
  0002:00000108       ??OK$initializer$@Status@util@protobuf@google@@2P6AXXZA@@3P6AXXZA 10006108     libprotobuf-lite:status.obj
  0002:0000010c       ??CANCELLED$initializer$@Status@util@protobuf@google@@2P6AXXZA@@3P6AXXZA 1000610c     libprotobuf-lite:status.obj
  0002:00000110       ??UNKNOWN$initializer$@Status@util@protobuf@google@@2P6AXXZA@@3P6AXXZA 10006110     libprotobuf-lite:status.obj
@@ -1137,20 +1138,20 @@
  0002:00001b20       __sehtable$?dllmain_crt_process_attach@@YAHQAUHINSTANCE__@@QAX@Z 10007b20     MSVCRT:dll_dllmain.obj
  0002:00001b40       __sehtable$?dllmain_crt_process_detach@@YAH_N@Z 10007b40     MSVCRT:dll_dllmain.obj
  0002:00001b68       __sehtable$?dllmain_dispatch@@YAHQAUHINSTANCE__@@KQAX@Z 10007b68     MSVCRT:dll_dllmain.obj
- 0002:000028c0       .edata                     100088c0     zoomsdk_render.exp
- 0002:000028e8       rgpv                       100088e8     zoomsdk_render.exp
- 0002:000028f0       rgszName                   100088f0     zoomsdk_render.exp
- 0002:000028f8       rgwOrd                     100088f8     zoomsdk_render.exp
- 0002:000028fc       szName                     100088fc     zoomsdk_render.exp
- 0002:00002910       $N00001                    10008910     zoomsdk_render.exp
- 0002:0000292a       $N00002                    1000892a     zoomsdk_render.exp
- 0002:00002af8       .idata$6                   10008af8     kernel32:KERNEL32.dll
- 0002:00002b96       .idata$6                   10008b96     msvcprt:MSVCP140.dll
- 0002:00002c6c       .idata$6                   10008c6c     vcruntime:VCRUNTIME140.dll
- 0002:00002e0c       .idata$6                   10008e0c     ucrt:api-ms-win-crt-string-l1-1-0.dll
- 0002:00002e2e       .idata$6                   10008e2e     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00002e50       .idata$6                   10008e50     ucrt:api-ms-win-crt-stdio-l1-1-0.dll
- 0002:00002e70       .idata$6                   10008e70     ucrt:api-ms-win-crt-heap-l1-1-0.dll
+ 0002:000028d0       .edata                     100088d0     zoomsdk_render.exp
+ 0002:000028f8       rgpv                       100088f8     zoomsdk_render.exp
+ 0002:00002900       rgszName                   10008900     zoomsdk_render.exp
+ 0002:00002908       rgwOrd                     10008908     zoomsdk_render.exp
+ 0002:0000290c       szName                     1000890c     zoomsdk_render.exp
+ 0002:00002920       $N00001                    10008920     zoomsdk_render.exp
+ 0002:0000293a       $N00002                    1000893a     zoomsdk_render.exp
+ 0002:00002b08       .idata$6                   10008b08     kernel32:KERNEL32.dll
+ 0002:00002ba6       .idata$6                   10008ba6     msvcprt:MSVCP140.dll
+ 0002:00002c7c       .idata$6                   10008c7c     vcruntime:VCRUNTIME140.dll
+ 0002:00002e1c       .idata$6                   10008e1c     ucrt:api-ms-win-crt-string-l1-1-0.dll
+ 0002:00002e3e       .idata$6                   10008e3e     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00002e60       .idata$6                   10008e60     ucrt:api-ms-win-crt-stdio-l1-1-0.dll
+ 0002:00002e80       .idata$6                   10008e80     ucrt:api-ms-win-crt-heap-l1-1-0.dll
  0003:00000004       ?level_names@?1??DefaultLogHandler@internal@protobuf@google@@YAXW4LogLevel@34@PBDHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@4PAPBDA 1000a004     libprotobuf-lite:common.obj
  0003:00000014       ?log_handler_@internal@protobuf@google@@3P6AXW4LogLevel@23@PBDHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@ZA 1000a014     libprotobuf-lite:common.obj
  0003:00000018       ?utf8acceptnonsurrogates_obj@internal@protobuf@google@@3UUTF8StateMachineObj@123@B 1000a018     libprotobuf-lite:structurally_valid.obj
