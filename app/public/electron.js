@@ -4,8 +4,13 @@ const path = require('path')
 const isDev = require('electron-is-dev')
 const settings = require('electron-settings')
 const fetch = require('node-fetch')
+const Sentry = require('@sentry/electron')
 
 const zoomMeetingControllerFactory = require('../src/electron/zoom')
+const { sentryDsn } = require('../env')
+
+// Init error reporting
+if (sentryDsn) Sentry.init({ dsn: sentryDsn })
 
 // remove browser's menu bar for production env
 if (!isDev) Menu.setApplicationMenu(false)
@@ -108,6 +113,7 @@ app.on('ready', async () => {
         return zoomMeeting
       } catch (error) {
         console.error(error) // keep this so we can see stuff in the console
+        Sentry.captureException(error)
         mainWindow.webContents.send('join-meeting-error')
       }
     }
